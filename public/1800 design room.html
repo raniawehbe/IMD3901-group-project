@@ -7,6 +7,7 @@
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="/js/spinning-effect.js"></script>
     <script src="/js/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
     
 </head>
 <body>
@@ -18,7 +19,18 @@
     
 
    
-    <a-asset-item id="hockey_model"     response-type="arraybuffer" src="/assets/hockeyStick.glb"></a-asset-item>
+    <a-asset-item id="room_model"     response-type="arraybuffer" src="/assets/1800's/room.glb"></a-asset-item>
+    <a-asset-item id="bed_model"     response-type="arraybuffer" src="/assets/1800's/bed.glb"></a-asset-item>
+    <a-asset-item id="carpet_model"     response-type="arraybuffer" src="/assets/1800's/carpet.glb"></a-asset-item>
+    <a-asset-item id="carpet2_model"     response-type="arraybuffer" src="/assets/1800's/carpet.glb"></a-asset-item>
+    <a-asset-item id="Fireplace_model"     response-type="arraybuffer" src="/assets/1800's/Fireplace.glb"></a-asset-item>
+    <a-asset-item id="chair_model"     response-type="arraybuffer" src="/assets/1800's/chaiir.glb"></a-asset-item>
+    <a-asset-item id="closet_model"     response-type="arraybuffer" src="/assets/1800's/closet.glb"></a-asset-item>
+    <a-asset-item id="frame_model"     response-type="arraybuffer" src="/assets/1800's/frame.glb"></a-asset-item>
+    <a-asset-item id="mirror_model"     response-type="arraybuffer" src="/assets/1800's/mirror.glb"></a-asset-item>
+    <a-asset-item id="teddy_model"     response-type="arraybuffer" src="/assets/1800's/teddy.glb"></a-asset-item>
+    <a-asset-item id="hockeyStick_model"     response-type="arraybuffer" src="/assets/1800's/hockeyStick.glb"></a-asset-item>
+    <a-asset-item id="hockeyStick2_model"     response-type="arraybuffer" src="/assets/1800's/hockeyStick.glb"></a-asset-item>
    
     
   </a-assets>
@@ -29,25 +41,73 @@
   </a-entity>
           
   
-  <a-entity id="hockey" position="6 3.5 0" rotation="0 -90 0" scale="1 1 1"
-            gltf-model="#hockey_model"
-            animation="property:rotation; to:0 360 0; loop:true; dur:50000"
+  <a-entity id="room" position="6 0 0" rotation="0 -90 0" scale="6 6 6"
+            gltf-model="#room_model"
+            
             shadow></a-entity>
 
- 
-  <a-entity id="room">
-    <a-entity class="ground"  geometry="primitive:plane; width:14; height:14;" material="color:white;" position="0 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>
-    <a-entity id="walls">
-      <a-entity class="wall"    geometry="primitive:plane; width:30; height:3;" material="color:white;" position="15 8 0"  rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
-      <a-entity class="wall"    geometry="primitive:plane; width:30; height:3;" material="color:white;" position="-15 8 0" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-      <a-entity class="wall"    geometry="primitive:plane; width:30; height:3;" material="color:white;" position="0 8 15"  rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
-      <a-entity class="wall"    geometry="primitive:plane; width:30; height:3;" material="color:white;" position="0 8 -15" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
-    </a-entity>
+  <a-entity id="bed" position="1.5 0 3" rotation="0 90 0" scale="5 5 5"
+            gltf-model="#bed_model"
+            
+            shadow></a-entity>
+
+  <a-entity id="carpet" position="1.5 0.1 4" rotation="0 180 0" scale="0.1 0.1 0.1"
+            gltf-model="#carpet_model"
+            
+            shadow></a-entity>
+  <a-entity id="carpet2" position="6 0.1 -1" rotation="0 90 0" scale="0.2 0.2 0.2"
+            gltf-model="#carpet2_model"
+            
+            shadow></a-entity>
+            
+  <a-entity id="Fireplace" position="7 0 -10" rotation="0 0 0" scale="0.08 0.08 0.08"
+            gltf-model="#Fireplace_model"
+            
+            shadow></a-entity>
+
+  <a-entity id="chair" position="11 0 -10" rotation="0 -120 0" scale="1 1 1"
+            gltf-model="#chair_model"
+            
+            shadow></a-entity>
+
+  <a-entity id="closet" position="1.7 0 -10" rotation="0 -90 0" scale="0.03 0.03 0.03"
+            gltf-model="#closet_model"
+            
+            shadow></a-entity>
+
+  <a-entity id="frame" position="2 5 -13" rotation="0 180 0" scale="2 2 2"
+            gltf-model="#frame_model"
+            
+            shadow></a-entity>
+
+  <a-entity id="mirror" position="14.3 0 -7" rotation="0 -90 0" scale="0.02 0.02 0.02"
+            gltf-model="#mirror_model"
+            
+            shadow></a-entity>
+
+  <a-entity id="teddy" position="-1 0.3 1.6" rotation="-90 110 0" scale="0.03 0.03 0.03"
+            gltf-model="#teddy_model"
+            
+            shadow></a-entity>
+
+  <a-entity id="hockeyStick" position="8.5 0 -8.7" rotation="-3 0 0" scale="0.02 0.02 0.02"
+            gltf-model="#hockeyStick_model"
+            
+            shadow></a-entity>
+
+            <a-entity id="hockeyStick2" position="7.5 0 -8.7" rotation="4.7 180 10" scale="0.02 0.02 0.02"
+            gltf-model="#hockeyStick2_model"
+            
+            shadow></a-entity>
+
+  <a-entity id="rooms">
+    <a-entity class="ground"  geometry="primitive:plane; width:20; height:25;" material="color:grey;" position="6 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>
+    
   </a-entity>
   
   
   
-  <a-entity environment="preset:starry"></a-entity>
+  <a-entity environment="preset:default"></a-entity>
 </a-scene>
 </body>
 </html>
