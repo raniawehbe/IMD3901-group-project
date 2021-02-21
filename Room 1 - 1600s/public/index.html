@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+
+<html>
+
+    <head>
+      <title>Yara Saadaldin_Assignment 2</title>
+      <meta name="description" content="Hello, WebVR! - A-Frame">
+      <script src="/js/aframe.min.js"></script>
+    </head>
+
+    <body>
+
+      <a-scene>
+        <a-assets timeout="10000">
+       
+          <a-asset-item id=  "bed_model"        response-type="arraybuffer"  src="/assets/bed.glb"></a-asset-item>
+          <a-asset-item id=  "book_model"        response-type="arraybuffer"  src="/assets/book.glb"></a-asset-item>
+          <a-asset-item id=  "box_model"        response-type="arraybuffer"  src="/assets/box.glb"></a-asset-item>
+          <a-asset-item id=  "carpet_model"        response-type="arraybuffer"  src="/assets/carpet.glb"></a-asset-item>
+          <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/chair.glb"></a-asset-item>
+          <a-asset-item id=  "diary_model"        response-type="arraybuffer"  src="/assets/diary.glb"></a-asset-item>
+          <a-asset-item id=  "envelope_model"        response-type="arraybuffer"  src="/assets/envelope.glb"></a-asset-item>
+          <a-asset-item id=  "rug_model"        response-type="arraybuffer"  src="/assets/rug.glb"></a-asset-item>
+          <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/table.glb"></a-asset-item>
+          <a-asset-item id=  "wall candle_model"        response-type="arraybuffer"  src="/assets/wall candle.glb"></a-asset-item>
+          <a-asset-item id=  "waredrobe_model"        response-type="arraybuffer"  src="/assets/waredrobe.glb"></a-asset-item>
+          <a-asset-item id=  "waredrobe2_model"        response-type="arraybuffer"  src="/assets/waredrobe2.glb"></a-asset-item>
+          <a-asset-item id=  "window_model"        response-type="arraybuffer"  src="/assets/window.glb"></a-asset-item>
+          <a-asset-item id=  "picture frame_model"        response-type="arraybuffer"  src="/assets/picture frame.glb"></a-asset-item>
+          <a-asset-item id=  "suitcase_model"        response-type="arraybuffer"  src="/assets/suitcase.glb"></a-asset-item>
+
+          <img id=           "Floor_Texture_img"                                   src="/assets/Floor_Texture.jpg"               crossorigin="anonymous">
+          <img id=           "Wall_Texture_img"                                    src="/assets/Wall_Texture.jpg"             crossorigin="anonymous">
+       
+        </a-assets>
+
+      <a-entity environment="preset:dream;"></a-entity>
+      <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
+      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="1 35 60" rotation="-45 100 0"></a-entity>
+
+     
+      <a-entity id="bed" position="-50.16487 6.99694 2.58549" rotation="0.03609634109324186 92.11 -0.12662367272391195" scale="13.483 14.69246 13.483" gltf-model="/assets/bed.glb"></a-entity>
+      <a-entity id="carpet" position="-2.76955 0.68758 0.78815" rotation="" scale="-0.11871 -0.11871 -0.11871" gltf-model="/assets/carpet.glb"></a-entity>
+      <a-entity id="book" position="28.16331 16.85335 -0.35118" rotation="" scale="1.51003 1.51003 1.51003" gltf-model="/assets/book.glb"></a-entity>
+      <a-entity id="box" position="32.1904 4.16369 31.27557" rotation="0 -20.936450791875412 0" scale="0.13538 0.13538 0.13538" gltf-model="/assets/box.glb"></a-entity>
+      <a-entity id="chair" position="31.9861 -16.26944 -39.04351" rotation="0 -65.17280328054089 0" scale="6.19715 6.19744 6.19744" gltf-model="/assets/chair.glb"></a-entity>
+      <a-entity id="diary" position="25.9588 17.90097 0.20169" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="/assets/diary.glb"></a-entity>
+      <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="/assets/envelope.glb"></a-entity>
+      <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="/assets/table.glb"></a-entity>
+      <a-entity id="wall candle" position="-67.10688 24.92195 -23.62657" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="/assets/wall candle.glb"></a-entity>
+      <a-entity id="wall candle2" position="-67.10688 24.92195 29.42788" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="/assets/wall candle.glb"></a-entity>
+      <a-entity id="waredrobe2" position="-2.93206 -0.77395 -60.98832" rotation="-180 0 0" scale="-0.145 -0.145 -0.145" gltf-model="/assets/waredrobe2.glb"></a-entity>
+      <a-entity id="picture frame" position="35.71896 18.02653 12.32969" rotation="0 -102.81899520961161 0" scale="0.31132 0.31132 0.31132" gltf-model="/assets/picture frame.glb"></a-entity>
+      <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="/assets/suitcase.glb"></a-entity>
+
+      <a-entity id="clues">
+        <a-box id="letter_clue" position="29.59276 8.86245 34.23291" rotation="0 0 0" color="#ffffff" scale="1.889 1.889 1.889"></a-box>
+        <a-box id="card_clue" position="-7.64263 30.10749 -51.57049" rotation="0 0 0" color="#ffffff" scale="1.889 1.889 1.889"></a-box>
+        <a-box id="postcard_clue" position="-30.24706 16.0656 -46.50628" rotation="0 0 0" color="#ffffff"  geometry="" scale="1.889 1.889 1.889"></a-box>
+        <a-box id="newspaper_clue" position="29.2662 19.28847 -11.37426" rotation="0 0 0" color="#ffffff"  geometry="" scale="1.889 1.889 1.889"></a-box>
+      </a-entity> 
+
+
+      <a-entity id="room">
+        <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src: Floor_Texture_img" position="-10.44656 0 -7.29101" rotation="-90 0 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:Wall_Texture_img;" position="-70.31305 47 -6.711" rotation="0 90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:Wall_Texture_img;" position="49.05643 47 -6.71141" rotation="0 -90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:Wall_Texture_img;" position="-13.29203 47 55.20319" rotation="0 180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:Wall_Texture_img;" position="-13.29203 47 -68.88783" rotation="0 -180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+      </a-entity>
+  
+    </a-scene>
+
+  </body>
+
+</html>
