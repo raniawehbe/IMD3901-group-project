@@ -17,7 +17,7 @@
             default: '',
             parse: AFRAME.utils.styleParser.parse
             },
-
+    multiple: false,       
     init: function () {
         
         const el = this.el;
@@ -29,11 +29,12 @@
             var entityEl = document.createElement('a-entity');
             //entityEl.setAttribute('add-UI', '');
             entityEl.setAttribute('id', "ui");
-            entityEl.setAttribute('position', "-0.999 2.741 1.609");
-            entityEl.setAttribute('rotation', "0 36.925 0");
-            entityEl.setAttribute('scale', "3.084 2.355 0.239");
+            entityEl.setAttribute('class', "ui");
+            entityEl.setAttribute('position', "29.569 16.108 34.191");
+            entityEl.setAttribute('rotation', "0 40.445 0");
+            entityEl.setAttribute('scale', "27.674 21.132 1.125");
             entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
-            entityEl.setAttribute('material', "color: '#ACC'");
+            entityEl.setAttribute('material', "color: #995d46");
               
             
             el.sceneEl.appendChild(entityEl);
@@ -43,11 +44,108 @@
     }
     });
 
-    AFRAME.registerComponent('spinning-effect', {
+    AFRAME.registerComponent('add-ui2', {
+    schema: {
+            default: '',
+            parse: AFRAME.utils.styleParser.parse
+            },
+
+    init: function () {
+        
+        const el = this.el;
+        console.log('I am ready!');
+
+        el.addEventListener('click', function() {
+            
+
+            var entityEl = document.createElement('a-entity');
+            //entityEl.setAttribute('add-UI', '');
+            entityEl.setAttribute('id', "ui2");
+            entityEl.setAttribute('class', "ui2");
+            entityEl.setAttribute('position', "-6.931 36.962 -39.723");
+            entityEl.setAttribute('rotation', "0 2.063 0");
+            entityEl.setAttribute('scale', "27.674 21.022 1.125");
+            entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
+            entityEl.setAttribute('material', "color: #995d46");
+              
+            
+            el.sceneEl.appendChild(entityEl);
+            
+
+        });
+    }
+    });
+
+    AFRAME.registerComponent('add-ui3', {
+    schema: {
+            default: '',
+            parse: AFRAME.utils.styleParser.parse
+            },
+
+    init: function () {
+        
+        const el = this.el;
+        console.log('I am ready!');
+
+        el.addEventListener('click', function() {
+            
+
+            var entityEl = document.createElement('a-entity');
+            //entityEl.setAttribute('add-UI', '');
+            entityEl.setAttribute('id', "ui3");
+            entityEl.setAttribute('class', "ui3");
+            entityEl.setAttribute('position', "-29.889 29.785 -46.237");
+            entityEl.setAttribute('rotation', "0 23.975 0");
+            entityEl.setAttribute('scale', "27.674 21.022 1.125");
+            entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
+            entityEl.setAttribute('material', "color: #995d46");
+              
+            
+            el.sceneEl.appendChild(entityEl);
+            
+
+        });
+    }
+    });
+
+    AFRAME.registerComponent('add-ui4', {
+    schema: {
+            default: '',
+            parse: AFRAME.utils.styleParser.parse
+            },
+
+    init: function () {
+        
+        const el = this.el;
+        console.log('I am ready!');
+
+        el.addEventListener('click', function() {
+            
+
+            var entityEl = document.createElement('a-entity');
+            //entityEl.setAttribute('add-UI', '');
+            entityEl.setAttribute('id', "ui4");
+            entityEl.setAttribute('class', "ui4");
+            entityEl.setAttribute('position', "29.183 27.196 -11.153");
+            entityEl.setAttribute('rotation', "0 88.824 0");
+            entityEl.setAttribute('scale', "27.674 21.132 1.125");
+            entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
+            entityEl.setAttribute('material', "color: #995d46");
+              
+            
+            el.sceneEl.appendChild(entityEl);
+            
+
+        });
+    }
+    });
+
+  AFRAME.registerComponent('spinning-effect', {
   schema: {
     duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+    parse: AFRAME.utils.styleParser.parse
   },
-  multiple: false, //do not allow multiple instances of this component on this entity
+  //multiple: false, //do not allow multiple instances of this component on this entity
   init: function() {
     
     //get a local reference to our entities and set some property variables
@@ -57,18 +155,206 @@
     
     //let's add the basic animation to teh walls entity
     //note that it is not enabled initially
-    Context_AF.walls.setAttribute('animation', {property:'position.y', to:0, dur:300, easing:'linear'});
+    Context_AF.walls.setAttribute('animation', {property:'position.y', to:8.86245, dur:300, easing:'linear'});
      
     //listen on click
     Context_AF.el.addEventListener('click', function() {
       if (Context_AF.isSpinning === true) {
         console.log('stop spinning');
-        Context_AF.walls.setAttribute('animation', {to:0});
+        Context_AF.walls.setAttribute('animation', {to:8.86245});
+        Context_AF.isSpinning = false; 
+
+        document.querySelectorAll(".ui").forEach(e => e.parentNode.removeChild(e));
+      }
+      else {
+        console.log('spinning');
+        Context_AF.walls.setAttribute('animation', {to:9.8});
+        Context_AF.isSpinning = true;
+
+                 
+      }
+    });
+  },
+  
+
+});
+
+AFRAME.registerComponent('spinning-effect2', {
+  schema: {
+    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+    parse: AFRAME.utils.styleParser.parse
+  },
+  //multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+    
+    //get a local reference to our entities and set some property variables
+    const Context_AF = this;
+    Context_AF.walls      = document.querySelector('#card_clue');
+    Context_AF.isSpinning = false;
+    
+    //let's add the basic animation to teh walls entity
+    //note that it is not enabled initially
+    Context_AF.walls.setAttribute('animation', {property:'position.z', to:3-51.57049, dur:300, easing:'linear'});
+     
+    //listen on click
+    Context_AF.el.addEventListener('click', function() {
+      if (Context_AF.isSpinning === true) {
+        console.log('stop spinning');
+        Context_AF.walls.setAttribute('animation', {to:-51.57049});
+        Context_AF.isSpinning = false; 
+
+        document.querySelectorAll(".ui2").forEach(e => e.parentNode.removeChild(e));
+      }
+      else {
+        console.log('spinning');
+        Context_AF.walls.setAttribute('animation', {to:-40});
+        Context_AF.isSpinning = true;
+
+                 
+      }
+    });
+  },
+  
+
+});
+
+AFRAME.registerComponent('spinning-effect3', {
+  schema: {
+    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+    parse: AFRAME.utils.styleParser.parse
+  },
+  //multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+    
+    //get a local reference to our entities and set some property variables
+    const Context_AF = this;
+    Context_AF.walls      = document.querySelector('#postcard_clue');
+    Context_AF.isSpinning = false;
+    
+    //let's add the basic animation to teh walls entity
+    //note that it is not enabled initially
+    Context_AF.walls.setAttribute('animation', {property:'position.y', to:16.0656, dur:300, easing:'linear'});
+     
+    //listen on click
+    Context_AF.el.addEventListener('click', function() {
+      if (Context_AF.isSpinning === true) {
+        console.log('stop spinning');
+        Context_AF.walls.setAttribute('animation', {to:16.0656});
+        Context_AF.isSpinning = false; 
+
+        document.querySelectorAll(".ui3").forEach(e => e.parentNode.removeChild(e));
+      }
+      else {
+        console.log('spinning');
+        Context_AF.walls.setAttribute('animation', {to:17.3});
+        Context_AF.isSpinning = true;
+
+                 
+      }
+    });
+  },
+  
+
+});
+
+AFRAME.registerComponent('spinning-effect4', {
+  schema: {
+    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+    parse: AFRAME.utils.styleParser.parse
+  },
+  //multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+    
+    //get a local reference to our entities and set some property variables
+    const Context_AF = this;
+    Context_AF.walls      = document.querySelector('#newspaper_clue');
+    Context_AF.isSpinning = false;
+    
+    //let's add the basic animation to teh walls entity
+    //note that it is not enabled initially
+    Context_AF.walls.setAttribute('animation', {property:'position.y', to:19.28847, dur:300, easing:'linear'});
+     
+    //listen on click
+    Context_AF.el.addEventListener('click', function() {
+      if (Context_AF.isSpinning === true) {
+        console.log('stop spinning');
+        Context_AF.walls.setAttribute('animation', {to:19.28847});
+        Context_AF.isSpinning = false; 
+
+        document.querySelectorAll(".ui4").forEach(e => e.parentNode.removeChild(e));
+      }
+      else {
+        console.log('spinning');
+        Context_AF.walls.setAttribute('animation', {to:20.4});
+        Context_AF.isSpinning = true;
+
+                 
+      }
+    });
+  },
+});
+
+
+AFRAME.registerComponent('false-clue', {
+  schema: {
+    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+  },
+  multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+    
+    //get a local reference to our entities and set some property variables
+    const Context_AF = this;
+    Context_AF.walls      = document.querySelector('#picture-frame');
+    Context_AF.isSpinning = false;
+    
+    //let's add the basic animation to teh walls entity
+    //note that it is not enabled initially
+    Context_AF.walls.setAttribute('animation', {property:'position.y', to:18.02653, dur:300, easing:'linear'});
+     
+    //listen on click
+    Context_AF.el.addEventListener('click', function() {
+      if (Context_AF.isSpinning === true) {
+        console.log('stop spinning');
+        Context_AF.walls.setAttribute('animation', {to:18.02653});
         Context_AF.isSpinning = false;
       }
       else {
         console.log('spinning');
-        Context_AF.walls.setAttribute('animation', {to:0.9});
+        Context_AF.walls.setAttribute('animation', {to:19.5});
+        Context_AF.isSpinning = true;
+      }
+    });
+  },
+  
+
+});
+
+AFRAME.registerComponent('false-clue2', {
+  schema: {
+    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+  },
+  multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+    
+    //get a local reference to our entities and set some property variables
+    const Context_AF = this;
+    Context_AF.walls      = document.querySelector('#diary');
+    Context_AF.isSpinning = false;
+    
+    //let's add the basic animation to teh walls entity
+    //note that it is not enabled initially
+    Context_AF.walls.setAttribute('animation', {property:'position.y', to:17.90097, dur:300, easing:'linear'});
+     
+    //listen on click
+    Context_AF.el.addEventListener('click', function() {
+      if (Context_AF.isSpinning === true) {
+        console.log('stop spinning');
+        Context_AF.walls.setAttribute('animation', {to:17.90097});
+        Context_AF.isSpinning = false;
+      }
+      else {
+        console.log('spinning');
+        Context_AF.walls.setAttribute('animation', {to:19.2});
         Context_AF.isSpinning = true;
       }
     });
@@ -123,44 +409,48 @@
       event-set__dragoff="_event:dragover-end; material.wireframe: false"></a-entity></a-entity>
       <a-entity id="box" position="32.1904 4.16369 31.27557" rotation="0 -20.936450791875412 0" scale="0.13538 0.13538 0.13538" gltf-model="/assets/box.glb"></a-entity>
       <a-entity id="chair" position="31.9861 -16.26944 -39.04351" rotation="0 -65.17280328054089 0" scale="6.19715 6.19744 6.19744" gltf-model="/assets/chair.glb"></a-entity>
-      <a-entity id="diary" position="25.9588 17.90097 0.20169" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="/assets/diary.glb"></a-entity>
+      
+      <a-entity position="25.9588 0 0.20169">
+        <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="/assets/diary.glb"></a-entity>
+      </a-entity>
+
       <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="/assets/envelope.glb"></a-entity>
       <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="/assets/table.glb"></a-entity>
       <a-entity id="wall candle" position="-67.10688 24.92195 -23.62657" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="/assets/wall candle.glb"></a-entity>
       <a-entity id="wall candle2" position="-67.10688 24.92195 29.42788" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="/assets/wall candle.glb"></a-entity>
       <a-entity id="waredrobe2" position="-2.93206 -0.77395 -60.98832" rotation="-180 0 0" scale="-0.145 -0.145 -0.145" gltf-model="/assets/waredrobe2.glb"></a-entity>
-      <a-entity id="picture frame" position="35.71896 18.02653 12.32969" rotation="0 -102.81899520961161 0" scale="0.31132 0.31132 0.31132" gltf-model="/assets/picture frame.glb"></a-entity>
+      
+      <a-entity position="35.71896 0 12.32969">
+        <a-entity id="picture-frame" class="interactive" false-clue position="0 18.02653 0" rotation="0 -102.81899520961161 0" scale="0.31132 0.31132 0.31132" gltf-model="/assets/picture frame.glb"></a-entity>
+      </a-entity>
+      
       <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="/assets/suitcase.glb"></a-entity>
-
+      
       <a-entity id="clues">
-        <a-entity id="letter_clue" position = "29.59276 0 34.23291">
-          <a-box class= "cube interactive" position="0 8.86245 0" rotation="0 0 0" color="#ffffff" scale="1.889 1.889 1.889"
-                animation__click="property:position.y; to:9.8; startEvents:click; dur:300" 
-                animation__rotation="property:rotation; to:0 360 0; loop:true; dur:20000; startEvents:click;"
+        <a-entity  position = "29.59276 0 34.23291">
+          <a-box id="letter_clue" class= "cube interactive" add-ui spinning-effect position="29.59276 8.86245 34.23291" rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"  
+                animation__rotation="property:rotation; to:0 360 0; loop:true; dur:10000; startEvents:click;"
                 shadow >
           </a-box> 
         </a-entity>
 
-        <a-entity id="card_clue" position="-7.64263 30.10749 0">
-          <a-box class= "cube interactive" position="0 0 -51.57049" rotation="0 0 0" color="#ffffff" scale="1.889 1.889 1.889"
-            animation__click="property:position.z; to:-40; startEvents:click; dur:300" 
-            animation__rotation="property:rotation; to:0 360 0; loop:true; dur:20000; startEvents:click;"
+        <a-entity position="-7.64263 30.10749 0">
+          <a-box id="card_clue" class= "cube interactive" position="-7.64263 30.10749 -51.57049" add-ui2 spinning-effect2 rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"
+            animation__rotation="property:rotation; to:0 360 0; loop:true; dur:10000; startEvents:click;"
             shadow>
           </a-box>
         </a-entity>
 
-        <a-entity id="postcard_clue" position="-30.24706 06 -46.50628">
-          <a-box class= "cube interactive" position="0 16.0656 0" rotation="0 0 0" color="#ffffff"  geometry="" scale="1.889 1.889 1.889"
-            animation__click="property:position.y; to:17.3; startEvents:click; dur:300" 
-            animation__rotation="property:rotation; to:0 360 0; loop:true; dur:20000; startEvents:click;"
+        <a-entity position="-30.24706 0 -46.50628">
+          <a-box id="postcard_clue"  class= "cube interactive" position="-30.24706 16.0656 -46.50628"  add-ui3 spinning-effect3 rotation="0 0 0" color="#ff0000"  geometry="" scale="1.889 1.889 1.889"
+            animation__rotation="property:rotation; to:0 360 0; loop:true; dur:10000; startEvents:click;"
             shadow>
           </a-box>
         </a-entity>
 
-        <a-entity id="newspaper_clue" position="29.2662 0 -11.37426">
-          <a-box class= "cube interactive" position="0 19.28847 0" rotation="0 0 0" color="#ffffff"  geometry="" scale="1.889 1.889 1.889"
-            animation__click="property:position.y; to:20.5; startEvents:click; dur:300" 
-            animation__rotation="property:rotation; to:0 360 0; loop:true; dur:20000; startEvents:click;"
+        <a-entity position="29.2662 0 -11.37426">
+          <a-box id="newspaper_clue" class= "cube interactive" position="29.2662 19.28847 -11.37426" add-ui4 spinning-effect4 rotation="0 0 0" color="#ff0000"  geometry="" scale="1.889 1.889 1.889"
+            animation__rotation="property:rotation; to:0 360 0; loop:true; dur:10000; startEvents:click;"
             shadow> 
           </a-box>
        </a-entity>
