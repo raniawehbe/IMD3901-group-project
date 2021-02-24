@@ -360,7 +360,31 @@ AFRAME.registerComponent('false-clue2', {
     });
   },
   
+});
 
+AFRAME.registerComponent('questionBtn', {
+  schema: {
+    parse: AFRAME.utils.styleParser.parse
+  },
+  multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+    
+    //get a local reference to our entities and set some property variables
+    const Context_AF = this;
+    Context_AF     = document.querySelector('#question');
+    Context_AF.questionBtn = true;
+
+    
+    Context_AF.setAttribute('visible', "false");
+   
+     
+    //if(height === "29.59276 9.8 34.23291"){
+                         //Context_AF.walls.setAttribute('visible', 'true');
+    //}
+  
+    
+  },
+  
 });
 
 </script>
@@ -391,13 +415,29 @@ AFRAME.registerComponent('false-clue2', {
 
       <a-entity environment="preset:default;"></a-entity>
       <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
+
       <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="1 35 60" rotation="-45 100 0">
-      <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive"></a-entity>
-      <a-gui-cursor id="cursor"
-						  raycaster="objects: [gui-interactable]"
-						  fuse="false"
-				>
-				</a-gui-cursor></a-entity>
+        <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive"></a-entity>
+        <a-gui-cursor id="cursor"
+                raycaster="objects: [gui-interactable]"
+                fuse="false">
+        </a-gui-cursor>
+
+        <a-gui-flex-container id="question" questionBtn
+          flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
+          position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" >        
+            <a-gui-button 
+              width="2.5" height="0.75"
+              onclick="buttonActionFunction" key-code="32"
+              position="0 0.025 0" scale="1.242 4.282 1.027"
+              value=" Proceed to Questions"
+              font-family="Arial"
+              margin="0 0 0.05 0"
+            >
+            </a-gui-button>
+        </a-gui-flex-container>
+
+      </a-entity>
       
     </a-entity>
      
@@ -464,11 +504,12 @@ AFRAME.registerComponent('false-clue2', {
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-13.29203 47 55.20319" rotation="0 180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-13.29203 47 -68.88783" rotation="0 -180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
       </a-entity>
-      <a-gui-flex-container 
+
+     <!-- <a-gui-flex-container 
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
       position="15.499 2.5 -1.424" rotation="0 -90 0"
     >
-    <!--... gui items here...-->
+    
       <a-gui-label 
               width="2.5" height="0.75"
               position="0 1.639 0.01"
@@ -523,7 +564,7 @@ AFRAME.registerComponent('false-clue2', {
         </a-gui-button>
     
           
-    </a-gui-flex-container>
+    </a-gui-flex-container>-->
     </a-scene>
 
   </body>
