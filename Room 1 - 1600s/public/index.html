@@ -1,51 +1,83 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMD3901 Term Project</title>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    
+</head>
+<body>
 
+  <script>
+    AFRAME.registerComponent('add-ui', {
+    schema: {
+            default: '',
+            parse: AFRAME.utils.styleParser.parse
+            },
 
-<html>
-
-    <head>
-      <title>Yara Saadaldin_Assignment 2</title>
-      <meta name="description" content="Hello, WebVR! - A-Frame">
-      <script src="/js/aframe.min.js"></script>
-      
-      <script>
-        AFRAME.registerComponent('intersection-spawn', {
-          
+    init: function () {
         
-          schema: {
-             default: '',
-             parse: AFRAME.utils.styleparser.parse
-          },
-          
-          
-          init: function() {
+        const el = this.el;
+        console.log('I am ready!');
+
+        el.addEventListener('click', function() {
             
-            
-            var self = this;
-            
-            // Add the click listener.
-            this.el.addEventListener('click', evt => {
+
+            var entityEl = document.createElement('a-entity');
+            //entityEl.setAttribute('add-UI', '');
+            entityEl.setAttribute('id', "ui");
+            entityEl.setAttribute('position', "-0.999 2.741 1.609");
+            entityEl.setAttribute('rotation', "0 36.925 0");
+            entityEl.setAttribute('scale', "3.084 2.355 0.239");
+            entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
+            entityEl.setAttribute('material', "color: '#ACC'");
               
-           const spawnE1 = document.createElement('flag');
-             
             
-              // Set the color to the assigned value.
-              spwanE1.setAttribute('position', '0 4 0');
-              
-              // Set the position of the box to the click intersection.
-              spwanE1.setAttribute('position', e.detail.intersection.point);
-        
-              // Append the box element to the scene.
-              self.el.sceneEl.appendChild(spwanE1);
-              
-            });
+            el.sceneEl.appendChild(entityEl);
             
-          }
+
         });
-        </script>
-    </head>
+    }
+    });
 
-    <body>
+    AFRAME.registerComponent('spinning-effect', {
+  schema: {
+    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+  },
+  multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+    
+    //get a local reference to our entities and set some property variables
+    const Context_AF = this;
+    Context_AF.walls      = document.querySelector('#chair');
+    Context_AF.isSpinning = false;
+    
+    //let's add the basic animation to teh walls entity
+    //note that it is not enabled initially
+    Context_AF.walls.setAttribute('animation', {property:'position.y', to:0, dur:300, easing:'linear'});
+     
+    //listen on click
+    Context_AF.el.addEventListener('click', function() {
+      if (Context_AF.isSpinning === true) {
+        console.log('stop spinning');
+        Context_AF.walls.setAttribute('animation', {to:0});
+        Context_AF.isSpinning = false;
+      }
+      else {
+        console.log('spinning');
+        Context_AF.walls.setAttribute('animation', {to:0.9});
+        Context_AF.isSpinning = true;
+      }
+    });
+  },
+  
+
+});
+
+</script>
      
       <a-scene>
         <a-assets timeout="10000">
@@ -73,12 +105,13 @@
 
       <a-entity environment="preset:default;"></a-entity>
       <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
-      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="1 35 60" rotation="-45 100 0"></a-entity>
-      <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive, #book"
-      static-body="shape:sphere; sphereRadius:0.001"
-      super-hands= "colliderEvent: raycaster-intersection; colliderEventProperty: els;
-      colliderEndEvent:raycaster-intersection-cleared;
-      colliderEndEventProperty: clearedEls;"></a-entity>
+      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="1 35 60" rotation="-45 100 0">
+      <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
+      <a-gui-cursor id="cursor"
+						  raycaster="objects: [gui-interactable]"
+						  fuse="false"
+				>
+				</a-gui-cursor></a-entity>
       
     </a-entity>
      
@@ -126,7 +159,66 @@
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-13.29203 47 55.20319" rotation="0 180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-13.29203 47 -68.88783" rotation="0 -180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
       </a-entity>
-  
+      <a-gui-flex-container 
+      flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
+      position="15.499 2.5 -1.424" rotation="0 -90 0"
+    >
+    ... gui items here...
+      <a-gui-label 
+              width="2.5" height="0.75"
+              position="0 1.639 0.01"
+              value="Answer Question"
+              font-family="Arial"
+              margin="0 0 0.05 0"
+            >
+        </a-gui-label>
+        
+        <a-gui-button 
+          width="2.5" height="0.75"
+          onclick="buttonActionFunction" key-code="32"
+          position="-0.853 0.288 0.010"
+          scale="0.611 0.796 1"
+          value="option 1"
+          font-family="Arial"
+          margin="0 0 0.05 0"
+        >
+        </a-gui-button>
+    
+        <a-gui-button 
+          width="2.5" height="0.75"
+          onclick="buttonActionFunction" key-code="32"
+          position="-0.853 0.288 0.010"
+          scale="0.611 0.796 1"
+          value="option 2"
+          font-family="Arial"
+          margin="0 0 0.05 0"
+        >
+        </a-gui-button>
+    
+        <a-gui-button 
+          width="2.5" height="0.75"
+          onclick="buttonActionFunction" key-code="32"
+          position="-0.853 0.288 0.010"
+          scale="0.611 0.796 1"
+          value="option 3"
+          font-family="Arial"
+          margin="0 0 0.05 0"
+        >
+        </a-gui-button>
+    
+        <a-gui-button 
+          width="2.5" height="0.75"
+          onclick="buttonActionFunction" key-code="32"
+          position="-0.853 0.288 0.010"
+          scale="0.611 0.796 1"
+          value="option 4"
+          font-family="Arial"
+          margin="0 0 0.05 0"
+        >
+        </a-gui-button>
+    
+          
+    </a-gui-flex-container>
     </a-scene>
 
   </body>
