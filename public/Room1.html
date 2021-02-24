@@ -106,7 +106,7 @@
       <a-entity environment="preset:default;"></a-entity>
       <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
       <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="1 35 60" rotation="-45 100 0">
-      <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
+      <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive"></a-entity>
       <a-gui-cursor id="cursor"
 						  raycaster="objects: [gui-interactable]"
 						  fuse="false"
@@ -133,20 +133,23 @@
       <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="/assets/suitcase.glb"></a-entity>
 
       <a-entity id="clues">
-        <a-box id="letter_clue" class= "interactive" position="29.59276 8.86245 34.23291" rotation="0 0 0" color="#ffffff" scale="1.889 1.889 1.889"
-              gltf-model="#letter_clue_model"
-              animation__click="property:position.y; to:1.9; startEvents:click; dur:300" 
-              animation__rotation="property:rotation; to:-90 490 0; loop:true; dur:20000; startEvents:click;"
-              shadow ></a-box>
-        <a-box id="card_clue" class= "interactive" position="-7.64263 30.10749 -51.57049" rotation="0 0 0" color="#ffffff" scale="1.889 1.889 1.889"
+        <a-entity id="letter_clue" position = "29.59276 0 34.23291">
+          <a-box class= "cube interactive" position="0 8.86245 0" rotation="0 0 0" color="#ffffff" scale="1.889 1.889 1.889"
+                animation__click="property:position.y; to:9.8; startEvents:click; dur:300" 
+                animation__rotation="property:rotation; to:0 360 0; loop:true; dur:20000; startEvents:click;"
+                shadow >
+          </a-box> 
+        </a-entity>
+
+        <a-box id="card_clue" class= "cube interactive" position="-7.64263 30.10749 -51.57049" rotation="0 0 0" color="#ffffff" scale="1.889 1.889 1.889"
         animation__click="property:position.y; to:1.9; startEvents:click; dur:300" 
         animation__rotation="property:rotation; to:-90 490 0; loop:true; dur:20000; startEvents:click;"
         shadow></a-box>
-        <a-box id="postcard_clue" class= "interactive" position="-30.24706 16.0656 -46.50628" rotation="0 0 0" color="#ffffff"  geometry="" scale="1.889 1.889 1.889"
+        <a-box id="postcard_clue" class= "cube interactive" position="-30.24706 16.0656 -46.50628" rotation="0 0 0" color="#ffffff"  geometry="" scale="1.889 1.889 1.889"
         animation__click="property:position.y; to:1.9; startEvents:click; dur:300" 
         animation__rotation="property:rotation; to:-90 490 0; loop:true; dur:20000; startEvents:click;"
         shadow></a-box>
-        <a-box id="newspaper_clue" class= "interactive" position="29.2662 19.28847 -11.37426" rotation="0 0 0" color="#ffffff"  geometry="" scale="1.889 1.889 1.889"
+        <a-box id="newspaper_clue" class= "cube interactive" position="29.2662 19.28847 -11.37426" rotation="0 0 0" color="#ffffff"  geometry="" scale="1.889 1.889 1.889"
         animation__click="property:position.y; to:1.9; startEvents:click; dur:300" 
         animation__rotation="property:rotation; to:-90 490 0; loop:true; dur:20000; startEvents:click;"
         shadow></a-box>
@@ -164,7 +167,7 @@
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
       position="15.499 2.5 -1.424" rotation="0 -90 0"
     >
-    ... gui items here...
+    <!--... gui items here...-->
       <a-gui-label 
               width="2.5" height="0.75"
               position="0 1.639 0.01"
