@@ -364,6 +364,7 @@ AFRAME.registerComponent('false-clue2', {
 
 AFRAME.registerComponent('questionBtn', {
   schema: {
+    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
     parse: AFRAME.utils.styleParser.parse
   },
   multiple: false, //do not allow multiple instances of this component on this entity
@@ -372,7 +373,7 @@ AFRAME.registerComponent('questionBtn', {
     //get a local reference to our entities and set some property variables
     const Context_AF = this;
     Context_AF     = document.querySelector('#question');
-    Context_AF.questionBtn = true;
+    //Context_AF.questionBtn = true;
 
     
     Context_AF.setAttribute('visible', "false");
