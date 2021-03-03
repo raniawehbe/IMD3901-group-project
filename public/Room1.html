@@ -418,7 +418,12 @@ AFRAME.registerComponent('questionBtn', {
       <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
 
       <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="1 35 60" rotation="-45 100 0">
-        <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive"></a-entity>
+        <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
+          <a-animation begin="click" easing="ease-in" attribute="scale"
+                     fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+        <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+                     fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+        </a-entity>
         <a-gui-cursor id="cursor"
                 raycaster="objects: [gui-interactable]"
                 fuse="false">
@@ -448,12 +453,17 @@ AFRAME.registerComponent('questionBtn', {
       event-set__dragdrop="_event:drag-drop; geometry.primitive: sphere;geometry.radius: 0.25"
       event-set__dragon="_event:dragover-start; material.wireframe: true"
       event-set__dragoff="_event:dragover-end; material.wireframe: false"></a-entity></a-entity>
-      <a-entity id="box" position="32.1904 4.16369 31.27557" rotation="0 -20.936450791875412 0" scale="0.13538 0.13538 0.13538" gltf-model="/assets/box.glb"></a-entity>
+      <a-entity id="box" position="32.1904 4.16369 31.27557" onclick="setRoom2()" rotation="0 -20.936450791875412 0" scale="0.13538 0.13538 0.13538" gltf-model="/assets/box.glb"></a-entity>
       <a-entity id="chair" position="31.9861 -16.26944 -39.04351" rotation="0 -65.17280328054089 0" scale="6.19715 6.19744 6.19744" gltf-model="/assets/chair.glb"></a-entity>
       
       <a-entity position="25.9588 0 0.20169">
         <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="/assets/diary.glb"></a-entity>
       </a-entity>
+
+      <!--<a-entity id="Room2" visible="false">
+        <a-sky src="#Room2"></a-sky>
+        </a-entity>-->
+
 
       <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="/assets/envelope.glb"></a-entity>
       <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="/assets/table.glb"></a-entity>
@@ -506,7 +516,7 @@ AFRAME.registerComponent('questionBtn', {
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-13.29203 47 -68.88783" rotation="0 -180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
       </a-entity>
 
-     <!-- <a-gui-flex-container 
+     <a-gui-flex-container 
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
       position="15.499 2.5 -1.424" rotation="0 -90 0"
     >
@@ -565,9 +575,31 @@ AFRAME.registerComponent('questionBtn', {
         </a-gui-button>
     
           
-    </a-gui-flex-container>-->
-    </a-scene>
+    </a-gui-flex-container>
 
+   <!-- <a-scene>
+  
+      <a-assets>
+        <script id="room1" type="Room1.html">
+          <a-box></a-box>
+        </script>
+        <script id="Room2" type="Room2.html">
+          <a-sphere></a-sphere>
+        </script>
+      </a-assets>
+    
+      <a-entity template="src: #Room2"></a-entity>
+    </a-scene>
+    <script type="text/javascript"> 
+      function setRoom2() {
+        document.getElementById('Room1').setAttribute('visible', 'false')
+        document.getElementById('Room2').setAttribute('visible', 'true')
+      }
+      </script>-->
+
+    </a-scene>
+  
+  
   </body>
 
 </html>
