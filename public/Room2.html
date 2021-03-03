@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
-
-<html>
+<html lang="en">
 
     <head>
       <meta charset="UTF-8">
@@ -9,6 +7,7 @@
       <title>IMD3901 Term Project</title>
       <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
       <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+      <script src="/js/aframe-environment-component.min.js"></script>
     </head>
 
     <body>
@@ -17,19 +16,16 @@
         <a-assets timeout="10000">
         
      
-          <a-asset-item id=  "bookshelf_model"        response-type="arraybuffer"  src="/assets/bookshelf.glb"></a-asset-item>
-          <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/table.glb"></a-asset-item>
-          <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/chair.glb"></a-asset-item>
-          <a-asset-item id=  "clock_model"        response-type="arraybuffer"  src="/assets/clock.glb"></a-asset-item>
-
-          <img id=           "Wall_Texture_img"                                    src="/assets/vv.jpg"             crossorigin="anonymous">
-
-
-          <img id=           "Floor_Texture_img"                                   src="/assets/Floor_Texture.jpg"               crossorigin="anonymous">
+          <a-asset-item id=  "bookshelf_model"        response-type="arraybuffer"  src="/assets/Room2/bookshelf.glb"></a-asset-item>
+          <!--<a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/Room2/table.glb"></a-asset-item>
+          <a-asset-item id=  "clock_model"        response-type="arraybuffer"  src="/assets/Room2/clock.glb"></a-asset-item>-->
+          <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/Room2/chair.glb"></a-asset-item>
+          <img id= "Wall_Texture_img" src="/assets/Room2/vv.jpg" crossorigin="anonymous">
+          <img id="Floor_Texture_img" src="/assets/Room2/Floor_Texture.jpg" crossorigin="anonymous">
        
         </a-assets>
 
-      <a-entity environment="preset:dream;"></a-entity>
+        
 
       <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
 
@@ -37,16 +33,13 @@
 
      
       
-   <a-entity id="bookshelf" position="31.60591 0 -35" rotation="" scale="0.11 0.11 0.11" gltf-model="/assets/bookshelf.glb"></a-entity>
+   <a-entity id="bookshelf" position="31.60591 0 -35" rotation="" scale="0.11 0.11 0.11" gltf-model="/assets/Room2/bookshelf.glb"></a-entity>
    
-      <a-entity id="table" position="-12.87027 17.44004 -33.77083" rotation="" scale="19.36977 19.36977 19.36977" gltf-model="/assets/table.glb"></a-entity>
-      <a-entity id="chair" position="-11.954 0.2371 -43.14098" rotation="" scale="1.83742 1.83742 1.83742" gltf-model="/assets/chair.glb"></a-entity>
-    
-
-      <a-entity id="clock" position="-51 27.6111 -42.63775" rotation="" scale="0.025 0.025 0.025" gltf-model="/assets/clock.glb"></a-entity>
-
+   <!--<a-entity id="table" position="-12.87027 17.44004 -33.77083" rotation="" scale="19.36977 19.36977 19.36977" gltf-model="/assets/Room2/table.glb"></a-entity>
+      <a-entity id="clock" position="-51 27.6111 -42.63775" rotation="" scale="0.025 0.025 0.025" gltf-model="/assets/Room2/clock.glb"></a-entity>-->
       
-
+      <a-entity id="chair" position="-11.954 0.2371 -43.14098" rotation="" scale="1.83742 1.83742 1.83742" gltf-model="/assets/Room2/chair.glb"></a-entity>
+    
       <a-entity id="room">
         <a-entity class="ground"  geometry="primitive:plane; width:90; height:90;"  material="src:Floor_Texture_img;" position="0 0 0"    rotation="-90 0 0"  scale="1.5 1.5 1.5"shadow="cast:false; receive:true;"></a-entity>
 
@@ -62,7 +55,9 @@
 
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:#Wall_Texture_img;" position="0 48.6 -46.51323" rotation="0 0 0 " scale="1.5 1.5 1.5" shadow="cast: false"></a-entity>
       </a-entity>
-  
+
+   <!-- <a-entity environment="preset:default"></a-entity>-->
+
     </a-scene>
 
   </body>
