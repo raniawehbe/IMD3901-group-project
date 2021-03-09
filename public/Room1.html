@@ -14,8 +14,7 @@
   <script>
     //variables
     let cluesFound = 0;
-
-
+    
     AFRAME.registerComponent('add-ui', {
     schema: {
             default: '',
@@ -153,11 +152,16 @@
     Context_AF.walls      = document.querySelector('#letter_clue');
     Context_AF.questionBtn     = document.querySelector('#questionBtn');
     
+          
     Context_AF.isSpinning = false;
  
     Context_AF.walls.setAttribute('animation', {property:'position.y', to:8.86245, dur:300, easing:'linear'});
     Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
     Context_AF.questionBtn.setAttribute('visible', "false");
+    
+    
+    Context_AF.progressMeter =   document.querySelector('#progressMeter');
+    Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
 
     //listen on click
     Context_AF.el.addEventListener('click', function() {
@@ -187,11 +191,40 @@
 
       if(cluesFound == 4){
         Context_AF.questionBtn.setAttribute('visible', "true");
+        
+        Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
+        Context_AF.progressMeter.setAttribute('position', '0.005 0 0.810');
+        Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
       }
 
       else{
         Context_AF.questionBtn.setAttribute('visible', "false");
       }
+
+
+     if(cluesFound == 0){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 0');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+   else if(cluesFound == 1){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+    Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 2){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+      Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 3){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+      Context_AF.progressMeter.setAttribute('position', '-0.295 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
 
     });
   },  
@@ -217,6 +250,9 @@ AFRAME.registerComponent('spinning-effect2', {
     Context_AF.walls.setAttribute('animation', {property:'position.z', to:3-51.57049, dur:300, easing:'linear'});
     Context_AF.walls.setAttribute('animation__rotation', {property:'rotation',  to:"0 360 0", loop:true, dur:10000, easing:'linear', enabled: false});
     Context_AF.questionBtn.setAttribute('visible', "false");
+
+    Context_AF.progressMeter =   document.querySelector('#progressMeter');
+    Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
 
     //listen on click
     Context_AF.el.addEventListener('click', function() {
@@ -245,11 +281,39 @@ AFRAME.registerComponent('spinning-effect2', {
 
       if(cluesFound == 4){
         Context_AF.questionBtn.setAttribute('visible', "true");
+        
+        Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
+        Context_AF.progressMeter.setAttribute('position', '0.005 0 0.810');
+        Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
       }
 
       else{
         Context_AF.questionBtn.setAttribute('visible', "false");
       }
+
+
+     if(cluesFound == 0){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 0');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+   else if(cluesFound == 1){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+    Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 2){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+      Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 3){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+      Context_AF.progressMeter.setAttribute('position', '-0.295 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
 
     });
   },
@@ -277,6 +341,9 @@ AFRAME.registerComponent('spinning-effect3', {
     Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
     Context_AF.questionBtn.setAttribute('visible', "false");
 
+    Context_AF.progressMeter =   document.querySelector('#progressMeter');
+    Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
+
     //listen on click
     Context_AF.el.addEventListener('click', function() {
       if (Context_AF.isSpinning === true) {
@@ -303,11 +370,39 @@ AFRAME.registerComponent('spinning-effect3', {
 
       if(cluesFound == 4){
         Context_AF.questionBtn.setAttribute('visible', "true");
+        
+        Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
+        Context_AF.progressMeter.setAttribute('position', '0.005 0 0.810');
+        Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
       }
 
       else{
         Context_AF.questionBtn.setAttribute('visible', "false");
       }
+
+
+     if(cluesFound == 0){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 0');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.810');
+    }
+
+   else if(cluesFound == 1){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+    Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 2){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+      Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 3){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+      Context_AF.progressMeter.setAttribute('position', '-0.295 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
 
     });
   },  
@@ -333,6 +428,9 @@ AFRAME.registerComponent('spinning-effect4', {
     Context_AF.walls.setAttribute('animation', {property:'position.y', to:19.28847, dur:300, easing:'linear'});
     Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
     Context_AF.questionBtn.setAttribute('visible', "false");
+
+    Context_AF.progressMeter =   document.querySelector('#progressMeter');
+    Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
 
     //listen on click
     Context_AF.el.addEventListener('click', function() {
@@ -360,11 +458,39 @@ AFRAME.registerComponent('spinning-effect4', {
 
       if(cluesFound == 4){
         Context_AF.questionBtn.setAttribute('visible', "true");
+        
+        Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
+        Context_AF.progressMeter.setAttribute('position', '0.005 0 0.810');
+        Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
       }
 
       else{
         Context_AF.questionBtn.setAttribute('visible', "false");
       }
+
+
+     if(cluesFound == 0){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 0');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.810');
+    }
+
+   else if(cluesFound == 1){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+    Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 2){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+      Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 3){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+      Context_AF.progressMeter.setAttribute('position', '-0.295 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
 
     });
   },
@@ -494,6 +620,7 @@ AFRAME.registerComponent('visibility', {
             },
             
             });
+
 
 </script>   
       <a-scene>
@@ -668,15 +795,19 @@ AFRAME.registerComponent('visibility', {
       </a-entity> 
 
       <a-entity  position = "29.593 1.391 47.861" >
-        <a-box id="room_unlock" class= "cube interactive" onclick="document.location='test.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
+        <a-box id="room_unlock" class= "cube interactive" onclick="document.location='Room2.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
               shadow >
         </a-box> 
       </a-entity>
 
-      <a-entity id="ui" position="-50.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
+      <a-entity id="progress_ui" position="-50.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
         <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
         <a-entity id = "clues_found" text="value:Clues Found: 0/4 ; 
-                        color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.769 0.768 2.848"></a-entity>
+                     color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
+
+        <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
+          <a-entity id="progressMeter" geometry="primitive: box; width: 0; height: 0.710 depth:0" material="color: #ed5b21" position="0 0 0" rotation="-90 0 0" scale="1 1 1" shadow="cast: false"></a-entity>
+        </a-entity>
       </a-entity>
 
       <a-entity id="room">
