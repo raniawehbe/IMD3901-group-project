@@ -12,6 +12,10 @@
 <body>
 
   <script>
+    //variables
+    let cluesFound = 0;
+
+
     AFRAME.registerComponent('add-ui', {
     schema: {
             default: '',
@@ -21,10 +25,10 @@
     init: function () {
         
         const el = this.el;
+        
         console.log('I am ready!');
 
         el.addEventListener('click', function() {
-            
 
             var entityEl = document.createElement('a-entity');
             //entityEl.setAttribute('add-UI', '');
@@ -36,7 +40,6 @@
             entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
             entityEl.setAttribute('material', "color: #995d46");
               
-            
             el.sceneEl.appendChild(entityEl);
             
 
@@ -67,7 +70,6 @@
             entityEl.setAttribute('scale', "27.674 21.022 1.125");
             entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
             entityEl.setAttribute('material', "color: #995d46");
-              
             
             el.sceneEl.appendChild(entityEl);
             
@@ -99,8 +101,7 @@
             entityEl.setAttribute('scale', "27.674 21.022 1.125");
             entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
             entityEl.setAttribute('material', "color: #995d46");
-              
-            
+
             el.sceneEl.appendChild(entityEl);
             
 
@@ -131,8 +132,7 @@
             entityEl.setAttribute('scale', "27.674 21.132 1.125");
             entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
             entityEl.setAttribute('material', "color: #995d46");
-              
-            
+
             el.sceneEl.appendChild(entityEl);
             
 
@@ -151,12 +151,14 @@
     //get a local reference to our entities and set some property variables
     const Context_AF = this;
     Context_AF.walls      = document.querySelector('#letter_clue');
-    Context_AF.isSpinning = false;
+    Context_AF.questionBtn     = document.querySelector('#questionBtn');
     
-    //let's add the basic animation to teh walls entity
-    //note that it is not enabled initially
+    Context_AF.isSpinning = false;
+ 
     Context_AF.walls.setAttribute('animation', {property:'position.y', to:8.86245, dur:300, easing:'linear'});
-     
+    Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
+    Context_AF.questionBtn.setAttribute('visible', "false");
+
     //listen on click
     Context_AF.el.addEventListener('click', function() {
       if (Context_AF.isSpinning === true) {
@@ -165,17 +167,34 @@
         Context_AF.isSpinning = false; 
 
         document.querySelectorAll(".ui").forEach(e => e.parentNode.removeChild(e));
+        cluesFound -=1;
+        document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
+
+        Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
+        
       }
       else {
         console.log('spinning');
         Context_AF.walls.setAttribute('animation', {to:9.8});
         Context_AF.isSpinning = true;
 
-                 
+        cluesFound +=1;
+        document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
+
+        Context_AF.walls.setAttribute("animation__rotation", {enabled:true});
+               
       }
+
+      if(cluesFound == 4){
+        Context_AF.questionBtn.setAttribute('visible', "true");
+      }
+
+      else{
+        Context_AF.questionBtn.setAttribute('visible', "false");
+      }
+
     });
-  },
-  
+  },  
 
 });
 
@@ -190,12 +209,15 @@ AFRAME.registerComponent('spinning-effect2', {
     //get a local reference to our entities and set some property variables
     const Context_AF = this;
     Context_AF.walls      = document.querySelector('#card_clue');
+    Context_AF.questionBtn     = document.querySelector('#questionBtn');
     Context_AF.isSpinning = false;
     
     //let's add the basic animation to teh walls entity
     //note that it is not enabled initially
     Context_AF.walls.setAttribute('animation', {property:'position.z', to:3-51.57049, dur:300, easing:'linear'});
-     
+    Context_AF.walls.setAttribute('animation__rotation', {property:'rotation',  to:"0 360 0", loop:true, dur:10000, easing:'linear', enabled: false});
+    Context_AF.questionBtn.setAttribute('visible', "false");
+
     //listen on click
     Context_AF.el.addEventListener('click', function() {
       if (Context_AF.isSpinning === true) {
@@ -204,14 +226,31 @@ AFRAME.registerComponent('spinning-effect2', {
         Context_AF.isSpinning = false; 
 
         document.querySelectorAll(".ui2").forEach(e => e.parentNode.removeChild(e));
+        cluesFound -=1;
+        document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
+
+        Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
       }
+
       else {
         console.log('spinning');
         Context_AF.walls.setAttribute('animation', {to:-40});
         Context_AF.isSpinning = true;
+        cluesFound +=1;
+        document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
-                 
+        Context_AF.walls.setAttribute('animation__rotation', {enabled:true});
+          
       }
+
+      if(cluesFound == 4){
+        Context_AF.questionBtn.setAttribute('visible', "true");
+      }
+
+      else{
+        Context_AF.questionBtn.setAttribute('visible', "false");
+      }
+
     });
   },
   
@@ -229,12 +268,15 @@ AFRAME.registerComponent('spinning-effect3', {
     //get a local reference to our entities and set some property variables
     const Context_AF = this;
     Context_AF.walls      = document.querySelector('#postcard_clue');
+    Context_AF.questionBtn     = document.querySelector('#questionBtn');
     Context_AF.isSpinning = false;
     
     //let's add the basic animation to teh walls entity
     //note that it is not enabled initially
     Context_AF.walls.setAttribute('animation', {property:'position.y', to:16.0656, dur:300, easing:'linear'});
-     
+    Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
+    Context_AF.questionBtn.setAttribute('visible', "false");
+
     //listen on click
     Context_AF.el.addEventListener('click', function() {
       if (Context_AF.isSpinning === true) {
@@ -243,17 +285,32 @@ AFRAME.registerComponent('spinning-effect3', {
         Context_AF.isSpinning = false; 
 
         document.querySelectorAll(".ui3").forEach(e => e.parentNode.removeChild(e));
+        cluesFound -=1;
+        document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
+
+        Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
       }
       else {
         console.log('spinning');
         Context_AF.walls.setAttribute('animation', {to:17.3});
         Context_AF.isSpinning = true;
+        cluesFound +=1;
+        document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
-                 
+        Context_AF.walls.setAttribute('animation__rotation', {enabled:true});
+              
       }
+
+      if(cluesFound == 4){
+        Context_AF.questionBtn.setAttribute('visible', "true");
+      }
+
+      else{
+        Context_AF.questionBtn.setAttribute('visible', "false");
+      }
+
     });
-  },
-  
+  },  
 
 });
 
@@ -268,12 +325,15 @@ AFRAME.registerComponent('spinning-effect4', {
     //get a local reference to our entities and set some property variables
     const Context_AF = this;
     Context_AF.walls      = document.querySelector('#newspaper_clue');
+    Context_AF.questionBtn     = document.querySelector('#questionBtn');
     Context_AF.isSpinning = false;
     
     //let's add the basic animation to teh walls entity
     //note that it is not enabled initially
     Context_AF.walls.setAttribute('animation', {property:'position.y', to:19.28847, dur:300, easing:'linear'});
-     
+    Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
+    Context_AF.questionBtn.setAttribute('visible', "false");
+
     //listen on click
     Context_AF.el.addEventListener('click', function() {
       if (Context_AF.isSpinning === true) {
@@ -282,14 +342,30 @@ AFRAME.registerComponent('spinning-effect4', {
         Context_AF.isSpinning = false; 
 
         document.querySelectorAll(".ui4").forEach(e => e.parentNode.removeChild(e));
+        cluesFound -=1;
+        document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
+
+        Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
       }
+
       else {
         console.log('spinning');
         Context_AF.walls.setAttribute('animation', {to:20.4});
         Context_AF.isSpinning = true;
+        cluesFound +=1;
+        document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
-                 
+        Context_AF.walls.setAttribute('animation__rotation', {enabled:true});          
       }
+
+      if(cluesFound == 4){
+        Context_AF.questionBtn.setAttribute('visible', "true");
+      }
+
+      else{
+        Context_AF.questionBtn.setAttribute('visible', "false");
+      }
+
     });
   },
 });
@@ -362,31 +438,6 @@ AFRAME.registerComponent('false-clue2', {
   
 });
 
-AFRAME.registerComponent('questionBtn', {
-  schema: {
-    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
-    parse: AFRAME.utils.styleParser.parse
-  },
-  multiple: false, //do not allow multiple instances of this component on this entity
-  init: function() {
-    
-    //get a local reference to our entities and set some property variables
-    const Context_AF = this;
-    Context_AF     = document.querySelector('#question');
-    //Context_AF.questionBtn = true;
-
-    
-    Context_AF.setAttribute('visible', "false");
-   
-     
-    //if(height === "29.59276 9.8 34.23291"){
-                         //Context_AF.walls.setAttribute('visible', 'true');
-    //}
-  
-    
-  },
-  
-});
 
 AFRAME.registerComponent('visibility', {
             schema: {
@@ -402,32 +453,19 @@ AFRAME.registerComponent('visibility', {
                 Context_AF.question      = document.querySelector('#question');
                 Context_AF.question.setAttribute('visible', "false");
 
-                Context_AF.clue       = document.querySelector('#letter_clue');
-                Context_AF.clue2       = document.querySelector('#card_clue');
-                Context_AF.clue3       = document.querySelector('#postcard_clue');
-                Context_AF.clue4       = document.querySelector('#newspaper_clue');
-
-                height = Context_AF.clue.getAttribute('position');
-                height2 = Context_AF.clue2.getAttribute('position');
-                height3 = Context_AF.clue3.getAttribute('position');
-                height4 = Context_AF.clue4.getAttribute('position');
-
-                console.log(height, height2, height3, height4);
-
                 Context_AF.el.addEventListener('click', function() {
 
-                    if(height.y == 9.8 && height2.z == -40 && height3.y == 17.3 && height4.y == 20.4){
+                    if(cluesFound == 4){
                         
                         Context_AF.question.setAttribute('visible', "true");
-                        console.log("height reached");
+                        //console.log("height reached");
                    }
                 
                 });        
-              
-               
+                            
             },
             
-            });
+          });
 
             AFRAME.registerComponent('transition', {
             schema: {
@@ -445,23 +483,19 @@ AFRAME.registerComponent('visibility', {
                 Context_AF.question.setAttribute('visible', "false");
 
                 Context_AF.el.addEventListener('click', function() {
-
-                   
+                  
                         
                         Context_AF.question.setAttribute('visible', "true");
-                        console.log("height reached");
-                   
+                        console.log("height reached");                  
                 
                 });        
               
-               
+            
             },
             
             });
- 
 
-</script>
-     
+</script>   
       <a-scene>
         <a-assets timeout="10000">
        
@@ -481,12 +515,12 @@ AFRAME.registerComponent('visibility', {
           <a-asset-item id=  "picture frame_model"        response-type="arraybuffer"  src="/assets/picture frame.glb"></a-asset-item>
           <a-asset-item id=  "suitcase_model"        response-type="arraybuffer"  src="/assets/suitcase.glb"></a-asset-item>
 
-          <img id=           "Floor_Texture_img"                                   src="/assets/Floor_Texture.jpg"               crossorigin="anonymous">
-          <img id=           "Wall_Texture_img"                                    src="/assets/Wall_Texture.jpg"             crossorigin="anonymous">
+          <img id="Floor_Texture_img"  src="/assets/Floor_Texture.jpg" crossorigin="anonymous">
+          <img id="Wall_Texture_img"   src="/assets/Wall_Texture.jpg"  crossorigin="anonymous">
        
         </a-assets>
 
-      <a-entity environment="preset:default;"></a-entity>
+     <!-- <a-entity environment="preset:default;"></a-entity>-->
       <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
 
       <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="1 35 60" rotation="-45 100 0">
@@ -595,7 +629,6 @@ AFRAME.registerComponent('visibility', {
         <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="/assets/diary.glb"></a-entity>
       </a-entity>
 
-
       <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="/assets/envelope.glb"></a-entity>
       <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="/assets/table.glb"></a-entity>
       <a-entity id="wall candle" position="-67.10688 24.92195 -23.62657" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="/assets/wall candle.glb"></a-entity>
@@ -604,35 +637,30 @@ AFRAME.registerComponent('visibility', {
       
       <a-entity position="35.71896 0 12.32969">
         <a-entity id="picture-frame" class="interactive" false-clue position="0 18.02653 0" rotation="0 -102.81899520961161 0" scale="0.31132 0.31132 0.31132" gltf-model="/assets/picture frame.glb"></a-entity>
-      </a-entity>
-      
+      </a-entity>  
       <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="/assets/suitcase.glb"></a-entity>
       
       <a-entity id="clues">
         <a-entity  position = "29.59276 0 34.23291">
-          <a-box id="letter_clue" class= "cube interactive" add-ui spinning-effect position="29.59276 8.86245 34.23291" rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"  
-                animation__rotation="property:rotation; to:0 360 0; loop:true; dur:10000; startEvents:click;"
+          <a-box id="letter_clue" class= "cube interactive" add-ui spinning-effect position="29.59276 8.86245 34.23291" rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"      
                 shadow >
           </a-box> 
         </a-entity>
 
         <a-entity position="-7.64263 30.10749 0">
-          <a-box id="card_clue" class= "cube interactive" position="-7.64263 30.10749 -51.57049" add-ui2 spinning-effect2 rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"
-            animation__rotation="property:rotation; to:0 360 0; loop:true; dur:10000; startEvents:click;"
+          <a-box id="card_clue" class= "cube interactive" position="-7.64263 30.10749 -51.57049" add-ui2 spinning-effect2 rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"          
             shadow>
           </a-box>
         </a-entity>
 
         <a-entity position="-30.24706 0 -46.50628">
-          <a-box id="postcard_clue"  class= "cube interactive" position="-30.24706 16.0656 -46.50628"  add-ui3 spinning-effect3 rotation="0 0 0" color="#ff0000"  geometry="" scale="1.889 1.889 1.889"
-            animation__rotation="property:rotation; to:0 360 0; loop:true; dur:10000; startEvents:click;"
+          <a-box id="postcard_clue"  class= "cube interactive" position="-30.24706 16.0656 -46.50628"  add-ui3 spinning-effect3 rotation="0 0 0" color="#ff0000"  geometry="" scale="1.889 1.889 1.889"           
             shadow>
           </a-box>
         </a-entity>
 
         <a-entity position="29.2662 0 -11.37426">
           <a-box id="newspaper_clue" class= "cube interactive" position="29.2662 19.28847 -11.37426" add-ui4 spinning-effect4 rotation="0 0 0" color="#ff0000"  geometry="" scale="1.889 1.889 1.889"
-            animation__rotation="property:rotation; to:0 360 0; loop:true; dur:10000; startEvents:click;"
             shadow> 
           </a-box>
        </a-entity>
@@ -643,6 +671,12 @@ AFRAME.registerComponent('visibility', {
         <a-box id="room_unlock" class= "cube interactive" onclick="document.location='test.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
               shadow >
         </a-box> 
+      </a-entity>
+
+      <a-entity id="ui" position="-50.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
+        <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
+        <a-entity id = "clues_found" text="value:Clues Found: 0/4 ; 
+                        color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.769 0.768 2.848"></a-entity>
       </a-entity>
 
       <a-entity id="room">
