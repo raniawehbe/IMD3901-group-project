@@ -807,7 +807,17 @@ AFRAME.registerComponent('visibility', {
     
 
     </a-scene>
-  
+    <script>
+      // On mobile remove elements that are resource heavy
+      var isMobile = AFRAME.utils.device.isMobile();
+
+     // if (isMobile) {
+       // var particles = document.getElementById("particles");
+       // particles.parentNode.removeChild(particles);
+     // }
+
+      document.querySelector("a-scene").addEventListener("loaded", onSceneLoad);
+    </script>
   
   </body>
 
