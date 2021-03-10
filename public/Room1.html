@@ -140,7 +140,7 @@
     }
     });
 
-  AFRAME.registerComponent('spinning-effect', {
+    AFRAME.registerComponent('spinning-effect', {
   schema: {
     duration: {type: 'number', default:20000.0},  //duration is in milliseconds
     parse: AFRAME.utils.styleParser.parse
@@ -153,11 +153,16 @@
     Context_AF.walls      = document.querySelector('#letter_clue');
     Context_AF.questionBtn     = document.querySelector('#questionBtn');
     
+          
     Context_AF.isSpinning = false;
  
     Context_AF.walls.setAttribute('animation', {property:'position.y', to:8.86245, dur:300, easing:'linear'});
     Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
     Context_AF.questionBtn.setAttribute('visible', "false");
+    
+    
+    Context_AF.progressMeter =   document.querySelector('#progressMeter');
+    Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
 
     //listen on click
     Context_AF.el.addEventListener('click', function() {
@@ -167,6 +172,7 @@
         Context_AF.isSpinning = false; 
 
         document.querySelectorAll(".ui").forEach(e => e.parentNode.removeChild(e));
+        document.querySelectorAll("#panel_text1").forEach(e => e.parentNode.removeChild(e));
         cluesFound -=1;
         document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
@@ -187,11 +193,40 @@
 
       if(cluesFound == 4){
         Context_AF.questionBtn.setAttribute('visible', "true");
+        
+        Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
+        Context_AF.progressMeter.setAttribute('position', '0.005 0 0.810');
+        Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
       }
 
       else{
         Context_AF.questionBtn.setAttribute('visible', "false");
       }
+
+
+     if(cluesFound == 0){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 0');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0');
+    }
+
+   else if(cluesFound == 1){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+    Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 2){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+      Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 3){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+      Context_AF.progressMeter.setAttribute('position', '-0.295 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
 
     });
   },  
@@ -214,18 +249,22 @@ AFRAME.registerComponent('spinning-effect2', {
     
     //let's add the basic animation to teh walls entity
     //note that it is not enabled initially
-    Context_AF.walls.setAttribute('animation', {property:'position.z', to:3-51.57049, dur:300, easing:'linear'});
+    Context_AF.walls.setAttribute('animation', {property:'position.z', to:-49.993, dur:300, easing:'linear'});
     Context_AF.walls.setAttribute('animation__rotation', {property:'rotation',  to:"0 360 0", loop:true, dur:10000, easing:'linear', enabled: false});
     Context_AF.questionBtn.setAttribute('visible', "false");
+
+    Context_AF.progressMeter =   document.querySelector('#progressMeter');
+    Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
 
     //listen on click
     Context_AF.el.addEventListener('click', function() {
       if (Context_AF.isSpinning === true) {
         console.log('stop spinning');
-        Context_AF.walls.setAttribute('animation', {to:-51.57049});
+        Context_AF.walls.setAttribute('animation', {to:-49.993});
         Context_AF.isSpinning = false; 
 
         document.querySelectorAll(".ui2").forEach(e => e.parentNode.removeChild(e));
+        document.querySelectorAll("#panel_text2").forEach(e => e.parentNode.removeChild(e));
         cluesFound -=1;
         document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
@@ -245,11 +284,39 @@ AFRAME.registerComponent('spinning-effect2', {
 
       if(cluesFound == 4){
         Context_AF.questionBtn.setAttribute('visible', "true");
+        
+        Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
+        Context_AF.progressMeter.setAttribute('position', '0.005 0 0.810');
+        Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
       }
 
       else{
         Context_AF.questionBtn.setAttribute('visible', "false");
       }
+
+
+     if(cluesFound == 0){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 0');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0');
+    }
+
+   else if(cluesFound == 1){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+    Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 2){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+      Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 3){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+      Context_AF.progressMeter.setAttribute('position', '-0.295 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
 
     });
   },
@@ -277,6 +344,9 @@ AFRAME.registerComponent('spinning-effect3', {
     Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
     Context_AF.questionBtn.setAttribute('visible', "false");
 
+    Context_AF.progressMeter =   document.querySelector('#progressMeter');
+    Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
+
     //listen on click
     Context_AF.el.addEventListener('click', function() {
       if (Context_AF.isSpinning === true) {
@@ -285,6 +355,7 @@ AFRAME.registerComponent('spinning-effect3', {
         Context_AF.isSpinning = false; 
 
         document.querySelectorAll(".ui3").forEach(e => e.parentNode.removeChild(e));
+        document.querySelectorAll("#panel_text3").forEach(e => e.parentNode.removeChild(e));
         cluesFound -=1;
         document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
@@ -303,11 +374,39 @@ AFRAME.registerComponent('spinning-effect3', {
 
       if(cluesFound == 4){
         Context_AF.questionBtn.setAttribute('visible', "true");
+        
+        Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
+        Context_AF.progressMeter.setAttribute('position', '0.005 0 0.810');
+        Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
       }
 
       else{
         Context_AF.questionBtn.setAttribute('visible', "false");
       }
+
+
+     if(cluesFound == 0){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 0');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0');
+    }
+
+   else if(cluesFound == 1){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+    Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 2){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+      Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 3){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+      Context_AF.progressMeter.setAttribute('position', '-0.295 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
 
     });
   },  
@@ -333,6 +432,9 @@ AFRAME.registerComponent('spinning-effect4', {
     Context_AF.walls.setAttribute('animation', {property:'position.y', to:19.28847, dur:300, easing:'linear'});
     Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
     Context_AF.questionBtn.setAttribute('visible', "false");
+
+    Context_AF.progressMeter =   document.querySelector('#progressMeter');
+    Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
 
     //listen on click
     Context_AF.el.addEventListener('click', function() {
@@ -360,11 +462,39 @@ AFRAME.registerComponent('spinning-effect4', {
 
       if(cluesFound == 4){
         Context_AF.questionBtn.setAttribute('visible', "true");
+        
+        Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
+        Context_AF.progressMeter.setAttribute('position', '0.005 0 0.810');
+        Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
       }
 
       else{
         Context_AF.questionBtn.setAttribute('visible', "false");
       }
+
+
+     if(cluesFound == 0){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 0');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0');
+    }
+
+   else if(cluesFound == 1){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+    Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 2){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+      Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+
+    else if(cluesFound == 3){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+      Context_AF.progressMeter.setAttribute('position', '-0.295 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
 
     });
   },
@@ -450,14 +580,22 @@ AFRAME.registerComponent('visibility', {
                 const Context_AF = this;
                 //Context_AF2  = this;
 
-                Context_AF.question      = document.querySelector('#question');
+                Context_AF.question      = document.querySelector('#questions');
+                Context_AF.question1     = document.querySelector('#question1');
+                Context_AF.question2     = document.querySelector('#question2');
+                Context_AF.question3     = document.querySelector('#question3');
+
                 Context_AF.question.setAttribute('visible', "false");
+                Context_AF.question1.setAttribute('visible', "false");
+                Context_AF.question2.setAttribute('visible', "false");
+                Context_AF.question3.setAttribute('visible', "false");
 
                 Context_AF.el.addEventListener('click', function() {
 
                     if(cluesFound == 4){
                         
                         Context_AF.question.setAttribute('visible', "true");
+                        Context_AF.question1.setAttribute('visible', "true");
                         //console.log("height reached");
                    }
                 
@@ -467,66 +605,66 @@ AFRAME.registerComponent('visibility', {
             
           });
 
-            AFRAME.registerComponent('transition', {
-            schema: {
-                duration: {type: 'number', default:20000.0},  //duration is in milliseconds
-            },
-            multiple: false, //do not allow multiple instances of this component on this entity
-            init: function() {
+AFRAME.registerComponent('transition', {
+  schema: {
+      duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+  },
+  multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
                 
-                //get a local reference to our entities and set some property variables
-                const Context_AF = this;
-                //Context_AF2  = this;
+  //get a local reference to our entities and set some property variables
+  const Context_AF = this;
+  //Context_AF2  = this;
 
-                Context_AF.question      = document.querySelector('#room_unlock');
+  Context_AF.question      = document.querySelector('#room_unlock');
 
-                Context_AF.question.setAttribute('visible', "false");
+  Context_AF.question.setAttribute('visible', "false");
 
-                Context_AF.el.addEventListener('click', function() {
+  Context_AF.el.addEventListener('click', function() {
                   
                         
-                        Context_AF.question.setAttribute('visible', "true");
-                        console.log("height reached");                  
+  Context_AF.question.setAttribute('visible', "true");
+  console.log("height reached");                  
                 
-                });        
+  });        
               
             
-            },
+  },
             
-            });
+  });
 
-            AFRAME.registerComponent('add-text', {
-    schema: {
-            default: '',
-            parse: AFRAME.utils.styleParser.parse
-            },
-    multiple: false,       
-    init: function () {
+AFRAME.registerComponent('add-text', {
+  schema: {
+    default: '',
+    parse: AFRAME.utils.styleParser.parse
+  },
+  multiple: false,       
+  init: function () {
         
-        const el = this.el;
-        console.log('I am ready!');
+    const el = this.el;
+    console.log('I am ready!');
 
-        el.addEventListener('click', function() {
+    el.addEventListener('click', function() {
             
 
-            var entityEl = document.createElement('a-entity');
-            //entityEl.setAttribute('add-UI', '');
-            entityEl.setAttribute('id', "text");
-            entityEl.setAttribute('class', "text");
-            entityEl.setAttribute('position', "23.608 16.240 38.745");
-            entityEl.setAttribute('rotation', "-1.782 -139.461 -0.576");
-            entityEl.setAttribute('scale', "25.213 17.430 20.445");
-            //entityEl.setAttribute('geometry', { width:0.4});
-            entityEl.setAttribute('material', "color: #fff");
-            entityEl.setAttribute('text', {value:'A letter that was\n written to grandma\n in 1663 by her\n best friend asking\n her about her new\n life in Montreal and\n how shes dealing \nwith life away from\n her homeland France.'});
+      var entityEl = document.createElement('a-entity');
+      //entityEl.setAttribute('add-UI', '');
+      entityEl.setAttribute('id', "panel_text1");
+      entityEl.setAttribute('class', "text");
+      entityEl.setAttribute('position', "23.608 16.240 38.745");
+      entityEl.setAttribute('rotation', "-1.782 -139.461 -0.576");
+      entityEl.setAttribute('scale', "25.213 17.430 20.445");
+      //entityEl.setAttribute('geometry', { width:0.4});
+      entityEl.setAttribute('material', "color: #fff");
+      entityEl.setAttribute('text', {value:'A letter that was\n written to grandma\n in 1663 by her\n best friend asking\n her about her new\n life in Montreal and\n how shes dealing \nwith life away from\n her homeland France.'});
               
             
-            el.sceneEl.appendChild(entityEl);
+      el.sceneEl.appendChild(entityEl);
             
 
-        });
-    }
-    });
+      });
+  }
+});
 
     AFRAME.registerComponent('add-text2', {
     schema: {
@@ -544,7 +682,7 @@ AFRAME.registerComponent('visibility', {
 
             var entityEl = document.createElement('a-entity');
             //entityEl.setAttribute('add-UI', '');
-            entityEl.setAttribute('id', "text2");
+            entityEl.setAttribute('id', "panel_text2");
             entityEl.setAttribute('class', "text2");
             entityEl.setAttribute('position', "1.391 38.114 -39.775");
             entityEl.setAttribute('rotation', "0 2.063 0");
@@ -576,7 +714,7 @@ AFRAME.registerComponent('visibility', {
 
             var entityEl = document.createElement('a-entity');
             //entityEl.setAttribute('add-UI', '');
-            entityEl.setAttribute('id', "text3");
+            entityEl.setAttribute('id', "panel_text3");
             entityEl.setAttribute('class', "text3");
             entityEl.setAttribute('position', "-23.682 29.785 -48.681");
             entityEl.setAttribute('rotation', "0 23.975 0");
@@ -592,6 +730,38 @@ AFRAME.registerComponent('visibility', {
         });
     }
     });
+
+    AFRAME.registerComponent('nextQuestion', {
+            schema: {
+                duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+            },
+            multiple: false, //do not allow multiple instances of this component on this entity
+            init: function() {
+                
+                //get a local reference to our entities and set some property variables
+                const Context_AF = this;
+                //Context_AF2  = this;
+
+                //Context_AF.question1      = document.querySelector('#question1');
+                Context_AF.question2      = document.querySelector('#question2');
+
+                //Context_AF.question1.setAttribute('visible', "true");
+                //Context_AF.question2.setAttribute('visible', "false");
+
+                Context_AF.el.addEventListener('click', function() {
+                  
+                        
+                        //Context_AF.question1.setAttribute('visible', "false");
+                        Context_AF.question2.setAttribute('visible', "true");
+                        console.log("next question: 2");
+                              
+                
+                });        
+              
+            
+            },
+            
+            });
 
 
 </script>   
@@ -655,14 +825,13 @@ AFRAME.registerComponent('visibility', {
               width="2.5" height="0.75"
               onclick="buttonActionFunction" key-code="32"
               position="0 0.025 0" scale="1.242 4.282 1.027"
-              value=" Proceed to Questions"
-              font-family="Arial"
+              value=" Proceed to Questions" 
               margin="0 0 0.05 0"
             >
             </a-gui-button>
         </a-gui-flex-container>
 
-        <a-gui-flex-container id="question" 
+        <!--<a-gui-flex-container id="question" 
         flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
         position="-0.0918 0.847 -4.405" rotation="0 0 0"
       >
@@ -725,7 +894,7 @@ AFRAME.registerComponent('visibility', {
           </a-gui-button>
       
             
-      </a-gui-flex-container>
+      </a-gui-flex-container>-->
 
       </a-entity>
       
@@ -816,16 +985,123 @@ AFRAME.registerComponent('visibility', {
 
       </a-entity> 
 
-      <a-entity  position = "29.593 1.391 47.861" >
+      <!--<a-entity  position = "29.593 1.391 47.861" >
         <a-box id="room_unlock" class= "cube interactive" onclick="document.location='transition2D.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
               shadow >
         </a-box> 
-      </a-entity>
+      </a-entity>-->
 
-      <a-entity id="ui" position="-50.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
+      <a-entity id="progress_ui" position="-50.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
         <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
         <a-entity id = "clues_found" text="value:Clues Found: 0/4 ; 
-                        color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.769 0.768 2.848"></a-entity>
+                     color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
+
+        <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
+          <a-entity id="progressMeter" geometry="primitive: box; width: 0; height: 0.710 depth:0" material="color: #ed5b21" position="0 0 0" rotation="-90 0 0" scale="1 1 1" shadow="cast: false"></a-entity>
+        </a-entity>
+      </a-entity>
+
+      <a-entity id="questions" geometry= "primitive: box; width: 15; height: 20.3 depth:0.9;" position="-2.154 22.843 0" rotation="0 0 0">
+        <a-entity id="question1" position="-1.895 0 0.536">
+          <a-entity text="value:Choose the Correct Answer: ; 
+                     color:black; font:roboto; width:13.240; anchor:left; baseline:top; wrapCount:22.72;" position="-4.597 8.564 0.052"></a-entity>  
+          <a-entity id = "question1_title" text="value:Montreal was established by a group of religious mystics from France named Paul de Chomedy and Jeanne Mance in ; 
+                     color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+          <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+  
+            <a-gui-radio id = "question1_choice1" class= "interactive"  position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+            width="2.5" height="0.75"
+            onclick="toggleActionFunction"
+            value="1666"
+            font-size="0.3"
+            margin="0 0 0.05 0"
+            >
+            </a-gui-radio>   
+            <a-gui-radio id = "question1_choice2" class= "interactive" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+            width="2.5" height="0.75"
+            onclick="toggleActionFunction"
+            value="1642"
+            font-size="0.3"
+            margin="0 0 0.05 0"
+            >
+            </a-gui-radio> 
+            <a-gui-button id = "question1_end" class= "interactive" nextQuestion position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                width="2.5" height="0.75"
+                key-code="32"
+                position="0 0.025 0" scale="1.242 4.282 1.027"
+                value="Next Question"
+                margin="0 0 0.05 0"
+              >
+            </a-gui-button>
+          </a-entity> 
+        </a-entity> 
+        <a-entity id="question2" position="-1.895 0 0.536">
+          <a-entity text="value:Choose the Correct Answer 2: ; 
+                     color:black; font:roboto; width:13.240; anchor:left; baseline:top; wrapCount:22.72;" position="-4.597 8.564 0.052"></a-entity>  
+          <a-entity id = "question1_title" text="value:Question 2 ; 
+                     color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+          <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+  
+            <a-gui-radio id = "question1_choice1" class= "interactive" nextQuestion position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+            width="2.5" height="0.75"
+            onclick="toggleActionFunction"
+            value="1666"
+            font-size="0.3"
+            margin="0 0 0.05 0"
+            >
+            </a-gui-radio>   
+            <a-gui-radio id = "question1_choice2" class= "interactive" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+            width="2.5" height="0.75"
+            onclick="toggleActionFunction"
+            value="1642"
+            font-size="0.3"
+            margin="0 0 0.05 0"
+            >
+            </a-gui-radio> 
+            <a-gui-button id = "question1_end2" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                width="2.5" height="0.75"
+                onclick="buttonActionFunction" key-code="32"
+                position="0 0.025 0" scale="1.242 4.282 1.027"
+                value="Next Question"
+                margin="0 0 0.05 0"
+              >
+            </a-gui-button>
+          </a-entity> 
+        </a-entity>
+        <a-entity id="question3" position="-1.895 0 0.536">
+          <a-entity text="value:Choose the Correct Answer 3: ; 
+                     color:black; font:roboto; width:13.240; anchor:left; baseline:top; wrapCount:22.72;" position="-4.597 8.564 0.052"></a-entity>  
+          <a-entity id = "question1_title" text="value:Question 3; 
+                     color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+          <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+  
+            <a-gui-radio id = "question1_choice1" class= "interactive" nextQuestion position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+            width="2.5" height="0.75"
+            onclick="toggleActionFunction"
+            value="1666"
+            font-size="0.3"
+            margin="0 0 0.05 0"
+            >
+            </a-gui-radio>   
+            <a-gui-radio id = "question1_choice2" class= "interactive" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+            width="2.5" height="0.75"
+            onclick="toggleActionFunction"
+            value="1642"
+            font-size="0.3"
+            margin="0 0 0.05 0"
+            >
+            </a-gui-radio> 
+            <a-gui-button id = "question1_end3" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                width="2.5" height="0.75"
+                onclick="buttonActionFunction" key-code="32"
+                position="0 0.025 0" scale="1.242 4.282 1.027"
+                value="Next Question"
+                margin="0 0 0.05 0"
+              >
+            </a-gui-button>
+          </a-entity> 
+        </a-entity>
+  
       </a-entity>
 
       <a-entity id="room">
@@ -841,14 +1117,14 @@ AFRAME.registerComponent('visibility', {
     </a-scene>
     <script>
       // On mobile remove elements that are resource heavy
-      var isMobile = AFRAME.utils.device.isMobile();
+      /*var isMobile = AFRAME.utils.device.isMobile();
 
      // if (isMobile) {
        // var particles = document.getElementById("particles");
        // particles.parentNode.removeChild(particles);
      // }
 
-      document.querySelector("a-scene").addEventListener("loaded", onSceneLoad);
+      document.querySelector("a-scene").addEventListener("loaded", onSceneLoad);*/
     </script>
   
   </body>

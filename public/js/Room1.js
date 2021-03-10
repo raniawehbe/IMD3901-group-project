@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMD3901 Term Project</title>
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>  
-    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
-    <script src="/js/aframe-environment-component.min.js"></script>
-    
-</head>
-<body>
+//variables
+let cluesFound = 0;
 
-  <script>
-    //variables
-    let cluesFound = 0;
-    
+
+//functions
     AFRAME.registerComponent('add-ui', {
     schema: {
             default: '',
@@ -139,7 +127,7 @@
     }
     });
 
-  AFRAME.registerComponent('spinning-effect', {
+    AFRAME.registerComponent('spinning-effect', {
   schema: {
     duration: {type: 'number', default:20000.0},  //duration is in milliseconds
     parse: AFRAME.utils.styleParser.parse
@@ -576,22 +564,14 @@ AFRAME.registerComponent('visibility', {
                 const Context_AF = this;
                 //Context_AF2  = this;
 
-                Context_AF.question      = document.querySelector('#questions');
-                Context_AF.question1     = document.querySelector('#question1');
-                Context_AF.question2     = document.querySelector('#question2');
-                Context_AF.question3     = document.querySelector('#question3');
-
+                Context_AF.question      = document.querySelector('#question');
                 Context_AF.question.setAttribute('visible', "false");
-                Context_AF.question1.setAttribute('visible', "false");
-                Context_AF.question2.setAttribute('visible', "false");
-                Context_AF.question3.setAttribute('visible', "false");
 
                 Context_AF.el.addEventListener('click', function() {
 
                     if(cluesFound == 4){
                         
                         Context_AF.question.setAttribute('visible', "true");
-                        Context_AF.question1.setAttribute('visible', "true");
                         //console.log("height reached");
                    }
                 
@@ -629,281 +609,103 @@ AFRAME.registerComponent('visibility', {
             
             });
 
-            AFRAME.registerComponent('nextQuestion', {
-            schema: {
-                duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+            AFRAME.registerComponent('add-text', {
+    schema: {
+            default: '',
+            parse: AFRAME.utils.styleParser.parse
             },
-            multiple: false, //do not allow multiple instances of this component on this entity
-            init: function() {
-                
-                //get a local reference to our entities and set some property variables
-                const Context_AF = this;
-                //Context_AF2  = this;
+    multiple: false,       
+    init: function () {
+        
+        const el = this.el;
+        console.log('I am ready!');
 
-                Context_AF.question1      = document.querySelector('#question1');
-                Context_AF.question2      = document.querySelector('#question2');
+        el.addEventListener('click', function() {
+            
 
-                Context_AF.question1.setAttribute('visible', "true");
-                Context_AF.question2.setAttribute('visible', "false");
-
-                Context_AF.el.addEventListener('click', function() {
-                  
-                        
-                        Context_AF.question1.setAttribute('visible', "false");
-                        Context_AF.question2.setAttribute('visible', "true");
-                        console.log("next question 2");
-                              
-                
-                });        
+            var entityEl = document.createElement('a-entity');
+            //entityEl.setAttribute('add-UI', '');
+            entityEl.setAttribute('id', "text");
+            entityEl.setAttribute('class', "text");
+            entityEl.setAttribute('position', "23.608 16.240 38.745");
+            entityEl.setAttribute('rotation', "-1.782 -139.461 -0.576");
+            entityEl.setAttribute('scale', "25.213 17.430 20.445");
+            //entityEl.setAttribute('geometry', { width:0.4});
+            entityEl.setAttribute('material', "color: #fff");
+            entityEl.setAttribute('text', {value:'A letter that was\n written to grandma\n in 1663 by her\n best friend asking\n her about her new\n life in Montreal and\n how shes dealing \nwith life away from\n her homeland France.'});
               
             
-            },
+            el.sceneEl.appendChild(entityEl);
             
-            });
+
+        });
+    }
+    });
+
+    AFRAME.registerComponent('add-text2', {
+    schema: {
+            default: '',
+            parse: AFRAME.utils.styleParser.parse
+            },
+    multiple: false,       
+    init: function () {
+        
+        const el = this.el;
+        console.log('I am ready!');
+
+        el.addEventListener('click', function() {
+            
+
+            var entityEl = document.createElement('a-entity');
+            //entityEl.setAttribute('add-UI', '');
+            entityEl.setAttribute('id', "text2");
+            entityEl.setAttribute('class', "text2");
+            entityEl.setAttribute('position', "1.391 38.114 -39.775");
+            entityEl.setAttribute('rotation', "0 2.063 0");
+            entityEl.setAttribute('scale', "27.674 21.022 1.125");
+            //entityEl.setAttribute('geometry', { width:0.4});
+            entityEl.setAttribute('material', "color: #fff");
+            entityEl.setAttribute('text', {value:'A gift from Hudsons\n Bay given to\n grandma the same \nweek that it opened\n in 1670.'});
+              
+            
+            el.sceneEl.appendChild(entityEl);
+            
+
+        });
+    }
+    });
+    AFRAME.registerComponent('add-text3', {
+    schema: {
+            default: '',
+            parse: AFRAME.utils.styleParser.parse
+            },
+    multiple: false,       
+    init: function () {
+        
+        const el = this.el;
+        console.log('I am ready!');
+
+        el.addEventListener('click', function() {
+            
+
+            var entityEl = document.createElement('a-entity');
+            //entityEl.setAttribute('add-UI', '');
+            entityEl.setAttribute('id', "text3");
+            entityEl.setAttribute('class', "text3");
+            entityEl.setAttribute('position', "-23.682 29.785 -48.681");
+            entityEl.setAttribute('rotation', "0 23.975 0");
+            entityEl.setAttribute('scale', "24.443 18.568 4.490");
+            //entityEl.setAttribute('geometry', { width:0.4});
+            entityEl.setAttribute('material', "color: #fff");
+            entityEl.setAttribute('text', {value:'A postcard of Montreal\n that was sent \nto grandma back in\n 1662 before going\n to Canada.'});
+              
+            
+            el.sceneEl.appendChild(entityEl);
+            
+
+        });
+    }
+    });
 
 
-</script>   
-      <a-scene>
-        <a-assets timeout="10000">
-       
-          <a-asset-item id=  "bed_model"        response-type="arraybuffer"  src="/assets/bed.glb"></a-asset-item>
-          <a-asset-item id=  "book_model"        response-type="arraybuffer"  src="/assets/book.glb"></a-asset-item>
-          <a-asset-item id=  "box_model"        response-type="arraybuffer"  src="/assets/box.glb"></a-asset-item>
-          <a-asset-item id=  "carpet_model"        response-type="arraybuffer"  src="/assets/carpet.glb"></a-asset-item>
-          <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/chair.glb"></a-asset-item>
-          <a-asset-item id=  "diary_model"        response-type="arraybuffer"  src="/assets/diary.glb"></a-asset-item>
-          <a-asset-item id=  "envelope_model"        response-type="arraybuffer"  src="/assets/envelope.glb"></a-asset-item>
-          <a-asset-item id=  "rug_model"        response-type="arraybuffer"  src="/assets/rug.glb"></a-asset-item>
-          <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/table.glb"></a-asset-item>
-          <a-asset-item id=  "wall candle_model"        response-type="arraybuffer"  src="/assets/wall candle.glb"></a-asset-item>
-          <a-asset-item id=  "waredrobe_model"        response-type="arraybuffer"  src="/assets/waredrobe.glb"></a-asset-item>
-          <a-asset-item id=  "waredrobe2_model"        response-type="arraybuffer"  src="/assets/waredrobe2.glb"></a-asset-item>
-          <a-asset-item id=  "window_model"        response-type="arraybuffer"  src="/assets/window.glb"></a-asset-item>
-          <a-asset-item id=  "picture frame_model"        response-type="arraybuffer"  src="/assets/picture frame.glb"></a-asset-item>
-          <a-asset-item id=  "suitcase_model"        response-type="arraybuffer"  src="/assets/suitcase.glb"></a-asset-item>
-
-          <img id="Floor_Texture_img"  src="/assets/Floor_Texture.jpg" crossorigin="anonymous">
-          <img id="Wall_Texture_img"   src="/assets/Wall_Texture.jpg"  crossorigin="anonymous">
-       
-        </a-assets>
-
-     <!-- <a-entity environment="preset:default;"></a-entity>-->
-      <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
-
-      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="1 35 60" rotation="-45 100 0">
-        <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
-
-        </a-entity>
-        <a-gui-cursor id="cursor"
-                raycaster="objects: [gui-interactable]"
-                color="#00FFFFFF"
-                fuse="false">
-        </a-gui-cursor>
-
-        <a-gui-flex-container id="questionBtn" class= "interactive" visibility
-          flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
-          position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" >        
-            <a-gui-button 
-              width="2.5" height="0.75"
-              onclick="buttonActionFunction" key-code="32"
-              position="0 0.025 0" scale="1.242 4.282 1.027"
-              value=" Proceed to Questions"
-              font-family="Arial"
-              margin="0 0 0.05 0"
-            >
-            </a-gui-button>
-        </a-gui-flex-container>
-
-      </a-entity>
-      
-    </a-entity>
-     
-      <a-entity id="bed" position="-50.16487 6.99694 2.58549" rotation="0.03609634109324186 92.11 -0.12662367272391195" scale="13.483 14.69246 13.483" gltf-model="/assets/bed.glb"></a-entity>
-      <a-entity id="carpet" position="-2.76955 0.68758 0.78815" rotation="" scale="-0.11871 -0.11871 -0.11871" gltf-model="/assets/carpet.glb"></a-entity>
-      <a-entity id="book" position="28.16331 16.85335 -0.35118" rotation="" scale="1.51003 1.51003 1.51003" gltf-model="#book_model" grabbable draggable droppable shadow
-      event-set__dragdrop="_event:drag-drop; geometry.primitive: sphere;geometry.radius: 0.25"
-      event-set__dragon="_event:dragover-start; material.wireframe: true"
-      event-set__dragoff="_event:dragover-end; material.wireframe: false"></a-entity></a-entity>
-      <a-entity id="box" position="32.1904 4.16369 31.27557" onclick="setRoom2()" rotation="0 -20.936450791875412 0" scale="0.13538 0.13538 0.13538" gltf-model="/assets/box.glb"></a-entity>
-      <a-entity id="chair" position="31.9861 -16.26944 -39.04351" rotation="0 -65.17280328054089 0" scale="6.19715 6.19744 6.19744" gltf-model="/assets/chair.glb"></a-entity>
-      
-      <a-entity position="25.9588 0 0.20169">
-        <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="/assets/diary.glb"></a-entity>
-      </a-entity>
-
-      <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="/assets/envelope.glb"></a-entity>
-      <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="/assets/table.glb"></a-entity>
-      <a-entity id="wall candle" position="-67.10688 24.92195 -23.62657" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="/assets/wall candle.glb"></a-entity>
-      <a-entity id="wall candle2" position="-67.10688 24.92195 29.42788" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="/assets/wall candle.glb"></a-entity>
-      <a-entity id="waredrobe2" position="-2.93206 -0.77395 -60.98832" rotation="-180 0 0" scale="-0.145 -0.145 -0.145" gltf-model="/assets/waredrobe2.glb"></a-entity>
-      
-      <a-entity position="35.71896 0 12.32969">
-        <a-entity id="picture-frame" class="interactive" false-clue position="0 18.02653 0" rotation="0 -102.81899520961161 0" scale="0.31132 0.31132 0.31132" gltf-model="/assets/picture frame.glb"></a-entity>
-      </a-entity>  
-      <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="/assets/suitcase.glb"></a-entity>
-      
-      <a-entity id="clues">
-        <a-entity  position = "29.59276 0 34.23291">
-          <a-box id="letter_clue" class= "cube interactive" add-ui spinning-effect position="29.59276 8.86245 34.23291" rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"      
-                shadow >
-          </a-box> 
-        </a-entity>
-
-        <a-entity position="-7.64263 30.10749 0">
-          <a-box id="card_clue" class= "cube interactive" position="-7.64263 30.10749 -51.57049" add-ui2 spinning-effect2 rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"          
-            shadow>
-          </a-box>
-        </a-entity>
-
-        <a-entity position="-30.24706 0 -46.50628">
-          <a-box id="postcard_clue"  class= "cube interactive" position="-30.24706 16.0656 -46.50628"  add-ui3 spinning-effect3 rotation="0 0 0" color="#ff0000"  geometry="" scale="1.889 1.889 1.889"           
-            shadow>
-          </a-box>
-        </a-entity>
-
-        <a-entity position="29.2662 0 -11.37426">
-          <a-box id="newspaper_clue" class= "cube interactive" position="29.2662 19.28847 -11.37426" add-ui4 spinning-effect4 rotation="0 0 0" color="#ff0000"  geometry="" scale="1.889 1.889 1.889"
-            shadow> 
-          </a-box>
-       </a-entity>
-
-      </a-entity> 
-
-      <!--<a-entity  position = "29.593 1.391 47.861" >
-        <a-box id="room_unlock" class= "cube interactive" onclick="document.location='Room2.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
-              shadow >
-        </a-box> 
-      </a-entity>-->
-
-      <a-entity id="progress_ui" position="-50.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
-        <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
-        <a-entity id = "clues_found" text="value:Clues Found: 0/4 ; 
-                     color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
-
-        <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
-          <a-entity id="progressMeter" geometry="primitive: box; width: 0; height: 0.710 depth:0" material="color: #ed5b21" position="0 0 0" rotation="-90 0 0" scale="1 1 1" shadow="cast: false"></a-entity>
-        </a-entity>
-      </a-entity>
-
-    <a-entity id="questions" geometry= "primitive: box; width: 15; height: 20.3 depth:0.9;" position="-2.154 22.843 0" rotation="0 0 0">
-      <a-entity id="question1" position="-1.895 0 0.536">
-        <a-entity text="value:Choose the Correct Answer: ; 
-                   color:black; font:roboto; width:13.240; anchor:left; baseline:top; wrapCount:22.72;" position="-4.597 8.564 0.052"></a-entity>  
-        <a-entity id = "question1_title" text="value:Montreal was established by a group of religious mystics from France named Paul de Chomedy and Jeanne Mance in ; 
-                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-        <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
-
-          <a-gui-radio id = "question1_choice1" class= "interactive"  position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1666"
-          font-size="0.3"
-          margin="0 0 0.05 0"
-          >
-          </a-gui-radio>   
-          <a-gui-radio id = "question1_choice2" class= "interactive" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1642"
-          font-size="0.3"
-          margin="0 0 0.05 0"
-          >
-          </a-gui-radio> 
-          <a-gui-button id = "question1_end" class= "interactive" nextQuestion position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
-              width="2.5" height="0.75"
-              key-code="32"
-              position="0 0.025 0" scale="1.242 4.282 1.027"
-              value="Next Question"
-              font-family="Arial"
-              margin="0 0 0.05 0"
-            >
-          </a-gui-button>
-        </a-entity> 
-      </a-entity> 
-      <a-entity id="question2" position="-1.895 0 0.536">
-        <a-entity text="value:Choose the Correct Answer 2: ; 
-                   color:black; font:roboto; width:13.240; anchor:left; baseline:top; wrapCount:22.72;" position="-4.597 8.564 0.052"></a-entity>  
-        <a-entity id = "question1_title" text="value:Question 2 ; 
-                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-        <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
-
-          <a-gui-radio id = "question1_choice1" class= "interactive" nextQuestion position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1666"
-          font-size="0.3"
-          margin="0 0 0.05 0"
-          >
-          </a-gui-radio>   
-          <a-gui-radio id = "question1_choice2" class= "interactive" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1642"
-          font-size="0.3"
-          margin="0 0 0.05 0"
-          >
-          </a-gui-radio> 
-          <a-gui-button id = "question1_end2" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
-              width="2.5" height="0.75"
-              onclick="buttonActionFunction" key-code="32"
-              position="0 0.025 0" scale="1.242 4.282 1.027"
-              value="Next Question"
-              font-family="Arial"
-              margin="0 0 0.05 0"
-            >
-          </a-gui-button>
-        </a-entity> 
-      </a-entity>
-      <a-entity id="question3" position="-1.895 0 0.536">
-        <a-entity text="value:Choose the Correct Answer 3: ; 
-                   color:black; font:roboto; width:13.240; anchor:left; baseline:top; wrapCount:22.72;" position="-4.597 8.564 0.052"></a-entity>  
-        <a-entity id = "question1_title" text="value:Question 3; 
-                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-        <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
-
-          <a-gui-radio id = "question1_choice1" class= "interactive" nextQuestion position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1666"
-          font-size="0.3"
-          margin="0 0 0.05 0"
-          >
-          </a-gui-radio>   
-          <a-gui-radio id = "question1_choice2" class= "interactive" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1642"
-          font-size="0.3"
-          margin="0 0 0.05 0"
-          >
-          </a-gui-radio> 
-          <a-gui-button id = "question1_end3" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
-              width="2.5" height="0.75"
-              onclick="buttonActionFunction" key-code="32"
-              position="0 0.025 0" scale="1.242 4.282 1.027"
-              value="Next Question"
-              font-family="Arial"
-              margin="0 0 0.05 0"
-            >
-          </a-gui-button>
-        </a-entity> 
-      </a-entity>
-
-    </a-entity>
-
-      <a-entity id="room">
-        <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src:/assets/Floor_Texture.jpg"position="-10.44656 0 -7.29101" rotation="-90 0 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-70.31305 47 -6.711" rotation="0 90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="49.05643 47 -6.71141" rotation="0 -90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-13.29203 47 55.20319" rotation="0 180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-13.29203 47 -68.88783" rotation="0 -180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
-      </a-entity>
-
-    
-
-    </a-scene>
-  
-  
-  </body>
-
-</html>
+ 
