@@ -25,7 +25,7 @@
           <a-asset-item id=  "envelope_model"        response-type="arraybuffer"  src="/assets/envelope.glb"></a-asset-item>
           <a-asset-item id=  "rug_model"        response-type="arraybuffer"  src="/assets/rug.glb"></a-asset-item>
           <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/table.glb"></a-asset-item>
-          <a-asset-item id=  "wall candle_model"        response-type="arraybuffer"  src="/assets/wall candle.glb"></a-asset-item>
+          <a-asset-item id=  "wallcandle_model"        response-type="arraybuffer"  src="/assets/wall candle.glb"></a-asset-item>
           <a-asset-item id=  "waredrobe_model"        response-type="arraybuffer"  src="/assets/waredrobe.glb"></a-asset-item>
           <a-asset-item id=  "waredrobe2_model"        response-type="arraybuffer"  src="/assets/waredrobe2.glb"></a-asset-item>
           <a-asset-item id=  "window_model"        response-type="arraybuffer"  src="/assets/window.glb"></a-asset-item>
@@ -33,10 +33,10 @@
           <a-asset-item id=  "suitcase_model"        response-type="arraybuffer"  src="/assets/suitcase.glb"></a-asset-item>
           <a-asset-item id=  "Bag_model"        response-type="arraybuffer"  src="/assets/Bag.glb"></a-asset-item>
           <a-asset-item id=  "BOXOPEN_model"        response-type="arraybuffer"  src="/assets/BOXOPEN.glb"></a-asset-item>
-          <a-asset-item id=  "jewlery box_model"        response-type="arraybuffer"  src="/assets/jewlery box.glb"></a-asset-item>
+          <a-asset-item id=  "jewlerybox_model"        response-type="arraybuffer"  src="/assets/jewlery box.glb"></a-asset-item>
           <a-asset-item id=  "doll_model"        response-type="arraybuffer"  src="/assets/doll.glb"></a-asset-item>
           <a-asset-item id=  "Pin_model"        response-type="arraybuffer"  src="/assets/Pin.glb"></a-asset-item>
-          <a-asset-item id=  "Perfume 1_model"        response-type="arraybuffer"  src="/assets/Perfume 1.glb"></a-asset-item>
+          <a-asset-item id=  "Perfume1_model"        response-type="arraybuffer"  src="/assets/Perfume 1.glb"></a-asset-item>
           <a-asset-item id=  "Candle_model"        response-type="arraybuffer"  src="/assets/Candle.glb"></a-asset-item>
          <!-- <a-asset-item id=  "potion_model"        response-type="arraybuffer"  src="/assets/potion.glb"></a-asset-item>-->
           <a-asset-item id=  "scoll_model"        response-type="arraybuffer"  src="/assets/scoll.glb"></a-asset-item>
@@ -49,14 +49,14 @@
           <!--<a-asset-item id=  "postcard_clue_model"        response-type="arraybuffer"  src="/assets/clue3.glb"></a-asset-item>-->
           
           <img id="Floor_Texture_img"  src="/assets/FLOOR.jpg" crossorigin="anonymous">
-          <img id="Wall_Texture_img"   src="/assets/WALL.jpg"  crossorigin="anonymous">
+          <img id="Wall_Texture_img"   src="/assets/Wall.jpg"  crossorigin="anonymous">
        
         </a-assets>
 
      <!-- <a-entity environment="preset:default;"></a-entity>-->
-      <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
+      <!--<a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>-->
 
-      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="1 35 60" rotation="-45 100 0">
+      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 100 0">
         <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
 
         </a-entity>
@@ -79,86 +79,23 @@
             </a-gui-button>
         </a-gui-flex-container>
 
-        <!--<a-gui-flex-container id="question" 
-        flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
-        position="-0.0918 0.847 -4.405" rotation="0 0 0"
-      >
-      
-        <a-gui-label 
-                width="2.5" height="0.75"
-                position="0 1.639 0.01"
-                value="Answer Question"
-                font-family="Arial"
-                margin="0 0 0.05 0"
-              >
-          </a-gui-label>
-          
-          <a-gui-button 
-            class= "interactive" transition
-            width="2.5" height="0.75"
-            onclick="buttonActionFunction" key-code="32"
-            position="-0.853 0.288 0.010"
-            scale="0.611 0.796 1"
-            value="option 1"
-            font-family="Arial"
-            margin="0 0 0.05 0"
-          >
-          </a-gui-button>
-      
-          <a-gui-button 
-            class= "interactive" 
-            width="2.5" height="0.75"
-            onclick="buttonActionFunction" key-code="32"
-            position="-0.853 0.288 0.010"
-            scale="0.611 0.796 1"
-            value="option 2"
-            font-family="Arial"
-            margin="0 0 0.05 0"
-          >
-          </a-gui-button>
-      
-          <a-gui-button
-            class= "interactive" 
-            width="2.5" height="0.75"
-            onclick="buttonActionFunction" key-code="32"
-            position="-0.853 0.288 0.010"
-            scale="0.611 0.796 1"
-            value="option 3"
-            font-family="Arial"
-            margin="0 0 0.05 0"
-          >
-          </a-gui-button>
-      
-          <a-gui-button 
-            class= "interactive" 
-            width="2.5" height="0.75"
-            onclick="buttonActionFunction" key-code="32"
-            position="-0.853 0.288 0.010"
-            scale="0.611 0.796 1"
-            value="option 4"
-            font-family="Arial"
-            margin="0 0 0.05 0"
-          >
-          </a-gui-button>
-      
-            
-      </a-gui-flex-container>-->
+
 
       </a-entity>
       
     </a-entity>
      
-      <a-entity id="bed" position="-50.16487 6.99694 2.58549" rotation="0.03609634109324186 92.11 -0.12662367272391195" scale="13.483 14.69246 13.483" gltf-model="/assets/bed.glb"></a-entity>
-      <a-entity id="carpet" position="-2.76955 0.68758 0.78815" rotation="" scale="-0.11871 -0.11871 -0.11871" gltf-model="/assets/carpet.glb"></a-entity>
+      <a-entity id="bed" position="-50.16487 6.99694 2.58549" rotation="0.03609634109324186 92.11 -0.12662367272391195" scale="13.483 14.69246 13.483" gltf-model="#bed_model"></a-entity>
+      <a-entity id="carpet" position="-2.76955 0.68758 0.78815" rotation="" scale="-0.11871 -0.11871 -0.11871" gltf-model="#carpet_model"></a-entity>
       <a-entity id="book" position="28.16331 16.85335 -0.35118" rotation="" scale="1.51003 1.51003 1.51003" gltf-model="#book_model" grabbable draggable droppable shadow
       event-set__dragdrop="_event:drag-drop; geometry.primitive: sphere;geometry.radius: 0.25"
       event-set__dragon="_event:dragover-start; material.wireframe: true"
       event-set__dragoff="_event:dragover-end; material.wireframe: false"></a-entity></a-entity>
-      <a-entity id="box" position="32.1904 4.16369 31.27557" onclick="setRoom2()" rotation="0 -20.936450791875412 0" scale="0.13538 0.13538 0.13538" gltf-model="/assets/box.glb"></a-entity>
-      <a-entity id="chair" position="31.9861 -16.26944 -39.04351" rotation="0 -65.17280328054089 0" scale="6.19715 6.19744 6.19744" gltf-model="/assets/chair.glb"></a-entity>
+      <a-entity id="box" position="32.1904 4.16369 31.27557" onclick="setRoom2()" rotation="0 -20.936450791875412 0" scale="0.13538 0.13538 0.13538" gltf-model="#box_model"></a-entity>
+      <a-entity id="chair" position="31.9861 -16.26944 -39.04351" rotation="0 -65.17280328054089 0" scale="6.19715 6.19744 6.19744" gltf-model="#chair_model"></a-entity>
       
       <a-entity position="25.9588 0 0.20169">
-        <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="/assets/diary.glb"></a-entity>
+        <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
       </a-entity>
 
 <!--commented the clues for now until mayar fixes assets-->
@@ -174,31 +111,31 @@
         <a-entity id="postcard_clue" class="interactive" add-ui3 add-text3 spinning-effect3 position="29.59276 8.86245 34.23291"  rotation="0 0 0"  scale="1.889 1.889 1.889"gltf-model="/assets/clue3.glb"></a-entity>
       </a-entity>-->
 
-      <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="/assets/envelope.glb"></a-entity>
-      <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="/assets/table.glb"></a-entity>
-      <a-entity id="wall candle" position="-67.10688 24.92195 -23.62657" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="/assets/wall candle.glb"></a-entity>
-      <a-entity id="wall candle2" position="-67.10688 24.92195 29.42788" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="/assets/wall candle.glb"></a-entity>
-      <a-entity id="waredrobe2" position="-2.93206 -0.77395 -60.98832" rotation="-180 0 0" scale="-0.145 -0.145 -0.145" gltf-model="/assets/waredrobe2.glb"></a-entity>
-      <a-entity id="Bag" position="-8.60471 28.63657 -51.07958" rotation="-180 0 0" scale="-0.52755 -0.52755 -0.52755" gltf-model="/assets/Bag.glb"></a-entity>
-      <a-entity id="BOXOPEN" position="29.75119 0.438 34.53685" rotation="0 -110.75102292540274 0" scale="0.15 0.15 0.15" gltf-model="/assets/BOXOPEN.glb"></a-entity>
-      <a-entity id="jewlery box" position="-9.91374 12.15115 -51.14332" rotation="" scale="0.22173 0.22173 0.22173" gltf-model="/assets/jewlery box.glb"></a-entity>
-      <a-entity id="doll" position="-9.30594 39.20385 -50.24887" rotation="" scale="0.009 0.009 0.009" gltf-model="/assets/doll.glb"></a-entity>
-      <a-entity id="watch" position="-9.30594 39.20385 -50.24887" rotation="" scale="0.009 0.009 0.009" gltf-model="/assets/watch.glb"></a-entity>
-      <a-entity id="Pin" position="-16.77304 29.35212 -48.96418" rotation="-89.85410622139135 179.9998479605043 179.9998479605043" scale="0.52477 0.52477 0.52477" gltf-model="/assets/Pin.glb"></a-entity>
-      <a-entity id="perfume 1" position="-7.01837 19.90191 -49.91869" rotation="" scale="0.27558 0.27558 0.27558" gltf-model="/assets/perfume 1.glb"></a-entity>
-      <a-entity id="Candle" position="36.26649 18.146 -13.63537" rotation="0 -90 0" scale="0.08028 0.08028 0.08028" gltf-model="/assets/Candle.glb"></a-entity>
-      <a-entity id="necklace" position="-12.69791 20.69447 -53.01104" rotation="0 -90 0" scale="0.52137 0.52137 0.52137" gltf-model="/assets/necklace.glb"></a-entity>
-      <a-entity id="scoll" position="28.72842 6.02001 30.36255" rotation="0 -117.5646370250985 0" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="28.62465 7.0782 34.56297" rotation="2.623000786108909 -88.71392020908101 -4.2295744436557365" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="29.83299 7.50673 30.24087" rotation="0 -90.1262611740785 0" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="26.47727 5.84172 36.21062" rotation="0.35236904400545627 -102.9078036678569 1.5383916799262602" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="26.76371 7.65326 38.64405" rotation="27.73688686228315 -110.14082287358842 2.7146740333298403" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="28.44465 5.97197 37.46476" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="30.84822 6.52413 31.46218" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="32.09432 5.98523 30.69343" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="30.25523 5.60475 36.83747" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="33.26309 6.40547 31.19619" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
-      <a-entity id="scoll" position="30.3542 8.27774 37.46109" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="/assets/scoll.glb"></a-entity>
+      <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
+      <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="#table_model"></a-entity>
+      <a-entity id="wallcandle" position="-67.10688 24.92195 -23.62657" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="#wallcandle_model"></a-entity>
+      <a-entity id="wallcandle2" position="-67.10688 24.92195 29.42788" rotation="0 90 0" scale="0.21736 0.21736 0.21736" gltf-model="#wallcandle_model"></a-entity>
+      <a-entity id="waredrobe2" position="-2.93206 -0.77395 -60.98832" rotation="-180 0 0" scale="-0.145 -0.145 -0.145" gltf-model="#waredrobe2_model"></a-entity>
+      <a-entity id="Bag" position="-8.60471 28.63657 -51.07958" rotation="-180 0 0" scale="-0.52755 -0.52755 -0.52755" gltf-model="#Bag_model"></a-entity>
+      <a-entity id="BOXOPEN" position="29.75119 0.438 34.53685" rotation="0 -110.75102292540274 0" scale="0.15 0.15 0.15" gltf-model="#BOXOPEN_model"></a-entity>
+      <a-entity id="jewlerybox" position="-9.91374 12.15115 -51.14332" rotation="" scale="0.22173 0.22173 0.22173" gltf-model="#jewlerybox_model"></a-entity>
+      <a-entity id="doll" position="-9.30594 39.20385 -50.24887" rotation="" scale="0.009 0.009 0.009" gltf-model="#doll_model"></a-entity>
+      <a-entity id="watch" position="-9.30594 39.20385 -50.24887" rotation="" scale="0.009 0.009 0.009" gltf-model="#watch_model"></a-entity>
+      <a-entity id="Pin" position="-16.77304 29.35212 -48.96418" rotation="-89.85410622139135 179.9998479605043 179.9998479605043" scale="0.52477 0.52477 0.52477" gltf-model="#Pin_model"></a-entity>
+      <a-entity id="perfume1" position="-7.01837 19.90191 -49.91869" rotation="" scale="0.27558 0.27558 0.27558" gltf-model="#Perfume1_model"></a-entity>
+      <a-entity id="Candle" position="36.26649 18.146 -13.63537" rotation="0 -90 0" scale="0.08028 0.08028 0.08028" gltf-model="#Candle_model"></a-entity>
+      <a-entity id="necklace" position="-12.69791 20.69447 -53.01104" rotation="0 -90 0" scale="0.52137 0.52137 0.52137" gltf-model="#necklace_model"></a-entity>
+      <a-entity id="scoll" position="28.72842 6.02001 30.36255" rotation="0 -117.5646370250985 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="28.62465 7.0782 34.56297" rotation="2.623000786108909 -88.71392020908101 -4.2295744436557365" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="29.83299 7.50673 30.24087" rotation="0 -90.1262611740785 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="26.47727 5.84172 36.21062" rotation="0.35236904400545627 -102.9078036678569 1.5383916799262602" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="26.76371 7.65326 38.64405" rotation="27.73688686228315 -110.14082287358842 2.7146740333298403" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="28.44465 5.97197 37.46476" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="30.84822 6.52413 31.46218" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="32.09432 5.98523 30.69343" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="30.25523 5.60475 36.83747" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="33.26309 6.40547 31.19619" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
+      <a-entity id="scoll" position="30.3542 8.27774 37.46109" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
 
       
       <a-entity position="35.71896 0 12.32969">
@@ -306,7 +243,7 @@
             margin="0 0 0.05 0"
             >
             </a-gui-radio> 
-            <a-gui-button id = "question1_end2" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+            <a-gui-button id = "question1_end2" class= "" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                 width="2.5" height="0.75"
                 onclick="buttonActionFunction" key-code="32"
                 position="0 0.025 0" scale="1.242 4.282 1.027"
@@ -339,7 +276,7 @@
             margin="0 0 0.05 0"
             >
             </a-gui-radio> 
-            <a-gui-button id = "question1_end3" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+            <a-gui-button id = "question1_end3" class= "" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                 width="2.5" height="0.75"
                 onclick="buttonActionFunction" key-code="32"
                 position="0 0.025 0" scale="1.242 4.282 1.027"
@@ -353,13 +290,13 @@
       </a-entity>
 
       <a-entity id="room">
-        <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src:/assets/Floor_Texture.jpg"position="-10.44656 0 -7.29101" rotation="-90 0 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-70.31305 47 -6.711" rotation="0 90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="49.05643 47 -6.71141" rotation="0 -90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-13.29203 47 55.20319" rotation="0 180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:/assets/Wall_Texture.jpg" position="-13.29203 47 -68.88783" rotation="0 -180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="ground" geometry="primitive: box; width: 90; height: 90; depth:1" material="src:#Floor_Texture_img"position="-10.44656 0 -7.29101" rotation="-90 0 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-70.31305 47 -6.711" rotation="0 90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="49.05643 47 -6.71141" rotation="0 -90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-13.29203 47 55.20319" rotation="0 180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-13.29203 47 -68.88783" rotation="0 -180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
       </a-entity>
-
+     
     
 
     </a-scene>
