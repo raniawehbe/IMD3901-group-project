@@ -17,9 +17,17 @@
         
      
           <a-asset-item id=  "bookshelf_model"        response-type="arraybuffer"  src="/assets/Room2/bookshelf.glb"></a-asset-item>
-          <!--<a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/Room2/table.glb"></a-asset-item>
-          <a-asset-item id=  "clock_model"        response-type="arraybuffer"  src="/assets/Room2/clock.glb"></a-asset-item>-->
-          <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/Room2/chair.glb"></a-asset-item>
+          <a-asset-item id=  "Waredrobe_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/Waredrobe_Room2.glb"></a-asset-item>
+          <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/table.glb"></a-asset-item>
+          <a-asset-item id=  "Bed_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/Bed_Room2.glb"></a-asset-item>
+          <a-asset-item id=  "Telescope_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/Telescope_Room2.glb"></a-asset-item>
+          <a-asset-item id=  "BedSideTable_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/BedSideTable_Room2.glb"></a-asset-item>
+          <a-asset-item id=  "BookShelf1_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/BookShelf1_Room2.glb"></a-asset-item>
+    
+          
+          
+          
+
           <img id= "Wall_Texture_img" src="/assets/Room2/vv.jpg" crossorigin="anonymous">
           <img id="Floor_Texture_img" src="/assets/Room2/Floor_Texture.jpg" crossorigin="anonymous">
        
@@ -33,27 +41,29 @@
 
      
       
-   <a-entity id="bookshelf" position="31.60591 0 -35" rotation="" scale="0.11 0.11 0.11" gltf-model="/assets/Room2/bookshelf.glb"></a-entity>
+
    
    <!--<a-entity id="table" position="-12.87027 17.44004 -33.77083" rotation="" scale="19.36977 19.36977 19.36977" gltf-model="/assets/Room2/table.glb"></a-entity>
       <a-entity id="clock" position="-51 27.6111 -42.63775" rotation="" scale="0.025 0.025 0.025" gltf-model="/assets/Room2/clock.glb"></a-entity>-->
-      
-      <a-entity id="chair" position="-11.954 0.2371 -43.14098" rotation="" scale="1.83742 1.83742 1.83742" gltf-model="/assets/Room2/chair.glb"></a-entity>
-    
-      <a-entity id="room">
-        <a-entity class="ground"  geometry="primitive:plane; width:90; height:90;"  material="src:Floor_Texture_img;" position="0 0 0"    rotation="-90 0 0"  scale="1.5 1.5 1.5"shadow="cast:false; receive:true;"></a-entity>
-
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: #Wall_Texture_img;" position="66 48.6 20.41111" rotation="0 -90 0" scale="1.5 1.5 1.5" shadow="cast: false"></a-entity>
-        
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: #Wall_Texture_img;" position="-66 48.6 20.41111" rotation="0 90 0" scale="1.5 1.5 1.5" shadow="cast: false"></a-entity>
-
-       
-       
+      <a-entity id="bookshelf" position="45.05926 0 -61.43434" rotation="" scale="0.09 0.09 0.09" gltf-model="/assets/Room2/bookshelf.glb"></a-entity>
+      <a-entity id="chair" position="1.5489 0.2371 -62.43461" rotation="" scale="1.837 1.83742 1.83742" gltf-model="/assets/Room2/chair.glb"></a-entity>
+      <a-entity id="Waredrobe_Room2" position="48.3504 0.2371 55.69655" rotation="0 180 0" scale="0.22 0.22 0.22" gltf-model="/assets/Room 2 assets/Waredrobe_Room2.glb"></a-entity>
+      <a-entity id="table" position="0.25004 18.0173 -53.9217" rotation="" scale="20 20 20" gltf-model="/assets/Room 2 assets/table.glb"></a-entity>
+      <a-entity id="Bed_Room2" position="1.09463 -0.72954 37.20699" rotation="0 -179.83254428432608 0" scale="24 24 24" gltf-model="/assets/Room 2 assets/Bed_Room2.glb"></a-entity>
+      <a-entity id="Telescope_Room2" position="-35.88437 21.05659 -51.64648" rotation="0 124.28314013080252 0" scale="0.8 0.8 0.8" gltf-model="/assets/Room 2 assets/Telescope_Room2.glb"></a-entity>
+      <a-entity id="BedSideTable_Room2" position="-36.88761 -0.22517 65.43461" rotation="0 -180 0" scale="0.20224 0.20224 0.20224" gltf-model="/assets/Room 2 assets/BedSideTable_Room2.glb"></a-entity>
+      <a-entity id="BookShelf1_Room2" position="70.22249 32.67847 -20.578" rotation="0 139.1405087163399 0" scale="0.17 0.17 0.17" gltf-model="/assets/Room 2 assets/BookShelf1_Room2.glb"></a-entity>
+      <a-entity id="Books_Room2" position="-54.27609 -15.34405 116.53281" rotation="0 90 0" scale="4.62059 4.62059 4.62059" gltf-model="/assets/Room 2 assets/Books_Room2.glb"></a-entity>
    
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: #Wall_Texture_img;" position="0 48.6 46.51323" rotation="0 180 0" scale="1.5 1.5 1.5" shadow="cast: false"></a-entity>
+      <a-entity id="room">
+        <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src: Floor_Texture_img" position="11.75989 0 0.22904" rotation="-90 0 0" scale="1.5792 1.655 55.19775" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="8.45089 48.6 -66.93338" rotation="" scale="1.67 1.67 1.5" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="76.15721 48.6 2.16153" rotation="0 -90 0" scale="1.67 1.67 1.678" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="10.4005 48.6 73.17277" rotation="0 180 0" scale="1.67 1.67 1.5" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="-51.77355 48.6 1.89113" rotation="0 90 0" scale="1.7 1.67 1.67" shadow="cast: false"></a-entity>
 
 
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src:#Wall_Texture_img;" position="0 48.6 -46.51323" rotation="0 0 0 " scale="1.5 1.5 1.5" shadow="cast: false"></a-entity>
+
       </a-entity>
 
    <!-- <a-entity environment="preset:default"></a-entity>-->
