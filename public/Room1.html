@@ -44,13 +44,17 @@
 
           
           <!--the clues(maiars glb's arent working so i kept it here for now commented)-->
-          <!--<a-asset-item id=  "letter_clue_model"        response-type="arraybuffer"  src="/assets/clue1.glb"></a-asset-item>-->
-          <!--<a-asset-item id=  "card_clue_model"        response-type="arraybuffer"  src="/assets/clue2.glb"></a-asset-item>-->
+          <a-asset-item id=  "1600_clue_letter_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_letter.glb"></a-asset-item>
+          <a-asset-item id=  "1600_clue_card2_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_card2.glb"></a-asset-item>-->
+          <a-asset-item id=  "1600_clue_card_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_card.glb"></a-asset-item>-->
+         
           <!--<a-asset-item id=  "postcard_clue_model"        response-type="arraybuffer"  src="/assets/clue3.glb"></a-asset-item>-->
           
           <img id="Floor_Texture_img"  src="/assets/FLOOR.jpg" crossorigin="anonymous">
           <img id="Wall_Texture_img"   src="/assets/Wall.jpg"  crossorigin="anonymous">
-       
+          <img id="hint1_img"   src="/assets/hint1.png"  crossorigin="anonymous">
+          <img id="hint2_img"   src="/assets/hint2.png"  crossorigin="anonymous">
+          <img id="hint3_img"   src="/assets/hint3.png"  crossorigin="anonymous">
         </a-assets>
 
      <!-- <a-entity environment="preset:default;"></a-entity>-->
@@ -99,17 +103,17 @@
       </a-entity>
 
 <!--commented the clues for now until mayar fixes assets-->
-      <!--<a-entity position="29.59276 0 34.23291">
-        <a-entity id="letter_clue" class="interactive" add-ui add-text spinning-effect position="29.59276 8.86245 34.23291"  rotation="0 0 0"  scale="1.889 1.889 1.889"gltf-model="/assets/clue1.glb"></a-entity>
-      </a-entity>-->
+      <a-entity position="-36.282 0 -27.323">
+        <a-entity id="1600_clue_letter" class="interactive" add-ui  spinning-effect position="64.280 6.451 58.589"  rotation="0 0 -65"  scale="2 2 2"gltf-model="#1600_clue_letter_model"></a-entity>
+      </a-entity>
 
-      <!--<a-entity position="29.59276 0 34.23291">
-        <a-entity id="card_clue" class="interactive" add-ui2 add-text2 spinning-effect2 position="29.59276 8.86245 34.23291"  rotation="0 0 0"  scale="1.889 1.889 1.889"gltf-model="/assets/clue2.glb"></a-entity>
-      </a-entity>-->
+      <a-entity position="29.59276 0 34.23291">
+        <a-entity id="1600_clue_card2" class="interactive" add-ui2 add-text2 spinning-effect2 position="-38.513 28.144 -82.958"  rotation="0 0 0"  scale="1.889 1.889 1.889"gltf-model="#1600_clue_card2_model"></a-entity>
+      </a-entity>
 
-      <!--<a-entity position="29.59276 0 34.23291">
-        <a-entity id="postcard_clue" class="interactive" add-ui3 add-text3 spinning-effect3 position="29.59276 8.86245 34.23291"  rotation="0 0 0"  scale="1.889 1.889 1.889"gltf-model="/assets/clue3.glb"></a-entity>
-      </a-entity>-->
+      <a-entity position="29.59276 0 34.23291">
+        <a-entity id="1600_clue_card" class="interactive" add-ui3 add-text3 spinning-effect3 position="-59.286 14.607 -78.500"  rotation="0 0 0"  scale="1.889 1.889 1.889"gltf-model="#1600_clue_card_model"></a-entity>
+      </a-entity>
 
       <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
       <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="#table_model"></a-entity>
