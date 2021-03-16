@@ -25,7 +25,7 @@ init: function () {
         entityEl.setAttribute('scale', "27.674 21.132 1.125");
         entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
         entityEl.setAttribute('material', "color: #995d46");
-          
+        entityEl.setAttribute('material', { src: 'assets/hint1.png' })  
         el.sceneEl.appendChild(entityEl);
         
 
@@ -56,7 +56,7 @@ init: function () {
         entityEl.setAttribute('scale', "27.674 21.022 1.125");
         entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
         entityEl.setAttribute('material', "color: #995d46");
-        
+        entityEl.setAttribute('material', { src: 'assets/hint2.png' })  
         el.sceneEl.appendChild(entityEl);
         
 
@@ -87,6 +87,7 @@ init: function () {
         entityEl.setAttribute('scale', "27.674 21.022 1.125");
         entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
         entityEl.setAttribute('material', "color: #995d46");
+        entityEl.setAttribute('material', { src: 'assets/hint3.png' })  
 
         el.sceneEl.appendChild(entityEl);
         
@@ -619,103 +620,9 @@ console.log("height reached");
         
 });
 
-AFRAME.registerComponent('add-text', {
-schema: {
-default: '',
-parse: AFRAME.utils.styleParser.parse
-},
-multiple: false,       
-init: function () {
-    
-const el = this.el;
-console.log('I am ready!');
 
-el.addEventListener('click', function() {
-        
 
-  var entityEl = document.createElement('a-entity');
-  //entityEl.setAttribute('add-UI', '');
-  entityEl.setAttribute('id', "panel_text1");
-  entityEl.setAttribute('class', "text");
-  entityEl.setAttribute('position', "23.608 16.240 38.745");
-  entityEl.setAttribute('rotation', "-1.782 -139.461 -0.576");
-  entityEl.setAttribute('scale', "25.213 17.430 20.445");
-  //entityEl.setAttribute('geometry', { width:0.4});
-  entityEl.setAttribute('material', "color: #fff");
-  entityEl.setAttribute('text', {value:'A letter that was\n written to grandma\n in 1663 by her\n best friend asking\n her about her new\n life in Montreal and\n how shes dealing \nwith life away from\n her homeland France.'});
-          
-        
-  el.sceneEl.appendChild(entityEl);
-        
 
-  });
-}
-});
-
-AFRAME.registerComponent('add-text2', {
-schema: {
-        default: '',
-        parse: AFRAME.utils.styleParser.parse
-        },
-multiple: false,       
-init: function () {
-    
-    const el = this.el;
-    console.log('I am ready!');
-
-    el.addEventListener('click', function() {
-        
-
-        var entityEl = document.createElement('a-entity');
-        //entityEl.setAttribute('add-UI', '');
-        entityEl.setAttribute('id', "panel_text2");
-        entityEl.setAttribute('class', "text2");
-        entityEl.setAttribute('position', "1.391 38.114 -39.775");
-        entityEl.setAttribute('rotation', "0 2.063 0");
-        entityEl.setAttribute('scale', "27.674 21.022 1.125");
-        //entityEl.setAttribute('geometry', { width:0.4});
-        entityEl.setAttribute('material', "color: #fff");
-        entityEl.setAttribute('text', {value:'A gift from Hudsons\n Bay given to\n grandma the same \nweek that it opened\n in 1670.'});
-          
-        
-        el.sceneEl.appendChild(entityEl);
-        
-
-    });
-}
-});
-AFRAME.registerComponent('add-text3', {
-schema: {
-        default: '',
-        parse: AFRAME.utils.styleParser.parse
-        },
-multiple: false,       
-init: function () {
-    
-    const el = this.el;
-    console.log('I am ready!');
-
-    el.addEventListener('click', function() {
-        
-
-        var entityEl = document.createElement('a-entity');
-        //entityEl.setAttribute('add-UI', '');
-        entityEl.setAttribute('id', "panel_text3");
-        entityEl.setAttribute('class', "text3");
-        entityEl.setAttribute('position', "-23.682 29.785 -48.681");
-        entityEl.setAttribute('rotation', "0 23.975 0");
-        entityEl.setAttribute('scale', "24.443 18.568 4.490");
-        //entityEl.setAttribute('geometry', { width:0.4});
-        entityEl.setAttribute('material', "color: #fff");
-        entityEl.setAttribute('text', {value:'A postcard of Montreal\n that was sent \nto grandma back in\n 1662 before going\n to Canada.'});
-          
-        
-        el.sceneEl.appendChild(entityEl);
-        
-
-    });
-}
-});
 
 AFRAME.registerComponent('nextQuestion', {
         schema: {
