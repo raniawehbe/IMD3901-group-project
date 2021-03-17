@@ -487,40 +487,7 @@ console.log("height reached");
         
 });
 
-
-AFRAME.registerComponent('nextQuestion', {
-        schema: {
-            duration: {type: 'number', default:20000.0},  //duration is in milliseconds
-        },
-        multiple: false, //do not allow multiple instances of this component on this entity
-        init: function() {
-            
-            //get a local reference to our entities and set some property variables
-            const Context_AF = this;
-            //Context_AF2  = this;
-
-            //Context_AF.question1      = document.querySelector('#question1');
-            Context_AF.question2      = document.querySelector('#question2');
-
-            //Context_AF.question1.setAttribute('visible', "true");
-            //Context_AF.question2.setAttribute('visible', "false");
-
-            Context_AF.el.addEventListener('click', function() {
-              
-                    
-                    //Context_AF.question1.setAttribute('visible', "false");
-                    Context_AF.question2.setAttribute('visible', "true");
-                    console.log("next question: 2");
-                          
-            
-            });        
-          
-        
-        },
-        
-        });
-
-        //For Questions
+//For Questions       
 
         AFRAME.registerComponent('next_question', {
           schema: {

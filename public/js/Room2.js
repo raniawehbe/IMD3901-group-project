@@ -316,12 +316,12 @@ AFRAME.registerComponent('visibility', {
             Context_AF.question      = document.querySelector('#questions');
             Context_AF.question1     = document.querySelector('#question1');
             Context_AF.question2     = document.querySelector('#question2');
-            Context_AF.question3     = document.querySelector('#question3');
+            
 
             Context_AF.question.setAttribute('visible', "false");
             Context_AF.question1.setAttribute('visible', "false");
             Context_AF.question2.setAttribute('visible', "false");
-            Context_AF.question3.setAttribute('visible', "false");
+           
 
             Context_AF.el.addEventListener('click', function() {
 
@@ -401,3 +401,141 @@ AFRAME.registerComponent('nextQuestion', {
         },
         
         });
+
+        AFRAME.registerComponent('next_question', {
+          schema: {
+            default: '', //duration is in milliseconds
+          },
+          multiple: false, //do not allow multiple instances of this component on this entity
+          init: function () {
+              
+              //get a local reference to our entities and set some property variables
+              const Context_AF = this;
+              //Context_AF2  = this;
+  
+              Context_AF.question1      = document.querySelector('#question1');
+              Context_AF.question2      = document.querySelector('#question2');
+              Context_AF.question1end      = document.querySelector('#question1_end');
+              Context_AF.choice1     = document.querySelector('#question1_choice1');
+              Context_AF.choice2     = document.querySelector('#question1_choice2');
+              Context_AF.Q2choice1     = document.querySelector('#question2_choice1');
+              Context_AF.Q2choice2     = document.querySelector('#question2_choice2');
+  
+              Context_AF.question2.setAttribute('visible', "false");
+  
+              //Context_AF.question1.setAttribute('visible', "true");
+              //Context_AF.question2.setAttribute('visible', "false");
+  
+              Context_AF.el.addEventListener('click', function() {
+                
+                      
+                      Context_AF.question1.setAttribute('visible', "false");
+                      Context_AF.question2.setAttribute('visible', "true");
+                      Context_AF.question1end.setAttribute('class', "");
+                      Context_AF.choice1.setAttribute('class', "");
+                      Context_AF.choice2.setAttribute('class', "");
+                      Context_AF.Q2choice1.setAttribute('class', "interactive");
+                      Context_AF.Q2choice2.setAttribute('class', "interactive");
+  
+                      console.log("next question: 2");
+                            
+              
+              });        
+            
+          
+          },
+          
+  });
+  
+  
+  AFRAME.registerComponent('question1_correct', {
+    schema: {
+      default: '', //duration is in milliseconds
+    },
+    multiple: false, //do not allow multiple instances of this component on this entity
+    init: function () {
+        
+        //get a local reference to our entities and set some property variables
+        const Context_AF = this;
+        //Context_AF2  = this;
+  
+        Context_AF.question1Btn      = document.querySelector('#question1_end');
+        Context_AF.choice1     = document.querySelector('#question1_choice1');
+        Context_AF.choice2     = document.querySelector('#question1_choice2');
+  
+        Context_AF.question1Btn.setAttribute('visible', "false");
+   
+  
+        Context_AF.el.addEventListener('click', function() {
+            
+              Context_AF.question1Btn.setAttribute('visible', "true");
+  
+              Context_AF.choice2.setAttribute('active-color', '#22252a');
+              Context_AF.choice2.setAttribute('handle-color', '#22252a');
+                      
+        
+        });        
+      
+    
+    },
+    
+  });
+  
+  AFRAME.registerComponent('question2_correct', {
+    schema: {
+      default: '', //duration is in milliseconds
+    },
+    multiple: false, //do not allow multiple instances of this component on this entity
+    init: function () {
+        
+        //get a local reference to our entities and set some property variables
+        const Context_AF = this;
+        //Context_AF2  = this;
+  
+        Context_AF.question2Btn = document.querySelector('#question2_end2');
+  
+  
+        Context_AF.question2Btn.setAttribute('visible', "false");
+   
+  
+        Context_AF.el.addEventListener('click', function() {
+            
+              Context_AF.question2Btn.setAttribute('visible', "true");
+  
+        
+        });        
+      
+    
+    },
+    
+  });
+  
+ 
+  
+  AFRAME.registerComponent('wrong_answer', {
+      schema: {
+                  default: '',
+                  parse: AFRAME.utils.styleParser.parse
+              },
+    multiple: true,
+    init: function () {
+        
+        //get a local reference to our entities and set some property variables
+        const Context_AF = this;
+  
+        Context_AF.questionsPlane = document.querySelector('#question_plane');
+  
+        Context_AF.questionsPlane.addEventListener('click', function(evt) {
+            
+          Context_AF.questionsPlane.setAttribute('animation__color', {property:'material.color', type:"color", from:"rgb(255, 0, 0)", to:"rgb(255, 255, 255)",  dur:4000, easing:'linear'});
+          Context_AF.questionsPlane.setAttribute('animation__shake', {property:'position.x', from:1, to:0, loop:4, dur:300, easing:'linear'});
+  
+          console.log("wrong asnwer!")
+        
+        });    
+        
+        
+      
+    },
+    
+  });

@@ -118,31 +118,34 @@
       </a-entity>
     </a-entity>
 
-    <a-entity id="questions" geometry= "primitive: box; width: 15; height: 20.3 depth:0.9;" position="-2.154 22.843 0" rotation="0 0 0">
+    <a-entity id="questions" position="-2.154 22.843 0" rotation="0 0 0">
+      <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;" 
+              
+              shadow>
       <a-entity id="question1" position="-1.895 0 0.536">
-        <a-entity text="value:Choose the Correct Answer: ; 
-                   color:black; font:roboto; width:13.240; anchor:left; baseline:top; wrapCount:22.72;" position="-4.597 8.564 0.052"></a-entity>  
-        <a-entity id = "question1_title" text="value:Montreal was established by a group of religious mystics from France named Paul de Chomedy and Jeanne Mance in ; 
+      <a-entity text="value:Q#1 - Choose the Correct Answer: ; 
+                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+      <a-entity id = "question1_title" text="value:Which of the following was a big part of Canada’s economy back in the 1700s? ; 
                    color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-        <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+      <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
 
-          <a-gui-radio id = "question1_choice1" class= "interactive"  position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question1_choice1" class= "interactive" question1_correct position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          material= "blending: additive"
           width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1666"
+          value="The fur trade"
           font-size="0.3"
-          margin="0 0 0.05 0"
+          margin="0 0 0.05 0" shadow
           >
           </a-gui-radio>   
-          <a-gui-radio id = "question1_choice2" class= "interactive" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question1_choice2" class= "button interactive" wrong_answer position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          material= "blending: additive"
           width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1642"
+          value="Increased agricultural production, manufacturing and domestic trade"
           font-size="0.3"
-          margin="0 0 0.05 0"
+          margin="0 0 0.05 0" shadow
           >
           </a-gui-radio> 
-          <a-gui-button id = "question1_end" class= "interactive" nextQuestion position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+          <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
               width="2.5" height="0.75"
               key-code="32"
               position="0 0.025 0" scale="1.242 4.282 1.027"
@@ -150,76 +153,45 @@
               margin="0 0 0.05 0"
             >
           </a-gui-button>
+
         </a-entity> 
       </a-entity> 
-      <a-entity id="question2" position="-1.895 0 0.536">
-        <a-entity text="value:Choose the Correct Answer 2: ; 
-                   color:black; font:roboto; width:13.240; anchor:left; baseline:top; wrapCount:22.72;" position="-4.597 8.564 0.052"></a-entity>  
-        <a-entity id = "question1_title" text="value:Question 2 ; 
+      <a-entity id="question2" position="-1.895 0 0.536" visible="false">
+        <a-entity text="value:Q#2 - Choose the Correct Answer: ; 
+                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+        <a-entity id = "question2_title" text="value: The Constitutional Act was established in 1791 to ______ the French-speaking population of Quebec with the English-speaking population.; 
                    color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-        <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+        <a-entity id="question2_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
 
-          <a-gui-radio id = "question1_choice1" class= "interactive" nextQuestion position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question2_choice1" class= "" wrong_answer position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
           width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1666"
-          font-size="0.3"
-          margin="0 0 0.05 0"
+          value="join"
+          font-size="0.220"
+          margin="0 0 0.05 0" shadow
           >
           </a-gui-radio>   
-          <a-gui-radio id = "question1_choice2" class= "interactive" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question2_choice2" class= "" question2_correct position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
           width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1642"
-          font-size="0.3"
-          margin="0 0 0.05 0"
+          value="seperate"
+          font-size="0.220"
+          margin="0 0 0.05 0" shadow
           >
           </a-gui-radio> 
-          <a-gui-button id = "question1_end2" class= "" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+          <a-gui-button id = "question2_end2" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
               width="2.5" height="0.75"
-              onclick="buttonActionFunction" key-code="32"
+              onclick="document.location='transition2D.html'" key-code="32"
               position="0 0.025 0" scale="1.242 4.282 1.027"
               value="Next Question"
               margin="0 0 0.05 0"
             >
           </a-gui-button>
         </a-entity> 
-      </a-entity>
-      <a-entity id="question3" position="-1.895 0 0.536">
-        <a-entity text="value:Choose the Correct Answer 3: ; 
-                   color:black; font:roboto; width:13.240; anchor:left; baseline:top; wrapCount:22.72;" position="-4.597 8.564 0.052"></a-entity>  
-        <a-entity id = "question1_title" text="value:Question 3; 
-                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-        <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
-
-          <a-gui-radio id = "question1_choice1" class= "interactive" nextQuestion position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1666"
-          font-size="0.3"
-          margin="0 0 0.05 0"
-          >
-          </a-gui-radio>   
-          <a-gui-radio id = "question1_choice2" class= "interactive" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          onclick="toggleActionFunction"
-          value="1642"
-          font-size="0.3"
-          margin="0 0 0.05 0"
-          >
-          </a-gui-radio> 
-          <a-gui-button id = "question1_end3" class= "" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
-              width="2.5" height="0.75"
-              onclick="buttonActionFunction" key-code="32"
-              position="0 0.025 0" scale="1.242 4.282 1.027"
-              value="Next Question"
-              margin="0 0 0.05 0"
-            >
-          </a-gui-button>
+      </a-entity>    
         </a-entity> 
       </a-entity>
+      </a-entity>
 
-    </a-entity>
+  </a-entity>
 
     <!--<a-entity  position = "29.593 1.391 47.861" >
       <a-box id="room_unlock" class= "cube interactive" onclick="document.location='transition2D.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
@@ -228,9 +200,6 @@
     </a-entity>-->
 
     
-
-  
-
       <a-entity id="room">
         <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src: Floor_Texture_img" position="11.75989 0 0.22904" rotation="-90 0 0" scale="1.5792 1.655 55.19775" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="8.45089 48.6 -66.93338" rotation="" scale="1.67 1.67 1.5" shadow="cast: false"></a-entity>
