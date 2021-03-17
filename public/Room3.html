@@ -105,11 +105,15 @@
   
   </a-assets>
 
+  <!--Sound for teddy bear-->
+  <a-assets>
+    <audio id="O'canada" src="/assets/1800's/O'Canada.mp3"></audio>
+</a-assets>
  
 
-  <a-entity id="camera" camera="" look-controls="" wasd-controls="" position="10 3 3" rotation="20 60 0" data-aframe-inspector-original-camera=""></a-entity>
-    <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
-   
+  <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="10 3 3" rotation="20 60 0">
+    <a-entity light="type:spot; intensity:0.7; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
+    <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
     
     <a-gui-cursor id="cursor"
 						  raycaster="objects: [gui-interactable]"
@@ -128,7 +132,9 @@
               gltf-model="#teddy_model"
               animation__click="property:position.y; to:1.9; startEvents:click; dur:300" 
               animation__rotation="property:rotation; to:-90 490 0; loop:true; dur:20000; startEvents:click;"
-              shadow>
+              shadow
+              sound=                "src: #O'canada;  volume: 5"
+              play-sound-on-event=  "mode: toggle-stop; event: click" >
     </a-entity>
   </a-entity> 
 
