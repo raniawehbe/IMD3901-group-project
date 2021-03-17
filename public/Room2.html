@@ -29,7 +29,9 @@
          <!-- <a-asset-item id=  "1600_clue_letter_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_letter.glb"></a-asset-item>
           <a-asset-item id=  "1600_clue_card2_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_card2.glb"></a-asset-item>-->
       
-          
+          <a-asset-item id=  "1700_Clue_Carpet_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1700_Clue_Carpet.glb"></a-asset-item>
+          <a-asset-item id=  "1700_clue_map_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1700_clue_map.glb"></a-asset-item>
+         
 
           <img id= "Wall_Texture_img" src="/assets/Room2/vv.jpg" crossorigin="anonymous">
           <img id="Floor_Texture_img" src="/assets/Room2/Floor_Texture.jpg" crossorigin="anonymous">
@@ -79,32 +81,23 @@
       <a-entity id="BedSideTable_Room2" position="-36.88761 -0.22517 65.43461" rotation="0 -180 0" scale="0.20224 0.20224 0.20224" gltf-model="/assets/Room 2 assets/BedSideTable_Room2.glb"></a-entity>
      <a-entity id="Books_Room2" position="-54.27609 -15.34405 116.53281" rotation="0 90 0" scale="4.62059 4.62059 4.62059" gltf-model="/assets/Room 2 assets/Books_Room2.glb"></a-entity>
      
-     
+    
+
      <a-entity id="clues">
-      <a-entity  position = "29.59276 0 34.23291">
-        <a-box id="letter_clue" class= "cube interactive" add-ui add-text spinning-effect position="29.59276 8.86245 34.23291" rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"      
+      <a-entity  position = "48.166 -10.445 11.257">
+        <a-entity id="carpet_clue" class= "interactive" add-ui add-text spinning-effect position="48.166 -10.445 11.257" rotation="0 87.394 0" color="#ff0000" scale="24.154 24.154 24.154" gltf-model="#1700_Clue_Carpet_model"     
               shadow >
-        </a-box> 
+        </a-entity> 
       </a-entity>
 
-      <a-entity position="-7.64263 30.10749 0">
-        <a-box id="card_clue" class= "cube interactive" position="-7.64263 30.10749 -51.57049" add-ui2 add-text2 spinning-effect2 rotation="0 0 0" color="#ff0000" scale="1.889 1.889 1.889"          
-          shadow>
-        </a-box>
+      
+        <a-entity  position = "-2.807 17.060 -15.466">
+          <a-entity id="map_clue" class= "interactive" add-ui2 add-text spinning-effect2 position="-2.807 17.060 37.466" rotation="0 -0.296 0" color="#ff0000" scale="24.154 24.154 24.154" gltf-model="#1700_clue_map_model"     
+                shadow >
+          </a-entity> 
       </a-entity>
 
-      <a-entity position="-30.24706 0 -46.50628">
-        <a-box id="postcard_clue"  class= "cube interactive" position="-30.24706 16.0656 -46.50628"  add-ui3 add-text3 spinning-effect3 rotation="0 0 0" color="#ff0000"  geometry="" scale="1.889 1.889 1.889"           
-          shadow>
-        </a-box>
-      </a-entity>
-
-      <a-entity position="29.2662 0 -11.37426">
-        <a-box id="newspaper_clue" class= "cube interactive" position="29.2662 19.28847 -11.37426" add-ui4 spinning-effect4 rotation="0 0 0" color="#ff0000"  geometry="" scale="1.889 1.889 1.889"
-          shadow> 
-        </a-box>
-     </a-entity>
-
+      
     </a-entity> 
 
     <!--<a-entity  position = "29.593 1.391 47.861" >
@@ -113,9 +106,9 @@
       </a-box> 
     </a-entity>-->
 
-    <a-entity id="progress_ui" position="-50.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
+    <a-entity id="progress_ui" position="-45.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
       <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
-      <a-entity id = "clues_found" text="value:Clues Found: 0/4 ; 
+      <a-entity id = "clues_found" text="value:Clues Found: 0/2 ; 
                    color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
 
       <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
@@ -241,7 +234,7 @@
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="8.45089 48.6 -66.93338" rotation="" scale="1.67 1.67 1.5" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="76.15721 48.6 2.16153" rotation="0 -90 0" scale="1.67 1.67 1.678" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="10.4005 48.6 73.17277" rotation="0 180 0" scale="1.67 1.67 1.5" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="-51.77355 48.6 1.89113" rotation="0 90 0" scale="1.7 1.67 1.67" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: /assets/Room2/vv.jpg" position="-61.77355 48.6 1.89113" rotation="0 90 0" scale="1.7 1.67 1.67" shadow="cast: false"></a-entity>
 
         
       </a-entity>
