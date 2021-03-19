@@ -126,8 +126,10 @@
 
     <a-entity id="questions" position="-2.154 22.843 0" rotation="0 0 0">
       <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;" 
-              
-              shadow>
+                material="color:#d6931f;"
+                animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:#d6931f;  dur:4000; easing:linear; startEvents: animation-start;"
+                animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
+                shadow>
       <a-entity id="question1" position="-1.895 0 0.536">
       <a-entity text="value:Q#1 - Choose the Correct Answer: ; 
                    color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
@@ -135,22 +137,26 @@
                    color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
       <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
 
-          <a-gui-radio id = "question1_choice1" class= "interactive" question1_correct position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          material= "blending: additive"
+          <a-gui-radio id = "question1_choice1" class= "interactive" question1_correct position="1.193 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          material= "blending: additive; visible:false"
           width="2.5" height="0.75"
           value="The fur trade"
-          font-size="0.3"
+          font-size="0.2"
           margin="0 0 0.05 0" shadow
           >
           </a-gui-radio>   
-          <a-gui-radio id = "question1_choice2" class= "button interactive" wrong_answer position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          material= "blending: additive"
+          <a-gui-radio id = "question1_choice2" class= "button interactive" position="1.193 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          material= "blending: additive; visible:false"
           width="2.5" height="0.75"
-          value="Increased agricultural production, manufacturing and domestic trade"
-          font-size="0.3"
-          margin="0 0 0.05 0" shadow
+
+          margin="0 0 0.5 0" shadow
+
           >
+            <a-entity position="-0.524 0.285 0.00" text="value:Increased agricultural production, manufacturing and domestic trade: ; 
+                   color:#2c3037; font:roboto; width:1.780; anchor:left; baseline:top; wrapCount:14.2;">
+            </a-entity>
           </a-gui-radio> 
+
           <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
               width="2.5" height="0.75"
               key-code="32"
@@ -169,15 +175,17 @@
                    color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
         <a-entity id="question2_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
 
-          <a-gui-radio id = "question2_choice1" class= "" wrong_answer position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question2_choice1" class= "" position="1.1930.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
           width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
           value="join"
           font-size="0.220"
           margin="0 0 0.05 0" shadow
           >
           </a-gui-radio>   
-          <a-gui-radio id = "question2_choice2" class= "" question2_correct position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question2_choice2" class= "" question2_correct position="1.193 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
           width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
           value="seperate"
           font-size="0.220"
           margin="0 0 0.05 0" shadow
@@ -187,7 +195,7 @@
               width="2.5" height="0.75"
               onclick="document.location='transitionRoom3.html'" key-code="32"
               position="0 0.025 0" scale="1.242 4.282 1.027"
-              value="Next Question"
+              value="Unlock Room"
               margin="0 0 0.05 0"
             >
           </a-gui-button>
@@ -219,6 +227,30 @@
    <!-- <a-entity environment="preset:default"></a-entity>-->
 
     </a-scene>
+
+    <script>
+      var currentAnim = "animation-start";
+      var currentAnim2 = "shake-start";
+
+      document.querySelector("#question1_choice2").addEventListener("click", function() {
+        document.getElementById("question_plane").emit(currentAnim);
+        document.getElementById("question_plane").emit(currentAnim2);
+
+        currentAnim = "animation-start";
+        currentAnim2 = "shake-start";
+
+      });
+
+      document.querySelector("#question2_choice1").addEventListener("click", function() {
+        document.getElementById("question_plane").emit(currentAnim);
+        document.getElementById("question_plane").emit(currentAnim2);
+
+        currentAnim = "animation-start";
+        currentAnim2 = "shake-start";
+
+      });
+
+    </script>
 
   </body>
 

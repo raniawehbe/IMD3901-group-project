@@ -133,7 +133,7 @@
       <a-entity position="35.71896 0 12.32969">
         <a-entity id="picture-frame" class="interactive" false-clue position="0 18.02653 0" rotation="0 -102.81899520961161 0" scale="0.31132 0.31132 0.31132" gltf-model="/assets/picture frame.glb"></a-entity>
       </a-entity>  
-      
+
       <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="/assets/suitcase.glb"></a-entity>
       
 
@@ -177,6 +177,8 @@
 
       <a-entity id="questions" position="-2.154 22.843 0" rotation="0 0 0">
         <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;" 
+                  animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
+                  animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
                 
                 shadow>
         <a-entity id="question1" position="-1.895 0 0.536">
@@ -301,6 +303,22 @@
      // }
 
       document.querySelector("a-scene").addEventListener("loaded", onSceneLoad);*/
+    
+
+      var currentAnim = "animation-start";
+      var currentAnim2 = "shake-start";
+
+      document.querySelector("#question1_choice2").addEventListener("click", function() {
+        document.getElementById("question_plane").emit(currentAnim);
+        document.getElementById("question_plane").emit(currentAnim2);
+
+        currentAnim = "animation-start";
+        currentAnim2 = "shake-start";
+
+      });
+
+
+
     </script>
   
   </body>

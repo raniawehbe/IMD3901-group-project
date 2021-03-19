@@ -38,11 +38,21 @@
     
        
    
-        <input type="submit" onclick="window.location.href='/Room2.html'"value="Room 1 unlocked, click anywhere to proceed to 2nd room" class="myButton"/>
+        <input type="submit" onclick=" play();"value="Room 1 unlocked, click anywhere to proceed to 2nd room" class="myButton"/>
     
    <!-- <img src="/assets/level2.gif" class="center"-->
 
    <img src="/assets/levels.gif" alt="loading">
+   <audio id="audio" src="/assets/1700.mp3"></audio>
+
+   <script>
+     function play() {
+        location.href='transition2D.html';
+
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+   </script>
 
     
 

@@ -254,28 +254,25 @@ AFRAME.registerComponent('question3_correct', {
 });
 
 AFRAME.registerComponent('wrong_answer', {
-    schema: {
-                default: '',
-                parse: AFRAME.utils.styleParser.parse
-            },
-  multiple: true,
+  schema: {
+    default: '', //duration is in milliseconds
+  },
+  multiple: false, //do not allow multiple instances of this component on this entity
   init: function () {
       
       //get a local reference to our entities and set some property variables
       const Context_AF = this;
-
-      Context_AF.questionsPlane = document.querySelector('#question_plane');
-
-      Context_AF.questionsPlane.addEventListener('click', function(evt) {
-          
-        Context_AF.questionsPlane.setAttribute('animation__color', {property:'material.color', type:"color", from:"rgb(255, 0, 0)", to:"rgb(255, 255, 255)",  dur:4000, easing:'linear'});
-        Context_AF.questionsPlane.setAttribute('animation__shake', {property:'position.x', from:1, to:0, loop:4, dur:300, easing:'linear'});
-
-        console.log("wrong asnwer!")
-      
-      });    
-      
-      
+  
+        Context_AF.questionsPlane = document.querySelector('#question_plane');
+  
+        Context_AF.el.addEventListener('click', function(evt) {
+            
+          Context_AF.questionsPlane.setAttribute('animation__color', {property:'material.color', type:"color", from:"rgb(255, 0, 0)", to:"rgb(255, 255, 255)",  dur:4000, easing:'linear'});
+          Context_AF.questionsPlane.setAttribute('animation__shake', {property:'position.x', from:1, to:0, loop:4, dur:300, easing:'linear'});
+  
+          console.log("wrong asnwer!")
+        
+        });        
     
   },
   
@@ -292,29 +289,27 @@ AFRAME.registerComponent('wrong_answer', {
             <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
             <a-entity light="type:spot; intensity:1.5; castShadow:true; shadowBias:-0.5; angle:200; penumbra:4;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
         </a-entity>
-
-        <a-entity id="box"
-                  class="interactive" add-ui visibility
-                  position="0 0.2 0"
+<a-entity>
+        <a-entity id="amazing"
+                  class="interactive" 
+                  position="0 0.2 6"
                   geometry="primitive:box; width:0.4; height:0.4; depth:0.4;" 
-                  material="color:rgb(255, 100, 100)"
-                  animation__mouseenter="property:material.color; type:color; to:rgb(255, 0, 0); startEvents:mouseenter; dur:200"
-                  animation__mouseleave="property:material.color; type:color; to:rgb(255, 100, 100); startEvents:mouseleave; dur:200"
-                  animation__click="property:position.y; to:0.6; startEvents:click; dur:300" 
-                  animation__rotation="property:rotation; to:0 360 0; loop:true; dur:15000; startEvents:click;" shadow></a-entity>>
+                  material="color:rgb(255, 0, 0)"
+                  animation= "property:material.color; type:color; from:rgb(255, 0, 255); to:rgb(255, 0, 0); dur:2000; easing:linear; startEvents: rotation-start; 
+                                    pauseEvents: rotation-pause; resumeEvents: rotation-resume; restartEvents: rotation-restart"
+                  shadow></a-entity>>
         </a-entity>
-
-        <a-entity id="box2" 
-        class="interactive" 
-        position="2.5 0.2 0.2"
-        geometry="primitive:box; width:0.4; height:0.4; depth:0.4;" 
-        material="color:rgb(255, 100, 255)"
-        animation__mouseenter="property:material.color; type:color; to:rgb(250, 0, 250); startEvents:mouseenter; dur:200"
-        animation__mouseleave="property:material.color; type:color; to:rgb(255, 100, 255); startEvents:mouseleave; dur:200"
-        animation__click="property:position.y; to:0.6; startEvents:click; dur:300" 
-        animation__rotation="property:rotation; to:0 360 0; loop:true; dur:15000; startEvents:click;" shadow></a-entity>>
 </a-entity>
 
+<a-entity>
+        <a-entity id="box2" 
+        class="interactive" 
+        position="2.5 0.2 8"
+        geometry="primitive:box; width:0.4; height:0.4; depth:0.4;" 
+        material="color:rgb(0, 250, 0)"
+        shadow></a-entity>>
+        </a-entity>
+</a-entity>
 
         <a-entity id="plane"
                   position="0 0.01 0"
@@ -328,7 +323,9 @@ AFRAME.registerComponent('wrong_answer', {
         
         <a-entity id="questions" position="-2.154 10 0" rotation="0 0 0">
             <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;" 
-                    material="color:#FBC14D;"
+                    material="color:#d6931f;"
+                    animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:#d6931f;  dur:4000; easing:linear; startEvents: animation-start;"
+                    animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
                     shadow>
             <a-entity id="question1" position="-1.895 0 0.536">
             <a-entity text="value:Q#1 - Choose the Correct Answer: ; 
@@ -337,16 +334,16 @@ AFRAME.registerComponent('wrong_answer', {
                          color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
             <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
       
-                <a-gui-radio id = "question1_choice1" class= "interactive" question1_correct position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-                material= "blending: additive"
+                <a-gui-radio id = "question1_choice1" class= "interactive"  position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+                material= "blending: additive; visible:false"
                 width="2.5" height="0.75"
                 value="1666"
                 font-size="0.3"
                 margin="0 0 0.05 0" shadow
                 >
                 </a-gui-radio>   
-                <a-gui-radio id = "question1_choice2" class= "button interactive" wrong_answer position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-                material= "blending: additive"
+                <a-gui-radio id = "question1_choice2" class= "button interactive" question1_correct position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+                material= "blending: additive; visible:false"
                 width="2.5" height="0.75"
                 value="1642"
                 font-size="0.3"
@@ -373,13 +370,15 @@ AFRAME.registerComponent('wrong_answer', {
       
                 <a-gui-radio id = "question2_choice1" class= "" question2_correct position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
                 width="2.5" height="0.75"
+                material= "blending: additive; visible:false"
                 value="France"
                 font-size="0.220"
                 margin="0 0 0.05 0" shadow
                 >
                 </a-gui-radio>   
-                <a-gui-radio id = "question2_choice2" class= "" wrong_answer position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+                <a-gui-radio id = "question2_choice2" class= "" position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
                 width="2.5" height="0.75"
+                material= "blending: additive; visible:false"
                 value="England"
                 font-size="0.220"
                 margin="0 0 0.05 0" shadow
@@ -402,8 +401,9 @@ AFRAME.registerComponent('wrong_answer', {
                          color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
               <a-entity id="question3_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
       
-                <a-gui-radio id = "question3_choice1" class= "" wrong_answer position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+                <a-gui-radio id = "question3_choice1" class= "" position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
                 width="2.5" height="0.75"
+                material= "blending: additive; visible:false"
                 value="Aldo"
                 font-size="0.180"
                 margin="0 0 0.05 0" shadow
@@ -411,6 +411,7 @@ AFRAME.registerComponent('wrong_answer', {
                 </a-gui-radio>   
                 <a-gui-radio id = "question3_choice2" class= "" question3_correct position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
                 width="2.5" height="0.75"
+                material= "blending: additive; visible:false"
                 value="Hudson's Bay"
                 font-size="0.180"
                 margin="0 0 0.05 0" shadow
@@ -432,5 +433,40 @@ AFRAME.registerComponent('wrong_answer', {
         </a-entity>
         <a-entity environment="preset:default"></a-entity>
     </a-scene>
+
+    <script>
+
+      var currentAnim = "animation-start";
+      var currentAnim2 = "shake-start";
+
+      document.querySelector("#question1_choice1").addEventListener("click", function() {
+        document.getElementById("question_plane").emit(currentAnim);
+        document.getElementById("question_plane").emit(currentAnim2);
+
+        currentAnim = "animation-start";
+        currentAnim2 = "shake-start";
+
+      });
+
+      document.querySelector("#question2_choice2").addEventListener("click", function() {
+        document.getElementById("question_plane").emit(currentAnim);
+        document.getElementById("question_plane").emit(currentAnim2);
+
+        currentAnim = "animation-start";
+        currentAnim2 = "shake-start";
+
+      });
+
+      document.querySelector("#question3_choice1").addEventListener("click", function() {
+        document.getElementById("question_plane").emit(currentAnim);
+        document.getElementById("question_plane").emit(currentAnim2);
+
+        currentAnim = "animation-start";
+        currentAnim2 = "shake-start";
+
+      });
+
+  
+    </script>
 </body>
 </html>
