@@ -64,10 +64,6 @@ init: function () {
 }
 });
 
-
-
-
-
 AFRAME.registerComponent('spinning-effect', {
 schema: {
 duration: {type: 'number', default:20000.0},  //duration is in milliseconds
@@ -138,8 +134,8 @@ Context_AF.el.addEventListener('click', function() {
 }
 
 else if(cluesFound == 1){
-Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
-Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
 Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
 }
 
@@ -219,8 +215,8 @@ Context_AF.el.addEventListener('click', function() {
 }
 
 else if(cluesFound == 1){
-Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
-Context_AF.progressMeter.setAttribute('position', '-0.920 0 0.810');
+Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+Context_AF.progressMeter.setAttribute('position', '-0.600 0 0.810');
 Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
 }
 
@@ -232,8 +228,6 @@ Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
 });
 
 
-
-
 AFRAME.registerComponent('false-clue', {
 schema: {
 duration: {type: 'number', default:20000.0},  //duration is in milliseconds
@@ -243,23 +237,23 @@ init: function() {
 
 //get a local reference to our entities and set some property variables
 const Context_AF = this;
-Context_AF.walls      = document.querySelector('#picture-frame');
+Context_AF.walls      = document.querySelector('#Telescope_Room2');
 Context_AF.isSpinning = false;
 
 //let's add the basic animation to teh walls entity
 //note that it is not enabled initially
-Context_AF.walls.setAttribute('animation', {property:'position.y', to:18.02653, dur:300, easing:'linear'});
+Context_AF.walls.setAttribute('animation', {property:'position.y', to:21.05659, dur:300, easing:'linear'});
  
 //listen on click
 Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
-    Context_AF.walls.setAttribute('animation', {to:18.02653});
+    Context_AF.walls.setAttribute('animation', {to:21.05659});
     Context_AF.isSpinning = false;
   }
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:19.5});
+    Context_AF.walls.setAttribute('animation', {to:22.5});
     Context_AF.isSpinning = true;
   }
 });
@@ -277,23 +271,21 @@ init: function() {
 
 //get a local reference to our entities and set some property variables
 const Context_AF = this;
-Context_AF.walls      = document.querySelector('#diary');
+Context_AF.walls      = document.querySelector('#Books_Room2');
 Context_AF.isSpinning = false;
 
-//let's add the basic animation to teh walls entity
-//note that it is not enabled initially
-Context_AF.walls.setAttribute('animation', {property:'position.y', to:17.90097, dur:300, easing:'linear'});
+Context_AF.walls.setAttribute('animation', {property:'position.y', to:-15.34405, dur:300, easing:'linear'});
  
 //listen on click
 Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
-    Context_AF.walls.setAttribute('animation', {to:17.90097});
+    Context_AF.walls.setAttribute('animation', {to:-15.34405});
     Context_AF.isSpinning = false;
   }
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:19.2});
+    Context_AF.walls.setAttribute('animation', {to:-13});
     Context_AF.isSpinning = true;
   }
 });
@@ -301,6 +293,37 @@ Context_AF.el.addEventListener('click', function() {
 
 });
 
+AFRAME.registerComponent('false-clue3', {
+  schema: {
+  duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+  },
+  multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+  
+  //get a local reference to our entities and set some property variables
+  const Context_AF = this;
+  Context_AF.walls      = document.querySelector('#chair');
+  Context_AF.isSpinning = false;
+  
+  Context_AF.walls.setAttribute('animation', {property:'position.y', to:0.2371, dur:300, easing:'linear'});
+   
+  //listen on click
+  Context_AF.el.addEventListener('click', function() {
+    if (Context_AF.isSpinning === true) {
+      console.log('stop spinning');
+      Context_AF.walls.setAttribute('animation', {to:0.2371});
+      Context_AF.isSpinning = false;
+    }
+    else {
+      console.log('spinning');
+      Context_AF.walls.setAttribute('animation', {to:2});
+      Context_AF.isSpinning = true;
+    }
+  });
+  },
+  
+  });
+  
 
 AFRAME.registerComponent('visibility', {
         schema: {
@@ -337,38 +360,6 @@ AFRAME.registerComponent('visibility', {
         },
         
       });
-
-AFRAME.registerComponent('transition', {
-schema: {
-  duration: {type: 'number', default:20000.0},  //duration is in milliseconds
-},
-multiple: false, //do not allow multiple instances of this component on this entity
-init: function() {
-            
-//get a local reference to our entities and set some property variables
-const Context_AF = this;
-//Context_AF2  = this;
-
-Context_AF.question      = document.querySelector('#room_unlock');
-
-Context_AF.question.setAttribute('visible', "false");
-
-Context_AF.el.addEventListener('click', function() {
-              
-                    
-Context_AF.question.setAttribute('visible', "true");
-console.log("height reached");                  
-            
-});        
-          
-        
-},
-        
-});
-
-
-
-
 
 AFRAME.registerComponent('nextQuestion', {
         schema: {
@@ -475,8 +466,7 @@ AFRAME.registerComponent('nextQuestion', {
                       
         
         });        
-      
-    
+          
     },
     
   });
@@ -508,9 +498,7 @@ AFRAME.registerComponent('nextQuestion', {
     
     },
     
-  });
-  
- 
+  }); 
   
   AFRAME.registerComponent('wrong_answer', {
       schema: {

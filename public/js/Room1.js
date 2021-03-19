@@ -581,14 +581,13 @@ console.log("height reached");
   
   AFRAME.registerComponent('question1_correct', {
     schema: {
-      default: '', //duration is in milliseconds
+      default: '', 
     },
-    multiple: false, //do not allow multiple instances of this component on this entity
+    multiple: false, 
     init: function () {
         
         //get a local reference to our entities and set some property variables
         const Context_AF = this;
-        //Context_AF2  = this;
   
         Context_AF.question1Btn      = document.querySelector('#question1_end');
         Context_AF.choice1     = document.querySelector('#question1_choice1');
