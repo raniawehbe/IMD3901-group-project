@@ -20,23 +20,25 @@
       <a-asset-item id="hanger_model"     response-type="arraybuffer" src="/assets/Room4/hanger.glb"></a-asset-item>
       <a-asset-item id="Mirror_model"     response-type="arraybuffer" src="/assets/Room4/Mirror.glb"></a-asset-item>
       <a-asset-item id="clue1_model"     response-type="arraybuffer" src="/assets/Room4/clue1.glb"></a-asset-item>
+      <a-asset-item id="clue2_model"     response-type="arraybuffer" src="/assets/Room4/clue2.glb"></a-asset-item>
+      <a-asset-item id="table_model"     response-type="arraybuffer" src="/assets/Room4/table.glb"></a-asset-item>
+      <a-asset-item id="phone_model"     response-type="arraybuffer" src="/assets/Room4/phone.glb"></a-asset-item>
+      <a-asset-item id="clock_model"     response-type="arraybuffer" src="/assets/Room4/clock.glb"></a-asset-item>
+      
 
-  
   </a-assets>
 
  
 
   <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="3 3 7.8" rotation="20 60 0">
  <!--   <a-entity light="type:spot; intensity:0.7; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>  -->
-    <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
-    
+    <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">  
     <a-gui-cursor id="cursor"
 						  raycaster="objects: [gui-interactable]"
 						  fuse="false"
 				>
 				</a-gui-cursor> <!-- /cursor -->
     </a-entity>
-
   </a-entity>
 
 
@@ -47,6 +49,11 @@
   <a-entity id="hanger" position="2.2 0 -5.8" rotation="0 0 0" scale="0.05 0.05 0.05" gltf-model="#hanger_model" shadow=""></a-entity>
   <a-entity id="Mirror" position="-1 6.7 0" rotation="0 90 223" scale="0.35 0.35 0.3" gltf-model="#Mirror_model" shadow=""></a-entity>
   <a-entity id="clue1" position="5 -0.3 0.25" rotation="-26.3 0 0" scale="0.15 0.13 0.11" gltf-model="#clue1_model" shadow=""></a-entity>
+  <a-entity id="clue2" position="11.5 2 3.6" rotation="0 45 0" scale="4 4.6 2" gltf-model="#clue2_model" shadow=""></a-entity>
+  <a-entity id="table" position="11 -0.17 2.8" rotation="-90 0 -120" scale="0.15 0.13 0.11" gltf-model="#table_model" shadow=""></a-entity>
+  <a-entity id="phone" position="11.6 2.24 2.6" rotation="0 -90 0" scale="-0.04 0.04 0.04" gltf-model="#phone_model" shadow=""></a-entity>
+  <a-entity id="clock" position="11.8 2.8 1.6" rotation="90 0 45" scale="-0.05 0.04 0.05" gltf-model="#clock_model" shadow=""></a-entity>
+
  
 
 
