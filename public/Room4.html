@@ -8,7 +8,7 @@
     <script src="/js/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
-    
+    <script src="/js/Room4.js"></script>
 </head>
 <body>
 
@@ -28,20 +28,42 @@
       <a-asset-item id="clue3_model"     response-type="arraybuffer" src="/assets/Room4/clue3.glb"></a-asset-item>
       <a-asset-item id="clue4_model"     response-type="arraybuffer" src="/assets/Room4/clue4.glb"></a-asset-item>
       
-
+      <a-asset-item id=  "clue1_model"        response-type="arraybuffer"  src="/assets/Room4/clue1.glb"></a-asset-item>
+      <a-asset-item id=  "clue2_model"        response-type="arraybuffer"  src="/assets/Room4/clue2.glb"></a-asset-item>
+      <a-asset-item id=  "clue3_model"        response-type="arraybuffer"  src="/assets/Room4/clue3.glb"></a-asset-item>
+      <a-asset-item id=  "clue4_model"        response-type="arraybuffer"  src="/assets/Room4/clue4.glb"></a-asset-item>
+         
   </a-assets>
 
  
 
-  <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="3 3 7.8" rotation="20 60 0">
- <!--   <a-entity light="type:spot; intensity:0.7; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>  -->
-    <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">  
-    <a-gui-cursor id="cursor"
-						  raycaster="objects: [gui-interactable]"
-						  fuse="false"
-				>
-				</a-gui-cursor> <!-- /cursor -->
+  <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="7 3 0" rotation="-45 100 0">
+    <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
+    <a-entity light="type:spot; intensity:0.9; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
+  
+  
     </a-entity>
+    <a-gui-cursor id="cursor"
+            raycaster="objects: [gui-interactable]"
+            color="#00FFFFFF"
+            fuse="false">
+    </a-gui-cursor>
+  
+    <a-gui-flex-container id="questionBtn" class= "interactive" visibility
+    flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
+    position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" >        
+      <a-gui-button 
+        width="2.5" height="0.75"
+        onclick="buttonActionFunction" key-code="32"
+        position="0 0.025 0" scale="1.242 4.282 1.027"
+        value=" Proceed to Questions" 
+        margin="0 0 0.05 0"
+      >
+      </a-gui-button>
+  </a-gui-flex-container>
+  
+  
+  
   </a-entity>
 
 
@@ -55,12 +77,200 @@
   <a-entity id="phone" position="11.6 2.24 3.3" rotation="0 -90 0" scale="-0.04 0.04 0.04" gltf-model="#phone_model" shadow=""></a-entity>
   <a-entity id="clock" position="11.5 2.8 1.85" rotation="90 0 45" scale="-0.05 0.04 0.05" gltf-model="#clock_model" shadow=""></a-entity>
   <a-entity id="Egy1" position="4 0.47 2.5" rotation="0 0 0" scale="0.1 0.04 0.05" gltf-model="#Egy1_model" shadow=""></a-entity>
-  <a-entity id="clue1" position="5 -0.3 0.25" rotation="-26.3 0 0" scale="0.15 0.13 0.11" gltf-model="#clue1_model" shadow=""></a-entity>
+ <!-- <a-entity id="clue1" position="5 -0.3 0.25" rotation="-26.3 0 0" scale="0.15 0.13 0.11" gltf-model="#clue1_model" shadow=""></a-entity>
   <a-entity id="clue2" position="3.7 0.84 3.75" rotation="0 240 90" scale="0.53 0.79 0.65" gltf-model="#clue2_model" shadow=""></a-entity>
   <a-entity id="clue3" position="12.7 4.6 -1.34" rotation="0 -90 0" scale="0.24 0.24 0.44" gltf-model="#clue3_model" shadow=""></a-entity>
   <a-entity id="clue4" position="12.6 3.8 2" rotation="0 -90 0" scale="0.3 0.32 0.44" gltf-model="#clue4_model" shadow=""></a-entity>
- 
+-->
+  <a-entity id="clues">
+    <a-entity  position = "10.2 0.002 -3.024">
+      <a-entity id="book_clue" class= "interactive" add-ui add-text spinning-effect position="10.2 0.002 -3.024" rotation="0 -67.596 0" color="#ff0000" scale="0.349 0.25 0.25" gltf-model="#clue1_model"     
+            shadow >
+      </a-entity> 
+    </a-entity>
 
+    
+      <a-entity  position = "3.75027 0.96731 2.66257">
+        <a-entity id="news_clue" class= "interactive" add-ui2 add-text spinning-effect2 position="3.75027 0.96731 2.66257" rotation="3.943 -163.99 94.781" color="#ff0000" scale="0.562 0.562 0.562" gltf-model="#clue2_model"     
+              shadow >
+        </a-entity> 
+    </a-entity>
+
+    <a-entity  position = "12.498 2.76731 2.88257" >
+      <a-entity id="primeMinister_clue" class= "interactive" add-ui3 add-text spinning-effect3 position="12.498 2.76731 2.88257" rotation="0 -90 0" color="#ff0000" scale="0.390 0.390 0.390" gltf-model="#clue3_model"     
+            shadow >
+      </a-entity> 
+  </a-entity>
+
+  <a-entity  position = "12.498 2.76731 -1.969" >
+    <a-entity id="painting_clue" class= "interactive" add-ui4 add-text spinning-effect4 position="12.498 2.76731 -1.969" rotation="0 -90 0" color="#ff0000" scale="0.390 0.390 0.390" gltf-model="#clue4_model"     
+          shadow >
+    </a-entity> 
+</a-entity>
+
+  </a-entity> 
+
+  <!--<a-entity  position = "29.593 1.391 47.861" >
+    <a-box id="room_unlock" class= "cube interactive" onclick="document.location='transition2D.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
+          shadow >
+    </a-box> 
+  </a-entity>-->
+
+  <a-entity id="progress_ui" position="1.302 8.087 -6.394" rotation="0 40.480 0" scale="0.186 0.186 0.186" >
+      <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
+      <a-entity id = "clues_found" text="value:Clues Found: 0/4 ; 
+                   color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
+
+      <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
+        <a-entity id="progressMeter" geometry="primitive: box; width: 0; height: 0.710 depth:0" material="color: #ed5b21" position="0 0 0" rotation="-90 0 0" scale="1 1 1" shadow="cast: false"></a-entity>
+      </a-entity>
+    </a-entity>
+
+    <a-entity id="questions" position="7.154 4.843 0" rotation="0 0 0">
+      <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;"scale="0.465 0.465 0.465" 
+                material="color:#d6931f;"
+                animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
+                animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
+              shadow>
+
+      <a-entity id="question1" position="-1.895 0 0.536">
+      <a-entity text="value:Q#1 - Choose the Correct Answer: ; 
+                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+      <a-entity id = "question1_title" text="value:what is the country that joined the Canadian confederation back in 1949; 
+                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+      <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+          <a-gui-radio id = "question1_choice1" class= "interactive" position="1.40 0.113 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+           material= "blending: additive; visible:false"
+          width="2.5" height="0.75"
+          value="Novia Scotia"
+          font-size="0.3"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio>   
+          <a-gui-radio id = "question1_choice2" class= "button interactive" question1_correct position="1.409 -0.997 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+          material= "blending: additive; visible:false"
+          width="2.5" height="0.75"
+          value="Newfoundland"
+          font-size="0.3"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio> 
+          <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+              width="2.5" height="0.75"
+              key-code="32"
+              position="0 0.025 0" scale="1.242 4.282 1.027"
+              value="Next Question"
+              margin="0 0 0.05 0"
+            >
+          </a-gui-button>
+
+        </a-entity> 
+      </a-entity> 
+      <a-entity id="question2" position="-1.895 0 0.536" visible="false">
+        <a-entity text="value:Q#2 - Choose the Correct Answer: ; 
+                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+        <a-entity id = "question2_title" text="value: since when were Indigenous Canadians able to vote?; 
+                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+        <a-entity id="question2_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+          <a-gui-radio id = "question2_choice1" class= "" question2_correct position="1.409 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value=" not until the 1960s."
+          font-size="0.220"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio>   
+          <a-gui-radio id = "question2_choice2" class= "" position="1.409 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value="since always"
+          font-size="0.220"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio> 
+          <a-gui-button id = "question2_end2" class= "interactive" next_question2 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+              width="2.5" height="0.75"
+              onclick="" key-code="32"
+              position="0 0.025 0" scale="1.242 4.282 1.027"
+              value="Next Question"
+              margin="0 0 0.05 0"
+            >
+          </a-gui-button>
+        </a-entity> 
+      </a-entity>
+      
+      <a-entity id="question3" position="-1.895 0 0.536" visible="false">
+        <a-entity text="value:Q#3 - Choose the Correct Answer: ; 
+                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+        <a-entity id = "question3_title" text="value: the first lady to become a prime minister in Canada in 1993 was: ; 
+                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+        <a-entity id="question3_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+          <a-gui-radio id = "question3_choice1" class= "" position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value="Rita Johnston"
+          font-size="0.180"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio>   
+          <a-gui-radio id = "question3_choice2" class= "" question3_correct position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value=" Kim Campbell"
+          font-size="0.180"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio> 
+          <a-gui-button id = "question3_end3" class= "interactive" next_question3 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+              width="2.5" height="0.75"
+              onclick=""
+              key-code="32"
+              position="0 0.025 0" scale="1.242 4.282 1.027"
+              value="Next Question"
+              margin="0 0 0.05 0"
+            >
+          </a-gui-button>
+        </a-entity> 
+      </a-entity>
+      <a-entity id="question4" position="-1.895 0 0.536" visible="false">
+        <a-entity text="value:Q#4 - Choose the Correct Answer: ; 
+                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+        <a-entity id = "question4_title" text="value: ___________ was a topic that was a huge priority in Canada back in the late 1900s early 2000s.; 
+                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+        <a-entity id="question4_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+          <a-gui-radio id = "question4_choice1" class= "" question2_correct position="1.409 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value="Refugee issues"
+          font-size="0.220"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio>   
+          <a-gui-radio id = "question4_choice2" class= "" position="1.409 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value=" Indeginous issues"
+          font-size="0.220"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio> 
+          <a-gui-button id = "question4_end2" class= "interactive"  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+              width="2.5" height="0.75"
+              onclick="document.location='transitionDone.html'" key-code="32"
+              position="0 0.025 0" scale="1.242 4.282 1.027"
+              value="Unlock Room"
+              margin="0 0 0.05 0"
+            >
+          </a-gui-button>
+        </a-entity> 
+      </a-entity>
+      </a-entity>
+
+  </a-entity>
 
   <a-entity id="rooms">
     <a-entity class="ground" geometry="primitive: plane; width: 23; height: 23" material="color: black" position="6.16024 0.01 0.42501" rotation="-90 0 0" shadow="cast: false"></a-entity>
@@ -73,7 +283,37 @@
  
   
   
+  <script>
+    var currentAnim = "animation-start";
+      var currentAnim2 = "shake-start";
   
+      document.querySelector("#question1_choice1").addEventListener("click", function() {
+        document.getElementById("question_plane").emit(currentAnim);
+        document.getElementById("question_plane").emit(currentAnim2);
+  
+        currentAnim = "animation-start";
+        currentAnim2 = "shake-start";
+  
+      });
+  
+      document.querySelector("#question2_choice2").addEventListener("click", function() {
+        document.getElementById("question_plane").emit(currentAnim);
+        document.getElementById("question_plane").emit(currentAnim2);
+  
+        currentAnim = "animation-start";
+        currentAnim2 = "shake-start";
+  
+      });
+  
+      document.querySelector("#question3_choice1").addEventListener("click", function() {
+        document.getElementById("question_plane").emit(currentAnim);
+        document.getElementById("question_plane").emit(currentAnim2);
+  
+        currentAnim = "animation-start";
+        currentAnim2 = "shake-start";
+  
+      });
+      </script>
 </a-scene>
 </body>
 </html>
