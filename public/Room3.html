@@ -113,7 +113,8 @@
   <a-entity id="closet" position="2.57502 0 -5.52127" rotation="0 -90 0" scale="0.03 0.03 0.03" gltf-model="#closet_model" shadow=""></a-entity>
   <a-entity id="frame" position="2.65027 4.30231 -6.13857" rotation="0 180 0" scale="2 2 2" gltf-model="#frame_model" shadow=""></a-entity>
   <a-entity id="mirror" position="1.24552 0 7.1045" rotation="0 -180 0" scale="0.02 0.02 0.02" gltf-model="#mirror_model" shadow=""></a-entity>
-  <a-entity id="hockeyStick2" position="7.5 0 -8.7" rotation="4.7 180 10" scale="0.02 0.02 0.02" gltf-model="#hockeyStick2_model" shadow></a-entity>
+  
+  <a-entity id="hockeyStick2" position="-0.287 0.171 4.198" rotation="4.7 61.64 10" scale="0.039 0.039 0.039" gltf-model="#hockeyStick2_model" shadow></a-entity>
   <a-entity id="table" position="4 0 4" rotation="0 0 0" scale="0.02 0.02 0.02" gltf-model="#table_model" shadow></a-entity>
   <a-entity id="bed" position="3.70784 0 2.68486" rotation="0 92.0725988041379 0" scale="5 5 5" gltf-model="#bed_model" shadow=""></a-entity>
   <a-entity id="piano" position="10.87344 0 2.3802" rotation="0 -90 0" scale="0.0033 0.0033 0.0033" gltf-model="#piano_model" shadow=""></a-entity>
@@ -129,10 +130,12 @@
   <a-entity id="1800Pic"position="12.6 1.5 0" rotation="0 0 0" scale="0.6 1.4 -2.3" gltf-model="#1800Pic_model" shadow=""></a-entity>-->
 
   <a-entity id="clues">
-    <a-entity  position = "7.410 1.501 -4.434">
-      <a-entity id="glove_clue" class= "interactive" add-ui add-text spinning-effect position="10.5 1.184 -4.434" rotation="0 87.394 0" color="#ff0000" scale="0.6 0.25 0.25" gltf-model="#1800Glove_model"     
+    <a-entity  position = "6.507 0.571 -3.188" rotation="0 87.394 0" id="clue1">
+      <a-entity position="-0.081 0 2.596">
+      <a-entity id="glove_clue" class= "interactive" add-ui add-text spinning-effect position="0 0.79 0" rotation="0 0 0" color="#ff0000" scale="0.6 0.25 0.25" gltf-model="#1800Glove_model"     
             shadow >
       </a-entity> 
+    </a-entity>
     </a-entity>
 
     
@@ -143,7 +146,7 @@
     </a-entity>
 
     <a-entity  position = "0.19227 -6.76731 3.88257">
-      <a-entity id="hockey_clue" class= "interactive" add-ui3 add-text spinning-effect3 position="0.19227 -6.76731 3.88257" rotation="0 0 0" color="#ff0000" scale="0.037 0.037 0.037" gltf-model="#1800Hocky_model"     
+      <a-entity id="hockey_clue" class= "interactive" add-ui3 add-text spinning-effect3 position="0 7.358 0" rotation="0 0 0" color="#ff0000" scale="0.037 0.037 0.037" gltf-model="#1800Hocky_model"     
             shadow >
       </a-entity> 
   </a-entity>
@@ -157,9 +160,9 @@
     </a-box> 
   </a-entity>-->
 
-  <a-entity id="progress_ui" position="1.302 8.087 -6.394" rotation="0 40.480 0" scale="0.186 0.186 0.186" >
+  <a-entity id="progress_ui" position="1.302 8.087 -6.394" rotation="0 40.480 0" scale="0.137 0.186 0.186" >
       <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
-      <a-entity id = "clues_found" text="value:Clues Found: 0/3 ; 
+      <a-entity id = "clues_found" text="value:Clues Found: 0/4; 
                    color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
 
       <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">

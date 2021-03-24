@@ -107,14 +107,16 @@ init: function() {
 
 //get a local reference to our entities and set some property variables
 const Context_AF = this;
-Context_AF.walls      = document.querySelector('#glove_clue');
+Context_AF.walls      = document.querySelector('#clue1');
+Context_AF.walls2      = document.querySelector('#glove_clue');
 Context_AF.questionBtn     = document.querySelector('#questionBtn');
 
       
 Context_AF.isSpinning = false;
 
-Context_AF.walls.setAttribute('animation', {property:'position.y', to:1.501, dur:300, easing:'linear'});
+
 Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
+Context_AF.walls2.setAttribute('animation', {property:'position.y', to:0.79, dur:300, easing:'linear'});
 Context_AF.questionBtn.setAttribute('visible', "false");
 
 
@@ -125,30 +127,30 @@ Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
 Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
-    Context_AF.walls.setAttribute('animation', {to:1.501});
+    Context_AF.walls2.setAttribute('animation', {to:0.79});
     Context_AF.isSpinning = false; 
 
     document.querySelectorAll(".ui").forEach(e => e.parentNode.removeChild(e));
     document.querySelectorAll("#panel_text1").forEach(e => e.parentNode.removeChild(e));
     cluesFound -=1;
-    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
+    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
     Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
     
   }
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:1.501});
+    Context_AF.walls2.setAttribute('animation', {to:1.5});
     Context_AF.isSpinning = true;
 
     cluesFound +=1;
-    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
+    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
     Context_AF.walls.setAttribute("animation__rotation", {enabled:true});
            
   }
 
-  if(cluesFound == 3){
+  if(cluesFound == 4){
     Context_AF.questionBtn.setAttribute('visible', "true");
     
     Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
@@ -167,16 +169,22 @@ Context_AF.el.addEventListener('click', function() {
 }
 
 else if(cluesFound == 1){
-Context_AF.progressMeter.setAttribute('geometry', 'width: 0.833');
-Context_AF.progressMeter.setAttribute('position', '-0.820 0 0.810');
-Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
-}
-
-else if(cluesFound == 2){
-  Context_AF.progressMeter.setAttribute('geometry', 'width: 1.666');
-  Context_AF.progressMeter.setAttribute('position', '-0.4 0 0.810');
+  Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+  Context_AF.progressMeter.setAttribute('position', '-0.92 0 0.810');
   Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
-}
+  }
+  
+  else if(cluesFound == 2){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+    Context_AF.progressMeter.setAttribute('position', '-0.62 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+  }
+  
+  else if(cluesFound == 3){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+    Context_AF.progressMeter.setAttribute('position', '-0.29 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+  }
 
 
 });
@@ -217,7 +225,7 @@ Context_AF.el.addEventListener('click', function() {
     document.querySelectorAll(".ui2").forEach(e => e.parentNode.removeChild(e));
     document.querySelectorAll("#panel_text2").forEach(e => e.parentNode.removeChild(e));
     cluesFound -=1;
-    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
+    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
     Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
   }
@@ -227,13 +235,13 @@ Context_AF.el.addEventListener('click', function() {
     Context_AF.walls.setAttribute('animation', {to:0.446});
     Context_AF.isSpinning = true;
     cluesFound +=1;
-    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
+    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
     Context_AF.walls.setAttribute('animation__rotation', {enabled:true});
       
   }
 
-  if(cluesFound == 3){
+  if(cluesFound == 4){
     Context_AF.questionBtn.setAttribute('visible', "true");
     
     Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
@@ -252,16 +260,22 @@ Context_AF.el.addEventListener('click', function() {
 }
 
 else if(cluesFound == 1){
-Context_AF.progressMeter.setAttribute('geometry', 'width: 0.833');
-Context_AF.progressMeter.setAttribute('position', '-0.820 0 0.810');
-Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
-}
-
-else if(cluesFound == 2){
-  Context_AF.progressMeter.setAttribute('geometry', 'width: 1.666');
-  Context_AF.progressMeter.setAttribute('position', '-0.4 0 0.810');
+  Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+  Context_AF.progressMeter.setAttribute('position', '-0.92 0 0.810');
   Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
-}
+  }
+  
+  else if(cluesFound == 2){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+    Context_AF.progressMeter.setAttribute('position', '-0.62 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+  }
+  
+  else if(cluesFound == 3){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+    Context_AF.progressMeter.setAttribute('position', '-0.29 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+  }
 
 
 });
@@ -286,7 +300,7 @@ Context_AF.isSpinning = false;
 
 //let's add the basic animation to teh walls entity
 //note that it is not enabled initially
-Context_AF.walls.setAttribute('animation', {property:'position.y', to:5.214, dur:300, easing:'linear'});
+Context_AF.walls.setAttribute('animation', {property:'position.y', to:7.3581, dur:300, easing:'linear'});
 Context_AF.walls.setAttribute('animation__rotation', {property:'rotation', to:'0 360 0', loop:true, dur:10000, easing:'linear', enabled: false});
 Context_AF.questionBtn.setAttribute('visible', "false");
 
@@ -297,28 +311,28 @@ Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
 Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
-    Context_AF.walls.setAttribute('animation', {to:5.214});
+    Context_AF.walls.setAttribute('animation', {to:7.3581});
     Context_AF.isSpinning = false; 
 
     document.querySelectorAll(".ui3").forEach(e => e.parentNode.removeChild(e));
     document.querySelectorAll("#panel_text3").forEach(e => e.parentNode.removeChild(e));
     cluesFound -=1;
-    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
+    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
     Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
   }
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:5.214});
+    Context_AF.walls.setAttribute('animation', {to:8.514});
     Context_AF.isSpinning = true;
     cluesFound +=1;
-    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
+    document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
 
     Context_AF.walls.setAttribute('animation__rotation', {enabled:true});
           
   }
 
-  if(cluesFound == 3){
+  if(cluesFound == 4){
     Context_AF.questionBtn.setAttribute('visible', "true");
     
     Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
@@ -337,16 +351,22 @@ Context_AF.el.addEventListener('click', function() {
 }
 
 else if(cluesFound == 1){
-Context_AF.progressMeter.setAttribute('geometry', 'width: 0.833');
-Context_AF.progressMeter.setAttribute('position', '-0.820 0 0.810');
-Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
-}
-
-else if(cluesFound == 2){
-  Context_AF.progressMeter.setAttribute('geometry', 'width: 1.666');
-  Context_AF.progressMeter.setAttribute('position', '-0.4 0 0.810');
+  Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+  Context_AF.progressMeter.setAttribute('position', '-0.92 0 0.810');
   Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
-}
+  }
+  
+  else if(cluesFound == 2){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+    Context_AF.progressMeter.setAttribute('position', '-0.62 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+  }
+  
+  else if(cluesFound == 3){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+    Context_AF.progressMeter.setAttribute('position', '-0.29 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+  }
 
 
 });
