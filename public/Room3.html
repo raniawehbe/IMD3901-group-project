@@ -8,77 +8,10 @@
     <script src="/js/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
-    
+    <script src="/js/Room3.js"></script>
 </head>
 <body>
 
-  <script>
-    AFRAME.registerComponent('add-ui', {
-    schema: {
-            default: '',
-            parse: AFRAME.utils.styleParser.parse
-            },
-
-    init: function () {
-        
-        const el = this.el;
-        console.log('I am ready!');
-
-        el.addEventListener('click', function() {
-            
-
-            var entityEl = document.createElement('a-entity');
-            //entityEl.setAttribute('add-UI', '');
-            entityEl.setAttribute('id', "ui");
-            entityEl.setAttribute('position', "-0.999 2.741 1.609");
-            entityEl.setAttribute('rotation', "0 36.925 0");
-            entityEl.setAttribute('scale', "3.084 2.355 0.239");
-            entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
-            entityEl.setAttribute('material', "color: '#ACC'");
-              
-            
-            el.sceneEl.appendChild(entityEl);
-            
-
-        });
-    }
-    });
-
-    AFRAME.registerComponent('spinning-effect', {
-  schema: {
-    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
-  },
-  multiple: false, //do not allow multiple instances of this component on this entity
-  init: function() {
-    
-    //get a local reference to our entities and set some property variables
-    const Context_AF = this;
-    Context_AF.walls      = document.querySelector('#chair');
-    Context_AF.isSpinning = false;
-    
-    //let's add the basic animation to teh walls entity
-    //note that it is not enabled initially
-    Context_AF.walls.setAttribute('animation', {property:'position.y', to:0, dur:300, easing:'linear'});
-     
-    //listen on click
-    Context_AF.el.addEventListener('click', function() {
-      if (Context_AF.isSpinning === true) {
-        console.log('stop spinning');
-        Context_AF.walls.setAttribute('animation', {to:0});
-        Context_AF.isSpinning = false;
-      }
-      else {
-        console.log('spinning');
-        Context_AF.walls.setAttribute('animation', {to:0.9});
-        Context_AF.isSpinning = true;
-      }
-    });
-  },
-  
-
-});
-
-</script>
 
 <a-scene start-experience>
     <a-assets timeout="10000">
@@ -97,11 +30,16 @@
     <a-asset-item id="typewriter_model"     response-type="arraybuffer" src="/assets/1800's/typewriter.glb"></a-asset-item>
     <a-asset-item id="chair2_model"     response-type="arraybuffer" src="/assets/1800's/chair2.glb"></a-asset-item>
 
-    <!-- CLUE -->
+    <!-- CLUE 
     <a-asset-item id="1800Glove_model"     response-type="arraybuffer" src="/assets/Clue_Texture/1800Glove.glb"></a-asset-item>
     <a-asset-item id="1800Glove_model"     response-type="arraybuffer" src="/assets/Clue_Texture/1800Glove.glb"></a-asset-item>
     <a-asset-item id="1800Hocky_model"     response-type="arraybuffer" src="/assets/Clue_Texture/1800Hocky.glb"></a-asset-item>
-    <a-asset-item id="1800Pic_model"     response-type="arraybuffer" src="/assets/Clue_Texture/1800Pic.glb"></a-asset-item>
+    <a-asset-item id="1800Pic_model"     response-type="arraybuffer" src="/assets/Clue_Texture/1800Pic.glb"></a-asset-item>-->
+
+    <a-asset-item id=  "1800Glove_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1800Glove.glb"></a-asset-item>
+    <a-asset-item id=  "1800Pic_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1800Pic.glb"></a-asset-item>
+    <a-asset-item id=  "1800Hocky_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1800Hocky.glb"></a-asset-item>
+         
   
   </a-assets>
 
@@ -111,23 +49,38 @@
 </a-assets>
  
 
-  <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="10 3 3" rotation="20 60 0">
-    <a-entity light="type:spot; intensity:0.7; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
-    <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
-    
-    <a-gui-cursor id="cursor"
-						  raycaster="objects: [gui-interactable]"
-						  fuse="false"
-				>
-				</a-gui-cursor> <!-- /cursor -->
-    </a-entity>
+<a-entity id= "camera" camera="active: true" look-controls wasd-controls position="7 3 0" rotation="-45 100 0">
+  <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
+  <a-entity light="type:spot; intensity:0.9; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
+
 
   </a-entity>
+  <a-gui-cursor id="cursor"
+          raycaster="objects: [gui-interactable]"
+          color="#00FFFFFF"
+          fuse="false">
+  </a-gui-cursor>
+
+  <a-gui-flex-container id="questionBtn" class= "interactive" visibility
+  flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
+  position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" >        
+    <a-gui-button 
+      width="2.5" height="0.75"
+      onclick="buttonActionFunction" key-code="32"
+      position="0 0.025 0" scale="1.242 4.282 1.027"
+      value=" Proceed to Questions" 
+      margin="0 0 0.05 0"
+    >
+    </a-gui-button>
+</a-gui-flex-container>
+
+
+
 </a-entity>
 
 
  
-  <a-entity id="clue1" position = "-1 0 1.6">         
+ <!-- <a-entity id="clue1" position = "-1 0 1.6">         
     <a-entity id="teddy" class= "interactive" add-ui position="4.3589 1.76205 -2.60382" rotation="-90 110 0" scale="0.03 0.03 0.03"
               gltf-model="#teddy_model"
               animation__click="property:position.y; to:1.9; startEvents:click; dur:300" 
@@ -136,25 +89,25 @@
               sound=                "src: #O'canada;  volume: 5"
               play-sound-on-event=  "mode: toggle-stop; event: click" >
     </a-entity>
-  </a-entity> 
+  </a-entity> -->
 
 
-  <a-entity id="clue" class= "cube interactive"
+ <!-- <a-entity id="clue" class= "cube interactive"
               position="29.59276 8.86245 34.23291"
               scale="1.889 1.889 1.889"
               geometry="primitive:box; width:3.0; height:4.0; depth:1.0" 
               material="color:#FFFFFF;"
               animation__rotation="property:rotation; to:-90 490 0; loop:true; dur:20000; startEvents:click;">
   </a-entity>
+-->
 
-
-  <a-entity id=" position = "8.5 0 -8.7">
+  <!--<a-entity id=" position = "8.5 0 -8.7">
     <a-entity id="hockeyStick" class="interactive" position="0 0 0" rotation="-3 0 0" scale="0.02 0.02 0.02"
               gltf-model="#hockeyStick_model"
               animation__click="property:position.y; to:0.9; startEvents:click; dur:300" 
               animation__rotation="property:rotation; to:-3 490 0; loop:true; dur:20000; startEvents:click;"
               shadow>
-    </a-entity>
+    </a-entity>-->
   </a-entity>
   <a-entity id="carpet" position="7.9697 0.1 -0.01749" rotation="0 90.01166961505233 0" scale="0.19534 0.19534 0.19534" gltf-model="#carpet_model" shadow=""></a-entity>
   <a-entity id="closet" position="2.57502 0 -5.52127" rotation="0 -90 0" scale="0.03 0.03 0.03" gltf-model="#closet_model" shadow=""></a-entity>
@@ -168,13 +121,163 @@
   <a-entity id="typewriter" position="5.37569 2.26412 6.57376" rotation="0 92.44387545538268 0" scale="0.04371 0.04371 0.04371" gltf-model="#typewriter_model" shadow=""></a-entity>
   <a-entity id="chair2" position="6.71628 0.49765 -5.36218" rotation="0 2.7857207999260623 0" scale="2.17994 2.17994 2.17994" gltf-model="#chair2_model" shadow=""></a-entity>
 
-  <!-- CLUE -->
+  <!-- CLUE 
   <a-entity id="1800Glove"position="4 2.68 -2.93" rotation="0 0 0" scale="0.6 0.25 0.25" gltf-model="#1800Glove_model" shadow=""></a-entity>
   <a-entity id="1800Glove"position="10.5 1.184 -1.39" rotation="0 0 0" scale="0.6 0.25 0.25" gltf-model="#1800Glove_model" shadow=""></a-entity>
   <a-entity id="1800Hocky"position="0.110 0.199 4.451" rotation="0 90 0" scale="0.03 0.025 0.03" gltf-model="#1800Hocky_model" shadow=""></a-entity>
   <a-entity id="1800Hocky"position="0 0.199 5.451" rotation="10.750 -90 0" scale="0.03 0.025 0.03" gltf-model="#1800Hocky_model" shadow=""></a-entity>
-  <a-entity id="1800Pic"position="12.6 1.5 0" rotation="0 0 0" scale="0.6 1.4 -2.3" gltf-model="#1800Pic_model" shadow=""></a-entity>
+  <a-entity id="1800Pic"position="12.6 1.5 0" rotation="0 0 0" scale="0.6 1.4 -2.3" gltf-model="#1800Pic_model" shadow=""></a-entity>-->
 
+  <a-entity id="clues">
+    <a-entity  position = "7.410 1.501 -4.434">
+      <a-entity id="glove_clue" class= "interactive" add-ui add-text spinning-effect position="10.5 1.184 -4.434" rotation="0 87.394 0" color="#ff0000" scale="0.6 0.25 0.25" gltf-model="#1800Glove_model"     
+            shadow >
+      </a-entity> 
+    </a-entity>
+
+    
+      <a-entity  position = "12.25027 0.76731 0.08257">
+        <a-entity id="pic_clue" class= "interactive" add-ui2 add-text spinning-effect2 position="12.25027 0.76731 0.08257" rotation="0 0 0" color="#ff0000" scale="2 2 2" gltf-model="#1800Pic_model"     
+              shadow >
+        </a-entity> 
+    </a-entity>
+
+    <a-entity  position = "0.19227 -6.76731 3.88257">
+      <a-entity id="hockey_clue" class= "interactive" add-ui3 add-text spinning-effect3 position="0.19227 -6.76731 3.88257" rotation="0 0 0" color="#ff0000" scale="0.037 0.037 0.037" gltf-model="#1800Hocky_model"     
+            shadow >
+      </a-entity> 
+  </a-entity>
+
+    
+  </a-entity> 
+
+  <!--<a-entity  position = "29.593 1.391 47.861" >
+    <a-box id="room_unlock" class= "cube interactive" onclick="document.location='transition2D.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
+          shadow >
+    </a-box> 
+  </a-entity>-->
+
+  <a-entity id="progress_ui" position="1.302 8.087 -6.394" rotation="0 40.480 0" scale="0.186 0.186 0.186" >
+      <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
+      <a-entity id = "clues_found" text="value:Clues Found: 0/3 ; 
+                   color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
+
+      <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
+        <a-entity id="progressMeter" geometry="primitive: box; width: 0; height: 0.710 depth:0" material="color: #ed5b21" position="0 0 0" rotation="-90 0 0" scale="1 1 1" shadow="cast: false"></a-entity>
+      </a-entity>
+    </a-entity>
+
+    <a-entity id="questions" position="7.154 4.843 0" rotation="0 0 0">
+      <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;"scale="0.465 0.465 0.465" 
+                material="color:#d6931f;"
+                animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
+                animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
+              shadow>
+
+      <a-entity id="question1" position="-1.895 0 0.536">
+      <a-entity text="value:Q#1 - Choose the Correct Answer: ; 
+                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+      <a-entity id = "question1_title" text="value:Grandma’s souvenir from the first indoor hockey game that she played in Montreal was back on : ; 
+                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+      <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+          <a-gui-radio id = "question1_choice1" class= "interactive" position="1.40 0.113 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+           material= "blending: additive; visible:false"
+          width="2.5" height="0.75"
+          value="March 3, 1870"
+          font-size="0.3"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio>   
+          <a-gui-radio id = "question1_choice2" class= "button interactive" question1_correct position="1.409 -0.997 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+          material= "blending: additive; visible:false"
+          width="2.5" height="0.75"
+          value="March 3, 1875"
+          font-size="0.3"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio> 
+          <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+              width="2.5" height="0.75"
+              key-code="32"
+              position="0 0.025 0" scale="1.242 4.282 1.027"
+              value="Next Question"
+              margin="0 0 0.05 0"
+            >
+          </a-gui-button>
+
+        </a-entity> 
+      </a-entity> 
+      <a-entity id="question2" position="-1.895 0 0.536" visible="false">
+        <a-entity text="value:Q#2 - Choose the Correct Answer: ; 
+                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+        <a-entity id = "question2_title" text="value:  the newly invented electric cooking range was made by __________ in 1882; 
+                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+        <a-entity id="question2_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+          <a-gui-radio id = "question2_choice1" class= "" question2_correct position="1.409 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value="Thomas Ahearn"
+          font-size="0.220"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio>   
+          <a-gui-radio id = "question2_choice2" class= "" position="1.409 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value="Calixa Lavallée"
+          font-size="0.220"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio> 
+          <a-gui-button id = "question2_end2" class= "interactive" next_question2 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+              width="2.5" height="0.75"
+              onclick="" key-code="32"
+              position="0 0.025 0" scale="1.242 4.282 1.027"
+              value="Next Question"
+              margin="0 0 0.05 0"
+            >
+          </a-gui-button>
+        </a-entity> 
+      </a-entity>
+      <a-entity id="question3" position="-1.895 0 0.536" visible="false">
+        <a-entity text="value:Q#3 - Choose the Correct Answer: ; 
+                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+        <a-entity id = "question3_title" text="value: the first pairs of baseball gloves were invented in ___________ back in 1883 : ; 
+                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+        <a-entity id="question3_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+          <a-gui-radio id = "question3_choice1" class= "" position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value="America"
+          font-size="0.180"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio>   
+          <a-gui-radio id = "question3_choice2" class= "" question3_correct position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          width="2.5" height="0.75"
+          material= "blending: additive; visible:false"
+          value="Canada"
+          font-size="0.180"
+          margin="0 0 0.05 0" shadow
+          >
+          </a-gui-radio> 
+          <a-gui-button id = "question3_end3" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+              width="2.5" height="0.75"
+              onclick="document.location='transition4.html'"
+              key-code="32"
+              position="0 0.025 0" scale="1.242 4.282 1.027"
+              value="Unlock Room"
+              margin="0 0 0.05 0"
+            >
+          </a-gui-button>
+        </a-entity> 
+      </a-entity>
+      </a-entity>
+
+  </a-entity>
 
   <a-entity id="rooms">
     <a-entity class="ground" geometry="primitive: plane; width: 23; height: 23" material="color: black" position="6.16024 0.01 0.42501" rotation="-90 0 0" shadow="cast: false"></a-entity>
@@ -184,67 +287,37 @@
     <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/1800's/3.jpg" position="-0.99558 5.68544 0.60362" rotation="0 90 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
   </a-entity>
 
-  <a-gui-flex-container 
-	flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
-	position="15.499 2.5 -1.424" rotation="0 -90 0"
->
-... gui items here...
-  <a-gui-label 
-          width="2.5" height="0.75"
-          position="0 1.639 0.01"
-          value="Answer Question"
-          font-family="Arial"
-          margin="0 0 0.05 0"
-        >
-    </a-gui-label>
-    
-    <a-gui-button 
-      width="2.5" height="0.75"
-      onclick="buttonActionFunction" key-code="32"
-      position="-0.853 0.288 0.010"
-      scale="0.611 0.796 1"
-      value="option 1"
-      font-family="Arial"
-      margin="0 0 0.05 0"
-    >
-    </a-gui-button>
+  <script>
+  var currentAnim = "animation-start";
+    var currentAnim2 = "shake-start";
 
-    <a-gui-button 
-      width="2.5" height="0.75"
-      onclick="buttonActionFunction" key-code="32"
-      position="-0.853 0.288 0.010"
-      scale="0.611 0.796 1"
-      value="option 2"
-      font-family="Arial"
-      margin="0 0 0.05 0"
-    >
-    </a-gui-button>
+    document.querySelector("#question1_choice1").addEventListener("click", function() {
+      document.getElementById("question_plane").emit(currentAnim);
+      document.getElementById("question_plane").emit(currentAnim2);
 
-    <a-gui-button 
-      width="2.5" height="0.75"
-      onclick="buttonActionFunction" key-code="32"
-      position="-0.853 0.288 0.010"
-      scale="0.611 0.796 1"
-      value="option 3"
-      font-family="Arial"
-      margin="0 0 0.05 0"
-    >
-    </a-gui-button>
+      currentAnim = "animation-start";
+      currentAnim2 = "shake-start";
 
-    <a-gui-button 
-      width="2.5" height="0.75"
-      onclick="buttonActionFunction" key-code="32"
-      position="-0.853 0.288 0.010"
-      scale="0.611 0.796 1"
-      value="option 4"
-      font-family="Arial"
-      margin="0 0 0.05 0"
-    >
-    </a-gui-button>
+    });
 
-      
-</a-gui-flex-container>
-  
+    document.querySelector("#question2_choice2").addEventListener("click", function() {
+      document.getElementById("question_plane").emit(currentAnim);
+      document.getElementById("question_plane").emit(currentAnim2);
+
+      currentAnim = "animation-start";
+      currentAnim2 = "shake-start";
+
+    });
+
+    document.querySelector("#question3_choice1").addEventListener("click", function() {
+      document.getElementById("question_plane").emit(currentAnim);
+      document.getElementById("question_plane").emit(currentAnim2);
+
+      currentAnim = "animation-start";
+      currentAnim2 = "shake-start";
+
+    });
+    </script>
   
   
 </a-scene>
