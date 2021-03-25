@@ -20,12 +20,19 @@
         
           <a-asset-item id=  "wall2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/wall2.glb"></a-asset-item>
           <a-asset-item id=  "bookshelf_model"        response-type="arraybuffer"  src="/assets/Room2/bookshelf.glb"></a-asset-item>
-          <!-- <a-asset-item id=  "Waredrobe_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/Waredrobe_Room2.glb"></a-asset-item>-->
-          <a-asset-item id=  "Bed_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/Bed_Room2.glb"></a-asset-item>
+          <a-asset-item id=  "bed2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/bed2.glb"></a-asset-item>
           <a-asset-item id=  "Telescope_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/Telescope_Room2.glb"></a-asset-item>
           <a-asset-item id=  "BedSideTable_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/BedSideTable_Room2.glb"></a-asset-item>
-          
-          
+          <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/table2.glb"></a-asset-item>
+          <a-asset-item id=  "table2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/table.glb"></a-asset-item>
+          <a-asset-item id=  "dish_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/dish.glb"></a-asset-item>
+          <a-asset-item id=  "shelf_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/shelf.glb"></a-asset-item> 
+          <a-asset-item id=  "f1_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/f1.glb"></a-asset-item>
+          <a-asset-item id=  "f2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/f2.glb"></a-asset-item>
+          <a-asset-item id=  "f3_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/f3.glb"></a-asset-item>
+          <a-asset-item id=  "f4_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/f4.glb"></a-asset-item>
+          <a-asset-item id=  "Bed_Room2"        response-type="arraybuffer"  src="/assets/Room 2 assets/Bed_Room2.glb"></a-asset-item>
+         
          <a-asset-item id=  "1600_clue_letter_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_letter.glb"></a-asset-item>
           <a-asset-item id=  "1600_clue_card2_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_card2.glb"></a-asset-item>-->
       
@@ -40,9 +47,8 @@
 
         <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 100 0">
           <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
-          <a-entity light="type:spot; intensity:0.9; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>-->
-
-  
+          <a-entity light="type:spot; intensity:0.7; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
+          <a-entity light="type: ambient; color: #CCC"></a-entity>
           </a-entity>
           <a-gui-cursor id="cursor"
                   raycaster="objects: [gui-interactable]"
@@ -68,14 +74,19 @@
         </a-entity>
 
       <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
-
-
-      <a-entity id="table" position="1.39252 17.44004 -55.14495" rotation="" scale="19.36977 19.36977 19.36977" gltf-model="/assets/Room2/table.glb"></a-entity>
+      <a-entity id="Bed_Room2" position="6.587 -0.72954 39.988" rotation="0 -179.83254428432608 0" scale="24 31.5 24" gltf-model="/assets/Room 2 assets/Bed_Room2.glb"></a-entity>
+      <a-entity id="f1"  position="73.397 38.46 5.34" rotation="0 0 0" scale="0.57 7.5 7.77" gltf-model="/assets/Room 2 assets/f1.glb"></a-entity>-->
+      <a-entity id="f2"  position="73.397 53.8 -28.8" rotation="0 0 0" scale="1.5 4.79 5.6" gltf-model="/assets/Room 2 assets/f2.glb"></a-entity>-->
+      <a-entity id="f3"  position="73.397 57.96 -3.6" rotation="0 0 0" scale="1.5 5.29 4.9" gltf-model="/assets/Room 2 assets/f3.glb"></a-entity>-->
+      <a-entity id="f4"  position="73.397 40.87 -19.679" rotation="0 0 0" scale="1.5 3.3 4.12" gltf-model="/assets/Room 2 assets/f4.glb"></a-entity>-->
+      <a-entity id="shelf" position="96.57 0 -60.17" rotation="0 0 0" scale="0.08 0.11 0.06" gltf-model="/assets/Room 2 assets/shelf.glb"></a-entity>
+      <a-entity id="dish"  position="73.397 62.34 34.28" rotation="90 -180 -90" scale="1.5 0.95 1.5" gltf-model="/assets/Room 2 assets/dish.glb"></a-entity>-->
+      <a-entity id="table" position="4.47 5 -53" rotation="0 90 0" scale="0.1 0.15 -0.11" gltf-model="/assets/Room 2 assets/table.glb"></a-entity>
+      <a-entity id="table2" position="63.65 -29.7 -31" rotation="0 -158.67 0" scale="0.19 0.22 0.22" gltf-model="/assets/Room 2 assets/table2.glb"></a-entity>
       <a-entity id="clock" position="-51 27.6111 -42.63775" rotation="" scale="0.025 0.025 0.025" gltf-model="/assets/Room2/clock.glb"></a-entity>-->
       <a-entity id="wall2"position="6.845 48.6 73.17277" rotation="0 180 0" scale="1.67 1.67 1.5" gltf-model="/assets/Room 2 assets/wall2.glb"></a-entity>
-      <a-entity id="bookshelf" position="45.05926 0 -61.43434" rotation="" scale="0.09 0.09 0.09" gltf-model="/assets/Room2/bookshelf.glb"></a-entity>
-       <!--<a-entity id="Waredrobe_Room2" position="48.3504 0.2371 55.69655" rotation="0 180 0" scale="0.22 0.22 0.22" gltf-model="/assets/Room 2 assets/Waredrobe_Room2.glb"></a-entity>-->
-      <a-entity id="Bed_Room2" position="6.587 -0.72954 37.20699" rotation="0 -179.83254428432608 0" scale="24 24 24" gltf-model="/assets/Room 2 assets/Bed_Room2.glb"></a-entity> 
+      <a-entity id="bookshelf" position="60.5 0 -61.43434" rotation="" scale="0.09 0.09 0.09" gltf-model="/assets/Room2/bookshelf.glb"></a-entity>
+      <a-entity id="bed2" position="5.6 0.39 70" rotation="0 -179.83254428432608 0" scale="0.2 0.2 0.2" gltf-model="/assets/Room 2 assets/bed2.glb"></a-entity> -->
       <a-entity id="BedSideTable_Room2" position="-36.88761 -0.22517 65.43461" rotation="0 -180 0" scale="0.20224 0.20224 0.20224" gltf-model="/assets/Room 2 assets/BedSideTable_Room2.glb"></a-entity>
 
       <a-entity position="-35.88437 0 -51.64648">
