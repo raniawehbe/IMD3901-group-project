@@ -16,10 +16,10 @@
       <a-scene>
         <a-assets timeout="10000">
        
-          <a-asset-item id=  "bed_model"        response-type="arraybuffer"  src="/assets/bed.glb"></a-asset-item>
-          <a-asset-item id=  "book_model"        response-type="arraybuffer"  src="/assets/book.glb"></a-asset-item>
-          <a-asset-item id=  "carpet_model"        response-type="arraybuffer"  src="/assets/carpet.glb"></a-asset-item>
-          <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/chair.glb"></a-asset-item>
+          <a-entity id="bed" position="-50.16487 10.75 0" rotation="0.03609634109324186 0 -0.12662367272391195" scale="12 20.6 13.483" gltf-model="#bed_model"></a-entity>
+          <a-entity id="statue" position="-62.4 68 48" rotation="90 0 0" scale="0.8 0.8 2.2" gltf-model="#statue_model"></a-entity>
+          <a-entity id="carpet" position="-38 0.07 0" rotation="" scale="0.2 0 -0.15" gltf-model="#carpet_model"></a-entity>
+             <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/chair.glb"></a-asset-item>
           <a-asset-item id=  "diary_model"        response-type="arraybuffer"  src="/assets/diary.glb"></a-asset-item>
           <a-asset-item id=  "envelope_model"        response-type="arraybuffer"  src="/assets/envelope.glb"></a-asset-item>
           <a-asset-item id=  "rug_model"        response-type="arraybuffer"  src="/assets/rug.glb"></a-asset-item>
@@ -28,12 +28,10 @@
           <a-asset-item id=  "waredrobe_model"        response-type="arraybuffer"  src="/assets/waredrobe.glb"></a-asset-item>
           <a-asset-item id=  "waredrobe2_model"        response-type="arraybuffer"  src="/assets/waredrobe2.glb"></a-asset-item>
           <a-asset-item id=  "window_model"        response-type="arraybuffer"  src="/assets/window.glb"></a-asset-item>
-          <a-asset-item id=  "picture frame_model"        response-type="arraybuffer"  src="/assets/picture frame.glb"></a-asset-item>
-          <a-asset-item id=  "suitcase_model"        response-type="arraybuffer"  src="/assets/suitcase.glb"></a-asset-item>
+         <a-asset-item id=  "suitcase_model"        response-type="arraybuffer"  src="/assets/suitcase.glb"></a-asset-item>
           <a-asset-item id=  "Bag_model"        response-type="arraybuffer"  src="/assets/Bag.glb"></a-asset-item>
           <a-asset-item id=  "BOXOPEN_model"        response-type="arraybuffer"  src="/assets/BOXOPEN.glb"></a-asset-item>
           <a-asset-item id=  "jewlerybox_model"        response-type="arraybuffer"  src="/assets/jewlery box.glb"></a-asset-item>
-          <a-asset-item id=  "doll_model"        response-type="arraybuffer"  src="/assets/doll.glb"></a-asset-item>
           <a-asset-item id=  "Pin_model"        response-type="arraybuffer"  src="/assets/Pin.glb"></a-asset-item>
           <a-asset-item id=  "Perfume1_model"        response-type="arraybuffer"  src="/assets/Perfume 1.glb"></a-asset-item>
           <a-asset-item id=  "Candle_model"        response-type="arraybuffer"  src="/assets/Candle.glb"></a-asset-item>
@@ -62,7 +60,7 @@
       <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 100 0">
         <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
           <a-entity light="type:spot; intensity:0.7; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
-
+          <a-entity light="type: ambient; color: #CCC"></a-entity>
 
         </a-entity>
         <a-gui-cursor id="cursor"
@@ -91,14 +89,13 @@
     </a-entity>
      
       <a-entity id="bed" position="-50.16487 6.99694 2.58549" rotation="0.03609634109324186 92.11 -0.12662367272391195" scale="13.483 14.69246 13.483" gltf-model="#bed_model"></a-entity>
-      <a-entity id="carpet" position="-2.76955 0.68758 0.78815" rotation="" scale="-0.11871 -0.11871 -0.11871" gltf-model="#carpet_model"></a-entity>
-      <a-entity id="book" position="28.16331 16.85335 -0.35118" rotation="" scale="1.51003 1.51003 1.51003" gltf-model="#book_model" grabbable draggable droppable shadow
+      <a-entity id="carpet" position="-38 0.68 -7.27" rotation="" scale="0.2 0 -0.15" gltf-model="#carpet_model"></a-entity>
       event-set__dragdrop="_event:drag-drop; geometry.primitive: sphere;geometry.radius: 0.25"
       event-set__dragon="_event:dragover-start; material.wireframe: true"
       event-set__dragoff="_event:dragover-end; material.wireframe: false"></a-entity></a-entity>
       <a-entity id="chair" position="31.9861 -16.26944 -39.04351" rotation="0 -65.17280328054089 0" scale="6.19715 6.19744 6.19744" gltf-model="#chair_model"></a-entity>
       
-     <!-- <a-entity position="25.9588 0 0.20169">
+     <a-entity position="25.9588 0 0.20169">
         <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
       </a-entity>
 
@@ -111,7 +108,6 @@
       <a-entity id="Bag" position="-8.60471 28.63657 -51.07958" rotation="-180 0 0" scale="-0.52755 -0.52755 -0.52755" gltf-model="#Bag_model"></a-entity>
       <a-entity id="BOXOPEN" position="29.75119 0.438 34.53685" rotation="0 -110.75102292540274 0" scale="0.15 0.15 0.15" gltf-model="#BOXOPEN_model"></a-entity>
       <a-entity id="jewlerybox" position="-9.91374 12.15115 -51.14332" rotation="" scale="0.22173 0.22173 0.22173" gltf-model="#jewlerybox_model"></a-entity>
-      <a-entity id="doll" position="-9.30594 39.20385 -50.24887" rotation="" scale="0.009 0.009 0.009" gltf-model="#doll_model"></a-entity>
       <a-entity id="watch" position="-9.30594 39.20385 -50.24887" rotation="" scale="0.009 0.009 0.009" gltf-model="#watch_model"></a-entity>
       <a-entity id="Pin" position="-16.77304 29.35212 -48.96418" rotation="-89.85410622139135 179.9998479605043 179.9998479605043" scale="0.52477 0.52477 0.52477" gltf-model="#Pin_model"></a-entity>
       <a-entity id="perfume1" position="-7.01837 19.90191 -49.91869" rotation="" scale="0.27558 0.27558 0.27558" gltf-model="#Perfume1_model"></a-entity>
@@ -129,10 +125,6 @@
       <a-entity id="scoll" position="33.26309 6.40547 31.19619" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
       <a-entity id="scoll" position="30.3542 8.27774 37.46109" rotation="0 -108.1406272107867 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
 
-      
-      <a-entity position="35.71896 0 12.32969">
-        <a-entity id="picture-frame" class="interactive" false-clue position="0 18.02653 0" rotation="0 -102.81899520961161 0" scale="0.31132 0.31132 0.31132" gltf-model="/assets/picture frame.glb"></a-entity>
-      </a-entity> --> 
 
       <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="/assets/suitcase.glb"></a-entity>
       
