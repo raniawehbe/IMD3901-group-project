@@ -20,9 +20,9 @@ init: function () {
         //entityEl.setAttribute('add-UI', '');
         entityEl.setAttribute('id', "ui");
         entityEl.setAttribute('class', "ui");
-        entityEl.setAttribute('position', "29.569 16.108 34.191");
-        entityEl.setAttribute('rotation', "0 40.445 0");
-        entityEl.setAttribute('scale', "27.674 21.132 1.125");
+        entityEl.setAttribute('position', "54.383 18.102 -6.516");
+        entityEl.setAttribute('rotation', "12.358 87.706 0");
+        entityEl.setAttribute('scale', "40.347 30.809 1.640");
         entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
         entityEl.setAttribute('material', "color: #995d46");
         entityEl.setAttribute('material', { src: 'assets/clue1.png' })  
@@ -105,7 +105,7 @@ Context_AF.el.addEventListener('click', function() {
   }
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:9.8});
+    Context_AF.walls.setAttribute('animation', {to:16.5});
     Context_AF.isSpinning = true;
 
     cluesFound +=1;
@@ -227,7 +227,6 @@ Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
 
 });
 
-
 AFRAME.registerComponent('false-clue', {
 schema: {
 duration: {type: 'number', default:20000.0},  //duration is in milliseconds
@@ -302,27 +301,69 @@ AFRAME.registerComponent('false-clue3', {
   
   //get a local reference to our entities and set some property variables
   const Context_AF = this;
-  Context_AF.walls      = document.querySelector('#chair');
+  Context_AF.walls      = document.querySelector('#f1');
+  Context_AF.walls2      = document.querySelector('#f2');
+  Context_AF.walls3      = document.querySelector('#dish');
   Context_AF.isSpinning = false;
   
-  Context_AF.walls.setAttribute('animation', {property:'position.y', to:0.2371, dur:300, easing:'linear'});
+  Context_AF.walls.setAttribute('animation', {property:'position.x', to:76, dur:300, easing:'linear'});
+  Context_AF.walls2.setAttribute('animation', {property:'position.x', to:76, dur:300, easing:'linear'});
+  Context_AF.walls3.setAttribute('animation', {property:'position.x', to:75, dur:300, easing:'linear'});
    
   //listen on click
-  Context_AF.el.addEventListener('click', function() {
+  Context_AF.walls.addEventListener('click', function() {
     if (Context_AF.isSpinning === true) {
-      console.log('stop spinning');
-      Context_AF.walls.setAttribute('animation', {to:0.2371});
+      //console.log('stop spinning');
+
+      Context_AF.walls.setAttribute('animation', {to:76});
+
       Context_AF.isSpinning = false;
     }
     else {
-      console.log('spinning');
-      Context_AF.walls.setAttribute('animation', {to:2});
+      //console.log('spinning');
+      Context_AF.walls.setAttribute('animation', {to:70});
+
       Context_AF.isSpinning = true;
     }
   });
+
+  Context_AF.walls2.addEventListener('click', function() {
+    if (Context_AF.isSpinning === true) {
+      //console.log('stop spinning');
+
+      Context_AF.walls2.setAttribute('animation', {to:76});
+
+      Context_AF.isSpinning = false;
+    }
+    else {
+      //console.log('spinning');
+
+      Context_AF.walls2.setAttribute('animation', {to:70});
+
+      Context_AF.isSpinning = true;
+    }
+  });
+
+  Context_AF.walls3.addEventListener('click', function() {
+    if (Context_AF.isSpinning === true) {
+      //console.log('stop spinning');
+
+      Context_AF.walls3.setAttribute('animation', {to:75});
+
+      Context_AF.isSpinning = false;
+    }
+    else {
+      //console.log('spinning');
+
+      Context_AF.walls3.setAttribute('animation', {to:70});
+
+      Context_AF.isSpinning = true;
+    }
+  });
+
   },
   
-  });
+});
   
 
 AFRAME.registerComponent('visibility', {
@@ -359,7 +400,7 @@ AFRAME.registerComponent('visibility', {
                         
         },
         
-      });
+});
 
 AFRAME.registerComponent('nextQuestion', {
         schema: {
@@ -391,9 +432,9 @@ AFRAME.registerComponent('nextQuestion', {
         
         },
         
-        });
+});
 
-        AFRAME.registerComponent('next_question', {
+AFRAME.registerComponent('next_question', {
           schema: {
             default: '', //duration is in milliseconds
           },
@@ -436,10 +477,10 @@ AFRAME.registerComponent('nextQuestion', {
           
           },
           
-  });
+});
   
   
-  AFRAME.registerComponent('question1_correct', {
+AFRAME.registerComponent('question1_correct', {
     schema: {
       default: '', //duration is in milliseconds
     },
@@ -469,9 +510,9 @@ AFRAME.registerComponent('nextQuestion', {
           
     },
     
-  });
+});
   
-  AFRAME.registerComponent('question2_correct', {
+AFRAME.registerComponent('question2_correct', {
     schema: {
       default: '', //duration is in milliseconds
     },
@@ -498,9 +539,9 @@ AFRAME.registerComponent('nextQuestion', {
     
     },
     
-  }); 
+}); 
   
-  AFRAME.registerComponent('wrong_answer', {
+AFRAME.registerComponent('wrong_answer', {
       schema: {
                   default: '',
                   parse: AFRAME.utils.styleParser.parse
@@ -526,4 +567,4 @@ AFRAME.registerComponent('nextQuestion', {
       
     },
     
-  });
+});
