@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMD3901 Term Project</title>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>  
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <script src="/js/aframe-environment-component.min.js"></script>
+    <script src="/js/Room1.js"></script>
+    
+</head>
+<body>
+
+ 
+      <a-scene>
+        <a-assets timeout="10000">
+       
+            <a-asset-item id=  "door_model"        response-type="arraybuffer"  src="/assets/Outro/door.glb"></a-asset-item>
+          <img id="Floor_Texture_img"  src="/assets/Outro/FLOOR.jpg" crossorigin="anonymous">
+          <img id="Wall_Texture_img"   src="/assets/Outro/Wall.jpg"  crossorigin="anonymous">
+        </a-assets>
+
+     <!-- <a-entity environment="preset:default;"></a-entity>-->
+      <!--<a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>-->
+
+      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 15" rotation="-45 100 0">
+        <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
+        <a-entity light="type:spot; intensity:0.2; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="12.267 4.735 12.906" rotation="0 20 0" scale="0.009 0.009 0.009"></a-entity>
+        <a-entity light="type: ambient; color: #CCC"></a-entity>
+
+
+        </a-entity>
+
+    </a-entity>   
+    </a-entity>
+
+      <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
+
+
+      <a-entity id="room">
+        <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src:#Floor_Texture_img"position="-10.44656 0 -7.29101" rotation="-90 0 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-70.31305 47 -6.711" rotation="0 90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="49.05643 47 -6.71141" rotation="0 -90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-13.29203 47 55.20319" rotation="0 180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity id="door" position="-13.29203 47 -68.88783" rotation="0 0 0" scale="1.4 1.4 1.4" gltf-model="#door_model"></a-entity>
+    </a-entity>
+     
+    
+
+    </a-scene>
+    <script>
+    </script>
+  
+  </body>
+
+</html>
