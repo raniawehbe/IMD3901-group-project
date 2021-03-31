@@ -15,7 +15,7 @@
  
       <a-scene>
         <a-assets timeout="10000">
-       
+          <a-asset-item id=  "dress_model"        response-type="arraybuffer"  src="/assets/Room1/dress.glb"></a-asset-item>
           <a-asset-item id=  "bed_model"        response-type="arraybuffer"  src="/assets/bed.glb"></a-asset-item>
           <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/Room1/chair.glb"></a-asset-item>
           <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/Room1/chair.glb"></a-asset-item>
@@ -32,7 +32,7 @@
           <a-asset-item id=  "Pin_model"        response-type="arraybuffer"  src="/assets/Pin.glb"></a-asset-item>
           <a-asset-item id=  "Perfume1_model"        response-type="arraybuffer"  src="/assets/Perfume 1.glb"></a-asset-item>
           <a-asset-item id=  "Candle_model"        response-type="arraybuffer"  src="/assets/Candle.glb"></a-asset-item>
-         <!-- <a-asset-item id=  "potion_model"        response-type="arraybuffer"  src="/assets/potion.glb"></a-asset-item>-->
+          <a-asset-item id=  "Candle_model"        response-type="arraybuffer"  src="/assets/Candle.glb"></a-asset-item>  
           <a-asset-item id=  "scoll_model"        response-type="arraybuffer"  src="/assets/scoll.glb"></a-asset-item>
           <a-asset-item id=  "necklace_model"        response-type="arraybuffer"  src="/assets/necklace.glb"></a-asset-item>
 
@@ -54,7 +54,7 @@
      <!-- <a-entity environment="preset:default;"></a-entity>-->
       <!--<a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>-->
 
-      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 100 0">
+      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 150 0">
         <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
           <a-entity light="type: ambient; color: #CCC"></a-entity>
 
@@ -88,7 +88,7 @@
      <a-entity position="25.9588 0 0.20169">
         <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
       </a-entity>
-
+      <a-entity id="dress" position="-11 14 41.5" rotation="0 90 0" scale="2.7 3.4 2.7" gltf-model="#dress_model"></a-entity>
       <a-entity id="bed" position="-56.7 7.568 -7.764" rotation="0 0 0" scale="10 19.6 13.483" gltf-model="#bed_model"></a-entity>
       <a-entity id="chair" position="-63 21 -46.78" rotation="0 -90 0" scale="0.32 0.46 0.28" gltf-model="#chair_model"></a-entity>
       <a-entity id="chair" position="-63 17 36" rotation="0 -90 0" scale="0.32 0.46 0.28" gltf-model="#chair_model"></a-entity>
@@ -104,7 +104,9 @@
       <a-entity id="watch" position="-9.30594 39.20385 -50.24887" rotation="" scale="0.009 0.009 0.009" gltf-model="#watch_model"></a-entity>
       <a-entity id="Pin" position="-16.77304 29.35212 -48.96418" rotation="-89.85410622139135 179.9998479605043 179.9998479605043" scale="0.52477 0.52477 0.52477" gltf-model="#Pin_model"></a-entity>
       <a-entity id="perfume1" position="-7.01837 19.90191 -49.91869" rotation="" scale="0.27558 0.27558 0.27558" gltf-model="#Perfume1_model"></a-entity>
-      <a-entity id="Candle" position="36.26649 18.146 -13.63537" rotation="0 -90 0" scale="0.08028 0.08028 0.08028" gltf-model="#Candle_model"></a-entity>
+      <a-entity id="Candle" position="11 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
+      <a-entity id="Candle" position="-35.2 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
+      
       <a-entity id="necklace" position="-12.69791 20.69447 -53.01104" rotation="0 -90 0" scale="0.52137 0.52137 0.52137" gltf-model="#necklace_model"></a-entity>
       <a-entity id="scoll" position="28.72842 6.02001 30.36255" rotation="0 -117.5646370250985 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
       <a-entity id="scoll" position="28.62465 7.0782 34.56297" rotation="2.623000786108909 -88.71392020908101 -4.2295744436557365" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
