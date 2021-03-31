@@ -14,20 +14,31 @@
 
 <a-scene start-experience>
     <a-assets timeout="10000">
-      <a-asset-item id="bed_model"     response-type="arraybuffer" src="/assets/Room4/bed.glb"></a-asset-item>
-      <a-asset-item id="fire_model"     response-type="arraybuffer" src="/assets/Room4/fire.glb"></a-asset-item>
-      <a-asset-item id="light_model"     response-type="arraybuffer" src="/assets/Room4/light.glb"></a-asset-item>
-      <a-asset-item id="hanger_model"     response-type="arraybuffer" src="/assets/Room4/hanger.glb"></a-asset-item>
-      <a-asset-item id="Mirror_model"     response-type="arraybuffer" src="/assets/Room4/Mirror.glb"></a-asset-item>
-      <a-asset-item id="table_model"     response-type="arraybuffer" src="/assets/Room4/table.glb"></a-asset-item>
-      <a-asset-item id="phone_model"     response-type="arraybuffer" src="/assets/Room4/phone.glb"></a-asset-item>
-      <a-asset-item id="clock_model"     response-type="arraybuffer" src="/assets/Room4/clock.glb"></a-asset-item>
-      <a-asset-item id="Egy1_model"     response-type="arraybuffer" src="/assets/Room4/Egy1.glb"></a-asset-item>
       <a-asset-item id="clue1_model"     response-type="arraybuffer" src="/assets/Room4/clue1.glb"></a-asset-item>
       <a-asset-item id="clue2_model"     response-type="arraybuffer" src="/assets/Room4/clue2.glb"></a-asset-item>
       <a-asset-item id="clue3_model"     response-type="arraybuffer" src="/assets/Room4/clue3.glb"></a-asset-item>
       <a-asset-item id="clue4_model"     response-type="arraybuffer" src="/assets/Room4/clue4.glb"></a-asset-item>
       
+      <a-asset-item id="bed_model"     response-type="arraybuffer" src="/assets/Room4/bed.glb"></a-asset-item>
+      <a-asset-item id="PaintingTable_model"     response-type="arraybuffer" src="/assets/Room4/PaintingTable.glb"></a-asset-item>
+      <a-asset-item id="PaintingChair_model"     response-type="arraybuffer" src="/assets/Room4/PaintingChair.glb"></a-asset-item>
+      <a-asset-item id="Easel_model"     response-type="arraybuffer" src="/assets/Room4/Easel.glb"></a-asset-item>
+      <a-asset-item id="waredrobe_model"     response-type="arraybuffer" src="/assets/Room4/waredrobe.glb"></a-asset-item>
+      <a-asset-item id="cabinet_model"     response-type="arraybuffer" src="/assets/Room4/cabinet.glb"></a-asset-item>
+      <a-asset-item id="TV_model"     response-type="arraybuffer" src="/assets/Room4/TV.glb"></a-asset-item>
+      <a-asset-item id="cloth_model"     response-type="arraybuffer" src="/assets/Room4/cloth.glb"></a-asset-item>
+      <a-asset-item id="radio_model"     response-type="arraybuffer" src="/assets/Room4/radio.glb"></a-asset-item>
+      <a-asset-item id="flower_model"     response-type="arraybuffer" src="/assets/Room4/flower.glb"></a-asset-item>
+      <a-asset-item id="fireplace_model"     response-type="arraybuffer" src="/assets/Room4/fireplace.glb"></a-asset-item>
+      <a-asset-item id="bible_model"     response-type="arraybuffer" src="/assets/Room4/bible.glb"></a-asset-item>
+      <a-asset-item id="cross_model"     response-type="arraybuffer" src="/assets/Room4/cross.glb"></a-asset-item>
+      <a-asset-item id="cabinet2_model"     response-type="arraybuffer" src="/assets/Room4/cabinet2.glb"></a-asset-item>
+      <a-asset-item id="Vase_model"     response-type="arraybuffer" src="/assets/Room4/Vase.glb"></a-asset-item>
+      <a-asset-item id="Art1_model"     response-type="arraybuffer" src="/assets/Room4/Art1.glb"></a-asset-item>
+      <a-asset-item id="Art2_model"     response-type="arraybuffer" src="/assets/Room4/Art2.glb"></a-asset-item>
+      <a-asset-item id="plant_model"     response-type="arraybuffer" src="/assets/Room4/plant.glb"></a-asset-item>
+      <a-asset-item id="tables_model"     response-type="arraybuffer" src="/assets/Room4/tables.glb"></a-asset-item>
+      <a-asset-item id="lamp_model"     response-type="arraybuffer" src="/assets/Room4/lamp.glb"></a-asset-item>
       <a-asset-item id=  "clue1_model"        response-type="arraybuffer"  src="/assets/Room4/clue1.glb"></a-asset-item>
       <a-asset-item id=  "clue2_model"        response-type="arraybuffer"  src="/assets/Room4/clue2.glb"></a-asset-item>
       <a-asset-item id=  "clue3_model"        response-type="arraybuffer"  src="/assets/Room4/clue3.glb"></a-asset-item>
@@ -39,8 +50,8 @@
 
   <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="7 3 0" rotation="-45 100 0">
     <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
-    <a-entity light="type:spot; intensity:0.9; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
-  
+    <a-entity light="type:spot; intensity:0.2; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="12.267 4.735 12.906" rotation="0 20 0" scale="0.009 0.009 0.009"></a-entity>
+    <a-entity light="type: ambient; color: #CCC"></a-entity>
   
     </a-entity>
     <a-gui-cursor id="cursor"
@@ -65,18 +76,28 @@
   
   
   </a-entity>
+  <a-entity id="bed" position="-16.0033 -3.2 4.869" rotation="" scale="0.005 0.005 0.005" gltf-model="#bed_model" shadow=""></a-entity>
+  <a-entity id="PaintingChair_model" position="9.00745 0.01449 -6.25541" rotation="" scale="0.15 0.15 0.15"  gltf-model="#PaintingChair_model" shadow=""></a-entity>
+  <a-entity id="PaintingTable_model" position="8.5161 0.15325 -5.43202" rotation="0 80.41004288424999 0" scale="0.15 0.15 0.15"  gltf-model="#PaintingTable_model" shadow=""></a-entity>
+  <a-entity id="Easel_model" position="11.8157 0.04696 -7.01318" rotation="0 53.75490033917384 0" scale="0.02519 0.02519 0.02519"gltf-model="#Easel_model" shadow=""></a-entity> 
+  <a-entity id="waredrobe_model" position="-0.25087 0.04696 -4.11306" rotation="0 90 0" scale="0.03 0.03 0.03"  gltf-model="#waredrobe_model" shadow=""></a-entity>
+  <a-entity id="cabinet_model" position="0.17308 0.01262 0.72414" rotation="0 90 0" scale="0.03 0.03 0.03" gltf-model="#cabinet_model" shadow=""></a-entity>
+  <a-entity id="TV_model" position="-0.00771 2.8157 -0.052" rotation="0 90 0" scale="0.03 0.03 0.03"  gltf-model="#TV_model" shadow=""></a-entity>
+  <a-entity id="radio_model" position="0.21507 3.21836 1.94416" rotation="0 90 0" scale="0.04155 0.04155 0.04155" gltf-model="#radio_model" shadow=""></a-entity>
+  <a-entity id="cloth_model" position="0.17308 0.01262 0.72414" rotation="0 90 0" scale="0.03 0.03 0.03" gltf-model="#cloth_model" shadow=""></a-entity>
+  <a-entity id="flower_model" position="-0.43203 4.58568 -0.08604" rotation="0 90 0" scale="0.11361 0.11361 0.11361" gltf-model="#flower_model" shadow=""></a-entity>
+  <a-entity id="fireplace_model" position="5.60692 -0.07056 6.51697" rotation="0 -179.75003836182728 0" scale="0.07613 0.07613 0.07613" gltf-model="#fireplace_model" shadow=""></a-entity>
+  <a-entity id="cross_model" position="5.60214 5.10921 5.15218" rotation="0 -179.75003836182728 0" scale="0.01081 0.01081 0.01081" gltf-model="#cross_model" shadow=""></a-entity>
+  <a-entity id="cabinet2_model" position="0.17308 0.01068 4.22371" rotation="0 90 0" scale="0.04386 0.04386 0.04386"  gltf-model="#cabinet2_model" shadow=""></a-entity>
+  <a-entity id="Vase_model" position="0.015 3.34374 4.57277" rotation="0 90 0" scale="4.85589 4.85589 4.85589" gltf-model="#Vase_model" shadow=""></a-entity>
+  <a-entity id="bible_model" position="-0.0185 3.17062 3.82579" rotation="0 69.2310633434525 0" scale="0.003 0.003 0.003" gltf-model="#bible_model" shadow=""></a-entity>
+  <a-entity id="Art1_model" position="-0.79088 3.94547 3.77294" rotation="0 90.69463530684828 0" scale="-0.00226 -0.00226 -0.00893"  gltf-model="#Art1_model" shadow=""></a-entity>
+  <a-entity id="Art2_model" position="-0.79088 4.56357 4.78189" rotation="0 -90.69463530684828 180" scale="-0.00235 -0.00235 -0.0093" gltf-model="#Art2_model" shadow=""></a-entity>
+  <a-entity id="plant_model" position="1.53639 0.04604 5.87881" rotation="-0.9488181087366432 0 0" scale="0.01 0.01 0.01"gltf-model="#plant_model" shadow=""></a-entity>
+  <a-entity id="tables_model" position="10.18215 0.00079 5.99081" rotation="-0.9488181087366432 0 0" scale="0.04354 0.03292 0.04354" gltf-model="#tables_model" shadow=""></a-entity>
+  <a-entity id="lamp_model" position="10.55197 2.3708 6.22904" rotation="0 -155.71732364506488 0" scale="0.52821 0.52821 0.52821" gltf-model="#lamp_model" shadow=""></a-entity>
 
 
-
-  <a-entity id="bed" position="14.2 -3.2 21.9" rotation="0 90 0" scale="0.005 0.005 0.005" gltf-model="#bed_model" shadow=""></a-entity>
-  <a-entity id="fire" position="2.27 0 0" rotation="0 90 0" scale="0.5 0.5 0.5" gltf-model="#fire_model" shadow=""></a-entity>
-  <a-entity id="light" position="-7.5 -0.1 -25" rotation="0 0 0" scale="0.007 0.005 0.007" gltf-model="#light_model" shadow=""></a-entity>
-  <a-entity id="hanger" position="2.2 0 -5.8" rotation="0 0 0" scale="0.05 0.05 0.05" gltf-model="#hanger_model" shadow=""></a-entity>
-  <a-entity id="Mirror" position="-1 6.7 0" rotation="0 90 223" scale="0.35 0.35 0.3" gltf-model="#Mirror_model" shadow=""></a-entity>
-  <a-entity id="table" position="11 -0.17 2.8" rotation="-90 0 -120" scale="0.15 0.13 0.11" gltf-model="#table_model" shadow=""></a-entity>
-  <a-entity id="phone" position="11.6 2.24 3.3" rotation="0 -90 0" scale="-0.04 0.04 0.04" gltf-model="#phone_model" shadow=""></a-entity>
-  <a-entity id="clock" position="11.5 2.8 1.85" rotation="90 0 45" scale="-0.05 0.04 0.05" gltf-model="#clock_model" shadow=""></a-entity>
-  <a-entity id="Egy1" position="4 0.47 2.5" rotation="0 0 0" scale="0.1 0.04 0.05" gltf-model="#Egy1_model" shadow=""></a-entity>
  <!-- <a-entity id="clue1" position="5 -0.3 0.25" rotation="-26.3 0 0" scale="0.15 0.13 0.11" gltf-model="#clue1_model" shadow=""></a-entity>
   <a-entity id="clue2" position="3.7 0.84 3.75" rotation="0 240 90" scale="0.53 0.79 0.65" gltf-model="#clue2_model" shadow=""></a-entity>
   <a-entity id="clue3" position="12.7 4.6 -1.34" rotation="0 -90 0" scale="0.24 0.24 0.44" gltf-model="#clue3_model" shadow=""></a-entity>
@@ -274,10 +295,10 @@
 
   <a-entity id="rooms">
     <a-entity class="ground" geometry="primitive: plane; width: 23; height: 23" material="color: black" position="6.16024 0.01 0.42501" rotation="-90 0 0" shadow="cast: false"></a-entity>
-    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wallpaper.jpeg" position="6.05985 5.68544 -6.88412" rotation="" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
-    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wallpaper.jpeg" position="5.83484 5.68544 7.91347" rotation="0 -180 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
-    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wallpaper.jpeg" position="12.80583 5.68544 0.62249" rotation="0 -90 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
-    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wallpaper.jpeg" position="-0.99558 5.68544 0.60362" rotation="0 90 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
+    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/w4.jpg" position="6.05985 5.68544 -8.83307" rotation="" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
+    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/w4.jpg" position="5.83484 5.68544 7.87555" rotation="0 -180 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
+    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/w4.jpg" position="12.80583 5.68544 -0.73077" rotation="0 -90 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
+    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/w4.jpg" position="-0.99558 5.68544 -0.56942" rotation="0 90 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
   </a-entity>
 
  
