@@ -95,7 +95,36 @@ init: function () {
     });
 }
 });
-
+AFRAME.registerComponent('add-ui4', {
+  schema: {
+          default: '',
+          parse: AFRAME.utils.styleParser.parse
+          },
+  
+  init: function () {
+      
+      const el = this.el;
+      console.log('I am ready!');
+  
+      el.addEventListener('click', function() {
+          
+  
+          var entityEl = document.createElement('a-entity');
+          //entityEl.setAttribute('add-UI', '');
+          entityEl.setAttribute('id', "ui4");
+          entityEl.setAttribute('class', "ui4");
+          entityEl.setAttribute('position', "3.132 3.787 1.504");
+          entityEl.setAttribute('rotation', "0 90 0");
+          entityEl.setAttribute('scale', "6.413 4.872 0.261");
+          entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
+          entityEl.setAttribute('material', "color: #995d46");
+          entityEl.setAttribute('material', { src: 'assets/frameClue.png' })  
+          el.sceneEl.appendChild(entityEl);
+          
+  
+      });
+  }
+  });
 
 AFRAME.registerComponent('spinning-effect', {
 schema: {
@@ -374,6 +403,97 @@ else if(cluesFound == 1){
 
 });
 
+AFRAME.registerComponent('spinning-effect4', {
+  schema: {
+  duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+  parse: AFRAME.utils.styleParser.parse
+  },
+  //multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+  
+  //get a local reference to our entities and set some property variables
+  const Context_AF = this;
+  Context_AF.walls      = document.querySelector('#bear_clue');
+  Context_AF.questionBtn     = document.querySelector('#questionBtn');
+  Context_AF.isSpinning = false;
+  
+  //let's add the basic animation to teh walls entity
+  //note that it is not enabled initially
+  Context_AF.walls.setAttribute('animation', {property:'position.z', to:0.741, dur:300, easing:'linear'});
+  Context_AF.walls.setAttribute('animation__rotation', {property:'rotation',  to:"0 360 0", loop:true, dur:10000, easing:'linear', enabled: false});
+  Context_AF.questionBtn.setAttribute('visible', "false");
+  
+  Context_AF.progressMeter =   document.querySelector('#progressMeter');
+  Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
+  
+  //listen on click
+  Context_AF.el.addEventListener('click', function() {
+    if (Context_AF.isSpinning === true) {
+      console.log('stop spinning');
+      Context_AF.walls.setAttribute('animation', {to:0.741});
+      Context_AF.isSpinning = false; 
+  
+      document.querySelectorAll(".ui4").forEach(e => e.parentNode.removeChild(e));
+      document.querySelectorAll("#panel_text2").forEach(e => e.parentNode.removeChild(e));
+      cluesFound -=1;
+      document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
+  
+      Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
+    }
+  
+    else {
+      console.log('spinning');
+      Context_AF.walls.setAttribute('animation', {to:0.741});
+      Context_AF.isSpinning = true;
+      cluesFound +=1;
+      document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
+  
+      Context_AF.walls.setAttribute('animation__rotation', {enabled:true});
+        
+    }
+  
+    if(cluesFound == 4){
+      Context_AF.questionBtn.setAttribute('visible', "true");
+      
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 2.5');
+      Context_AF.progressMeter.setAttribute('position', '0.005 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+  
+    else{
+      Context_AF.questionBtn.setAttribute('visible', "false");
+    }
+  
+  
+   if(cluesFound == 0){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0');
+  }
+  
+  else if(cluesFound == 1){
+    Context_AF.progressMeter.setAttribute('geometry', 'width: 0.625');
+    Context_AF.progressMeter.setAttribute('position', '-0.92 0 0.810');
+    Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+    
+    else if(cluesFound == 2){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.25');
+      Context_AF.progressMeter.setAttribute('position', '-0.62 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+    
+    else if(cluesFound == 3){
+      Context_AF.progressMeter.setAttribute('geometry', 'width: 1.875');
+      Context_AF.progressMeter.setAttribute('position', '-0.29 0 0.810');
+      Context_AF.progressMeter.setAttribute('geometry', 'depth: 0.24');
+    }
+  
+  
+  });
+  },
+  
+  
+  });
 
 AFRAME.registerComponent('false-clue', {
 schema: {
@@ -458,15 +578,17 @@ AFRAME.registerComponent('visibility', {
             Context_AF.question1     = document.querySelector('#question1');
             Context_AF.question2     = document.querySelector('#question2');
             Context_AF.question3     = document.querySelector('#question3');
+            Context_AF.question4     = document.querySelector('#question4');
 
             Context_AF.question.setAttribute('visible', "false");
             Context_AF.question1.setAttribute('visible', "false");
             Context_AF.question2.setAttribute('visible', "false");
             Context_AF.question3.setAttribute('visible', "false");
+            Context_AF.question4.setAttribute('visible', "false");
 
             Context_AF.el.addEventListener('click', function() {
 
-                if(cluesFound == 3){
+                if(cluesFound == 4){
                     
                     Context_AF.question.setAttribute('visible', "true");
                     Context_AF.question1.setAttribute('visible', "true");
@@ -598,6 +720,50 @@ console.log("height reached");
     },
     
   });
+  AFRAME.registerComponent('next_question3', {
+    schema: {
+      default: '', //duration is in milliseconds
+    },
+    multiple: false, //do not allow multiple instances of this component on this entity
+    init: function () {
+        
+        //get a local reference to our entities and set some property variables
+        const Context_AF = this;
+        //Context_AF2  = this;
+  
+        Context_AF.question3     = document.querySelector('#question3');
+        Context_AF.question4     = document.querySelector('#question4');
+        Context_AF.question3end  = document.querySelector('#question3_end2');
+        Context_AF.choice1       = document.querySelector('#question3_choice1');
+        Context_AF.choice2       = document.querySelector('#question3_choice2');
+        Context_AF.Q4choice1     = document.querySelector('#question4_choice1');
+        Context_AF.Q4choice2     = document.querySelector('#question4_choice2');
+  
+        //Context_AF.question1.setAttribute('visible', "true");
+        //Context_AF.question2.setAttribute('visible', "false");
+  
+        Context_AF.el.addEventListener('click', function() {
+          
+                
+              Context_AF.question3.setAttribute('visible', "false");
+              Context_AF.question4.setAttribute('visible', "true");
+  
+              Context_AF.question3end.setAttribute('class', "");
+              Context_AF.choice1.setAttribute('class', "");
+              Context_AF.choice2.setAttribute('class', "");
+  
+              Context_AF.Q4choice1.setAttribute('class', "interactive");
+              Context_AF.Q4choice2.setAttribute('class', "interactive");
+  
+              console.log("next question: 4");
+                      
+        
+        });        
+      
+    
+    },
+    
+  });
   
   AFRAME.registerComponent('question1_correct', {
     schema: {
@@ -686,6 +852,36 @@ console.log("height reached");
     },
     
   });
+  AFRAME.registerComponent('question4_correct', {
+    schema: {
+      default: '', //duration is in milliseconds
+    },
+    multiple: false, //do not allow multiple instances of this component on this entity
+    init: function () {
+        
+        //get a local reference to our entities and set some property variables
+        const Context_AF = this;
+        //Context_AF2  = this;
+  
+        Context_AF.question4Btn = document.querySelector('#question4_end4');
+  
+  
+        Context_AF.question4Btn.setAttribute('visible', "false");
+   
+  
+        Context_AF.el.addEventListener('click', function() {
+            
+              Context_AF.question4Btn.setAttribute('visible', "true");
+  
+        
+        });        
+      
+    
+    },
+            
+        
+        });        
+      
   
   AFRAME.registerComponent('wrong_answer', {
       schema: {
