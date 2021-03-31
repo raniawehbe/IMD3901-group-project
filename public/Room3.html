@@ -14,407 +14,369 @@
 
 
 <a-scene start-experience>
+
     <a-assets timeout="10000">
-    <a-asset-item id="bed_model"     response-type="arraybuffer" src="/assets/1800's/bedd.glb"></a-asset-item>
-    <a-asset-item id="carpet_model"     response-type="arraybuffer" src="/assets/1800's/carpet.glb"></a-asset-item>
-    <a-asset-item id="closet_model"     response-type="arraybuffer" src="/assets/1800's/closet.glb"></a-asset-item>
-    <a-asset-item id="paint_model"     response-type="arraybuffer" src="/assets/1800's/paint.glb"></a-asset-item>
-    <a-asset-item id="teddy_model"     response-type="arraybuffer" src="/assets/1800's/teddy.glb"></a-asset-item>
-    <a-asset-item id="hockeyStick_model"     response-type="arraybuffer" src="/assets/1800's/hockeyStick.glb"></a-asset-item>
-    <a-asset-item id="hockeyStick2_model"     response-type="arraybuffer" src="/assets/1800's/hockeyStick.glb"></a-asset-item>
-    <a-asset-item id="table_model"     response-type="arraybuffer" src="/assets/1800's/table.glb"></a-asset-item>
-    <a-asset-item id="typewriter_model"     response-type="arraybuffer" src="/assets/1800's/typewriter.glb"></a-asset-item>
-    <a-asset-item id="paper_model"     response-type="arraybuffer" src="/assets/1800's/paper.glb"></a-asset-item>
-    <a-asset-item id="chair4"     response-type="arraybuffer" src="/assets/1800's/chair4.glb"></a-asset-item>
-    <a-asset-item id="award1" response-type="arraybuffer" src="/assets/1800's/award1.glb"></a-asset-item>
-    <a-asset-item id="award2" response-type="arraybuffer" src="/assets/1800's/award2.glb"></a-asset-item>
-    <a-asset-item id="trophy" response-type="arraybuffer" src="/assets/1800's/trophy.glb"></a-asset-item>
-    <a-asset-item id="trophy2" response-type="arraybuffer" src="/assets/1800's/trophy2.glb"></a-asset-item>
-    <a-asset-item id="glasses" response-type="arraybuffer" src="/assets/1800's/glasses.glb"></a-asset-item>
-    <a-asset-item id="medal3" response-type="arraybuffer" src="/assets/1800's/medal3.glb"></a-asset-item>
-    <a-asset-item id="baseball" response-type="arraybuffer" src="/assets/1800's/baseball.glb"></a-asset-item>
-    <a-asset-item id="gram" response-type="arraybuffer" src="/assets/1800's/gram.glb"></a-asset-item>
-    <a-asset-item id="sidetable" response-type="arraybuffer" src="/assets/1800's/sidetable.glb"></a-asset-item>
-    <a-asset-item id="fireplacethis" response-type="arraybuffer" src="/assets/1800's/fireplacethis.glb"></a-asset-item>
-    <a-asset-item id="closetttt" response-type="arraybuffer" src="/assets/1800's/closetttt.glb"></a-asset-item>
-   <a-asset-item id="1" response-type="arraybuffer" src="/assets/1800's/1.glb"></a-asset-item>
-    <a-asset-item id="frame" response-type="arraybuffer" src="/assets/1800's/frame.glb"></a-asset-item>
-    <a-asset-item id="frame (1)" response-type="arraybuffer" src="/assets/1800's/frame (1).glb"></a-asset-item>
-    <a-asset-item id="frame (2)" response-type="arraybuffer" src="/assets/1800's/frame (2).glb"></a-asset-item>
-    <a-asset-item id="frame (3)" response-type="arraybuffer" src="/assets/1800's/frame (3).glb"></a-asset-item>
-    <a-asset-item id="frame (4)" response-type="arraybuffer" src="/assets/1800's/frame (4).glb"></a-asset-item>
-    <a-asset-item id="frame (5)" response-type="arraybuffer" src="/assets/1800's/frame (5).glb"></a-asset-item>
-    <a-asset-item id="frame (7)" response-type="arraybuffer" src="/assets/1800's/frame (7).glb"></a-asset-item>
-    <a-asset-item id="frame (9)" response-type="arraybuffer" src="/assets/1800's/frame (9).glb"></a-asset-item>
-    <a-asset-item id="cooking (3)" response-type="arraybuffer" src="/assets/1800's/cooking (3).glb"></a-asset-item>
-    <a-asset-item id="wall" response-type="arraybuffer" src="/assets/1800's/room3wall.glb"></a-asset-item>
+      <!--Audio-->
+      <audio id="o_canada" src="/assets/1800's/O'Canada.mp3"preload="auto" crossorigin="anonymous"></audio>
 
+      <a-asset-item id="bed_model"     response-type="arraybuffer" src="/assets/1800's/bedd.glb"></a-asset-item>
+      <a-asset-item id="carpet_model"     response-type="arraybuffer" src="/assets/1800's/carpet.glb"></a-asset-item>
+      <a-asset-item id="closet_model"     response-type="arraybuffer" src="/assets/1800's/closet.glb"></a-asset-item>
+      <a-asset-item id="paint_model"     response-type="arraybuffer" src="/assets/1800's/paint.glb"></a-asset-item>
+      <a-asset-item id="teddy_model"     response-type="arraybuffer" src="/assets/1800's/teddy.glb"></a-asset-item>
+      <a-asset-item id="hockeyStick_model"     response-type="arraybuffer" src="/assets/1800's/hockeyStick.glb"></a-asset-item>
+      <a-asset-item id="hockeyStick2_model"     response-type="arraybuffer" src="/assets/1800's/hockeyStick.glb"></a-asset-item>
+      <a-asset-item id="table_model"     response-type="arraybuffer" src="/assets/1800's/table.glb"></a-asset-item>
+      <a-asset-item id="typewriter_model"     response-type="arraybuffer" src="/assets/1800's/typewriter.glb"></a-asset-item>
+      <a-asset-item id="paper_model"     response-type="arraybuffer" src="/assets/1800's/paper.glb"></a-asset-item>
+      <a-asset-item id="chair4"     response-type="arraybuffer" src="/assets/1800's/chair4.glb"></a-asset-item>
+      <a-asset-item id="award1" response-type="arraybuffer" src="/assets/1800's/award1.glb"></a-asset-item>
+      <a-asset-item id="award2" response-type="arraybuffer" src="/assets/1800's/award2.glb"></a-asset-item>
+      <a-asset-item id="trophy" response-type="arraybuffer" src="/assets/1800's/trophy.glb"></a-asset-item>
+      <a-asset-item id="trophy2" response-type="arraybuffer" src="/assets/1800's/trophy2.glb"></a-asset-item>
+      <a-asset-item id="glasses" response-type="arraybuffer" src="/assets/1800's/glasses.glb"></a-asset-item>
+      <a-asset-item id="medal3" response-type="arraybuffer" src="/assets/1800's/medal3.glb"></a-asset-item>
+      <a-asset-item id="baseball" response-type="arraybuffer" src="/assets/1800's/baseball.glb"></a-asset-item>
+      <a-asset-item id="gram" response-type="arraybuffer" src="/assets/1800's/gram.glb"></a-asset-item>
+      <a-asset-item id="sidetable" response-type="arraybuffer" src="/assets/1800's/sidetable.glb"></a-asset-item>
+      <a-asset-item id="fireplacethis" response-type="arraybuffer" src="/assets/1800's/fireplacethis.glb"></a-asset-item>
+      <a-asset-item id="closetttt" response-type="arraybuffer" src="/assets/1800's/closetttt.glb"></a-asset-item>
+      <a-asset-item id="1" response-type="arraybuffer" src="/assets/1800's/1.glb"></a-asset-item>
+      <a-asset-item id="frame" response-type="arraybuffer" src="/assets/1800's/frame.glb"></a-asset-item>
+      <a-asset-item id="frame (1)" response-type="arraybuffer" src="/assets/1800's/frame (1).glb"></a-asset-item>
+      <a-asset-item id="frame (2)" response-type="arraybuffer" src="/assets/1800's/frame (2).glb"></a-asset-item>
+      <a-asset-item id="frame (3)" response-type="arraybuffer" src="/assets/1800's/frame (3).glb"></a-asset-item>
+      <a-asset-item id="frame (4)" response-type="arraybuffer" src="/assets/1800's/frame (4).glb"></a-asset-item>
+      <a-asset-item id="frame (5)" response-type="arraybuffer" src="/assets/1800's/frame (5).glb"></a-asset-item>
+      <a-asset-item id="frame (7)" response-type="arraybuffer" src="/assets/1800's/frame (7).glb"></a-asset-item>
+      <a-asset-item id="frame (9)" response-type="arraybuffer" src="/assets/1800's/frame (9).glb"></a-asset-item>
+      <a-asset-item id="cooking (3)" response-type="arraybuffer" src="/assets/1800's/cooking (3).glb"></a-asset-item>
+      <a-asset-item id="wall" response-type="arraybuffer" src="/assets/1800's/room3wall.glb"></a-asset-item>
 
-    <!-- CLUE 
-    <a-asset-item id="1800Glove_model"     response-type="arraybuffer" src="/assets/Clue_Texture/1800Glove.glb"></a-asset-item>
-    <a-asset-item id="1800Glove_model"     response-type="arraybuffer" src="/assets/Clue_Texture/1800Glove.glb"></a-asset-item>
-    <a-asset-item id="1800Hocky_model"     response-type="arraybuffer" src="/assets/Clue_Texture/1800Hocky.glb"></a-asset-item>
-    <a-asset-item id="1800Pic_model"     response-type="arraybuffer" src="/assets/Clue_Texture/1800Pic.glb"></a-asset-item>-->
-
-    <a-asset-item id=  "1800Glove_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1800Glove.glb"></a-asset-item>
-    <a-asset-item id=  "1800Pic_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1800Pic.glb"></a-asset-item>
-    <a-asset-item id=  "1800Hocky_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1800Hocky.glb"></a-asset-item>
-    <a-asset-item id=  "teddy_model"        response-type="arraybuffer"  src="/assets/1800's/teddy.glb"></a-asset-item>
-         
-  
-  </a-assets>
-
-  <!--Sound for teddy bear-->
-  <a-assets>
-    <audio id="O'canada" src="/assets/1800's/O'Canada.mp3"></audio>
-</a-assets>
+      <a-asset-item id=  "1800Glove_model"    response-type="arraybuffer"  src="/assets/Clue_Texture/1800Glove.glb"></a-asset-item>
+      <a-asset-item id=  "1800Pic_model"      response-type="arraybuffer"  src="/assets/Clue_Texture/1800Pic.glb"></a-asset-item>
+      <a-asset-item id=  "1800Hocky_model"    response-type="arraybuffer"  src="/assets/Clue_Texture/1800Hocky.glb"></a-asset-item>
+      <a-asset-item id=  "teddy_model"        response-type="arraybuffer"  src="/assets/1800's/teddy.glb"></a-asset-item>
+          
+    </a-assets>
  
+    <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="10 5.3 4" rotation="0 58 0" scale="0.5 0.5 0.5">
+      <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
+      <a-entity light="type:spot; intensity:0.2; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="12.267 4.735 12.906" rotation="0 20 0" scale="0.009 0.009 0.009"></a-entity>
+      <a-entity light="type: ambient; color: #CCC"></a-entity>
 
-
-<a-entity id= "camera" camera="active: true" look-controls wasd-controls position="10 5.3 4" rotation="0 58 0" scale="0.5 0.5 0.5">
-  <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
-  <a-entity light="type:spot; intensity:0.2; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="12.267 4.735 12.906" rotation="0 20 0" scale="0.009 0.009 0.009"></a-entity>
-  <a-entity light="type: ambient; color: #CCC"></a-entity>
-
-  <a-entity id=”env” environment=”preset: defult”></a-entity>
-
-  
-  </a-entity>
-  <a-gui-cursor id="cursor"
-          raycaster="objects: [gui-interactable]"
-          color="#00FFFFFF"
-          fuse="false">
-  </a-gui-cursor>
-
-  <a-gui-flex-container id="questionBtn" class= "interactive" visibility
-  flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
-  position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" >        
-    <a-gui-button 
-      width="2.5" height="0.75"
-      onclick="buttonActionFunction" key-code="32"
-      position="0 0.025 0" scale="1.242 4.282 1.027"
-      value=" Proceed to Questions" 
-      margin="0 0 0.05 0"
-    >
-    </a-gui-button>
-</a-gui-flex-container>
-
-
-
-</a-entity>
-
-
- 
- <!-- <a-entity id="clue1" position = "-1 0 1.6">         
-    <a-entity id="teddy" class= "interactive" add-ui position="4.3589 1.76205 -2.60382" rotation="-90 110 0" scale="0.03 0.03 0.03"
-              gltf-model="#teddy_model"
-              animation__click="property:position.y; to:1.9; startEvents:click; dur:300" 
-              animation__rotation="property:rotation; to:-90 490 0; loop:true; dur:20000; startEvents:click;"
-              shadow
-              sound=                "src: #O'canada;  volume: 5"
-              play-sound-on-event=  "mode: toggle-stop; event: click" >
-    </a-entity>
-  </a-entity> -->
-
-
- <!-- <a-entity id="clue" class= "cube interactive"
-              position="29.59276 8.86245 34.23291"
-              scale="1.889 1.889 1.889"
-              geometry="primitive:box; width:3.0; height:4.0; depth:1.0" 
-              material="color:#FFFFFF;"
-              animation__rotation="property:rotation; to:-90 490 0; loop:true; dur:20000; startEvents:click;">
-  </a-entity>
--->
-
-  <!--<a-entity id=" position = "8.5 0 -8.7">
-    <a-entity id="hockeyStick" class="interactive" position="0 0 0" rotation="-3 0 0" scale="0.02 0.02 0.02"
-              gltf-model="#hockeyStick_model"
-              animation__click="property:position.y; to:0.9; startEvents:click; dur:300" 
-              animation__rotation="property:rotation; to:-3 490 0; loop:true; dur:20000; startEvents:click;"
-              shadow>
-    </a-entity>-->
-  </a-entity>
-  <a-entity id="carpet" position="7.0303 0.1 -0.0173" rotation="0 90.01166961505233 0" scale="0.19534 0.19534 0.19534" gltf-model="#carpet_model" shadow=""></a-entity>
-  <a-entity id="closet" position="7.01599 0 -6.31219" rotation="0 -90 0" scale="0.03 0.03 0.03" gltf-model="#closet_model" shadow=""></a-entity>
-  <a-entity id="paint" position="7.02988 5.41622 -6.87156" rotation="0 180 0" scale="2 2 2" gltf-model="#paint_model" shadow=""></a-entity>
-  <a-entity id="hockeyStick2" position="-0.56003 0.16786 5.61071" rotation="-0.6445775195221761 101.54244524206015 -0.13006141949469688" scale="0.029 0.029 0.029" gltf-model="#hockeyStick2_model" shadow></a-entity>
-  <a-entity id="table" position="4 0 4" rotation="0 0 0" scale="0.02 0.02 0.02" gltf-model="#table_model" shadow></a-entity>
-  <a-entity id="bed" position="4.41345 0 2.81035" rotation="0 90.04031750480887 0" scale="5 5 5" gltf-model="#bed_model" shadow=""></a-entity>
-  <a-entity id="typewriter" position="13.51336 2.22462 0.04433" rotation="0 -180 0" scale="0.04371 0.04371 0.04371" gltf-model="#typewriter_model" shadow=""></a-entity>
-  <a-entity id="award1" position="5.31682 2.47014 -6.34344" rotation="0 165.26394642753465 0" scale="0.25264 0.25264 0.25264" gltf-model="#award1" shadow=""></a-entity>
-  <a-entity id="award2" position="5.9356 2.94459 -6.64132" rotation="" scale="0.04564 0.04564 0.04564" gltf-model="#award2" shadow></a-entity>
-  <a-entity id="trophy" position="7.23392 2.5 -6.62507" rotation="0 179.4016800223877 0" scale="0.2326 0.2326 0.2326" gltf-model="#trophy" shadow></a-entity>
-  <a-entity id="trophy2" position="7.84113 2.84164 -6.43485" rotation="180 180 0" scale="-0.001 -0.001 -0.001" gltf-model="#trophy2" shadow></a-entity>
-  <a-entity id="glasses" position="13.14286 2.22327 1.08733" rotation="-4.557879260265699 -53.82250935899927 -1.5985522484149968" scale="0.0263 0.0263 0.0263"gltf-model="#glasses" shadow=""></a-entity>
-  <a-entity id="medal3" position="6.51763 2.47032 -6.27238" rotation="0 91.20685957569523 0" scale="0.20927 0.20927 0.20927" gltf-model="#medal3" shadow=""></a-entity>
-  <a-entity id="baseball" position="7.72019 0.11469 -3.72886" rotation="0 -92.09322528476261 0" scale="0.00226 0.00226 0.00226" gltf-model="#baseball" shadow=""></a-entity>
-  <a-entity id="paper" position="13.5252 2.28294 -1.01319" rotation="0 -161.81072979628118 0" scale="0.02452 0.02452 0.02452" gltf-model="#paper_model" shadow=""></a-entity>
-  <a-entity id="chair4" position="13.37976 1.50947 4.64936" rotation="0 162.92685158119602 0" scale="0.01 0.01 0.01" gltf-model="#chair4" shadow=""></a-entity>
-  <a-entity id="sidetable" position="13.4297 0.67838 2.90623" rotation="0 180 0" scale="0.07 0.07 0.07" gltf-model="#sidetable" shadow=""></a-entity>
-  <a-entity id="fireplacethis" position="7.18357 1.79935 6.37022" rotation="0 89.48798619030276 0" scale="0.13145 0.13145 0.13145" gltf-model="#fireplacethis" shadow=""></a-entity>
-  <a-entity id="closetttt" position="13.96876 2.91039 -3.81166" rotation="0 -91.04299364628781 0" scale="3.39617 2.94023 2.94023" gltf-model="#closetttt" shadow=""></a-entity>
-  <a-entity id="1" position="16.11634 4.36067 0.21031" rotation="0 -90 0" scale="0.14345 0.12419 0.12419" gltf-model="#1" shadow=""></a-entity>
-  <a-entity id="frame (1)" position="-0.8823 4.02395 3.41037" rotation="0 180 0" scale="0.64555 0.64555 0.64555" gltf-model="#frame (1)" shadow=""></a-entity>
-  <a-entity id="frame (2)" position="-0.8823 3.88916 -3.5347" rotation="0 180 0" scale="0.66881 0.66881 0.66881" gltf-model="#frame (2)" shadow=""></a-entity>
-  <a-entity id="frame (3)" position="6.41011 5.75219 6.328" rotation="0 -90 0" scale="0.51909 0.51909 0.51909" gltf-model="#frame (3)" shadow=""></a-entity>
-  <a-entity id="frame (4)" position="6.4 4.36651 6.328" rotation="0 -90 0" scale="0.51909 0.51909 0.51909" gltf-model="#frame (4)" shadow=""></a-entity>
-  <a-entity id="frame (5)" position="8 4.36312 6.328" rotation="0 -90 0" scale="0.51909 0.51909 0.51909" gltf-model="#frame (5)" shadow=""></a-entity>
-  <a-entity id="frame" position="7.9921 5.75219 6.328" rotation="0 -90 0" scale="52.69064 52.69064 52.69064" gltf-model="#frame" shadow=""></a-entity>
-  <a-entity id="frame (7)" position="-0.937 4.52797 -0.06955" rotation="0 -179.6841482153872 0" scale="0.95266 0.95266 0.95266" gltf-model="#frame (7)" shadow=""></a-entity>
-  <a-entity id="cooking (3)" position="13.22714 2.26116 1.63103" rotation="-85.20340779831446 -90 1.717727469802208" scale="0.19707 0.19707 0.19707" gltf-model="#cooking (3)" shadow=""></a-entity>
-  
-  <!-- CLUE 
-  <a-entity id="1800Glove"position="4 2.68 -2.93" rotation="0 0 0" scale="0.6 0.25 0.25" gltf-model="#1800Glove_model" shadow=""></a-entity>
-  <a-entity id="1800Glove"position="10.5 1.184 -1.39" rotation="0 0 0" scale="0.6 0.25 0.25" gltf-model="#1800Glove_model" shadow=""></a-entity>
-  <a-entity id="1800Hocky"position="0.110 0.199 4.451" rotation="0 90 0" scale="0.03 0.025 0.03" gltf-model="#1800Hocky_model" shadow=""></a-entity>
-  <a-entity id="1800Hocky"position="0 0.199 5.451" rotation="10.750 -90 0" scale="0.03 0.025 0.03" gltf-model="#1800Hocky_model" shadow=""></a-entity>
-  <a-entity id="1800Pic"position="12.6 1.5 0" rotation="0 0 0" scale="0.6 1.4 -2.3" gltf-model="#1800Pic_model" shadow=""></a-entity>-->
-
-  <a-entity id="clues">
-
-    
-
-    <a-entity  position = "6.507 0.571 -3.188" rotation="0 87.394 0" id="clue1">
-      <a-entity position="0.38 2.116 2.572">
-      <a-entity id="glove_clue" class= "interactive" add-ui add-text spinning-effect position="0.38 2.116 2.572" rotation="-12.4 -80 -7.7" color="#ff0000" scale="0.288 0.288 0.288" gltf-model="#1800Glove_model"     
-            shadow >
-      </a-entity> 
-    </a-entity>
-    </a-entity>
-
-    
-      <a-entity  position = "12.25027 0.76731 0.08257">
-        <a-entity id="pic_clue" class= "interactive" add-ui2 add-text spinning-effect2 position="12.25027 0.76731 0.08257" rotation="0 0 0" color="#ff0000" scale="2 2 2" gltf-model="#1800Pic_model"     
-              shadow >
-        </a-entity> 
-    </a-entity>
-
-   
-
-    <a-entity  position = "-0.17773 -6.59731 5.24557">
-      <a-entity id="hockey_clue" class= "interactive" add-ui3 add-text spinning-effect3 position="-0.17773 -6.59731 5.24557" rotation="-0.576 61.290 0.317" color="#ff0000" scale="0.029 0.029 0.029" gltf-model="#1800Hocky_model"     
-            shadow >
-      </a-entity> 
-  </a-entity>
-    
-  <a-entity  position = "2.787 1.6533 0.741">
-    <a-entity id="bear_clue" class= "interactive" add-ui4 add-text spinning-effect4 position="2.787 1.6533 0.741" rotation="-52.74 23.803 50.796" color="#ff0000" scale="0.031 0.031 0.031" gltf-model="#teddy_model"     
-          shadow >
-    </a-entity> 
-  </a-entity>
-    
-  </a-entity> 
-
-  <!--<a-entity  position = "29.593 1.391 47.861" >
-    <a-box id="room_unlock" class= "cube interactive" onclick="document.location='transition2D.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
-          shadow >
-    </a-box> 
-  </a-entity>-->
-
-  <a-entity id="progress_ui" position="1.302 8.087 -6.394" rotation="0 40.480 0" scale="0.137 0.186 0.186" >
-      <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
-      <a-entity id = "clues_found" text="value:Clues Found: 0/4; 
-                   color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
-
-      <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
-        <a-entity id="progressMeter" geometry="primitive: box; width: 0; height: 0.710 depth:0" material="color: #ed5b21" position="0 0 0" rotation="-90 0 0" scale="1 1 1" shadow="cast: false"></a-entity>
       </a-entity>
+      <a-gui-cursor id="cursor"
+              raycaster="objects: [gui-interactable]"
+              color="#00FFFFFF"
+              fuse="false">
+      </a-gui-cursor>
+
+      <a-gui-flex-container id="questionBtn" class= "interactive" visibility
+      flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
+      position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" >        
+        <a-gui-button 
+          width="2.5" height="0.75"
+          onclick="buttonActionFunction" key-code="32"
+          position="0 0.025 0" scale="1.242 4.282 1.027"
+          value=" Proceed to Questions" 
+          margin="0 0 0.05 0"
+        >
+        </a-gui-button>
+      </a-gui-flex-container>
+
     </a-entity>
 
-    <a-entity id="questions" position="7.154 4.843 0" rotation="0 0 0">
-      <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;"scale="0.465 0.465 0.465" 
-                material="color:#d6931f;"
-                animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
-                animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
-              shadow>
+    <a-entity id=”env” environment=”preset: defult”></a-entity>
 
-      <a-entity id="question1" position="-1.895 0 0.536">
-      <a-entity text="value:Q#1 - Choose the Correct Answer: ; 
-                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
-      <a-entity id = "question1_title" text="value:Grandma’s souvenir from the first indoor hockey game that she played in Montreal was back on : ; 
-                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-      <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+    <a-entity class="clue-music" sound="src:#o_canada; autoplay:false;"></a-entity>
 
-          <a-gui-radio id = "question1_choice1" class= "interactive" position="1.40 0.113 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
-           material= "blending: additive; visible:false"
-          width="2.5" height="0.75"
-          value="March 3, 1870"
-          font-size="0.3"
-          margin="0 0 0.05 0" shadow
-          >
-          </a-gui-radio>   
-          <a-gui-radio id = "question1_choice2" class= "button interactive" question1_correct position="1.409 -0.997 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
-          material= "blending: additive; visible:false"
-          width="2.5" height="0.75"
-          value="March 3, 1875"
-          font-size="0.3"
-          margin="0 0 0.05 0" shadow
-          >
-          </a-gui-radio> 
-          <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
-              width="2.5" height="0.75"
-              key-code="32"
-              position="0 0.025 0" scale="1.242 4.282 1.027"
-              value="Next Question"
-              margin="0 0 0.05 0"
-            >
-          </a-gui-button>
+      <a-entity id="carpet" position="7.0303 0.1 -0.0173" rotation="0 90.01166961505233 0" scale="0.19534 0.19534 0.19534" gltf-model="#carpet_model" shadow=""></a-entity>
+      <a-entity id="closet" position="7.01599 0 -6.31219" rotation="0 -90 0" scale="0.03 0.03 0.03" gltf-model="#closet_model" shadow=""></a-entity>
+      <a-entity id="paint" position="7.02988 5.41622 -6.87156" rotation="0 180 0" scale="2 2 2" gltf-model="#paint_model" shadow=""></a-entity>
+      <a-entity id="hockeyStick2" position="-0.56003 0.16786 5.61071" rotation="-0.6445775195221761 101.54244524206015 -0.13006141949469688" scale="0.029 0.029 0.029" gltf-model="#hockeyStick2_model" shadow></a-entity>
+      <a-entity id="table" position="4 0 4" rotation="0 0 0" scale="0.02 0.02 0.02" gltf-model="#table_model" shadow></a-entity>
+      <a-entity id="bed" position="4.41345 0 2.81035" rotation="0 90.04031750480887 0" scale="5 5 5" gltf-model="#bed_model" shadow=""></a-entity>
+      <a-entity id="award2" position="5.9356 2.94459 -6.64132" rotation="" scale="0.04564 0.04564 0.04564" gltf-model="#award2" shadow></a-entity>
+      <a-entity id="trophy" position="7.23392 2.5 -6.62507" rotation="0 179.4016800223877 0" scale="0.2326 0.2326 0.2326" gltf-model="#trophy" shadow></a-entity>
+      <a-entity id="baseball" position="7.72019 0.11469 -3.72886" rotation="0 -92.09322528476261 0" scale="0.00226 0.00226 0.00226" gltf-model="#baseball" shadow=""></a-entity>
+      <a-entity id="paper" position="13.5252 2.28294 -1.01319" rotation="0 -161.81072979628118 0" scale="0.02452 0.02452 0.02452" gltf-model="#paper_model" shadow=""></a-entity>
+      <a-entity id="chair4" position="13.37976 1.50947 4.64936" rotation="0 162.92685158119602 0" scale="0.01 0.01 0.01" gltf-model="#chair4" shadow=""></a-entity>
+      <a-entity id="sidetable" position="13.4297 0.67838 2.90623" rotation="0 180 0" scale="0.07 0.07 0.07" gltf-model="#sidetable" shadow=""></a-entity>
+      <a-entity id="fireplacethis" position="7.18357 1.79935 6.37022" rotation="0 89.48798619030276 0" scale="0.13145 0.13145 0.13145" gltf-model="#fireplacethis" shadow=""></a-entity>
+      <a-entity id="closetttt" position="13.96876 2.91039 -3.81166" rotation="0 -91.04299364628781 0" scale="3.39617 2.94023 2.94023" gltf-model="#closetttt" shadow=""></a-entity>
+      <a-entity id="1" position="16.11634 4.36067 0.21031" rotation="0 -90 0" scale="0.14345 0.12419 0.12419" gltf-model="#1" shadow=""></a-entity>
+      <a-entity id="frame (1)" position="-0.8823 4.02395 3.41037" rotation="0 180 0" scale="0.64555 0.64555 0.64555" gltf-model="#frame (1)" shadow=""></a-entity>
+      <a-entity id="frame (3)" position="6.41011 5.75219 6.328" rotation="0 -90 0" scale="0.51909 0.51909 0.51909" gltf-model="#frame (3)" shadow=""></a-entity>
+      <a-entity id="frame (4)" position="6.4 4.36651 6.328" rotation="0 -90 0" scale="0.51909 0.51909 0.51909" gltf-model="#frame (4)" shadow=""></a-entity>
+      <a-entity id="frame (5)" position="8 4.36312 6.328" rotation="0 -90 0" scale="0.51909 0.51909 0.51909" gltf-model="#frame (5)" shadow=""></a-entity>
+      <a-entity id="frame (7)" position="-0.937 4.52797 -0.06955" rotation="0 -179.6841482153872 0" scale="0.95266 0.95266 0.95266" gltf-model="#frame (7)" shadow=""></a-entity>
+        
+     <!--false clues--> 
+    <a-entity  position="13.22714 0 1.63103">
+      <a-entity id="cooking3" class="interactive" false-clue position="0 2.26116 0" rotation="-85.20340779831446 -90 1.717727469802208" scale="0.19707 0.19707 0.19707" gltf-model="#cooking (3)" shadow=""></a-entity>
+    </a-entity>
 
-        </a-entity> 
-      </a-entity> 
-      <a-entity id="question2" position="-1.895 0 0.536" visible="false">
-        <a-entity text="value:Q#2 - Choose the Correct Answer: ; 
-                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
-        <a-entity id = "question2_title" text="value:  the newly invented electric cooking range was made by __________ in 1882; 
-                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-        <a-entity id="question2_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+    <a-entity position="13.51336 0 0.04433">
+      <a-entity id="typewriter" class="interactive" false-clue2 position="0 2.22462 0" rotation="0 -180 0" scale="0.04371 0.04371 0.04371" gltf-model="#typewriter_model" shadow=""></a-entity>
+    </a-entity>
 
-          <a-gui-radio id = "question2_choice1" class= "" question2_correct position="1.409 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          material= "blending: additive; visible:false"
-          value="Thomas Ahearn"
-          font-size="0.220"
-          margin="0 0 0.05 0" shadow
-          >
-          </a-gui-radio>   
-          <a-gui-radio id = "question2_choice2" class= "" position="1.409 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          material= "blending: additive; visible:false"
-          value="Calixa Lavallée"
-          font-size="0.220"
-          margin="0 0 0.05 0" shadow
-          >
-          </a-gui-radio> 
-          <a-gui-button id = "question2_end2" class= "interactive" next_question2 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
-              width="2.5" height="0.75"
-              onclick="" key-code="32"
-              position="0 0.025 0" scale="1.242 4.282 1.027"
-              value="Next Question"
-              margin="0 0 0.05 0"
-            >
-          </a-gui-button>
-        </a-entity> 
-      </a-entity>
-      <a-entity id="question3" position="-1.895 0 0.536" visible="false">
-        <a-entity text="value:Q#3 - Choose the Correct Answer: ; 
-                   color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
-        <a-entity id = "question3_title" text="value: the first pairs of baseball gloves were invented in ___________ back in 1883 : ; 
-                   color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-        <a-entity id="question3_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+    <a-entity position="5.31682 0 -6.34344">
+      <a-entity id="award1" class="interactive" false-clue3 position="0 2.47014 0" rotation="0 165.26394642753465 0" scale="0.25264 0.25264 0.25264" gltf-model="#award1" shadow=""></a-entity>
+    </a-entity>
+     
+    <a-entity position="7.84113 0 -6.43485">
+      <a-entity id="trophy2" class="interactive" false-clue4 position="0 2.84164 0" rotation="180 180 0" scale="-0.001 -0.001 -0.001" gltf-model="#trophy2" shadow></a-entity>
+    </a-entity>
+      
+    <a-entity position="13.14286 0 1.08733">
+      <a-entity id="glasses" class="interactive" false-clue5 position="0 2.22327 0" rotation="-4.557879260265699 -53.82250935899927 -1.5985522484149968" scale="0.0263 0.0263 0.0263"gltf-model="#glasses" shadow=""></a-entity>
+    </a-entity>
 
-          <a-gui-radio id = "question3_choice1" class= "" position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          material= "blending: additive; visible:false"
-          value="America"
-          font-size="0.180"
-          margin="0 0 0.05 0" shadow
-          >
-          </a-gui-radio>   
-          <a-gui-radio id = "question3_choice2" class= "" question3_correct position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-          width="2.5" height="0.75"
-          material= "blending: additive; visible:false"
-          value="Canada"
-          font-size="0.180"
-          margin="0 0 0.05 0" shadow
-          >
-          </a-gui-radio> 
-          <a-gui-button id = "question3_end3" class= "interactive" next_question3 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
-                width="2.5" height="0.75"
-                onclick="" key-code="32"
-                position="0 0.025 0" scale="1.242 4.282 1.027"
-                value="Next Question"
-                margin="0 0 0.05 0"
-            >
-          </a-gui-button>
-        </a-entity> 
-        <a-entity id="question4" position="-1.895 0 0.536" visible="false">
-          <a-entity text="value:Q#4 - Choose the Correct Answer: ; 
-                     color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
-          <a-entity id = "question4_title" text="value:In what language was O'Canada's first and original version made in?; 
-                     color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
-          <a-entity id="question4_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
-  
-            <a-gui-radio id = "question4_choice1" class= "" question4_correct position="1.409 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-            width="2.5" height="0.75"
-            material= "blending: additive; visible:false"
-            value="French"
-            font-size="0.220"
-            margin="0 0 0.05 0" shadow
-            >
-            </a-gui-radio>   
-            <a-gui-radio id = "question4_choice2" class= "" position="1.409 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
-            width="2.5" height="0.75"
-            material= "blending: additive; visible:false"
-            value="English"
-            font-size="0.220"
-            margin="0 0 0.05 0" shadow
-            >
-            </a-gui-radio> 
-            
-                <a-gui-button id = "question4_end4" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
-                width="2.5" height="0.75"
-                onclick="document.location='transition4.html'"
-                key-code="32"
-                position="0 0.025 0" scale="1.242 4.282 1.027"
-                value="Unlock Room"
-                margin="0 0 0.05 0">
-            </a-gui-button>
+    <a-entity position="6.51763 0 -6.27238">
+      <a-entity id="medal3" class="interactive" false-clue6 position="0 2.47032 0" rotation="0 91.20685957569523 0" scale="0.20927 0.20927 0.20927" gltf-model="#medal3" shadow=""></a-entity>
+    </a-entity>
+
+    <a-entity position="0 4.02395 -3.41037">
+      <a-entity id="frame2" class="interactive" false-clue7 position="-0.8823 0 0" rotation="0 180 0" scale="0.66881 0.66881 0.66881" gltf-model="#frame (2)" shadow=""></a-entity>
+    </a-entity>
+
+    <a-entity position="7.9921 5.75219 0">
+      <a-entity id="frame" class="interactive" false-clue8 position="0 0 6.328" rotation="0 -90 0" scale="52.69064 52.69064 52.69064" gltf-model="#frame" shadow=""></a-entity>
+    </a-entity>
+
+
+      <a-entity id="clues">
+        <a-entity  position = "8.489 0.033 -6.331" rotation="0 190 0" id="clue1">
+          <a-entity position="-2.856 2.116 0.351">
+          <a-entity id="glove_clue" class= "interactive" add-ui add-text spinning-effect position="0 1.072 0" rotation="-12.4 -80 -7.7" color="#ff0000" scale="0.288 0.288 0.288" gltf-model="#1800Glove_model"     
+                shadow >
           </a-entity> 
+        </a-entity>
+        </a-entity>
+        
+          <a-entity  position = "14.671 0.688 4.093">
+            <a-entity id="pic_clue" class= "interactive" add-ui2 add-text spinning-effect2 position="0 0 0" rotation="0 0 0" color="#ff0000" scale="2 2 2" gltf-model="#1800Pic_model"     
+                  shadow >
+            </a-entity> 
+          </a-entity>
+
+        <a-entity  position = "-0.17773 -6.59731 5.24557">
+          <a-entity id="hockey_clue" class= "interactive" add-ui3 add-text spinning-effect3 position="-0.17773 -6.59731 5.24557" rotation="-0.576 61.290 0.317" color="#ff0000" scale="0.029 0.029 0.029" gltf-model="#1800Hocky_model"     
+                shadow >
+          </a-entity> 
+        </a-entity>
+        
+        <a-entity  position = "2.166 1.653 0.141">
+          <a-entity id="bear_clue" class= "interactive" add-ui4 add-text spinning-effect4 position="0 0 0" rotation="-52.74 23.803 50.796" color="#ff0000" scale="0.031 0.031 0.031" gltf-model="#teddy_model"     
+                shadow >
+          </a-entity> 
+        </a-entity>
+        
+      </a-entity> 
+
+      <a-entity id="progress_ui" position="1.302 8.087 -6.394" rotation="0 40.480 0" scale="0.137 0.186 0.186" >
+          <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
+          <a-entity id = "clues_found" text="value:Clues Found: 0/4; 
+                      color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
+
+          <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
+            <a-entity id="progressMeter" geometry="primitive: box; width: 0; height: 0.710 depth:0" material="color: #ed5b21" position="0 0 0" rotation="-90 0 0" scale="1 1 1" shadow="cast: false"></a-entity>
+          </a-entity>
+        </a-entity>
+
+        <a-entity id="questions" position="6.831 3.168 0.917" rotation="-7.891 0 0" scale="0.465 0.465 0.465">
+          <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;"scale="0.465 0.465 0.465" 
+                    material="color:#d6931f;"
+                    animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
+                    animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
+                  shadow>
+
+            <a-entity id="question1" position="-1.895 0 0.536">
+            <a-entity text="value:Q#1 - Choose the Correct Answer: ; 
+                        color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+            <a-entity id = "question1_title" text="value:Grandma’s souvenir from the first indoor hockey game that she played in Montreal was back on : ; 
+                        color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+            <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+                <a-gui-radio id = "question1_choice1" class= "interactive" position="-0.328 0.326 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+                material= "blending: additive; visible:false"
+                width="2.5" height="0.75"
+                value="March 3, 1870"
+                font-size="0.3"
+                margin="0 0 0.05 0" shadow
+                >
+                </a-gui-radio>   
+                <a-gui-radio id = "question1_choice2" class= "button interactive" question1_correct position="-0.328 -0.554 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+                material= "blending: additive; visible:false"
+                width="2.5" height="0.75"
+                value="March 3, 1875"
+                font-size="0.3"
+                margin="0 0 0.05 0" shadow
+                >
+                </a-gui-radio> 
+                <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                    width="2.5" height="0.75"
+                    key-code="32"
+                    position="0 0.025 0" scale="1.242 4.282 1.027"
+                    value="Next Question"
+                    margin="0 0 0.05 0"
+                  >
+                </a-gui-button>
+
+            </a-entity> 
+            </a-entity> 
+            <a-entity id="question2" position="-1.895 0 0.536" visible="false">
+              <a-entity text="value:Q#2 - Choose the Correct Answer: ; 
+                        color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+              <a-entity id = "question2_title" text="value:  the newly invented electric cooking range was made by __________ in 1882; 
+                        color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+              <a-entity id="question2_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+                <a-gui-radio id = "question2_choice1" class= "" question2_correct position="0.296 0.267 0.01" scale= "6.221 1.296 1" background-color= "#ffffff"
+                width="2.5" height="0.75"
+                material= "blending: additive; visible:false"
+                value="Thomas Ahearn"
+                font-size="0.220"
+                margin="0 0 0.05 0" shadow
+                >
+                </a-gui-radio>   
+                <a-gui-radio id = "question2_choice2" class= "" position="0.296 -0.638 0.01" scale= "6.221 1.296 1" background-color= "#ffffff"
+                width="2.5" height="0.75"
+                material= "blending: additive; visible:false"
+                value="Calixa Lavallée"
+                font-size="0.220"
+                margin="0 0 0.05 0" shadow
+                >
+                </a-gui-radio> 
+                <a-gui-button id = "question2_end2" class= "interactive" next_question2 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                    width="2.5" height="0.75"
+                    onclick="" key-code="32"
+                    position="0 0.025 0" scale="1.242 4.282 1.027"
+                    value="Next Question"
+                    margin="0 0 0.05 0"
+                  >
+                </a-gui-button>
+              </a-entity> 
+            </a-entity>
+            <a-entity id="question3" position="-1.895 0 0.536" visible="false">
+              <a-entity text="value:Q#3 - Choose the Correct Answer: ; 
+                        color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+              <a-entity id = "question3_title" text="value: the first pairs of baseball gloves were invented in ___________ back in 1883 : ; 
+                        color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+              <a-entity id="question3_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+
+                <a-gui-radio id = "question3_choice1" class= "" position="2.609 0.320 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+                width="2.5" height="0.75"
+                material= "blending: additive; visible:false"
+                value="America"
+                font-size="0.180"
+                margin="0 0 0.05 0" shadow
+                >
+                </a-gui-radio>   
+                <a-gui-radio id = "question3_choice2" class= "" question3_correct position="2.609 -0.534 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+                width="2.5" height="0.75"
+                material= "blending: additive; visible:false"
+                value="Canada"
+                font-size="0.180"
+                margin="0 0 0.05 0" shadow
+                >
+                </a-gui-radio> 
+                <a-gui-button id = "question3_end3" class= "interactive" next_question3 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                      width="2.5" height="0.75"
+                      onclick="" key-code="32"
+                      position="0 0.025 0" scale="1.242 4.282 1.027"
+                      value="Next Question"
+                      margin="0 0 0.05 0"
+                  >
+                </a-gui-button>
+              </a-entity> 
+            </a-entity>
+            <a-entity id="question4" position="-1.895 0 0.536" visible="false">
+                <a-entity text="value:Q#4 - Choose the Correct Answer: ; 
+                          color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
+                <a-entity id = "question4_title" text="value:In what language was O'Canada's first and original version made in?; 
+                          color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
+                <a-entity id="question4_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
+                  <a-gui-radio id = "question4_choice1" class= "" question4_correct position="2.079 0.409 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+                  width="2.5" height="0.75"
+                  material= "blending: additive; visible:false"
+                  value="French"
+                  font-size="0.220"
+                  margin="0 0 0.05 0" shadow
+                  >
+                  </a-gui-radio>   
+                  <a-gui-radio id = "question4_choice2" class= "" position="2.079 -0.532 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+                  width="2.5" height="0.75"
+                  material= "blending: additive; visible:false"
+                  value="English"
+                  font-size="0.220"
+                  margin="0 0 0.05 0" shadow
+                  >
+                  </a-gui-radio> 
+                  <a-gui-button id = "question4_end4" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                      width="2.5" height="0.75"
+                      onclick="document.location='transition4.html'"
+                      key-code="32"
+                      position="0 0.025 0" scale="1.242 4.282 1.027"
+                      value="Unlock Room"
+                      margin="0 0 0.05 0">
+                  </a-gui-button>
+                </a-entity> 
+            </a-entity>
+          </a-entity>
+        </a-entity>
+        
+
+      <a-entity id="rooms">
+        <a-entity class="ground" geometry="primitive: plane; width: 23; height: 23" material="color: black" position="9.07322 0.01 -0.44387" rotation="-90 0 0" shadow="cast: false"></a-entity>
+        <a-entity id="wall" position="6.80849 6.06923 7.70611" rotation="" scale="0.17365 0.1662 0.1662"gltf-model="#wall" shadow=""></a-entity>
+        <a-entity id="wall" position="6.80849 6.06923 -8.4125" rotation="0 180 0" scale="0.17365 0.1662 0.1662"gltf-model="#wall" shadow=""></a-entity>
+        <a-entity class="wall" position="14.86031 5.68544 -0.01471" rotation="0 -90 0" scale="0.1848 0.17688 0.17688" gltf-model="#frame (9)" shadow=""></a-entity>
+        <a-entity class="wall" position="-1.02434 5.68544 -1.00525" rotation="0 90 0" scale="0.1848 0.17688 0.17688"  gltf-model="#frame (9)" shadow=""></a-entity>
       </a-entity>
-      </a-entity>
 
-  </a-entity>
+      <script>
+      var currentAnim = "animation-start";
+        var currentAnim2 = "shake-start";
 
-  <a-entity id="rooms">
-    <a-entity class="ground" geometry="primitive: plane; width: 23; height: 23" material="color: black" position="9.07322 0.01 -0.44387" rotation="-90 0 0" shadow="cast: false"></a-entity>
-    <a-entity id="wall" position="6.80849 6.06923 7.70611" rotation="" scale="0.17365 0.1662 0.1662"gltf-model="#wall" shadow=""></a-entity>
-    <a-entity id="wall" position="6.80849 6.06923 -8.4125" rotation="0 180 0" scale="0.17365 0.1662 0.1662"gltf-model="#wall" shadow=""></a-entity>
-    <a-entity class="wall" position="14.86031 5.68544 -0.01471" rotation="0 -90 0" scale="0.1848 0.17688 0.17688" gltf-model="#frame (9)" shadow=""></a-entity>
-    <a-entity class="wall" position="-1.02434 5.68544 -1.00525" rotation="0 90 0" scale="0.1848 0.17688 0.17688"  gltf-model="#frame (9)" shadow=""></a-entity>
+        document.querySelector("#question1_choice1").addEventListener("click", function() {
+          document.getElementById("question_plane").emit(currentAnim);
+          document.getElementById("question_plane").emit(currentAnim2);
 
-  </a-entity>
+          currentAnim = "animation-start";
+          currentAnim2 = "shake-start";
 
-  <script>
-  var currentAnim = "animation-start";
-    var currentAnim2 = "shake-start";
+        });
 
-    document.querySelector("#question1_choice1").addEventListener("click", function() {
-      document.getElementById("question_plane").emit(currentAnim);
-      document.getElementById("question_plane").emit(currentAnim2);
+        document.querySelector("#question2_choice2").addEventListener("click", function() {
+          document.getElementById("question_plane").emit(currentAnim);
+          document.getElementById("question_plane").emit(currentAnim2);
 
-      currentAnim = "animation-start";
-      currentAnim2 = "shake-start";
+          currentAnim = "animation-start";
+          currentAnim2 = "shake-start";
 
-    });
+        });
 
-    document.querySelector("#question2_choice2").addEventListener("click", function() {
-      document.getElementById("question_plane").emit(currentAnim);
-      document.getElementById("question_plane").emit(currentAnim2);
+        document.querySelector("#question3_choice1").addEventListener("click", function() {
+          document.getElementById("question_plane").emit(currentAnim);
+          document.getElementById("question_plane").emit(currentAnim2);
 
-      currentAnim = "animation-start";
-      currentAnim2 = "shake-start";
+          currentAnim = "animation-start";
+          currentAnim2 = "shake-start";
 
-    });
+        });
 
-    document.querySelector("#question3_choice1").addEventListener("click", function() {
-      document.getElementById("question_plane").emit(currentAnim);
-      document.getElementById("question_plane").emit(currentAnim2);
+        document.querySelector("#question4_choice2").addEventListener("click", function() {
+          document.getElementById("question_plane").emit(currentAnim);
+          document.getElementById("question_plane").emit(currentAnim2);
 
-      currentAnim = "animation-start";
-      currentAnim2 = "shake-start";
+          currentAnim = "animation-start";
+          currentAnim2 = "shake-start";
 
-    });
-    document.querySelector("#question4_choice2").addEventListener("click", function() {
-      document.getElementById("question_plane").emit(currentAnim);
-      document.getElementById("question_plane").emit(currentAnim2);
-
-      currentAnim = "animation-start";
-      currentAnim2 = "shake-start";
-
-    });
-    </script>
+        });
+      </script>
   
-  
-</a-scene>
+  </a-scene>
 </body>
 </html>
