@@ -13,7 +13,7 @@
 <body>
 
 
-<a-scene start-experience>
+<a-scene start-experience >
 
     <a-assets timeout="10000">
       <!--Audio-->
@@ -52,7 +52,8 @@
       <a-asset-item id="frame (9)" response-type="arraybuffer" src="/assets/1800's/frame (9).glb"></a-asset-item>
       <a-asset-item id="cooking (3)" response-type="arraybuffer" src="/assets/1800's/cooking (3).glb"></a-asset-item>
       <a-asset-item id="wall" response-type="arraybuffer" src="/assets/1800's/room3wall.glb"></a-asset-item>
-
+      <a-asset-item id="clock" response-type="arraybuffer" src="/assets/1800's/clock.glb"></a-asset-item>
+   
       <a-asset-item id=  "1800Glove_model"    response-type="arraybuffer"  src="/assets/Clue_Texture/1800Glove.glb"></a-asset-item>
       <a-asset-item id=  "1800Pic_model"      response-type="arraybuffer"  src="/assets/Clue_Texture/1800Pic.glb"></a-asset-item>
       <a-asset-item id=  "1800Hocky_model"    response-type="arraybuffer"  src="/assets/Clue_Texture/1800Hocky.glb"></a-asset-item>
@@ -88,6 +89,7 @@
     </a-entity>
 
     <a-entity id=”env” environment=”preset: defult”></a-entity>
+    <a-entity rotation="-90 0 0" class="environmentGround environment" visible="" scale="1 1 3" shadow="cast: false; receive: false"></a-entity>
 
     <a-entity class="clue-music" sound="src:#o_canada; autoplay:false;"></a-entity>
 
@@ -102,7 +104,6 @@
       <a-entity id="baseball" position="7.72019 0.11469 -3.72886" rotation="0 -92.09322528476261 0" scale="0.00226 0.00226 0.00226" gltf-model="#baseball" shadow=""></a-entity>
       <a-entity id="paper" position="13.5252 2.28294 -1.01319" rotation="0 -161.81072979628118 0" scale="0.02452 0.02452 0.02452" gltf-model="#paper_model" shadow=""></a-entity>
       <a-entity id="chair4" position="13.37976 1.50947 4.64936" rotation="0 162.92685158119602 0" scale="0.01 0.01 0.01" gltf-model="#chair4" shadow=""></a-entity>
-      <a-entity id="sidetable" position="13.4297 0.67838 2.90623" rotation="0 180 0" scale="0.07 0.07 0.07" gltf-model="#sidetable" shadow=""></a-entity>
       <a-entity id="fireplacethis" position="7.18357 1.79935 6.37022" rotation="0 89.48798619030276 0" scale="0.13145 0.13145 0.13145" gltf-model="#fireplacethis" shadow=""></a-entity>
       <a-entity id="closetttt" position="13.96876 2.91039 -3.81166" rotation="0 -91.04299364628781 0" scale="3.39617 2.94023 2.94023" gltf-model="#closetttt" shadow=""></a-entity>
       <a-entity id="1" position="16.11634 4.36067 0.21031" rotation="0 -90 0" scale="0.14345 0.12419 0.12419" gltf-model="#1" shadow=""></a-entity>
@@ -111,8 +112,9 @@
       <a-entity id="frame (4)" position="6.4 4.36651 6.328" rotation="0 -90 0" scale="0.51909 0.51909 0.51909" gltf-model="#frame (4)" shadow=""></a-entity>
       <a-entity id="frame (5)" position="8 4.36312 6.328" rotation="0 -90 0" scale="0.51909 0.51909 0.51909" gltf-model="#frame (5)" shadow=""></a-entity>
       <a-entity id="frame (7)" position="-0.937 4.52797 -0.06955" rotation="0 -179.6841482153872 0" scale="0.95266 0.95266 0.95266" gltf-model="#frame (7)" shadow=""></a-entity>
-        
-     <!--false clues--> 
+      <a-entity id="clock" position="14.01603 2.36252 2.93944" rotation="0 -89.73836874677492 0" scale="2.21282 2.21282 2.21282" gltf-model="#clock" shadow=""></a-entity>
+  
+      <!--false clues--> 
     <a-entity  position="13.22714 0 1.63103">
       <a-entity id="cooking3" class="interactive" false-clue position="0 2.26116 0" rotation="-85.20340779831446 -90 1.717727469802208" scale="0.19707 0.19707 0.19707" gltf-model="#cooking (3)" shadow=""></a-entity>
     </a-entity>
@@ -142,7 +144,7 @@
     </a-entity>
 
     <a-entity position="7.9921 5.75219 0">
-      <a-entity id="frame" class="interactive" false-clue8 position="0 0 6.328" rotation="0 -90 0" scale="52.69064 52.69064 52.69064" gltf-model="#frame" shadow=""></a-entity>
+      <a-entity id="frame" class="interactive" false-clue8 position="0 0 6.328" rotation="-180 90 0" scale="-0.519 -0.519 -0.519" gltf-model="#frame" shadow=""></a-entity>
     </a-entity>
 
 
@@ -329,7 +331,7 @@
         
 
       <a-entity id="rooms">
-        <a-entity class="ground" geometry="primitive: plane; width: 23; height: 23" material="color: black" position="9.07322 0.01 -0.44387" rotation="-90 0 0" shadow="cast: false"></a-entity>
+        <a-entity class="ground" geometry="primitive: plane; width: 23; height: 23" material="src: /assets/1800's/floor.jpg" position="6.70716 0.01 -0.24745" rotation="-90 0 0" shadow="cast: false"></a-entity>
         <a-entity id="wall" position="6.80849 6.06923 7.70611" rotation="" scale="0.17365 0.1662 0.1662"gltf-model="#wall" shadow=""></a-entity>
         <a-entity id="wall" position="6.80849 6.06923 -8.4125" rotation="0 180 0" scale="0.17365 0.1662 0.1662"gltf-model="#wall" shadow=""></a-entity>
         <a-entity class="wall" position="14.86031 5.68544 -0.01471" rotation="0 -90 0" scale="0.1848 0.17688 0.17688" gltf-model="#frame (9)" shadow=""></a-entity>
