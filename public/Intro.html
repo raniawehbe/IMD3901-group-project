@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMD3901 Term Project</title>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+</head>
+
+
+<body>
+  <a-scene renderer="colorManagement: true">
+
+    <a-assets timeout="10000">
+      <a-asset-item id=  "corridor_model"  response-type="arraybuffer"  src="/assets/Intro/corridor.glb"></a-asset-item>
+    </a-assets>
+
+    <a-entity id="camera" camera="" look-controls="" wasd-controls="" position="6.73523 59.52175 215.67605" rotation="" data-aframe-inspector-original-camera="">
+      <a-cursor material="" raycaster="useWorldCoordinates: true" cursor="rayOrigin: mouse" geometry="" visible="false"></a-cursor>
+    </a-entity>
+
+    <a-entity id="corridor_model"  position="7.0303 0.1 -0.0173" rotation="0 0 0" Scale= "0.5 0.5 0.5" gltf-model="#corridor_model" shadow=""></a-entity>
+    <a-plane class="UI" geometry="width: 90; height: 70" material="src: /assets/Intro/UI.png; opacity: 0.95; transparent: true; color: #ffffff" position="7.1322 49.50384 139.90185" rotation="" shadow="cast: false" scale="0.48963 0.81902 11.31287" onclick="document.location='Room1.html'"></a-plane>
+    
+  </a-scene>
+</body>
+
+
+</html>
