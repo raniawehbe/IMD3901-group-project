@@ -153,12 +153,6 @@
 
       </a-entity> 
 
-      <!--<a-entity  position = "29.593 1.391 47.861" >
-        <a-box id="room_unlock" class= "cube interactive" onclick="document.location='transition2D.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
-              shadow >
-        </a-box> 
-      </a-entity>-->
-
       <a-entity id="progress_ui" position="-50.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
         <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
         <a-entity id = "clues_found" text="value:Clues Found: 0/3 ; 
@@ -201,7 +195,6 @@
             </a-gui-radio> 
             <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                 width="2.5" height="0.75"
-                key-code="32"
                 position="0 0.025 0" scale="1.242 4.282 1.027"
                 value="Next Question"
                 margin="0 0 0.05 0"
@@ -235,7 +228,7 @@
             </a-gui-radio> 
             <a-gui-button id = "question2_end2" class= "interactive" next_question2 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                 width="2.5" height="0.75"
-                onclick="" key-code="32"
+                onclick="" 
                 position="0 0.025 0" scale="1.242 4.282 1.027"
                 value="Next Question"
                 margin="0 0 0.05 0"
@@ -269,7 +262,6 @@
             <a-gui-button id = "question3_end3" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                 width="2.5" height="0.75"
                 onclick="document.location='transition2D.html'"
-                key-code="32"
                 position="0 0.025 0" scale="1.242 4.282 1.027"
                 value="Unlock Room"
                 margin="0 0 0.05 0"
@@ -303,7 +295,6 @@
 
       document.querySelector("a-scene").addEventListener("loaded", onSceneLoad);*/
     
-
       var currentAnim = "animation-start";
       var currentAnim2 = "shake-start";
 
