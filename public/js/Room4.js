@@ -253,6 +253,7 @@ Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
     Context_AF.walls.setAttribute('animation', {to:0});
+    Context_AF.walls2.setAttribute('rotation', "0 0 0");
     Context_AF.isSpinning = false; 
 
     document.querySelectorAll(".ui2").forEach(e => e.parentNode.removeChild(e));
@@ -343,6 +344,7 @@ Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
     Context_AF.walls.setAttribute('animation', {to:0.009});
+    Context_AF.walls.setAttribute('rotation', "0 0 0");
     Context_AF.isSpinning = false; 
 
     document.querySelectorAll(".ui3").forEach(e => e.parentNode.removeChild(e));
@@ -430,6 +432,7 @@ AFRAME.registerComponent('spinning-effect4', {
     if (Context_AF.isSpinning === true) {
       console.log('stop spinning');
       Context_AF.walls.setAttribute('animation', {to:-0.027});
+      Context_AF.walls.setAttribute('rotation', "0 0 0");
       Context_AF.isSpinning = false; 
   
       document.querySelectorAll(".ui3").forEach(e => e.parentNode.removeChild(e));
