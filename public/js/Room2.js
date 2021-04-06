@@ -175,6 +175,7 @@ Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
     Context_AF.walls.setAttribute('animation', {to:-49.993});
+    Context_AF.walls.setAttribute('rotation', "0 -0.296 0");
     Context_AF.isSpinning = false; 
 
     document.querySelectorAll(".ui2").forEach(e => e.parentNode.removeChild(e));
