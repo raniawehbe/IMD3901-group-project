@@ -15,6 +15,9 @@
  
   <a-scene renderer="colorManagement: true">
         <a-assets timeout="10000">
+          <a-asset-item id=  "door_model"        response-type="arraybuffer"  src="/assets/Room1/door.glb"></a-asset-item>
+          
+          <a-asset-item id=  "relief_model"        response-type="arraybuffer"  src="/assets/Room1/relief.glb"></a-asset-item>
           <a-asset-item id=  "lion_model"        response-type="arraybuffer"  src="/assets/Room1/lion.glb"></a-asset-item>
           <a-asset-item id=  "curtain_model"        response-type="arraybuffer"  src="/assets/Room1/curtain.glb"></a-asset-item>
           <a-asset-item id=  "drobe_model"        response-type="arraybuffer"  src="/assets/Room1/drobe.glb"></a-asset-item>
@@ -91,14 +94,19 @@
      <a-entity position="25.9588 0 0.20169">
       <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
       </a-entity>
-      <a-entity id="lion" position="12 50.5 -66.3" rotation="0 0 0" scale="23.7 23.7 19.67" gltf-model="#lion_model"></a-entity>
+      <a-entity id="door" position="-12.6 -2.44 -66" rotation="0 0 0" scale="0.08 0.11 0.11" gltf-model="#door_model"></a-entity>
+      <a-entity id="relief" position="-3 71 -214.7" rotation="0 0 0" scale="8.27 7.16 19.67" gltf-model="#relief_model"></a-entity>
+      <a-entity id="lion" position="30 50.5 -66" rotation="0 0 0" scale="23.7 23.7 19.67" gltf-model="#lion_model"></a-entity>
+      <a-entity id="lion" position="-52 50.5 -66" rotation="0 0 0" scale="23.7 23.7 19.67" gltf-model="#lion_model"></a-entity>
+      
       <a-entity id="curtain" position="-10.8 -7.5 53" rotation="0 -180 0" scale="-0.18 0.29 0.4" gltf-model="#curtain_model"></a-entity>
       <a-entity id="drobe" position="-13.2 30.7 81.67" rotation="0 90 -90" scale="8 4 5.7" gltf-model="#drobe_model"></a-entity>
-      <a-entity id="model" position="-38.8 -6 -66" rotation="0 36.27 0" scale="1.8 3 1" gltf-model="#model_model"></a-entity>
+      <a-entity id="model" position="-25 14 -56.36" rotation="0 90 0" scale="1.14 1.47 1.04" gltf-model="#model_model"></a-entity>
+      <a-entity id="model" position="-25 4.45 -56.36" rotation="0 90 0" scale="1.14 1.47 1.04" gltf-model="#model_model"></a-entity>
       <a-entity id="dress" position="-11 11 41.5" rotation="0 90 0" scale="2.57 2.63 2.23" gltf-model="#dress_model"></a-entity>
       <a-entity id="bed" position="-48.7 7.568 -7.764" rotation="0 90 0" scale="9.78 19.6 11.79" gltf-model="#bed_model"></a-entity>
-      <a-entity id="chair" position="3.2 15 -61" rotation="0 -180 0" scale="0.19 0.28 0.16" gltf-model="#chair_model"></a-entity>
-      <a-entity id="chair" position="17 15 -61" rotation="0 -180 0" scale="0.19 0.28 0.16" gltf-model="#chair_model"></a-entity>
+      <a-entity id="chair" position="18 15 -61" rotation="0 -180 0" scale="0.19 0.28 0.16" gltf-model="#chair_model"></a-entity>
+      <a-entity id="chair" position="37 15 -61" rotation="0 -180 0" scale="0.19 0.28 0.16" gltf-model="#chair_model"></a-entity>
        <a-entity id="wallcandle" position="-66.7 47 -32.74" rotation="0 61.65 0" scale="0.197 0.2 0.227" gltf-model="#wallcandle_model"></a-entity>
       <a-entity id="wallcandle2" position="-66.7 47 16" rotation="0 61.65 0" scale="0.197 0.2 0.227" gltf-model="#wallcandle_model"></a-entity>
            
@@ -107,13 +115,13 @@
       <a-entity id="waredrobe2" position="-2.93206 -0.77395 -60.98832" rotation="-180 0 0" scale="-0.145 -0.145 -0.145" gltf-model="#waredrobe2_model"></a-entity>
       <a-entity id="Bag" position="-8.60471 28.63657 -51.07958" rotation="-180 0 0" scale="-0.52755 -0.52755 -0.52755" gltf-model="#Bag_model"></a-entity>
       <a-entity id="BOXOPEN" position="29.75119 0.438 34.53685" rotation="0 -110.75102292540274 0" scale="0.15 0.15 0.15" gltf-model="#BOXOPEN_model"></a-entity>
-      <a-entity id="jewlerybox" position="-9.91374 12.15115 -51.14332" rotation="" scale="0.22173 0.22173 0.22173" gltf-model="#jewlerybox_model"></a-entity>
+      <a-entity id="jewlerybox" position="-12.7 19.3 -60.6" rotation="" scale="0.22173 0.22173 0.22173" gltf-model="#jewlerybox_model"></a-entity>
       <a-entity id="watch" position="-9.30594 39.20385 -50.24887" rotation="" scale="0.009 0.009 0.009" gltf-model="#watch_model"></a-entity>
       <a-entity id="Pin" position="-16.77304 29.35212 -48.96418" rotation="-89.85410622139135 179.9998479605043 179.9998479605043" scale="0.52477 0.52477 0.52477" gltf-model="#Pin_model"></a-entity>
       <a-entity id="perfume1" position="-7.01837 19.90191 -49.91869" rotation="" scale="0.27558 0.27558 0.27558" gltf-model="#Perfume1_model"></a-entity>
       <a-entity id="Candle" position="11 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
       <a-entity id="Candle" position="-35.2 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
-      
+
       <a-entity id="necklace" position="-12.69791 20.69447 -53.01104" rotation="0 -90 0" scale="0.52137 0.52137 0.52137" gltf-model="#necklace_model"></a-entity>
       <a-entity id="scoll" position="28.72842 6.02001 30.36255" rotation="0 -117.5646370250985 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
       <a-entity id="scoll" position="28.62465 7.0782 34.56297" rotation="2.623000786108909 -88.71392020908101 -4.2295744436557365" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
