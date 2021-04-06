@@ -115,28 +115,25 @@
       <a-entity id="clock" position="14.01603 2.36252 2.93944" rotation="0 -89.73836874677492 0" scale="2.21282 2.21282 2.21282" gltf-model="#clock" shadow=""></a-entity>
   
       <!--false clues--> 
-    <a-entity  position="13.22714 0 1.63103">
-      <a-entity id="cooking3" class="interactive" false-clue position="0 2.26116 0" rotation="-85.20340779831446 -90 1.717727469802208" scale="0.19707 0.19707 0.19707" gltf-model="#cooking (3)" shadow=""></a-entity>
-    </a-entity>
 
     <a-entity position="13.51336 0 0.04433">
       <a-entity id="typewriter" class="interactive" false-clue2 position="0 2.22462 0" rotation="0 -180 0" scale="0.04371 0.04371 0.04371" gltf-model="#typewriter_model" shadow=""></a-entity>
     </a-entity>
 
     <a-entity position="5.31682 0 -6.34344">
-      <a-entity id="award1" class="interactive" false-clue3 position="0 2.47014 0" rotation="0 165.26394642753465 0" scale="0.25264 0.25264 0.25264" gltf-model="#award1" shadow=""></a-entity>
+      <a-entity id="award1_fc" class="interactive" false-clue3 position="0 2.47014 0" rotation="0 165.26394642753465 0" scale="0.25264 0.25264 0.25264" gltf-model="#award1" shadow=""></a-entity>
     </a-entity>
      
     <a-entity position="7.84113 0 -6.43485">
-      <a-entity id="trophy2" class="interactive" false-clue4 position="0 2.84164 0" rotation="180 180 0" scale="-0.001 -0.001 -0.001" gltf-model="#trophy2" shadow></a-entity>
+      <a-entity id="trophy2_fc" class="interactive" false-clue4 position="0 2.84164 0" rotation="180 180 0" scale="-0.001 -0.001 -0.001" gltf-model="#trophy2" shadow></a-entity>
     </a-entity>
       
     <a-entity position="13.14286 0 1.08733">
-      <a-entity id="glasses" class="interactive" false-clue5 position="0 2.22327 0" rotation="-4.557879260265699 -53.82250935899927 -1.5985522484149968" scale="0.0263 0.0263 0.0263"gltf-model="#glasses" shadow=""></a-entity>
+      <a-entity id="glasses_fc" class="interactive" false-clue5 position="0 2.22327 0" rotation="-4.557879260265699 -53.82250935899927 -1.5985522484149968" scale="0.0263 0.0263 0.0263"gltf-model="#glasses" shadow=""></a-entity>
     </a-entity>
 
     <a-entity position="6.51763 0 -6.27238">
-      <a-entity id="medal3" class="interactive" false-clue6 position="0 2.47032 0" rotation="0 91.20685957569523 0" scale="0.20927 0.20927 0.20927" gltf-model="#medal3" shadow=""></a-entity>
+      <a-entity id="medal3_fc" class="interactive" false-clue6 position="0 2.47032 0" rotation="0 91.20685957569523 0" scale="0.20927 0.20927 0.20927" gltf-model="#medal3" shadow=""></a-entity>
     </a-entity>
 
     <a-entity position="0 4.02395 -3.41037">
@@ -151,20 +148,20 @@
       <a-entity id="clues">
         <a-entity  position = "8.489 0.033 -6.331" rotation="0 190 0" id="clue1">
           <a-entity position="-2.856 2.116 0.351">
-          <a-entity id="glove_clue" class= "interactive" add-ui add-text spinning-effect position="0 1.072 0" rotation="-12.4 -80 -7.7" color="#ff0000" scale="0.288 0.288 0.288" gltf-model="#1800Glove_model"     
+          <a-entity id="glove_clue" class= "interactive" add-ui spinning-effect position="0 1.072 0" rotation="-12.4 -80 -7.7" color="#ff0000" scale="0.288 0.288 0.288" gltf-model="#1800Glove_model"     
                 shadow >
           </a-entity> 
         </a-entity>
         </a-entity>
+
+
+        <a-entity  position="13.22714 0 1.63103">
+          <a-entity id="pic_clue" class="interactive" add-ui2 spinning-effect2 position="0 2.256 0" rotation="-85.2034 -90 1.717" scale="0.19707 0.19707 0.19707" gltf-model="#cooking (3)" shadow=""></a-entity>
+        </a-entity>
         
-          <a-entity  position = "14.671 0.688 4.093">
-            <a-entity id="pic_clue" class= "interactive" add-ui2 add-text spinning-effect2 position="0 0 0" rotation="0 0 0" color="#ff0000" scale="2 2 2" gltf-model="#1800Pic_model"     
-                  shadow >
-            </a-entity> 
-          </a-entity>
 
         <a-entity  position = "-0.17773 -6.59731 5.24557">
-          <a-entity id="hockey_clue" class= "interactive" add-ui3 add-text spinning-effect3 position="-0.17773 -6.59731 5.24557" rotation="-0.576 61.290 0.317" color="#ff0000" scale="0.029 0.029 0.029" gltf-model="#1800Hocky_model"     
+          <a-entity id="hockey_clue" class= "interactive" add-ui3 spinning-effect3 position="-0.17773 -6.59731 5.24557" rotation="-0.576 61.290 0.317" color="#ff0000" scale="0.029 0.029 0.029" gltf-model="#1800Hocky_model"     
                 shadow >
           </a-entity> 
         </a-entity>
@@ -209,7 +206,7 @@
                 margin="0 0 0.05 0" shadow
                 >
                 </a-gui-radio>   
-                <a-gui-radio id = "question1_choice2" class= "button interactive" question1_correct position="-0.328 -0.554 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+                <a-gui-radio id = "question1_choice2" class= "interactive" question1_correct position="-0.328 -0.554 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
                 material= "blending: additive; visible:false"
                 width="2.5" height="0.75"
                 value="March 3, 1875"

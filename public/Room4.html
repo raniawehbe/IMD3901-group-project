@@ -104,11 +104,10 @@
   <a-entity id="Art2_model" position="-0.79088 4.56357 4.78189" rotation="0 -90.69463530684828 180" scale="-0.00235 -0.00235 -0.0093" gltf-model="#Art2_model" shadow=""></a-entity>
   <a-entity id="plant_model" position="1.53639 0.04604 5.87881" rotation="-0.9488181087366432 0 0" scale="0.01 0.01 0.01"gltf-model="#plant_model" shadow=""></a-entity>
   <a-entity id="tables_model" position="10.18215 0.00079 5.99081" rotation="-0.9488181087366432 0 0" scale="0.04354 0.03292 0.04354" gltf-model="#tables_model" shadow=""></a-entity>
-  <a-entity id="lamp_model" position="10.55197 2.3708 6.22904" rotation="0 -155.71732364506488 0" scale="0.52821 0.52821 0.52821" gltf-model="#lamp_model" shadow=""></a-entity>
+  <a-entity id="lamp_model" position="10.947 2.371 6.184" rotation="0 -155.71732364506488 0" scale="0.52821 0.52821 0.52821" gltf-model="#lamp_model" shadow=""></a-entity>
   <a-entity id="window_model" position="12.39598 5.61771 0.64056" rotation="0 -90 0" scale="0.03261 0.03261 0.03261" gltf-model="#window_model" shadow=""></a-entity>
   <a-entity id="window_model" position="6.10569 5.61771 -8.67667" rotation="0 0.14896902673401402 0" scale="0.03261 0.03261 0.03261"  gltf-model="#window_model" shadow=""></a-entity>
   <a-entity id="basket_model" position="1.79952 0.26368 -8.01661" rotation="-0.5666552593843841 -61.33112126418871 0.761460909728864" scale="0.51459 0.51459 0.51459" gltf-model="#basket_model" shadow=""></a-entity>
-  <a-entity id="diary_model" position="7.30068 1.61153 2.24413" rotation="-0.5666552593843841 -53.35726762935304 -3.1971044968299935" scale="0.07075 0.07075 0.07075" gltf-model="#diary_model" shadow=""></a-entity>
   <a-entity id="cabinet3_model" position="6.17389 0.02981 -7.90041" rotation="" scale="0.03 0.03 0.03"  gltf-model="#cabinet3_model" shadow=""></a-entity>
   <a-entity id="phone_model" position="6.17389 3.06926 -8.10636" rotation="" scale="0.00275 0.00275 0.00275" gltf-model="#phone_model" shadow=""></a-entity>
   <a-entity id="painting1_model" position="8.39019 4.1345 1.71864" rotation="0 -90 0" scale="3.4289 3.4289 3.4289" gltf-model="#painting1_model" shadow=""></a-entity>
@@ -116,46 +115,36 @@
   <a-entity id="painting3_model" position="18.65849 4.14407 12.32469" rotation="0 180 0" scale="3.4289 3.4289 3.4289" gltf-model="#painting3_model" shadow=""></a-entity>
   <a-entity id="painting4_model" position="42.5 4.54529 -5.86" rotation="0 90 0" scale="2.64264 2.64264 4.84006" gltf-model="#painting4_model" shadow=""></a-entity>
 
- <!-- <a-entity id="clue1" position="5 -0.3 0.25" rotation="-26.3 0 0" scale="0.15 0.13 0.11" gltf-model="#clue1_model" shadow=""></a-entity>
-  <a-entity id="clue2" position="3.7 0.84 3.75" rotation="0 240 90" scale="0.53 0.79 0.65" gltf-model="#clue2_model" shadow=""></a-entity>
-  <a-entity id="clue3" position="12.7 4.6 -1.34" rotation="0 -90 0" scale="0.24 0.24 0.44" gltf-model="#clue3_model" shadow=""></a-entity>
-  <a-entity id="clue4" position="12.6 3.8 2" rotation="0 -90 0" scale="0.3 0.32 0.44" gltf-model="#clue4_model" shadow=""></a-entity>
--->
+ 
   <a-entity id="clues">
-    <a-entity  position = "10.2 0.002 -3.024">
-      <a-entity id="book_clue" class= "interactive" add-ui add-text spinning-effect position="10.2 0.002 -3.024" rotation="0 -67.596 0" color="#ff0000" scale="0.349 0.25 0.25" gltf-model="#clue1_model"     
-            shadow >
+    <a-entity  position = "7.301 2.915 2.244">
+      <a-entity id="diary_clue" class="interactive" add-ui spinning-effect position="0 -1.322 0" rotation="-0.5666552593843841 -53.35726762935304 -3.1971044968299935" scale="0.07075 0.07075 0.07075" gltf-model="#diary_model" shadow=""></a-entity>
       </a-entity> 
+
+    <a-entity id= "clue2" position = "9.555 2.133 6.216" rotation = "0 0 0">
+      <a-entity  position = "-0.918 -0.025 -0.414">
+          <a-entity id="news_clue" class= "interactive" add-ui2 spinning-effect2 position="0 0 0" rotation="0 0 -90" color="#ff0000" scale="0.562 0.562 0.562" gltf-model="#clue2_model"     
+                shadow ></a-entity> 
+      </a-entity>
     </a-entity>
 
     
-      <a-entity  position = "3.75027 0.96731 2.66257">
-        <a-entity id="news_clue" class= "interactive" add-ui2 add-text spinning-effect2 position="3.75027 0.96731 2.66257" rotation="3.943 -163.99 94.781" color="#ff0000" scale="0.562 0.562 0.562" gltf-model="#clue2_model"     
-              shadow >
-        </a-entity> 
-    </a-entity>
-
-    <a-entity  position = "12.498 2.76731 2.88257" >
-      <a-entity id="primeMinister_clue" class= "interactive" add-ui3 add-text spinning-effect3 position="12.498 2.76731 2.88257" rotation="0 -90 0" color="#ff0000" scale="0.390 0.390 0.390" gltf-model="#clue3_model"     
+    <a-entity  position = "1.988 3.840 -8.77" >
+      <a-entity id="primeMinister_clue" class= "interactive" add-ui3 spinning-effect3 position="0 0 0.009" rotation="0 0 0" color="#ff0000" scale="0.29 0.29 0.29" gltf-model="#clue3_model"     
             shadow >
       </a-entity> 
-  </a-entity>
+    </a-entity>
 
-  <a-entity  position = "12.498 2.76731 -1.969" >
-    <a-entity id="painting_clue" class= "interactive" add-ui4 add-text spinning-effect4 position="12.498 2.76731 -1.969" rotation="0 -90 0" color="#ff0000" scale="0.390 0.390 0.390" gltf-model="#clue4_model"     
-          shadow >
-    </a-entity> 
-</a-entity>
+    <a-entity  position = "10.253  3.947 -8.751" >
+      <a-entity id="painting_clue" class= "interactive" add-ui4 spinning-effect4 position="0 0 -0.027" rotation="0 0 0" color="#ff0000" scale="0.29 0.29 0.29" gltf-model="#clue4_model"     
+            shadow >
+      </a-entity> 
+    </a-entity>
 
   </a-entity> 
 
-  <!--<a-entity  position = "29.593 1.391 47.861" >
-    <a-box id="room_unlock" class= "cube interactive" onclick="document.location='transition2D.html'" rotation="0 0 0" color="#ff00ff" scale="3 3 3"  
-          shadow >
-    </a-box> 
-  </a-entity>-->
 
-  <a-entity id="progress_ui" position="1.302 8.087 -6.394" rotation="0 40.480 0" scale="0.186 0.186 0.186" >
+  <a-entity id="progress_ui" position="0.088 8.087 4.083" rotation="0 129.29 0" scale="0.173 0.173 0.173" >
       <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
       <a-entity id = "clues_found" text="value:Clues Found: 0/4 ; 
                    color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
@@ -165,7 +154,7 @@
       </a-entity>
     </a-entity>
 
-    <a-entity id="questions" position="7.154 4.843 0" rotation="0 0 0">
+    <a-entity id="questions" position="6.197 2.054 -6.173" rotation="-2.656 0 0" scale="0.436 0.436 0.436">
       <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;"scale="0.465 0.465 0.465" 
                 material="color:#d6931f;"
                 animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
@@ -175,11 +164,11 @@
       <a-entity id="question1" position="-1.895 0 0.536">
       <a-entity text="value:Q#1 - Choose the Correct Answer: ; 
                    color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
-      <a-entity id = "question1_title" text="value:what is the country that joined the Canadian confederation back in 1949; 
+      <a-entity id = "question1_title" text="value:What is the country that joined the Canadian confederation back in 1949; 
                    color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
       <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
 
-          <a-gui-radio id = "question1_choice1" class= "interactive" position="1.40 0.113 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+          <a-gui-radio id = "question1_choice1" class= "interactive" position="-0.639 0.272 0.017" scale= "4.704 1.397 0.8" background-color= "#ffffff"
            material= "blending: additive; visible:false"
           width="2.5" height="0.75"
           value="Novia Scotia"
@@ -187,7 +176,7 @@
           margin="0 0 0.05 0" shadow
           >
           </a-gui-radio>   
-          <a-gui-radio id = "question1_choice2" class= "button interactive" question1_correct position="1.409 -0.997 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+          <a-gui-radio id = "question1_choice2" class= "interactive" question1_correct position="-0.805 -0.555 0.025" scale= "4.704 1.397 0.8" background-color= "#ffffff"
           material= "blending: additive; visible:false"
           width="2.5" height="0.75"
           value="Newfoundland"
@@ -195,9 +184,8 @@
           margin="0 0 0.05 0" shadow
           >
           </a-gui-radio> 
-          <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+          <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.736 -2.093 0.025" scale= "3.591 1.202 0.8" 
               width="2.5" height="0.75"
-              key-code="32"
               position="0 0.025 0" scale="1.242 4.282 1.027"
               value="Next Question"
               margin="0 0 0.05 0"
@@ -206,14 +194,15 @@
 
         </a-entity> 
       </a-entity> 
+      
       <a-entity id="question2" position="-1.895 0 0.536" visible="false">
         <a-entity text="value:Q#2 - Choose the Correct Answer: ; 
                    color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
-        <a-entity id = "question2_title" text="value: since when were Indigenous Canadians able to vote?; 
+        <a-entity id = "question2_title" text="value: Since when were Indigenous Canadians able to vote?; 
                    color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
         <a-entity id="question2_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
 
-          <a-gui-radio id = "question2_choice1" class= "" question2_correct position="1.409 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question2_choice1" class= "" question2_correct position="-0.332 0.475 0.01" scale= "5.406 1.231 0.881" background-color= "#ffffff"
           width="2.5" height="0.75"
           material= "blending: additive; visible:false"
           value=" not until the 1960s."
@@ -221,7 +210,7 @@
           margin="0 0 0.05 0" shadow
           >
           </a-gui-radio>   
-          <a-gui-radio id = "question2_choice2" class= "" position="1.409 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question2_choice2" class= "" position="-0.144 -0.417 0.01" scale= "5.623 1.281 0.918" background-color= "#ffffff"
           width="2.5" height="0.75"
           material= "blending: additive; visible:false"
           value="since always"
@@ -231,7 +220,7 @@
           </a-gui-radio> 
           <a-gui-button id = "question2_end2" class= "interactive" next_question2 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
               width="2.5" height="0.75"
-              onclick="" key-code="32"
+              onclick=""
               position="0 0.025 0" scale="1.242 4.282 1.027"
               value="Next Question"
               margin="0 0 0.05 0"
@@ -239,15 +228,15 @@
           </a-gui-button>
         </a-entity> 
       </a-entity>
-      
+
       <a-entity id="question3" position="-1.895 0 0.536" visible="false">
         <a-entity text="value:Q#3 - Choose the Correct Answer: ; 
                    color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
-        <a-entity id = "question3_title" text="value: the first lady to become a prime minister in Canada in 1993 was: ; 
+        <a-entity id = "question3_title" text="value: The first lady to become a prime minister, in Canada in 1993, was: ; 
                    color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
         <a-entity id="question3_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
 
-          <a-gui-radio id = "question3_choice1" class= "" position="2.609 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question3_choice1" class= "" position="1.433 0.393 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
           width="2.5" height="0.75"
           material= "blending: additive; visible:false"
           value="Rita Johnston"
@@ -255,7 +244,7 @@
           margin="0 0 0.05 0" shadow
           >
           </a-gui-radio>   
-          <a-gui-radio id = "question3_choice2" class= "" question3_correct position="2.609 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question3_choice2" class= "" question3_correct position="1.52 -0.517 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
           width="2.5" height="0.75"
           material= "blending: additive; visible:false"
           value=" Kim Campbell"
@@ -266,7 +255,6 @@
           <a-gui-button id = "question3_end3" class= "interactive" next_question3 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
               width="2.5" height="0.75"
               onclick=""
-              key-code="32"
               position="0 0.025 0" scale="1.242 4.282 1.027"
               value="Next Question"
               margin="0 0 0.05 0"
@@ -274,6 +262,7 @@
           </a-gui-button>
         </a-entity> 
       </a-entity>
+
       <a-entity id="question4" position="-1.895 0 0.536" visible="false">
         <a-entity text="value:Q#4 - Choose the Correct Answer: ; 
                    color:black; font:roboto; width:15.700; anchor:left; baseline:top; wrapCount:30.640;" position="-4.997 8.564 0.052"></a-entity>  
@@ -281,7 +270,7 @@
                    color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
         <a-entity id="question4_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
 
-          <a-gui-radio id = "question4_choice1" class= "" question2_correct position="1.409 0.113 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question4_choice1" class= "" question4_correct position="-0.258 0.238 0.01" scale= "5.754 1.308 2.557" background-color= "#ffffff"
           width="2.5" height="0.75"
           material= "blending: additive; visible:false"
           value="Refugee issues"
@@ -289,7 +278,7 @@
           margin="0 0 0.05 0" shadow
           >
           </a-gui-radio>   
-          <a-gui-radio id = "question4_choice2" class= "" position="1.409 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+          <a-gui-radio id = "question4_choice2" class= "" position="-0.086 -0.68 0.01" scale= "5.89 1.34 0.959" background-color= "#ffffff"
           width="2.5" height="0.75"
           material= "blending: additive; visible:false"
           value=" Indeginous issues"
@@ -297,9 +286,9 @@
           margin="0 0 0.05 0" shadow
           >
           </a-gui-radio> 
-          <a-gui-button id = "question4_end2" class= "interactive"  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+          <a-gui-button id = "question4_end4" class= "interactive"  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
               width="2.5" height="0.75"
-              onclick="document.location='transitionDone.html'" key-code="32"
+              onclick="document.location='transitionDone.html'" 
               position="0 0.025 0" scale="1.242 4.282 1.027"
               value="Unlock Room"
               margin="0 0 0.05 0"
@@ -307,6 +296,7 @@
           </a-gui-button>
         </a-entity> 
       </a-entity>
+
       </a-entity>
 
   </a-entity>

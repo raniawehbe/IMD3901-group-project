@@ -51,9 +51,9 @@ init: function () {
         //entityEl.setAttribute('add-UI', '');
         entityEl.setAttribute('id', "ui2");
         entityEl.setAttribute('class', "ui2");
-        entityEl.setAttribute('position', "13.006 4.327 0.774");
-        entityEl.setAttribute('rotation', "16.152 90 0");
-        entityEl.setAttribute('scale', "7.928 6.022 0.322");
+        entityEl.setAttribute('position', "13.086 3.329 3.199");
+        entityEl.setAttribute('rotation', "15.515 72.264 -2.026");
+        entityEl.setAttribute('scale', "4.855 3.687 0.197");
         entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
         entityEl.setAttribute('material', "color: #995d46");
         entityEl.setAttribute('material', { src: 'assets/frameClue.png' })  
@@ -95,6 +95,7 @@ init: function () {
     });
 }
 });
+
 AFRAME.registerComponent('add-ui4', {
   schema: {
           default: '',
@@ -130,7 +131,7 @@ AFRAME.registerComponent('add-ui4', {
   
       });
   }
-  });
+});
 
 AFRAME.registerComponent('spinning-effect', {
 schema: {
@@ -243,7 +244,7 @@ Context_AF.isSpinning = false;
 
 //let's add the basic animation to teh walls entity
 //note that it is not enabled initially
-Context_AF.walls.setAttribute('animation', {property:'position.x', to:0, dur:300, easing:'linear'});
+Context_AF.walls.setAttribute('animation', {property:'position.y', to:2.256, dur:300, easing:'linear'});
 Context_AF.walls.setAttribute('animation__rotation', {property:'rotation',  to:"0 360 0", loop:true, dur:10000, easing:'linear', enabled: false});
 Context_AF.questionBtn.setAttribute('visible', "false");
 
@@ -254,7 +255,11 @@ Context_AF.progressMeter.setAttribute('geometry', {width: 0, depth: 0});
 Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
-    Context_AF.walls.setAttribute('animation', {to:0});
+    Context_AF.walls.setAttribute('animation', {to:2.256});
+    Context_AF.walls.setAttribute('scale', "0.19707 0.19707 0.19707");
+    Context_AF.walls.setAttribute('rotation', "-85.2034 -90 1.717");
+    Context_AF.walls.setAttribute('position', "0 3.5 0");
+
     Context_AF.isSpinning = false; 
 
     document.querySelectorAll(".ui2").forEach(e => e.parentNode.removeChild(e));
@@ -267,7 +272,11 @@ Context_AF.el.addEventListener('click', function() {
 
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:-1.6});
+    Context_AF.walls.setAttribute('animation', {to:3.5});
+    Context_AF.walls.setAttribute('scale', "0.336 0.336 0.336");
+    Context_AF.walls.setAttribute('rotation', "0 0 0");
+    Context_AF.walls.setAttribute('position', "0 3.5 -0.406");
+
     Context_AF.isSpinning = true;
     cluesFound +=1;
     document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/4"});
@@ -507,39 +516,6 @@ AFRAME.registerComponent('spinning-effect4', {
   
   });
 
-AFRAME.registerComponent('false-clue', {
-schema: {
-duration: {type: 'number', default:20000.0},  //duration is in milliseconds
-},
-multiple: false, //do not allow multiple instances of this component on this entity
-init: function() {
-
-//get a local reference to our entities and set some property variables
-const Context_AF = this;
-Context_AF.walls      = document.querySelector('#cooking3');
-Context_AF.isSpinning = false;
-
-//let's add the basic animation to teh walls entity
-//note that it is not enabled initially
-Context_AF.walls.setAttribute('animation', {property:'position.y', to:2.26116, dur:300, easing:'linear'});
- 
-//listen on click
-Context_AF.el.addEventListener('click', function() {
-  if (Context_AF.isSpinning === true) {
-    console.log('stop spinning');
-    Context_AF.walls.setAttribute('animation', {to:2.26116});
-    Context_AF.isSpinning = false;
-  }
-  else {
-    console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:3.5});
-    Context_AF.isSpinning = true;
-  }
-});
-},
-
-
-});
 
 AFRAME.registerComponent('false-clue2', {
 schema: {
@@ -583,7 +559,7 @@ AFRAME.registerComponent('false-clue3', {
   
   //get a local reference to our entities and set some property variables
   const Context_AF = this;
-  Context_AF.walls      = document.querySelector('#award1');
+  Context_AF.walls      = document.querySelector('#award1_fc');
   Context_AF.isSpinning = false;
   
   //let's add the basic animation to teh walls entity
@@ -616,7 +592,7 @@ AFRAME.registerComponent('false-clue4', {
     
     //get a local reference to our entities and set some property variables
     const Context_AF = this;
-    Context_AF.walls      = document.querySelector('#trophy2');
+    Context_AF.walls      = document.querySelector('#trophy2_fc');
     Context_AF.isSpinning = false;
     
     //let's add the basic animation to teh walls entity
@@ -649,7 +625,7 @@ AFRAME.registerComponent('false-clue5', {
       
       //get a local reference to our entities and set some property variables
       const Context_AF = this;
-      Context_AF.walls      = document.querySelector('#glasses');
+      Context_AF.walls      = document.querySelector('#glasses_fc');
       Context_AF.isSpinning = false;
       
       //let's add the basic animation to teh walls entity
@@ -682,7 +658,7 @@ AFRAME.registerComponent('false-clue6', {
         
         //get a local reference to our entities and set some property variables
         const Context_AF = this;
-        Context_AF.walls      = document.querySelector('#medal3');
+        Context_AF.walls      = document.querySelector('#medal3_fc');
         Context_AF.isSpinning = false;
         
         //let's add the basic animation to teh walls entity
@@ -829,8 +805,6 @@ AFRAME.registerComponent('visibility', {
   
               Context_AF.question2.setAttribute('visible', "false");
   
-              //Context_AF.question1.setAttribute('visible', "true");
-              //Context_AF.question2.setAttribute('visible', "false");
   
               Context_AF.el.addEventListener('click', function() {
                 
