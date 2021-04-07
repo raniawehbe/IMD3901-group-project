@@ -609,13 +609,13 @@ AFRAME.registerComponent('false-clue4', {
     
     //let's add the basic animation to teh walls entity
     //note that it is not enabled initially
-    Context_AF.walls.setAttribute('animation', {property:'position.y', to:2.371, dur:300, easing:'linear'});
+    Context_AF.walls.setAttribute('animation', {property:'position.y', to:2.516, dur:300, easing:'linear'});
      
     //listen on click
     Context_AF.el.addEventListener('click', function() {
       if (Context_AF.isSpinning === true) {
         console.log('stop spinning');
-        Context_AF.walls.setAttribute('animation', {to:2.371});
+        Context_AF.walls.setAttribute('animation', {to:2.516});
         Context_AF.isSpinning = false;
       }
       else {
