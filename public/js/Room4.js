@@ -503,23 +503,24 @@ init: function() {
 
 //get a local reference to our entities and set some property variables
 const Context_AF = this;
-Context_AF.walls      = document.querySelector('#picture-frame');
+Context_AF.walls      = document.querySelector('#radio_fc');
 Context_AF.isSpinning = false;
 
 //let's add the basic animation to teh walls entity
 //note that it is not enabled initially
-Context_AF.walls.setAttribute('animation', {property:'position.y', to:18.02653, dur:300, easing:'linear'});
+Context_AF.walls.setAttribute('animation', {property:'position.y', to:3.21836, dur:300, easing:'linear'});
  
 //listen on click
 Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
-    Context_AF.walls.setAttribute('animation', {to:18.02653});
+    Context_AF.walls.setAttribute('animation', {to:3.21836});
     Context_AF.isSpinning = false;
   }
+
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:19.5});
+    Context_AF.walls.setAttribute('animation', {to:4});
     Context_AF.isSpinning = true;
   }
 });
@@ -537,28 +538,160 @@ init: function() {
 
 //get a local reference to our entities and set some property variables
 const Context_AF = this;
-Context_AF.walls      = document.querySelector('#diary');
+Context_AF.walls      = document.querySelector('#cross_fc');
 Context_AF.isSpinning = false;
 
 //let's add the basic animation to teh walls entity
 //note that it is not enabled initially
-Context_AF.walls.setAttribute('animation', {property:'position.y', to:17.90097, dur:300, easing:'linear'});
+Context_AF.walls.setAttribute('animation', {property:'position.y', to:5.10921, dur:300, easing:'linear'});
  
 //listen on click
 Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
-    Context_AF.walls.setAttribute('animation', {to:17.90097});
+    Context_AF.walls.setAttribute('animation', {to:5.10921});
     Context_AF.isSpinning = false;
   }
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:19.2});
+    Context_AF.walls.setAttribute('animation', {to:6});
     Context_AF.isSpinning = true;
   }
 });
 },
 
+});
+
+AFRAME.registerComponent('false-clue3', {
+  schema: {
+  duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+  },
+  multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+  
+  //get a local reference to our entities and set some property variables
+  const Context_AF = this;
+  Context_AF.walls      = document.querySelector('#vase_fc');
+  Context_AF.isSpinning = false;
+  
+  //let's add the basic animation to teh walls entity
+  //note that it is not enabled initially
+  Context_AF.walls.setAttribute('animation', {property:'position.y', to:3.34374, dur:300, easing:'linear'});
+   
+  //listen on click
+  Context_AF.el.addEventListener('click', function() {
+    if (Context_AF.isSpinning === true) {
+      console.log('stop spinning');
+      Context_AF.walls.setAttribute('animation', {to:3.34374});
+      Context_AF.isSpinning = false;
+    }
+    else {
+      console.log('spinning');
+      Context_AF.walls.setAttribute('animation', {to:4});
+      Context_AF.isSpinning = true;
+    }
+  });
+  },
+  
+});
+
+AFRAME.registerComponent('false-clue4', {
+    schema: {
+    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+    },
+    multiple: false, //do not allow multiple instances of this component on this entity
+    init: function() {
+    
+    //get a local reference to our entities and set some property variables
+    const Context_AF = this;
+    Context_AF.walls      = document.querySelector('#lamp_fc');
+    Context_AF.isSpinning = false;
+    
+    //let's add the basic animation to teh walls entity
+    //note that it is not enabled initially
+    Context_AF.walls.setAttribute('animation', {property:'position.y', to:2.371, dur:300, easing:'linear'});
+     
+    //listen on click
+    Context_AF.el.addEventListener('click', function() {
+      if (Context_AF.isSpinning === true) {
+        console.log('stop spinning');
+        Context_AF.walls.setAttribute('animation', {to:2.371});
+        Context_AF.isSpinning = false;
+      }
+      else {
+        console.log('spinning');
+        Context_AF.walls.setAttribute('animation', {to:3});
+        Context_AF.isSpinning = true;
+      }
+    });
+    },
+    
+});
+
+AFRAME.registerComponent('false-clue5', {
+      schema: {
+      duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+      },
+      multiple: false, //do not allow multiple instances of this component on this entity
+      init: function() {
+      
+      //get a local reference to our entities and set some property variables
+      const Context_AF = this;
+      Context_AF.walls      = document.querySelector('#basket_fc');
+      Context_AF.isSpinning = false;
+      
+      //let's add the basic animation to teh walls entity
+      //note that it is not enabled initially
+      Context_AF.walls.setAttribute('animation', {property:'position.y', to:0.26368, dur:300, easing:'linear'});
+       
+      //listen on click
+      Context_AF.el.addEventListener('click', function() {
+        if (Context_AF.isSpinning === true) {
+          console.log('stop spinning');
+          Context_AF.walls.setAttribute('animation', {to:0.26368});
+          Context_AF.isSpinning = false;
+        }
+        else {
+          console.log('spinning');
+          Context_AF.walls.setAttribute('animation', {to:1});
+          Context_AF.isSpinning = true;
+        }
+      });
+      },
+      
+});
+
+AFRAME.registerComponent('false-clue6', {
+        schema: {
+        duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+        },
+        multiple: false, //do not allow multiple instances of this component on this entity
+        init: function() {
+        
+        //get a local reference to our entities and set some property variables
+        const Context_AF = this;
+        Context_AF.walls      = document.querySelector('#phone_fc');
+        Context_AF.isSpinning = false;
+        
+        //let's add the basic animation to teh walls entity
+        //note that it is not enabled initially
+        Context_AF.walls.setAttribute('animation', {property:'position.y', to:3.06926, dur:300, easing:'linear'});
+         
+        //listen on click
+        Context_AF.el.addEventListener('click', function() {
+          if (Context_AF.isSpinning === true) {
+            console.log('stop spinning');
+            Context_AF.walls.setAttribute('animation', {to:3.06926});
+            Context_AF.isSpinning = false;
+          }
+          else {
+            console.log('spinning');
+            Context_AF.walls.setAttribute('animation', {to:3.9});
+            Context_AF.isSpinning = true;
+          }
+        });
+        },
+        
 });
 
 
