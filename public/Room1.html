@@ -9,14 +9,50 @@
     <script src="/js/aframe-environment-component.min.js"></script>
     <script src="/js/Room1.js"></script>
     
+    <link rel="stylesheet" href="/css/user-gesture.css">
+      <script>
+        AFRAME.registerComponent('start-experience', {
+          init: function () {
+            //we can't play sound on some browsers until we have some user interaction
+            //this means we should only start playing ambient music after this button is clicked
+            console.log('scene loaded');
+            document.querySelector('#loading-animation').style.display='none';
+            document.querySelector('#user-gesture-button').style.display='block';
+          }
+        });
+        
+        //function called from user-gesture click
+        const startExperience = function() {
+          //hide user-gesture overlay
+          document.querySelector('#user-gesture-overlay').style.display='none';
+          
+          //start all ambient music
+          const ambientSounds = document.querySelectorAll('.ambient-music');
+          ambientSounds.forEach(function(soundEntity) {
+            soundEntity.components.sound.playSound();
+          });
+        }
+      </script>
+    
 </head>
 <body>
 
+   <!-- Overlay begining screen-->
+   <div id="user-gesture-overlay">
+    <div class="center">
+      <button id="user-gesture-button" onclick="startExperience();">Enter Room 1</button>
+      <!-- loading gif from: https://www.behance.net/gallery/31234507/Open-source-Loading-GIF-Icons-Vol-1 -->
+      <img id="loading-animation" src="/assets/levels.gif">
+    </div>
+  </div>
+
  
-  <a-scene renderer="colorManagement: true">
+  <a-scene start-experience renderer="colorManagement: true">
         <a-assets timeout="10000">
+
+          <audio id="room1_music" src="/assets/1600.mp3" preload="auto" crossorigin="anonymous"></audio>
+
           <a-asset-item id=  "door_model"        response-type="arraybuffer"  src="/assets/Room1/door.glb"></a-asset-item>
-          
           <a-asset-item id=  "relief_model"        response-type="arraybuffer"  src="/assets/Room1/relief.glb"></a-asset-item>
           <a-asset-item id=  "lion_model"        response-type="arraybuffer"  src="/assets/Room1/lion.glb"></a-asset-item>
           <a-asset-item id=  "curtain_model"        response-type="arraybuffer"  src="/assets/Room1/curtain.glb"></a-asset-item>
@@ -57,8 +93,6 @@
           <img id="hint3_img"   src="/assets/hint3.png"  crossorigin="anonymous">
         </a-assets>
 
-     <!-- <a-entity environment="preset:default;"></a-entity>-->
-      <!--<a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>-->
 
       <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 150 0">
         <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
@@ -87,6 +121,8 @@
 
 
       </a-entity>
+
+      <a-entity class="ambient-music" sound="src:#room1_music; autoplay:false;"></a-entity>
       
     </a-entity>
      

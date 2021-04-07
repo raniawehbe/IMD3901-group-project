@@ -10,13 +10,46 @@
       <script src="/js/aframe-environment-component.min.js"></script>
       <script src="/js/Room2.js"></script>
 
-     
-    </head>
+      <link rel="stylesheet" href="/css/user-gesture.css">
+      <script>
+        AFRAME.registerComponent('start-experience', {
+          init: function () {
+            //we can't play sound on some browsers until we have some user interaction
+            //this means we should only start playing ambient music after this button is clicked
+            console.log('scene loaded');
+            document.querySelector('#loading-animation').style.display='none';
+            document.querySelector('#user-gesture-button').style.display='block';
+          }
+        });
+        
+        //function called from user-gesture click
+        const startExperience = function() {
+          //hide user-gesture overlay
+          document.querySelector('#user-gesture-overlay').style.display='none';
+          
+          //start all ambient music
+          const ambientSounds = document.querySelectorAll('.ambient-music');
+          ambientSounds.forEach(function(soundEntity) {
+            soundEntity.components.sound.playSound();
+          });
+        }
+      </script>
+    
+</head>
+<body>
 
-    <body>
+  <!-- Overlay begining screen-->
+  <div id="user-gesture-overlay">
+    <div class="center">
+      <button id="user-gesture-button" onclick="startExperience();">Enter Room 2</button>
+      <img id="loading-animation" src="/assets/levels.gif">
+    </div>
+  </div>
 
-      <a-scene>
+      <a-scene start-experience>
         <a-assets timeout="10000">
+
+          <audio id="room2_music" src="/assets/1700.mp3" preload="auto" crossorigin="anonymous"></audio>
         
           <a-asset-item id=  "wall2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/wall2.glb"></a-asset-item>
           <a-asset-item id=  "bookshelf_model"        response-type="arraybuffer"  src="/assets/Room2/bookshelf.glb"></a-asset-item>
@@ -69,6 +102,9 @@
             </a-gui-button>
         </a-gui-flex-container>
         </a-entity>
+
+        <a-entity class="ambient-music" sound="src:#room2_music; autoplay:false;"></a-entity>
+
 
       <a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>
       <a-entity id="Bed_Room2" position="6.587 -0.72954 39.988" rotation="0 -179.83254428432608 0" scale="24 31.5 24" gltf-model="/assets/Room 2 assets/Bed_Room2.glb"></a-entity>  

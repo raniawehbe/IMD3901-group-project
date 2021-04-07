@@ -9,15 +9,50 @@
     <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
     <script src="/js/Room3.js"></script>
+
+    <link rel="stylesheet" href="/css/user-gesture.css">
+    <script>
+      AFRAME.registerComponent('start-experience', {
+        init: function () {
+          //we can't play sound on some browsers until we have some user interaction
+          //this means we should only start playing ambient music after this button is clicked
+          console.log('scene loaded');
+          document.querySelector('#loading-animation').style.display='none';
+          document.querySelector('#user-gesture-button').style.display='block';
+        }
+      });
+      
+      //function called from user-gesture click
+      const startExperience = function() {
+        //hide user-gesture overlay
+        document.querySelector('#user-gesture-overlay').style.display='none';
+        
+        //start all ambient music
+        const ambientSounds = document.querySelectorAll('.ambient-music');
+        ambientSounds.forEach(function(soundEntity) {
+          soundEntity.components.sound.playSound();
+        });
+      }
+    </script>
+  
 </head>
 <body>
 
+<!-- Overlay begining screen-->
+  <div id="user-gesture-overlay">
+  <div class="center">
+    <button id="user-gesture-button" onclick="startExperience();">Enter Room 3</button>
+    <img id="loading-animation" src="/assets/levels.gif">
+  </div>
+</div>
 
-<a-scene start-experience >
+
+<a-scene start-experience>
 
     <a-assets timeout="10000">
       <!--Audio-->
       <audio id="o_canada" src="/assets/1800's/O'Canada.mp3"preload="auto" crossorigin="anonymous"></audio>
+      <audio id="room3_music" src="/assets/1800.mp3" preload="auto" crossorigin="anonymous"></audio>
 
       <a-asset-item id="bed_model"     response-type="arraybuffer" src="/assets/1800's/bedd.glb"></a-asset-item>
       <a-asset-item id="carpet_model"     response-type="arraybuffer" src="/assets/1800's/carpet.glb"></a-asset-item>
@@ -92,6 +127,8 @@
     <a-entity rotation="-90 0 0" class="environmentGround environment" visible="" scale="1 1 3" shadow="cast: false; receive: false"></a-entity>
 
     <a-entity class="clue-music" sound="src:#o_canada; autoplay:false;"></a-entity>
+    <a-entity class="ambient-music" sound="src:#room3_music; autoplay:false;"></a-entity>
+
 
       <a-entity id="carpet" position="7.0303 0.1 -0.0173" rotation="0 90.01166961505233 0" scale="0.19534 0.19534 0.19534" gltf-model="#carpet_model" shadow=""></a-entity>
       <a-entity id="closet" position="7.01599 0 -6.31219" rotation="0 -90 0" scale="0.03 0.03 0.03" gltf-model="#closet_model" shadow=""></a-entity>
