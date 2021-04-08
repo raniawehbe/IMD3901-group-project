@@ -52,10 +52,10 @@
 
           <audio id="room1_music" src="/assets/1600.mp3" preload="auto" crossorigin="anonymous"></audio>
 
+          <a-asset-item id=  "metal_model"        response-type="arraybuffer"  src="/assets/Room1/metal.glb"></a-asset-item>
           <a-asset-item id=  "door_model"        response-type="arraybuffer"  src="/assets/Room1/door.glb"></a-asset-item>
           <a-asset-item id=  "relief_model"        response-type="arraybuffer"  src="/assets/Room1/relief.glb"></a-asset-item>
           <a-asset-item id=  "lion_model"        response-type="arraybuffer"  src="/assets/Room1/lion.glb"></a-asset-item>
-          <a-asset-item id=  "curtain_model"        response-type="arraybuffer"  src="/assets/Room1/curtain.glb"></a-asset-item>
           <a-asset-item id=  "drobe_model"        response-type="arraybuffer"  src="/assets/Room1/drobe.glb"></a-asset-item>
           <a-asset-item id=  "model_model"        response-type="arraybuffer"  src="/assets/Room1/model.glb"></a-asset-item>
           <a-asset-item id=  "dress_model"        response-type="arraybuffer"  src="/assets/Room1/dress.glb"></a-asset-item>
@@ -94,7 +94,7 @@
         </a-assets>
 
 
-      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 150 0">
+      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="41.46 35 48" rotation="-45 170 0">
         <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
           <a-entity light="type: ambient; color: #CCC"></a-entity>
 
@@ -130,12 +130,13 @@
      <a-entity position="25.9588 0 0.20169">
       <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
       </a-entity>
+      <a-entity id="door" position="-12.6 -2.44 54.2" rotation="0 180 0" scale="0.08 0.11 0.11" gltf-model="#door_model"></a-entity>
       <a-entity id="door" position="-12.6 -2.44 -66" rotation="0 0 0" scale="0.08 0.11 0.11" gltf-model="#door_model"></a-entity>
       <a-entity id="relief" position="-3 71 -214.7" rotation="0 0 0" scale="8.27 7.16 19.67" gltf-model="#relief_model"></a-entity>
       <a-entity id="lion" position="30 50.5 -66" rotation="0 0 0" scale="23.7 23.7 19.67" gltf-model="#lion_model"></a-entity>
       <a-entity id="lion" position="-52 50.5 -66" rotation="0 0 0" scale="23.7 23.7 19.67" gltf-model="#lion_model"></a-entity>
+      <a-entity id="metal" position="-67 47 -7" rotation="90 90 0" scale="0.4 0.07 -0.4" gltf-model="#metal_model"></a-entity>
       
-      <a-entity id="curtain" position="-10.8 -7.5 53" rotation="0 -180 0" scale="-0.18 0.29 0.4" gltf-model="#curtain_model"></a-entity>
       <a-entity id="drobe" position="-13.2 30.7 81.67" rotation="0 90 -90" scale="8 4 5.7" gltf-model="#drobe_model"></a-entity>
       <a-entity id="model" position="-25 14 -56.36" rotation="0 90 0" scale="1.14 1.47 1.04" gltf-model="#model_model"></a-entity>
       <a-entity id="model" position="-25 4.45 -56.36" rotation="0 90 0" scale="1.14 1.47 1.04" gltf-model="#model_model"></a-entity>
@@ -319,6 +320,7 @@
 
       <a-entity id="room">
         <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src:#Floor_Texture_img"position="-10.44656 0 -7.29101" rotation="-90 0 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-10.447 96.37 -7.291" rotation="-90 0 0" scale="1.4 1.82 1.4" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-70.31305 47 -6.711" rotation="0 90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="49.05643 47 -6.71141" rotation="0 -90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-13.29203 47 55.20319" rotation="0 180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
