@@ -80,7 +80,7 @@
 
         <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 100 0">
           <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
-          <a-entity light="type:spot; intensity:0.7; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
+          <a-entity light="type:spot; intensity:0.7; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity> 
           <a-entity light="type: ambient; color: #CCC"></a-entity>
           </a-entity>
           <a-gui-cursor id="cursor"
@@ -251,7 +251,7 @@
     
       <a-entity id="room">
         <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src: #1_img" position="11.75989 0 0.22904" rotation="-90 0 0" scale="1.5792 1.655 55.19775" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-10.447 96.37 -7.291" rotation="-90 0 0" scale="1.67 1.67 1.678" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="8 96.37 3.4" rotation="-90 0 0" scale="1.67 2.23 1.678" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: #Wall_Texture_img" position="8.45089 48.6 -66.93338" rotation="" scale="1.67 1.67 1.5" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: #Wall_Texture_img" position="76.15721 48.6 2.16153" rotation="0 -90 0" scale="1.67 1.67 1.678" shadow="cast: false"></a-entity>
        <a-entity class="wall" geometry="primitive: plane; width: 90; height: 70" material="src: #Wall_Texture_img" position="-61.77355 48.6 1.89113" rotation="0 90 0" scale="1.7 1.67 1.67" shadow="cast: false"></a-entity>
