@@ -86,6 +86,9 @@
       <a-asset-item id="painting2_model"     response-type="arraybuffer" src="/assets/Room4/painting2.glb"></a-asset-item>
       <a-asset-item id="painting3_model"     response-type="arraybuffer" src="/assets/Room4/painting3.glb"></a-asset-item>
       <a-asset-item id="painting4_model"     response-type="arraybuffer" src="/assets/Room4/painting4.glb"></a-asset-item>
+      <a-asset-item id="fan_model"     response-type="arraybuffer" src="/assets/Room4/fan.glb"></a-asset-item>
+      <a-asset-item id="cookies_model"     response-type="arraybuffer" src="/assets/Room4/cookies.glb"></a-asset-item>
+      <a-asset-item id="tea_model"     response-type="arraybuffer" src="/assets/Room4/tea.glb"></a-asset-item>
 
       <a-asset-item id=  "clue1_model"        response-type="arraybuffer"  src="/assets/Room4/clue1.glb"></a-asset-item>
       <a-asset-item id=  "clue2_model"        response-type="arraybuffer"  src="/assets/Room4/clue2.glb"></a-asset-item>
@@ -93,13 +96,13 @@
       <a-asset-item id=  "clue4_model"        response-type="arraybuffer"  src="/assets/Room4/clue4.glb"></a-asset-item>
   </a-assets>
 
-
-  <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="7 3 0" rotation="-45 100 0">
-    <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
-    <a-entity light="type:spot; intensity:0.2; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="12.267 4.735 12.906" rotation="0 20 0" scale="0.009 0.009 0.009"></a-entity>
-    <a-entity light="type: ambient; color: #CCC"></a-entity>
   
+  <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="6 5 -4.2" rotation="0 180 0"   scale="0.5 0.5 0.5">
+    <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
+    <a-entity light="type: ambient; color:  #ffffff;  angle:  90;  intensity:  0.8;  shadowBias:  0.07"></a-entity>
+    <a-entity light="type:directional; castShadow:true; intensity:  0.5;" position="1 1 1"></a-entity>
     </a-entity>
+    
     <a-gui-cursor id="cursor"
             raycaster="objects: [gui-interactable]"
             color="#00FFFFFF"
@@ -147,7 +150,9 @@
   <a-entity id="painting2_model" position="9.50236 4.00529 13.62476" rotation="0 90 0" scale="3.4289 3.4289 3.4289" gltf-model="#painting2_model" shadow=""></a-entity>
   <a-entity id="painting3_model" position="18.65849 4.14407 12.32469" rotation="0 180 0" scale="3.4289 3.4289 3.4289" gltf-model="#painting3_model" shadow=""></a-entity>
   <a-entity id="painting4_model" position="42.5 4.54529 -5.86" rotation="0 90 0" scale="2.64264 2.64264 4.84006" gltf-model="#painting4_model" shadow=""></a-entity>
-
+  <a-entity id="fan_model" position="6.00103 12.46895 0.26937" rotation="0 52.12082470746073 0" scale="0.5 0.5 0.5" gltf-model="#fan_model" shadow=""></a-entity>
+  <a-entity id="cookies_model" position="7.16191 3.15209 -8.18491" rotation="-2.6545134648411044 -179.19426930055036 2.6132605035916847" scale="0.04169 0.04169 0.04169" gltf-model="#cookies_model" shadow=""></a-entity>
+  <a-entity id="tea_model" position="5.06498 3.2943 -8.21329" rotation="-0.06703606203030632 -45.6441097913019 -3.7236527105552204" scale="0.55489 0.55489 0.55489" gltf-model="#tea_model" shadow=""></a-entity>
   
   <a-entity id="clues">
     <a-entity  position = "7.301 2.915 2.244">
@@ -360,11 +365,12 @@
   </a-entity>
 
   <a-entity id="rooms">
+    <a-entity class="ceiling" geometry="width: 23; height: 23" material="color: #f0f0f0" position="6.95957 13.94205 -0.24745" rotation="-90 0 0" scale="0.743 0.743 0.06417" shadow="cast: false"></a-entity>
     <a-entity class="ground" geometry="primitive: plane; width: 23; height: 23"  material="src: /assets/Room4/ground.jpg"position="6.16024 0.01 0.42501" rotation="-90 0 0" shadow="cast: false"></a-entity>
-    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wall.jpg" position="6.05985 5.68544 -8.83307" rotation="" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
-    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wall.jpg" position="5.83484 5.68544 7.87555" rotation="0 -180 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
-    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wall.jpg" position="12.80583 5.68544 -0.73077" rotation="0 -90 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
-    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wall.jpg" position="-0.99558 5.68544 -0.56942" rotation="0 90 0" scale="0.1848 0.17688 0.17688" shadow="cast: false"></a-entity>
+    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wall.jpg" position="6.05985 6.9466 -9.03252" rotation="" scale="0.22106 0.21159 0.21159" shadow="cast: false"></a-entity>
+    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wall.jpg" position="5.83484 6.9466 7.87555" rotation="0 -180 0" scale="0.22106 0.21159 0.21159" shadow="cast: false"></a-entity>
+    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wall.jpg" position="12.80583 6.9466 -0.73077" rotation="0 -90 0" scale="0.22106 0.21159 0.21159" shadow="cast: false"></a-entity>
+    <a-entity class="wall" geometry="width: 90; height: 70" material="src: /assets/Room4/wall.jpg" position="-0.99558 6.9466 -0.56942" rotation="0 90 0" scale="0.22106 0.21159 0.21159" shadow="cast: false"></a-entity>
   </a-entity> 
   
   <script>
