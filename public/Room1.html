@@ -51,7 +51,9 @@
         <a-assets timeout="10000">
 
           <audio id="room1_music" src="/assets/1600.mp3" preload="auto" crossorigin="anonymous"></audio>
-
+          
+          <a-asset-item id=  "dining_model"        response-type="arraybuffer"  src="/assets/Room1/dining.glb"></a-asset-item>
+          <a-asset-item id=  "closet_model"        response-type="arraybuffer"  src="/assets/Room1/closet.glb"></a-asset-item>
           <a-asset-item id=  "metal_model"        response-type="arraybuffer"  src="/assets/Room1/metal.glb"></a-asset-item>
           <a-asset-item id=  "door_model"        response-type="arraybuffer"  src="/assets/Room1/door.glb"></a-asset-item>
           <a-asset-item id=  "relief_model"        response-type="arraybuffer"  src="/assets/Room1/relief.glb"></a-asset-item>
@@ -94,7 +96,7 @@
         </a-assets>
 
 
-      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="41.46 35 48" rotation="-45 170 0">
+      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="11 35 34" rotation="-45 170 0">
         <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
           <a-entity light="type: ambient; color: #CCC"></a-entity>
 
@@ -130,17 +132,19 @@
      <a-entity position="25.9588 0 0.20169">
       <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
       </a-entity>
+      <a-entity id="closet" position="-14.4 -2.44 45.6" rotation="0 180 0" scale="0.19 0.33 0.11" gltf-model="#closet_model"></a-entity>
       <a-entity id="door" position="-12.6 -2.44 54.2" rotation="0 180 0" scale="0.08 0.11 0.11" gltf-model="#door_model"></a-entity>
       <a-entity id="door" position="-12.6 -2.44 -66" rotation="0 0 0" scale="0.08 0.11 0.11" gltf-model="#door_model"></a-entity>
       <a-entity id="relief" position="-3 71 -214.7" rotation="0 0 0" scale="8.27 7.16 19.67" gltf-model="#relief_model"></a-entity>
       <a-entity id="lion" position="30 50.5 -66" rotation="0 0 0" scale="23.7 23.7 19.67" gltf-model="#lion_model"></a-entity>
       <a-entity id="lion" position="-52 50.5 -66" rotation="0 0 0" scale="23.7 23.7 19.67" gltf-model="#lion_model"></a-entity>
       <a-entity id="metal" position="-67 47 -7" rotation="90 90 0" scale="0.4 0.07 -0.4" gltf-model="#metal_model"></a-entity>
+      <a-entity id="dining" position="-38.6 -0.09 19" rotation="0 70 0" scale="0.13 0.15 0.14" gltf-model="#dining_model"></a-entity>
       
       <a-entity id="drobe" position="-13.2 30.7 81.67" rotation="0 90 -90" scale="8 4 5.7" gltf-model="#drobe_model"></a-entity>
       <a-entity id="model" position="-25 14 -56.36" rotation="0 90 0" scale="1.14 1.47 1.04" gltf-model="#model_model"></a-entity>
       <a-entity id="model" position="-25 4.45 -56.36" rotation="0 90 0" scale="1.14 1.47 1.04" gltf-model="#model_model"></a-entity>
-      <a-entity id="dress" position="-11 11 41.5" rotation="0 90 0" scale="2.57 2.63 2.23" gltf-model="#dress_model"></a-entity>
+      <a-entity id="dress" position="-55 11 34.6" rotation="0 0 0" scale="2.57 2.63 2.23" gltf-model="#dress_model"></a-entity>
       <a-entity id="bed" position="-48.7 7.568 -7.764" rotation="0 90 0" scale="9.78 19.6 11.79" gltf-model="#bed_model"></a-entity>
       <a-entity id="chair" position="18 15 -61" rotation="0 -180 0" scale="0.19 0.28 0.16" gltf-model="#chair_model"></a-entity>
       <a-entity id="chair" position="37 15 -61" rotation="0 -180 0" scale="0.19 0.28 0.16" gltf-model="#chair_model"></a-entity>
