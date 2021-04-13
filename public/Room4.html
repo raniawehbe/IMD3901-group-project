@@ -111,8 +111,8 @@
   
     <a-gui-flex-container id="questionBtn" class= "interactive" visibility
     flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
-    position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" >        
-      <a-gui-button 
+    position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" material="color:#877026">        
+      <a-gui-button background-color="#9c9027" border-color="#b5b01f"
         width="2.5" height="0.75"
         onclick="buttonActionFunction" key-code="32"
         position="0 0.025 0" scale="1.242 4.282 1.027"
@@ -208,18 +208,18 @@
 
 
   <a-entity id="progress_ui" position="0.088 8.087 4.083" rotation="0 129.29 0" scale="0.173 0.173 0.173" >
-      <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#77593d;" position="-5.313 -0.094 2.490"></a-entity>
+      <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#b79c12;" position="-5.313 -0.094 2.490"></a-entity>
       <a-entity id = "clues_found" text="value:Clues Found: 0/4 ; 
                    color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
 
       <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
         <a-entity id="progressMeter" geometry="primitive: box; width: 0; height: 0.710 depth:0" material="color: #ed5b21" position="0 0 0" rotation="-90 0 0" scale="1 1 1" shadow="cast: false"></a-entity>
       </a-entity>
-    </a-entity>
+  </a-entity>
 
     <a-entity id="questions" position="6.197 2.054 -6.173" rotation="-2.656 0 0" scale="0.436 0.436 0.436">
       <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;"scale="0.465 0.465 0.465" 
-                material="color:#d6931f;"
+                material="color:#ffffff;"
                 animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
                 animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
               shadow>

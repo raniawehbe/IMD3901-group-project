@@ -17,15 +17,15 @@ init: function () {
     el.addEventListener('click', function() {
 
         var entityEl = document.createElement('a-entity');
-        //entityEl.setAttribute('add-UI', '');
+
         entityEl.setAttribute('id', "ui");
         entityEl.setAttribute('class', "ui");
-        entityEl.setAttribute('position', "29.569 16.108 34.191");
-        entityEl.setAttribute('rotation', "0 40.445 0");
-        entityEl.setAttribute('scale', "27.674 21.132 1.125");
+        entityEl.setAttribute('position', "25.921 26.145 42.627");
+        entityEl.setAttribute('rotation', "22.961 47.602 0.518");
+        entityEl.setAttribute('scale', "33.662 25.704 1.368");
         entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
         entityEl.setAttribute('material', "color: #995d46");
-        entityEl.setAttribute('material', { src: 'assets/hint1.png' })  
+        entityEl.setAttribute('material', {src: 'assets/hint1.png'})  
         el.sceneEl.appendChild(entityEl);
         
 
@@ -51,9 +51,9 @@ init: function () {
         //entityEl.setAttribute('add-UI', '');
         entityEl.setAttribute('id', "ui2");
         entityEl.setAttribute('class', "ui2");
-        entityEl.setAttribute('position', "-6.931 40.962 -39.723");
-        entityEl.setAttribute('rotation', "0 2.063 0");
-        entityEl.setAttribute('scale', "27.674 21.022 1.125");
+        entityEl.setAttribute('position', "-7.243 26.798 -32.772");
+        entityEl.setAttribute('rotation', "-26.812 2.063 0");
+        entityEl.setAttribute('scale', "29.812 22.646 1.212");
         entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
         entityEl.setAttribute('material', "color: #995d46");
         entityEl.setAttribute('material', { src: 'assets/hint2.png' })  
@@ -79,12 +79,12 @@ init: function () {
         
 
         var entityEl = document.createElement('a-entity');
-        //entityEl.setAttribute('add-UI', '');
+        
         entityEl.setAttribute('id', "ui3");
         entityEl.setAttribute('class', "ui3");
-        entityEl.setAttribute('position', "-29.889 29.785 -46.237");
-        entityEl.setAttribute('rotation', "0 23.975 0");
-        entityEl.setAttribute('scale', "27.674 21.022 1.125");
+        entityEl.setAttribute('position', "-31.392 28.379 -50.035");
+        entityEl.setAttribute('rotation', "-13.937 21.773 0.72");
+        entityEl.setAttribute('scale', "29.74 22.591 1.209");
         entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
         entityEl.setAttribute('material', "color: #995d46");
         entityEl.setAttribute('material', { src: 'assets/hint3.png' })  
@@ -126,10 +126,10 @@ Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
     Context_AF.walls.setAttribute('animation', {to:3.824});
+    Context_AF.walls.setAttribute('scale', "2 2 2");
     Context_AF.isSpinning = false; 
 
     document.querySelectorAll(".ui").forEach(e => e.parentNode.removeChild(e));
-    document.querySelectorAll("#panel_text1").forEach(e => e.parentNode.removeChild(e));
     cluesFound -=1;
     document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
 
@@ -138,7 +138,8 @@ Context_AF.el.addEventListener('click', function() {
   }
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:6});
+    Context_AF.walls.setAttribute('animation', {to:11.736});
+    Context_AF.walls.setAttribute('scale', "5.762 5.762 5.762");
     Context_AF.isSpinning = true;
 
     cluesFound +=1;
@@ -212,10 +213,12 @@ Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
     Context_AF.walls.setAttribute('animation', {to:-48.993});
+    Context_AF.walls.setAttribute('rotation', "0 0 0");
+    Context_AF.walls.setAttribute('scale', "1.889 1.889 1.889");
     Context_AF.isSpinning = false; 
 
     document.querySelectorAll(".ui2").forEach(e => e.parentNode.removeChild(e));
-    document.querySelectorAll("#panel_text2").forEach(e => e.parentNode.removeChild(e));
+    
     cluesFound -=1;
     document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
 
@@ -224,7 +227,10 @@ Context_AF.el.addEventListener('click', function() {
 
   else {
     console.log('spinning');
-    Context_AF.walls.setAttribute('animation', {to:-40});
+    Context_AF.walls.setAttribute('animation', {to:-35.402});
+    Context_AF.walls.setAttribute('position', "0.214 0 -35.402");
+    Context_AF.walls.setAttribute('scale', "3.885 3.885 3.885");
+
     Context_AF.isSpinning = true;
     cluesFound +=1;
     document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
@@ -298,6 +304,7 @@ Context_AF.el.addEventListener('click', function() {
   if (Context_AF.isSpinning === true) {
     console.log('stop spinning');
     Context_AF.walls.setAttribute('animation', {to:13.214});
+    Context_AF.walls.setAttribute('scale', "2.626 2.626 2.626");
     Context_AF.isSpinning = false; 
 
     document.querySelectorAll(".ui3").forEach(e => e.parentNode.removeChild(e));
@@ -310,6 +317,8 @@ Context_AF.el.addEventListener('click', function() {
   else {
     console.log('spinning');
     Context_AF.walls.setAttribute('animation', {to:14.5});
+    Context_AF.walls.setAttribute('scale', "5.364 5.364 5.364");
+
     Context_AF.isSpinning = true;
     cluesFound +=1;
     document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/3"});
@@ -364,7 +373,7 @@ init: function() {
 
 //get a local reference to our entities and set some property variables
 const Context_AF = this;
-Context_AF.walls      = document.querySelector('#picture-frame');
+Context_AF.walls      = document.querySelector('#envelope');
 Context_AF.isSpinning = false;
 
 //let's add the basic animation to teh walls entity
@@ -422,6 +431,72 @@ Context_AF.el.addEventListener('click', function() {
 
 });
 
+AFRAME.registerComponent('false-clue3', {
+  schema: {
+  duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+  },
+  multiple: false, //do not allow multiple instances of this component on this entity
+  init: function() {
+  
+  //get a local reference to our entities and set some property variables
+  const Context_AF = this;
+  Context_AF.walls      = document.querySelector('#dress');
+  Context_AF.isSpinning = false;
+  
+  //let's add the basic animation to teh walls entity
+  //note that it is not enabled initially
+  Context_AF.walls.setAttribute('animation', {property:'position.y', to:11, dur:300, easing:'linear'});
+   
+  //listen on click
+  Context_AF.el.addEventListener('click', function() {
+    if (Context_AF.isSpinning === true) {
+      console.log('stop spinning');
+      Context_AF.walls.setAttribute('animation', {to:11});
+      Context_AF.isSpinning = false;
+    }
+    else {
+      console.log('spinning');
+      Context_AF.walls.setAttribute('animation', {to:19});
+      Context_AF.isSpinning = true;
+    }
+  });
+  },
+  
+});
+
+AFRAME.registerComponent('false-clue4', {
+    schema: {
+    duration: {type: 'number', default:20000.0},  //duration is in milliseconds
+    },
+    multiple: false, //do not allow multiple instances of this component on this entity
+    init: function() {
+    
+    //get a local reference to our entities and set some property variables
+    const Context_AF = this;
+    Context_AF.walls      = document.querySelector('#necklace');
+    Context_AF.isSpinning = false;
+    
+    //let's add the basic animation to teh walls entity
+    //note that it is not enabled initially
+    Context_AF.walls.setAttribute('animation', {property:'position.y', to:20.69447, dur:300, easing:'linear'});
+
+    //listen on click
+    Context_AF.el.addEventListener('click', function() {
+      if (Context_AF.isSpinning === true) {
+        console.log('stop spinning');
+        Context_AF.walls.setAttribute('animation', {to:20.69447});
+        Context_AF.isSpinning = false;
+      }
+      else {
+        console.log('spinning');
+        Context_AF.walls.setAttribute('animation', {to:22});
+        Context_AF.isSpinning = true;
+      }
+    });
+    },
+    
+});
+
 
 AFRAME.registerComponent('visibility', {
         schema: {
@@ -457,7 +532,7 @@ AFRAME.registerComponent('visibility', {
                         
         },
         
-      });
+});
 
 AFRAME.registerComponent('transition', {
 schema: {

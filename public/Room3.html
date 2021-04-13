@@ -102,8 +102,7 @@
       <a-entity light="type:directional; castShadow:true; intensity:  0.5;"></a-entity>
       </a-entity>
 
-      
-
+    
       <a-gui-cursor id="cursor"
               raycaster="objects: [gui-interactable]"
               color="#00FFFFFF"
@@ -112,8 +111,8 @@
 
       <a-gui-flex-container id="questionBtn" class= "interactive" visibility
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
-      position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" >        
-        <a-gui-button 
+      position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" material="color:#6d442c">        
+        <a-gui-button background-color="#cc6133" border-color="#b53c18"
           width="2.5" height="0.75"
           onclick="buttonActionFunction" key-code="32"
           position="0 0.025 0" scale="1.242 4.282 1.027"
@@ -227,7 +226,7 @@
 
         <a-entity id="questions" position="6.831 3.168 0.917" rotation="-7.891 0 0" scale="0.465 0.465 0.465">
           <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;"scale="0.465 0.465 0.465" 
-                    material="color:#d6931f;"
+                    material="color:#ffffff;"
                     animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
                     animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
                   shadow>

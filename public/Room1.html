@@ -41,7 +41,7 @@
    <div id="user-gesture-overlay">
     <div class="center">
       <button id="user-gesture-button" onclick="startExperience();">Enter Room 1</button>
-      <!-- loading gif from: https://www.behance.net/gallery/31234507/Open-source-Loading-GIF-Icons-Vol-1 -->
+      
       <img id="loading-animation" src="/assets/levels.gif">
     </div>
   </div>
@@ -81,8 +81,7 @@
           <a-asset-item id=  "scoll_model"        response-type="arraybuffer"  src="/assets/scoll.glb"></a-asset-item>
           <a-asset-item id=  "necklace_model"        response-type="arraybuffer"  src="/assets/necklace.glb"></a-asset-item>
 
-          
-          <!--the clues(maiars glb's arent working so i kept it here for now commented)-->
+        
           <a-asset-item id=  "1600_clue_letter_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_letter.glb"></a-asset-item>
           <a-asset-item id=  "1600_clue_card2_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_card2.glb"></a-asset-item>-->
           <a-asset-item id=  "1600_clue_card_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_card.glb"></a-asset-item>-->
@@ -109,8 +108,8 @@
 
         <a-gui-flex-container id="questionBtn" class= "interactive" visibility
           flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
-          position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" >        
-            <a-gui-button 
+          position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" material="color:#080402">     
+            <a-gui-button background-color="#8a694e" border-color="#73503e"
               width="2.5" height="0.75"
               onclick="buttonActionFunction" key-code="32"
               position="0 0.025 0" scale="1.242 4.282 1.027"
@@ -127,11 +126,7 @@
       <a-entity class="ambient-music" sound="src:#room1_music; autoplay:false;"></a-entity>
       
     </a-entity>
-     
-     
-     <a-entity position="25.9588 0 0.20169">
-      <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
-      </a-entity>
+       
       <a-entity id="closet" position="-14.4 -2.44 45.6" rotation="0 180 0" scale="0.19 0.33 0.11" gltf-model="#closet_model"></a-entity>
       <a-entity id="door" position="-12.6 -2.44 54.2" rotation="0 180 0" scale="0.08 0.11 0.11" gltf-model="#door_model"></a-entity>
       <a-entity id="door" position="-12.6 -2.44 -66" rotation="0 0 0" scale="0.08 0.11 0.11" gltf-model="#door_model"></a-entity>
@@ -139,19 +134,17 @@
       <a-entity id="lion" position="30 50.5 -66" rotation="0 0 0" scale="23.7 23.7 19.67" gltf-model="#lion_model"></a-entity>
       <a-entity id="lion" position="-52 50.5 -66" rotation="0 0 0" scale="23.7 23.7 19.67" gltf-model="#lion_model"></a-entity>
       <a-entity id="metal" position="-67 47 -7" rotation="90 90 0" scale="0.4 0.07 -0.4" gltf-model="#metal_model"></a-entity>
-      <a-entity id="dining" position="-38.6 -0.09 19" rotation="0 70 0" scale="0.13 0.15 0.14" gltf-model="#dining_model"></a-entity>
+      <a-entity id="dining" position="-38.6 -0.09 16.103" rotation="0 70 0" scale="0.13 0.15 0.14" gltf-model="#dining_model"></a-entity>
       
       <a-entity id="drobe" position="-13.2 30.7 81.67" rotation="0 90 -90" scale="8 4 5.7" gltf-model="#drobe_model"></a-entity>
       <a-entity id="model" position="-25 14 -56.36" rotation="0 90 0" scale="1.14 1.47 1.04" gltf-model="#model_model"></a-entity>
       <a-entity id="model" position="-25 4.45 -56.36" rotation="0 90 0" scale="1.14 1.47 1.04" gltf-model="#model_model"></a-entity>
-      <a-entity id="dress" position="-55 11 34.6" rotation="0 0 0" scale="2.57 2.63 2.23" gltf-model="#dress_model"></a-entity>
       <a-entity id="bed" position="-48.7 7.568 -7.764" rotation="0 90 0" scale="9.78 19.6 11.79" gltf-model="#bed_model"></a-entity>
       <a-entity id="chair" position="18 15 -61" rotation="0 -180 0" scale="0.19 0.28 0.16" gltf-model="#chair_model"></a-entity>
       <a-entity id="chair" position="37 15 -61" rotation="0 -180 0" scale="0.19 0.28 0.16" gltf-model="#chair_model"></a-entity>
-       <a-entity id="wallcandle" position="-66.7 47 -32.74" rotation="0 61.65 0" scale="0.197 0.2 0.227" gltf-model="#wallcandle_model"></a-entity>
+      <a-entity id="wallcandle" position="-66.7 47 -32.74" rotation="0 61.65 0" scale="0.197 0.2 0.227" gltf-model="#wallcandle_model"></a-entity>
       <a-entity id="wallcandle2" position="-66.7 47 16" rotation="0 61.65 0" scale="0.197 0.2 0.227" gltf-model="#wallcandle_model"></a-entity>
-           
-      <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
+
       <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="#table_model"></a-entity>
       <a-entity id="waredrobe2" position="-2.93206 -0.77395 -60.98832" rotation="-180 0 0" scale="-0.145 -0.145 -0.145" gltf-model="#waredrobe2_model"></a-entity>
       <a-entity id="Bag" position="-8.60471 28.63657 -51.07958" rotation="-180 0 0" scale="-0.52755 -0.52755 -0.52755" gltf-model="#Bag_model"></a-entity>
@@ -160,10 +153,9 @@
       <a-entity id="watch" position="-9.30594 39.20385 -50.24887" rotation="" scale="0.009 0.009 0.009" gltf-model="#watch_model"></a-entity>
       <a-entity id="Pin" position="-16.77304 29.35212 -48.96418" rotation="-89.85410622139135 179.9998479605043 179.9998479605043" scale="0.52477 0.52477 0.52477" gltf-model="#Pin_model"></a-entity>
       <a-entity id="perfume1" position="-7.01837 19.90191 -49.91869" rotation="" scale="0.27558 0.27558 0.27558" gltf-model="#Perfume1_model"></a-entity>
-      <a-entity id="Candle" position="11 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
-      <a-entity id="Candle" position="-35.2 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
+      <a-entity id="Candle" position="12.562 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
+      <a-entity id="Candle" position="-38.779 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
 
-      <a-entity id="necklace" position="-12.69791 20.69447 -53.01104" rotation="0 -90 0" scale="0.52137 0.52137 0.52137" gltf-model="#necklace_model"></a-entity>
       <a-entity id="scoll" position="28.72842 6.02001 30.36255" rotation="0 -117.5646370250985 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
       <a-entity id="scoll" position="28.62465 7.0782 34.56297" rotation="2.623000786108909 -88.71392020908101 -4.2295744436557365" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
       <a-entity id="scoll" position="29.83299 7.50673 30.24087" rotation="0 -90.1262611740785 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
@@ -179,7 +171,24 @@
 
       <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="/assets/suitcase.glb"></a-entity>
       
+      <!--FALSE CLUES-->
+      <a-entity position="32.9843 0 11.47743">
+        <a-entity id="envelope"class="interactive" false-clue position="0 18.02361 0" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
+      </a-entity>
 
+      <a-entity position="25.9588 0 0.20169">
+        <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
+      </a-entity>
+
+      <a-entity position="-55 0 34.6">
+        <a-entity id="dress" class="interactive" false-clue3 position="0 11 0" rotation="0 0 0" scale="2.57 2.63 2.23" gltf-model="#dress_model"></a-entity>
+      </a-entity>
+
+      <a-entity position="-12.69791 0 -53.01104">
+        <a-entity id="necklace" class="interactive" false-clue4 position="0 20.69447 0" rotation="0 -90 0" scale="0.52137 0.52137 0.52137" gltf-model="#necklace_model"></a-entity>
+      </a-entity>
+
+      <!--CLUES-->
       <a-entity id="clues">
         <a-entity  position = "30.667 0 29.770">
           <a-entity id="letter_clue" class= "interactive" add-ui add-text spinning-effect position="0 3.824 0" rotation="0 0 0" color="#ff0000" scale="2 2 2" gltf-model="#1600_clue_letter_model"     
@@ -214,7 +223,7 @@
 
       <a-entity id="questions" position="-2.154 22.843 0" rotation="0 0 0">
         <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;" 
-                  material="color:#d6931f;"
+                  material="color:#ffffff;"
                   animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
                   animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
                 shadow>
