@@ -50,7 +50,7 @@
     </div>
   </div>
 
-      <a-scene networked-scene="
+    <a-scene networked-scene="
       room: dev;
       debug: true;
       adapter: socketio;
@@ -58,6 +58,10 @@
         <a-assets timeout="10000">
 
           <audio id="room2_music" src="/assets/1700.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="right_soundEffect" src="/assets/right.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="wrong_soundEffect" src="/assets/wrong.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="pickUp_soundEffect" src="/assets/pickUp.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="click_soundEffect" src="/assets/click.mp3" preload="auto" crossorigin="anonymous"></audio>
         
           <a-asset-item id=  "wall2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/wall2.glb"></a-asset-item>
           <a-asset-item id=  "bookshelf_model"        response-type="arraybuffer"  src="/assets/Room2/bookshelf.glb"></a-asset-item>
@@ -175,7 +179,13 @@
         </a-gui-flex-container>
         </a-entity>
 
+        <!--Audio/Sound effects-->
         <a-entity class="ambient-music" sound="src:#room2_music; autoplay:false;"></a-entity>
+        <a-entity class="soundEffect1" sound="src:#right_soundEffect; autoplay:false;"></a-entity>
+        <a-entity class="soundEffect2" sound="src:#wrong_soundEffect; autoplay:false;"></a-entity>
+        <a-entity class="soundEffect3" sound="src:#pickUp_soundEffect; autoplay:false;"></a-entity>
+        <a-entity class="soundEffect4" sound="src:#click_soundEffect; autoplay:false;"></a-entity>
+
 
       <a-entity id="Bed_Room2" position="6.587 -0.72954 39.988" rotation="0 -179.83254428432608 0" scale="24 31.5 24" gltf-model="/assets/Room 2 assets/Bed_Room2.glb"></a-entity>  
       <a-entity id="f3"  position="76 57.96 -3.6" rotation="0 0 0" scale="1.5 5.29 4.9" gltf-model="/assets/Room 2 assets/f3.glb"></a-entity>

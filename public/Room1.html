@@ -60,6 +60,10 @@
         <a-assets timeout="10000">
 
           <audio id="room1_music" src="/assets/1600.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="right_soundEffect" src="/assets/right.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="wrong_soundEffect" src="/assets/wrong.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="pickUp_soundEffect" src="/assets/pickUp.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="click_soundEffect" src="/assets/click.mp3" preload="auto" crossorigin="anonymous"></audio>
           
           <a-asset-item id=  "closet_model"        response-type="arraybuffer"  src="/assets/Room1/closet.glb"></a-asset-item>
           <a-asset-item id=  "metal_model"        response-type="arraybuffer"  src="/assets/Room1/metal.glb"></a-asset-item>
@@ -188,7 +192,12 @@
 
       </a-entity>
 
+      <!--Audio/Sound effects-->
       <a-entity class="ambient-music" sound="src:#room1_music; autoplay:false;"></a-entity>
+      <a-entity class="soundEffect1" sound="src:#right_soundEffect; autoplay:false;"></a-entity>
+      <a-entity class="soundEffect2" sound="src:#wrong_soundEffect; autoplay:false;"></a-entity>
+      <a-entity class="soundEffect3" sound="src:#pickUp_soundEffect; autoplay:false;"></a-entity>
+      <a-entity class="soundEffect4" sound="src:#click_soundEffect; autoplay:false;"></a-entity>
       
 
       <a-entity id="closet" position="-14.4 -2.44 45.6" rotation="0 180 0" scale="0.19 0.33 0.11" gltf-model="#closet_model"></a-entity>

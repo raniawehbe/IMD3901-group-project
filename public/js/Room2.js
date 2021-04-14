@@ -163,6 +163,12 @@ let socket = io();
                 
                     Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
                     Context_AF.walls.setAttribute('rotation', "0 87.394 0");
+
+                    const soundEffect = document.querySelectorAll('.soundEffect3');
+                    soundEffect.forEach(function(soundEntity) {
+                      soundEntity.components.sound.playSound();
+                    });
+
                   }
 
                   else {
@@ -174,6 +180,11 @@ let socket = io();
                     document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/2"});
                 
                     Context_AF.walls.setAttribute("animation__rotation", {enabled:true});
+
+                    const soundEffect = document.querySelectorAll('.soundEffect3');
+                    soundEffect.forEach(function(soundEntity) {
+                      soundEntity.components.sound.playSound();
+                    });
                            
                   }
                 
@@ -231,6 +242,12 @@ let socket = io();
                       document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/2"});
 
                       Context_AF.walls.setAttribute('animation__rotation', {enabled:false});
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
+
                     }
 
                     else {
@@ -241,6 +258,11 @@ let socket = io();
                       document.querySelector('#clues_found').setAttribute('text', {value:"Clues Found: " + cluesFound + "/2"});
 
                       Context_AF.walls.setAttribute('animation__rotation', {enabled:true});
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                         
                     }
 
@@ -280,11 +302,21 @@ let socket = io();
                       console.log('stop spinning');
                       Context_AF.walls.setAttribute('animation', {to:21.05659});
                       Context_AF.isSpinning3 = false;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
                     else {
                       console.log('spinning');
                       Context_AF.walls.setAttribute('animation', {to:22.5});
                       Context_AF.isSpinning3 = true;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
                   
                 });
@@ -300,11 +332,21 @@ let socket = io();
                       console.log('stop spinning');
                       Context_AF.walls.setAttribute('animation', {to:-15.34405});
                       Context_AF.isSpinning4 = false;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
                     else {
                       console.log('spinning');
                       Context_AF.walls.setAttribute('animation', {to:-13});
                       Context_AF.isSpinning4 = true;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
                   
                 });
@@ -319,11 +361,21 @@ let socket = io();
                       console.log('stop spinning');
                       Context_AF.walls.setAttribute('animation', {to:76});
                       Context_AF.isSpinning5 = false;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
                     else {
                       console.log('spinning');
                       Context_AF.walls.setAttribute('animation', {to:70});
                       Context_AF.isSpinning5 = true;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
                   
                 });
@@ -338,11 +390,22 @@ let socket = io();
                       console.log('stop spinning');
                       Context_AF.walls.setAttribute('animation', {to:76});
                       Context_AF.isSpinning6 = false;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
+
                     else {
                       console.log('spinning');
                       Context_AF.walls.setAttribute('animation', {to:70});
                       Context_AF.isSpinning6 = true;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
                   
                 });
@@ -357,11 +420,22 @@ let socket = io();
                       console.log('stop spinning');
                       Context_AF.walls.setAttribute('animation', {to:75});
                       Context_AF.isSpinning7 = false;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
+
                     else {
                       console.log('spinning');
                       Context_AF.walls.setAttribute('animation', {to:70});
                       Context_AF.isSpinning7 = true;
+
+                      const soundEffect = document.querySelectorAll('.soundEffect3');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
                     }
                   
                 });
@@ -378,6 +452,11 @@ let socket = io();
                     Context_AF.question.setAttribute('visible', "false");
                     Context_AF.question1.setAttribute('visible', "false");
                     Context_AF.question2.setAttribute('visible', "false");
+
+                    const soundEffect = document.querySelectorAll('.soundEffect4');
+                      soundEffect.forEach(function(soundEntity) {
+                        soundEntity.components.sound.playSound();
+                      });
 
                     
                     if(cluesFound == 2){
@@ -425,12 +504,16 @@ let socket = io();
                   Context_AF.question1Btn      = document.querySelector('#question1_end');
                   Context_AF.choice1     = document.querySelector('#question1_choice1');
                   Context_AF.choice2     = document.querySelector('#question1_choice2');
+               
+                  Context_AF.question1Btn.setAttribute('visible', "true");
             
-                      
-                        Context_AF.question1Btn.setAttribute('visible', "true");
-            
-                        Context_AF.choice2.setAttribute('active-color', '#22252a');
-                        Context_AF.choice2.setAttribute('handle-color', '#22252a');
+                  Context_AF.choice2.setAttribute('active-color', '#22252a');
+                  Context_AF.choice2.setAttribute('handle-color', '#22252a');
+
+                  const soundEffect = document.querySelectorAll('.soundEffect1');
+                  soundEffect.forEach(function(soundEntity) {
+                    soundEntity.components.sound.playSound();
+                  });
                                 
                   
                          
@@ -444,6 +527,11 @@ let socket = io();
                   Context_AF.question2Btn = document.querySelector('#question2_end2');
     
                   Context_AF.question2Btn.setAttribute('visible', "true");
+
+                  const soundEffect = document.querySelectorAll('.soundEffect1');
+                  soundEffect.forEach(function(soundEntity) {
+                    soundEntity.components.sound.playSound();
+                  });
             
                 });
 
@@ -462,6 +550,11 @@ let socket = io();
 
                   currentAnim = "animation-start";
                   currentAnim2 = "shake-start";
+
+                  const soundEffect = document.querySelectorAll('.soundEffect2');
+                  soundEffect.forEach(function(soundEntity) {
+                    soundEntity.components.sound.playSound();
+                  });
                             
                               
                 });
