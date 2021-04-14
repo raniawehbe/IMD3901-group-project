@@ -89,7 +89,10 @@
 
     </a-assets>
 
-    <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="6.73523 59.52175 215.67605" twoway-motion="speed: 35" rotation="">
+    <!--mobile movement forward on touch-->
+    <a-camera twoway-motion="speed: 35" position="6.73523 59.52175 215.67605"></a-camera>
+
+    <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="6.73523 59.52175 215.67605" rotation="">
       <a-cursor material="" raycaster="useWorldCoordinates: true" cursor="rayOrigin: mouse" geometry="" visible="false"></a-cursor>
     </a-entity>
 

@@ -600,11 +600,11 @@ let socket = io();
                   const Context_AF = this;
                   Context_AF.walls      = document.querySelector('#lamp_fc');
                   
-                  Context_AF.walls.setAttribute('animation', {property:'position.y', to:2.371, dur:300, easing:'linear'});
+                  Context_AF.walls.setAttribute('animation', {property:'position.y', to:2.516, dur:300, easing:'linear'});
     
                     if (Context_AF.isSpinning === true) {
                       console.log('stop spinning');
-                      Context_AF.walls.setAttribute('animation', {to:2.371});
+                      Context_AF.walls.setAttribute('animation', {to:2.516});
                       Context_AF.isSpinning = false;
                     }
                     else {

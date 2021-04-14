@@ -164,6 +164,9 @@ adapter: socketio;
 
   </a-assets>
 
+  <!--mobile movement forward on touch-->
+  <a-camera twoway-motion="speed: 35" position="6 5.5 4.2"></a-camera>  
+
   <a-entity id= "camera" camera="active: true" look-controls wasd-controls twoway-motion="speed: 35"position="6 5.5 4.2"  rotation="0 0 0" scale="0.5 0.5 0.5">
     <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
     <a-entity light="type: ambient; color:  #ffffff;  angle:  90;  intensity:  0.8;  shadowBias:  0.07"></a-entity>

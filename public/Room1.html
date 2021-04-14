@@ -159,8 +159,10 @@
           </template>
         </a-assets>
 
+      <!--mobile movement forward on touch-->
+      <a-camera twoway-motion="speed: 35" position="11 35 34"></a-camera>
 
-      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="11 35 34" rotation="-45 170 0" twoway-motion="speed: 35">
+      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="11 35 34" rotation="-45 170 0">
         <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
           <a-entity light="type: ambient; color: #CCC"></a-entity>
 

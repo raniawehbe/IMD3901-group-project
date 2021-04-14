@@ -162,7 +162,10 @@ adapter: socketio;
           
     </a-assets>
 
-    <a-entity id= "camera" camera="active: true" look-controls wasd-controls twoway-motion="speed: 35" position="7.182 5.5 4.7" rotation="0 0 0" scale="0.5 0.5 0.5">
+    <!--mobile movement forward on touch-->
+    <a-camera twoway-motion="speed: 35" position="7.182 5.5 4.7"></a-camera>
+
+    <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="7.182 5.5 4.7" rotation="0 0 0" scale="0.5 0.5 0.5">
       <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
       <a-entity light="type:  ambient;  color:  #ffffff;  angle:  90;  intensity:  1;  shadowBias:  0.07"></a-entity>
       <a-entity light="type:directional; castShadow:true; intensity:  0.5;"></a-entity>
@@ -452,7 +455,7 @@ adapter: socketio;
         <a-entity class="wall" position="-1.02434 5.68544 -1.00525" rotation="0 90 0" scale="0.1848 0.24894 0.17688" gltf-model="#frame (9)" shadow=""></a-entity>
       </a-entity>
   
-  </a-scene>
+</a-scene>
 
   <script src="/js/Room3.js"></script>
 
