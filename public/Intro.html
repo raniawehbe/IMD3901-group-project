@@ -5,28 +5,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMD3901 Term Project</title>
+    <title>IMD3901 Term Project - Intro Room</title>
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
-    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <script src="/js/aframe-environment-component.min.js"></script>
+    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/networked-aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+
 </head>
 
 
 <body>
-  <a-scene renderer="colorManagement: true">
+  <a-scene a-scene networked-scene="
+  room: dev;
+  debug: true;
+  adapter: socketio;">
 
     <a-assets timeout="10000">
       <a-asset-item id=  "corridor_model"  response-type="arraybuffer"  src="/assets/Intro/corridor.glb"></a-asset-item>
+
+      <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
+
+      <!-- Templates -->
+      <!-- Avatar -->
+      <template id="avatar-template">
+            <a-entity class="avatar" scale ="5 5 5">
+              <a-sphere class="head"
+              color="#ffffff"
+              scale="0.416 0.626 0.4"
+            ></a-sphere>
+            <a-entity class="face"
+              position="0 0.05 0"
+            >
+              <a-sphere class="eye"
+                color="#efefef"
+                position="0.16 0.1 -0.28"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="0.117 0 -0.652"
+                  scale="0.52 0.52 0.52"
+                ></a-sphere>
+              </a-sphere>
+              <a-sphere class="eye"
+                color="#efefef"
+                position="-0.16 0.1 -0.28"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="-0.158 0 -0.652"
+                  scale="0.52 0.52 0.52"
+                ></a-sphere>
+              </a-sphere>
+              <a-entity class="mouth"
+                    position="0.024 -0.164 -0.344"
+                    rotation="-12.712 179.39 74"
+                    scale="0.058 0.096 0.096"
+                    geometry="primitive:torus; radius:1.0" 
+                    material="color:#000000;"></a-entity>
+            </a-entity>
+            <a-entity class="hat">
+              <a-entity>
+                <a-entity class="hat-top"
+                    position="0.08 0.551 -0.005"
+                    rotation="0 0 -13.14"
+                    scale="0.332 0.331 0.332"
+                    geometry="primitive:cylinder; radius:1.0" 
+                    material="color:#704b0a;"></a-entity>
+                <a-entity id="hat-base"
+                    position="0.045 0.39 0.03"
+                    rotation="-9.33 -42.7 -8.978"
+                    scale="0.516 0.026 0.46"
+                    geometry="primitive:cylinder; radius:1.0" 
+                    material="color:#000000;"></a-entity>
+              </a-entity>
+            </a-entity>
+            </a-entity>
+      </template>
+
     </a-assets>
 
-    <a-entity id="camera" camera="" look-controls="" wasd-controls="" position="6.73523 59.52175 215.67605" rotation="" data-aframe-inspector-original-camera="">
+    <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="6.73523 59.52175 215.67605" twoway-motion="speed: 35" rotation="">
       <a-cursor material="" raycaster="useWorldCoordinates: true" cursor="rayOrigin: mouse" geometry="" visible="false"></a-cursor>
     </a-entity>
 
     <a-entity id="corridor_model"  position="7.0303 0.1 -0.0173" rotation="0 0 0" Scale= "0.5 0.5 0.5" gltf-model="#corridor_model" shadow=""></a-entity>
     <a-plane class="UI" geometry="width: 90; height: 70" material="src: /assets/Intro/UI.png; opacity: 0.95; transparent: true; color: #ffffff" position="7.1322 49.50384 139.90185" rotation="" shadow="cast: false" scale="0.48963 0.81902 11.31287" onclick="document.location='Room1.html'"></a-plane>
     
+    <a-entity id="player"
+      networked="template:#avatar-template;attachTemplateToLocal:false;"
+      camera
+      position="6.73523 59.52175 215.67605"
+      spawn-in-circle="radius:3"
+      wasd-controls look-controls
+      >
+      <a-sphere class="head"
+        visible="false"
+        random-color
+      ></a-sphere>
+
+      <a-entity class="hat-top"
+        visible="false"
+        random-color
+      ></a-entity>
+    </a-entity>
+
   </a-scene>
+
+<script>
+    // Define custom schema for syncing avatar color, set by random-color
+    NAF.schemas.add({
+      template: '#avatar-template',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.head',
+          component: 'material',
+          property: 'color'
+        },
+        {
+          selector: '.hat-top',
+          component: 'material',
+          property: 'color'
+        },
+      ]
+    });
+
+    // Called by Networked-Aframe when connected to server
+    function onConnect () {
+      console.log("onConnect", new Date());
+    }
+
+    // On mobile remove elements that are resource heavy
+    var isMobile = AFRAME.utils.device.isMobile();
+
+    if (isMobile) {
+      var particles = document.getElementById('particles');
+      particles.parentNode.removeChild(particles);
+    }
+</script>
+
 </body>
 
 

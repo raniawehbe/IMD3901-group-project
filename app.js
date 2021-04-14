@@ -35,6 +35,14 @@ app.get( '/', function( req, res ){
     res.sendFile( __dirname + '/public/Room4.html' );
 });
 
+app.get( '/', function( req, res ){ 
+    res.sendFile( __dirname + '/public/Intro.html' );
+});
+
+app.get( '/', function( req, res ){ 
+    res.sendFile( __dirname + '/public/Outro.html' );
+});
+
 const rooms = {};
 
 //socket.io stuff

@@ -160,7 +160,7 @@
         </a-assets>
 
 
-      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="11 35 34" rotation="-45 170 0">
+      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="11 35 34" rotation="-45 170 0" twoway-motion="speed: 35">
         <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
           <a-entity light="type: ambient; color: #CCC"></a-entity>
 
@@ -176,7 +176,7 @@
           position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" material="color:#080402">     
             <a-gui-button background-color="#8a694e" border-color="#73503e"
               width="2.5" height="0.75"
-              onclick="buttonActionFunction" key-code="32"
+              onclick="buttonActionFunction"
               position="0 0.025 0" scale="1.242 4.282 1.027"
               value=" Proceed to Questions" 
               margin="0 0 0.05 0"
@@ -225,19 +225,19 @@
 
       <!--FALSE CLUES-->
       <a-entity position="32.9843 0 11.47743">
-        <a-entity id="envelope"class="interactive" false-clue position="0 18.02361 0" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
+        <a-entity id="envelope"class="interactive" position="0 18.02361 0" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
       </a-entity>
 
       <a-entity position="25.9588 0 0.20169">
-        <a-entity id="diary" class="interactive" false-clue2 position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
+        <a-entity id="diary" class="interactive" position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
       </a-entity>
 
       <a-entity position="-55 0 34.6">
-        <a-entity id="dress" class="interactive" false-clue3 position="0 11 0" rotation="0 0 0" scale="2.57 2.63 2.23" gltf-model="#dress_model"></a-entity>
+        <a-entity id="dress" class="interactive"  position="0 11 0" rotation="0 0 0" scale="2.57 2.63 2.23" gltf-model="#dress_model"></a-entity>
       </a-entity>
 
       <a-entity position="-12.69791 0 -53.01104">
-        <a-entity id="necklace" class="interactive" false-clue4 position="0 20.69447 0" rotation="0 -90 0" scale="0.52137 0.52137 0.52137" gltf-model="#necklace_model"></a-entity>
+        <a-entity id="necklace" class="interactive" position="0 20.69447 0" rotation="0 -90 0" scale="0.52137 0.52137 0.52137" gltf-model="#necklace_model"></a-entity>
       </a-entity>
 
       <!--CLUES-->
@@ -384,7 +384,7 @@
       <a-entity id="player"
       networked="template:#avatar-template;attachTemplateToLocal:false;"
       camera
-      position="0 35 0"
+      position="11 35 34"
       spawn-in-circle="radius:3"
       wasd-controls look-controls
       >

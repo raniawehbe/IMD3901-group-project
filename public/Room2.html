@@ -4,11 +4,15 @@
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>IMD3901 Term Project</title>
+      <title>IMD3901 Term Project - Room 2</title>
       <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
       <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
       <script src="/js/aframe-environment-component.min.js"></script>
-      <script src="/js/Room2.js"></script>
+      <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/js/networked-aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
 
       <link rel="stylesheet" href="/css/user-gesture.css">
       <script>
@@ -46,7 +50,11 @@
     </div>
   </div>
 
-      <a-scene start-experience>
+      <a-scene networked-scene="
+      room: dev;
+      debug: true;
+      adapter: socketio;
+      " start-experience>
         <a-assets timeout="10000">
 
           <audio id="room2_music" src="/assets/1700.mp3" preload="auto" crossorigin="anonymous"></audio>
@@ -73,10 +81,71 @@
 
           <img id= "Wall_Texture_img" src="/assets/Room2/vv.jpg" crossorigin="anonymous">
           <img id="1_img" src="/assets/Room2/1.jpg" crossorigin="anonymous">
+
+          <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
+
+          <!-- Templates -->
+          <!-- Avatar -->
+          <template id="avatar-template">
+            <a-entity class="avatar" scale ="5 5 5">
+              <a-sphere class="head"
+              color="#ffffff"
+              scale="0.416 0.626 0.4"
+            ></a-sphere>
+            <a-entity class="face"
+              position="0 0.05 0"
+            >
+              <a-sphere class="eye"
+                color="#efefef"
+                position="0.16 0.1 -0.28"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="0.117 0 -0.652"
+                  scale="0.52 0.52 0.52"
+                ></a-sphere>
+              </a-sphere>
+              <a-sphere class="eye"
+                color="#efefef"
+                position="-0.16 0.1 -0.28"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="-0.158 0 -0.652"
+                  scale="0.52 0.52 0.52"
+                ></a-sphere>
+              </a-sphere>
+              <a-entity class="mouth"
+                    position="0.024 -0.164 -0.344"
+                    rotation="-12.712 179.39 74"
+                    scale="0.058 0.096 0.096"
+                    geometry="primitive:torus; radius:1.0" 
+                    material="color:#000000;"></a-entity>
+            </a-entity>
+            <a-entity class="hat">
+              <a-entity>
+                <a-entity class="hat-top"
+                    position="0.08 0.551 -0.005"
+                    rotation="0 0 -13.14"
+                    scale="0.332 0.331 0.332"
+                    geometry="primitive:cylinder; radius:1.0" 
+                    material="color:#704b0a;"></a-entity>
+                <a-entity id="hat-base"
+                    position="0.045 0.39 0.03"
+                    rotation="-9.33 -42.7 -8.978"
+                    scale="0.516 0.026 0.46"
+                    geometry="primitive:cylinder; radius:1.0" 
+                    material="color:#000000;"></a-entity>
+              </a-entity>
+            </a-entity>
+            </a-entity>
+          </template>
        
         </a-assets>
 
-        <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 100 0">
+        <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 0" rotation="-45 100 0" cursor="rayOrigin:mouse;>
           <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
           <a-entity light="type:spot; intensity:0.7; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity> 
           <a-entity light="type: ambient; color: #CCC"></a-entity>
@@ -87,12 +156,12 @@
                   fuse="false">
           </a-gui-cursor>
   
-          <a-gui-flex-container id="questionBtn" class= "interactive" visibility
+          <a-gui-flex-container id="questionBtn" class= "interactive" visible="false"
           flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
           position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" material="color:#154727">        
             <a-gui-button background-color="#2f8741" border-color="#1e9436"
               width="2.5" height="0.75"
-              onclick="buttonActionFunction" key-code="32"
+              onclick="buttonActionFunction" 
               position="0 0.025 0" scale="1.242 4.282 1.027"
               value=" Proceed to Questions" 
               margin="0 0 0.05 0"
@@ -117,43 +186,43 @@
       <!--FALSE CLUES-->
 
       <a-entity position="-35.88437 0 -51.64648">
-        <a-entity id="Telescope_Room2" class="interactive" false-clue position="0 21.05659 0" rotation="0 124.28314013080252 0" scale="0.8 0.8 0.8" gltf-model="/assets/Room 2 assets/Telescope_Room2.glb"></a-entity>
+        <a-entity id="Telescope_Room2" class="interactive" position="0 21.05659 0" rotation="0 124.28314013080252 0" scale="0.8 0.8 0.8" gltf-model="/assets/Room 2 assets/Telescope_Room2.glb"></a-entity>
       </a-entity>
       
       <a-entity position="-54.27609 0 116.53281">
-        <a-entity id="Books_Room2" class="interactive" false-clue2 position="0 -15.34405 0" rotation="0 90 0" scale="4.62059 4.62059 4.62059" gltf-model="/assets/Room 2 assets/Books_Room2.glb"></a-entity>
+        <a-entity id="Books_Room2" class="interactive" position="0 -15.34405 0" rotation="0 90 0" scale="4.62059 4.62059 4.62059" gltf-model="/assets/Room 2 assets/Books_Room2.glb"></a-entity>
       </a-entity>
 
       <a-entity position="0 38.4 5.34">
-        <a-entity id="f1"  class="interactive" false-clue3 position="76 0 0" rotation="0 0 0" scale="0.57 7.5 7.77" gltf-model="/assets/Room 2 assets/f1.glb"></a-entity>
+        <a-entity id="f1"  class="interactive" position="76 0 0" rotation="0 0 0" scale="0.57 7.5 7.77" gltf-model="/assets/Room 2 assets/f1.glb"></a-entity>
       </a-entity>
 
       <a-entity position="0 53.8 -28.8">
-        <a-entity id="f2"  class="interactive" false-clue3 position="76 0 0" rotation="0 0 0" scale="1.5 4.79 5.6" gltf-model="/assets/Room 2 assets/f2.glb"></a-entity>
+        <a-entity id="f2"  class="interactive" position="76 0 0" rotation="0 0 0" scale="1.5 4.79 5.6" gltf-model="/assets/Room 2 assets/f2.glb"></a-entity>
       </a-entity>
 
       <a-entity position=" 0 62.34 34.28">
-        <a-entity id="dish"  class="interactive" false-clue3 position="75 0 0" rotation="90 -180 -90" scale="1.5 0.95 1.5" gltf-model="/assets/Room 2 assets/dish.glb"></a-entity>
+        <a-entity id="dish"  class="interactive" position="75 0 0" rotation="90 -180 -90" scale="1.5 0.95 1.5" gltf-model="/assets/Room 2 assets/dish.glb"></a-entity>
       </a-entity>
 
       <!--CLUES-->
-     <a-entity id="clues">
-      <a-entity  position = "48.166 -9.545 11.257">
-        <a-entity id="carpet_clue" class= "interactive" add-ui add-text spinning-effect position="4 -10.445 1.428" rotation="0 87.394 0" color="#ff0000" scale="16.222 17.573 17.573" gltf-model="#1700_Clue_Carpet_model"     
+      <a-entity id="clues">
+      <a-entity  position = "48.166 0 11.257">
+        <a-entity id="carpet_clue" class= "interactive" position="0 -0.554 0" rotation="0 87.394 0" color="#ff0000" scale="16.222 17.573 17.573" gltf-model="#1700_Clue_Carpet_model"     
               shadow >
         </a-entity> 
       </a-entity>
    
-      <a-entity  position = "-2.807 17.060 -15.466">
-        <a-entity id="map_clue" class= "interactive" add-ui2 add-text spinning-effect2 position="-2.807 17.060 37.466" rotation="0 -0.296 0" color="#ff0000" scale="24.154 24.154 24.154" gltf-model="#1700_clue_map_model"     
+      <a-entity  position = "-2.807 25.105 0">
+        <a-entity id="map_clue" class= "interactive" position="0 0 -66.581" rotation="0 -0.296 0" color="#ff0000" scale="24.154 24.154 24.154" gltf-model="#1700_clue_map_model"     
                 shadow >
         </a-entity> 
       </a-entity>   
 
-    </a-entity> 
+      </a-entity> 
 
 
-    <a-entity id="progress_ui" position="-45.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
+      <a-entity id="progress_ui" position="-45.832 56.386 -59.366" rotation="0 40.480 0" scale="1 1 1" >
       <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" scale="10.584 -11.372 1.583" material="color:#758e6b;" position="-5.313 -0.094 2.490"></a-entity>
       <a-entity id = "clues_found" text="value:Clues Found: 0/2 ; 
                    color:white; font:roboto; width:25.52; anchor:left; baseline:top; wrapCount:13.43;" position="-18.242 1.69 2.848"></a-entity>
@@ -161,12 +230,12 @@
       <a-entity position="-5.030 -3.371 2.634" geometry="primitive: box; width: 2.5; height: 0.25" material="color: #000000" scale = "9.329 7.392 0.350" margin="0 0 0.05 0">
         <a-entity id="progressMeter" geometry="primitive: box; width: 0; height: 0.710 depth:0" material="color: #ed5b21" position="0 0 0" rotation="-90 0 0" scale="1 1 1" shadow="cast: false"></a-entity>
       </a-entity>
-    </a-entity>
+      </a-entity>
 
-    <a-entity id="questions" position="-32.248 22.843 0" rotation="0 54.673 0">
+      <a-entity id="questions" position="-32.248 22.843 0" rotation="0 54.673 0" visible="false">
       <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;" 
                 material="color:#ffffff;"
-                animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:#d6931f;  dur:4000; easing:linear; startEvents: animation-start;"
+                animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
                 animation__shake= "property:position.x; from:1; to:0; loop:4; dur:300; easing:linear; startEvents: shake-start;"
                 shadow>
         <a-entity id="question1" position="-1.895 0 0.536">
@@ -176,7 +245,7 @@
                             color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.049 6.816 0.168"></a-entity>                   
             <a-entity id="question1_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
           
-              <a-gui-radio id = "question1_choice1" class= "interactive" question1_correct position="1.193 0.781 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+              <a-gui-radio id = "question1_choice1" class= "interactive" position="1.193 0.781 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
                 material= "blending: additive; visible:false"
                 width="2.5" height="0.75"
                 value="The fur trade"
@@ -194,7 +263,7 @@
                 </a-entity>
                 </a-gui-radio> 
           
-                <a-gui-button id = "question1_end" class="interactive" next_Question visible="false" position="0.715 -2.176 0.01" scale= "3.609 1.142 0.853" 
+                <a-gui-button id = "question1_end" class="interactive" visible="false" position="0.715 -2.176 0.01" scale= "3.609 1.142 0.853" 
                   width="2.5" height="0.75"
                   position="0 0.025 0" scale="1.242 4.282 1.027"
                   value="Next Question"
@@ -219,7 +288,7 @@
             margin="0 0 0.05 0" shadow
             >
             </a-gui-radio>   
-            <a-gui-radio id = "question2_choice2" class= "" question2_correct position="1.193 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+            <a-gui-radio id = "question2_choice2" class= "" position="1.193 -0.997 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
             width="2.5" height="0.75"
             material= "blending: additive; visible:false"
             value="seperate"
@@ -229,7 +298,6 @@
             </a-gui-radio> 
             <a-gui-button id = "question2_end2" class= "interactive" visible="false" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                 width="2.5" height="0.75"
-                onclick="document.location='transitionRoom3.html'" 
                 position="0 0.025 0" scale="1.242 4.282 1.027"
                 value="Unlock Room"
                 margin="0 0 0.05 0"
@@ -238,12 +306,26 @@
           </a-entity> 
       </a-entity>
       </a-entity> 
-    </a-entity> 
+      </a-entity> 
+
+      <a-entity id="player"
+      networked="template:#avatar-template;attachTemplateToLocal:false;"
+      camera
+      position="0 35 0"
+      spawn-in-circle="radius:3"
+      wasd-controls look-controls
+      >
+      <a-sphere class="head"
+        visible="false"
+        random-color
+      ></a-sphere>
+
+      <a-entity class="hat-top"
+        visible="false"
+        random-color
+      ></a-entity>
+      </a-entity>
       
-
-  
-
-    
       <a-entity id="room">
         <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src: #1_img" position="11.75989 0 0.22904" rotation="-90 0 0" scale="1.5792 1.655 55.19775" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="8 96.37 3.4" rotation="-90 0 0" scale="1.67 2.23 1.678" shadow="cast: false"></a-entity>
@@ -254,32 +336,42 @@
         
       </a-entity>
 
-   <!-- <a-entity environment="preset:default"></a-entity>-->
-
     </a-scene>
 
+    <script src="/js/Room2.js"></script>
+
     <script>
-      var currentAnim = "animation-start";
-      var currentAnim2 = "shake-start";
-
-      document.querySelector("#question1_choice2").addEventListener("click", function() {
-        document.getElementById("question_plane").emit(currentAnim);
-        document.getElementById("question_plane").emit(currentAnim2);
-
-        currentAnim = "animation-start";
-        currentAnim2 = "shake-start";
-
+      // Define custom schema for syncing avatar color, set by random-color
+      NAF.schemas.add({
+        template: '#avatar-template',
+        components: [
+          'position',
+          'rotation',
+          {
+            selector: '.head',
+            component: 'material',
+            property: 'color'
+          },
+          {
+            selector: '.hat-top',
+            component: 'material',
+            property: 'color'
+          },
+        ]
       });
 
-      document.querySelector("#question2_choice1").addEventListener("click", function() {
-        document.getElementById("question_plane").emit(currentAnim);
-        document.getElementById("question_plane").emit(currentAnim2);
+      // Called by Networked-Aframe when connected to server
+      function onConnect () {
+        console.log("onConnect", new Date());
+      }
 
-        currentAnim = "animation-start";
-        currentAnim2 = "shake-start";
+      // On mobile remove elements that are resource heavy
+      var isMobile = AFRAME.utils.device.isMobile();
 
-      });
-
+      if (isMobile) {
+        var particles = document.getElementById('particles');
+        particles.parentNode.removeChild(particles);
+      }
     </script>
 
   </body>

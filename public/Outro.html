@@ -3,55 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMD3901 Term Project</title>
+    <title>IMD3901 Term Project - Outro Room</title>
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>  
-    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
     <script src="/js/aframe-environment-component.min.js"></script>
-    <script src="/js/Room1.js"></script>
+    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/networked-aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+
     
 </head>
 <body>
 
- 
-      <a-scene>
-        <a-assets timeout="10000">
+  <a-scene a-scene networked-scene="
+  room: dev;
+  debug: true;
+  adapter: socketio;">
+    <a-assets timeout="10000">
        
-            <a-asset-item id=  "door_model"        response-type="arraybuffer"  src="/assets/Outro/door.glb"></a-asset-item>
+          <a-asset-item id=  "door_model"        response-type="arraybuffer"  src="/assets/Outro/door.glb"></a-asset-item>
           <img id="Floor_Texture_img"  src="/assets/Outro/FLOOR.jpg" crossorigin="anonymous">
           <img id="Wall_Texture_img"   src="/assets/Outro/Wall.jpg"  crossorigin="anonymous">
-        </a-assets>
 
-     <!-- <a-entity environment="preset:default;"></a-entity>-->
-      <!--<a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>-->
+          <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
 
-      <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="0 35 15" rotation="-45 100 0">
-        <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
-        <a-entity light="type:spot; intensity:0.2; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="12.267 4.735 12.906" rotation="0 20 0" scale="0.009 0.009 0.009"></a-entity>
-        <a-entity light="type: ambient; color: #CCC"></a-entity>
+          <!-- Templates -->
+          <!-- Avatar -->
+          <template id="avatar-template">
+                <a-entity class="avatar" scale ="5 5 5">
+                  <a-sphere class="head"
+                  color="#ffffff"
+                  scale="0.416 0.626 0.4"
+                ></a-sphere>
+                <a-entity class="face"
+                  position="0 0.05 0"
+                >
+                  <a-sphere class="eye"
+                    color="#efefef"
+                    position="0.16 0.1 -0.28"
+                    scale="0.12 0.12 0.12"
+                  >
+                    <a-sphere class="pupil"
+                      color="#000"
+                      position="0.117 0 -0.652"
+                      scale="0.52 0.52 0.52"
+                    ></a-sphere>
+                  </a-sphere>
+                  <a-sphere class="eye"
+                    color="#efefef"
+                    position="-0.16 0.1 -0.28"
+                    scale="0.12 0.12 0.12"
+                  >
+                    <a-sphere class="pupil"
+                      color="#000"
+                      position="-0.158 0 -0.652"
+                      scale="0.52 0.52 0.52"
+                    ></a-sphere>
+                  </a-sphere>
+                  <a-entity class="mouth"
+                        position="0.024 -0.164 -0.344"
+                        rotation="-12.712 179.39 74"
+                        scale="0.058 0.096 0.096"
+                        geometry="primitive:torus; radius:1.0" 
+                        material="color:#000000;"></a-entity>
+                </a-entity>
+                <a-entity class="hat">
+                  <a-entity>
+                    <a-entity class="hat-top"
+                        position="0.08 0.551 -0.005"
+                        rotation="0 0 -13.14"
+                        scale="0.332 0.331 0.332"
+                        geometry="primitive:cylinder; radius:1.0" 
+                        material="color:#704b0a;"></a-entity>
+                    <a-entity id="hat-base"
+                        position="0.045 0.39 0.03"
+                        rotation="-9.33 -42.7 -8.978"
+                        scale="0.516 0.026 0.46"
+                        geometry="primitive:cylinder; radius:1.0" 
+                        material="color:#000000;"></a-entity>
+                  </a-entity>
+                </a-entity>
+                </a-entity>
+          </template>
 
+    </a-assets>
 
-        </a-entity>
+    <!-- <a-entity environment="preset:default;"></a-entity>-->
+    <!--<a-entity sound= "src:#BackgroundSound; autoplay:true;"></a-entity>-->
 
+    <a-entity id= "camera" camera="active: true" look-controls wasd-controls twoway-motion="speed: 35" position="0 35 15" rotation="-45 100 0">
+      <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
+      <a-entity light="type:spot; intensity:0.2; castShadow:true; shadowBias:0.5; angle:50; penumbra:0.5;" position="12.267 4.735 12.906" rotation="0 20 0" scale="0.009 0.009 0.009"></a-entity>
+      <a-entity light="type: ambient; color: #CCC"></a-entity>
+      </a-entity>
     </a-entity>   
+
+    <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
+
+    <a-entity id="player"
+    networked="template:#avatar-template;attachTemplateToLocal:false;"
+    camera
+    position="0 35 15"
+    spawn-in-circle="radius:3"
+    wasd-controls look-controls
+    >
+    <a-sphere class="head"
+      visible="false"
+      random-color
+    ></a-sphere>
+
+    <a-entity class="hat-top"
+      visible="false"
+      random-color
+    ></a-entity>
     </a-entity>
-
-      <a-entity id="envelope" position="32.9843 18.02361 11.47743" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
-
-
-      <a-entity id="room">
+    
+    <a-entity id="room">
         <a-entity class="ground" geometry="primitive: plane; width: 90; height: 90" material="src:#Floor_Texture_img"position="-10.44656 0 -7.29101" rotation="-90 0 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-70.31305 47 -6.711" rotation="0 90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="49.05643 47 -6.71141" rotation="0 -90 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: box; width: 90; height: 70; depth:1" material="src:#Wall_Texture_img" position="-13.29203 47 55.20319" rotation="0 180 0" scale="1.4 1.4 1.4" shadow="cast: false"></a-entity>
         <a-entity id="door" position="-13.29203 47 -68.88783" rotation="0 0 0" scale="1.4 1.4 1.4" gltf-model="#door_model"></a-entity>
     </a-entity>
-     
-    
 
-    </a-scene>
-    <script>
-    </script>
-  
-  </body>
+  </a-scene>
+
+<script>
+    // Define custom schema for syncing avatar color, set by random-color
+    NAF.schemas.add({
+      template: '#avatar-template',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.head',
+          component: 'material',
+          property: 'color'
+        },
+        {
+          selector: '.hat-top',
+          component: 'material',
+          property: 'color'
+        },
+      ]
+    });
+
+    // Called by Networked-Aframe when connected to server
+    function onConnect () {
+      console.log("onConnect", new Date());
+    }
+
+    // On mobile remove elements that are resource heavy
+    var isMobile = AFRAME.utils.device.isMobile();
+
+    if (isMobile) {
+      var particles = document.getElementById('particles');
+      particles.parentNode.removeChild(particles);
+    }
+</script>
+
+</body>
 
 </html>

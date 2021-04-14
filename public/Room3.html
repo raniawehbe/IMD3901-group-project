@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMD3901 Term Project</title>
+    <title>IMD3901 Term Project - Room 3</title>
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="/js/aframe-environment-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
-    <script src="/js/Room3.js"></script>
+    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/networked-aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
 
     <link rel="stylesheet" href="/css/user-gesture.css">
     <script>
-      AFRAME.registerComponent('start-experience', {
-        init: function () {
-          //we can't play sound on some browsers until we have some user interaction
-          //this means we should only start playing ambient music after this button is clicked
-          console.log('scene loaded');
-          document.querySelector('#loading-animation').style.display='none';
-          document.querySelector('#user-gesture-button').style.display='block';
-        }
-      });
-      
-      //function called from user-gesture click
-      const startExperience = function() {
-        //hide user-gesture overlay
-        document.querySelector('#user-gesture-overlay').style.display='none';
-        
-        //start all ambient music
-        const ambientSounds = document.querySelectorAll('.ambient-music');
-        ambientSounds.forEach(function(soundEntity) {
-          soundEntity.components.sound.playSound();
+        AFRAME.registerComponent('start-experience', {
+          init: function () {
+            //we can't play sound on some browsers until we have some user interaction
+            //this means we should only start playing ambient music after this button is clicked
+            console.log('scene loaded');
+            document.querySelector('#loading-animation').style.display='none';
+            document.querySelector('#user-gesture-button').style.display='block';
+          }
         });
-      }
+        
+        //function called from user-gesture click
+        const startExperience = function() {
+          //hide user-gesture overlay
+          document.querySelector('#user-gesture-overlay').style.display='none';
+          
+          //start all ambient music
+          const ambientSounds = document.querySelectorAll('.ambient-music');
+          ambientSounds.forEach(function(soundEntity) {
+            soundEntity.components.sound.playSound();
+          });
+        }
     </script>
   
 </head>
@@ -46,8 +49,11 @@
   </div>
 </div>
 
-
-<a-scene start-experience>
+<a-scene a-scene networked-scene="
+room: dev;
+debug: true;
+adapter: socketio;
+" start-experience>
 
     <a-assets timeout="10000">
       <!--Audio-->
@@ -92,11 +98,71 @@
       <a-asset-item id=  "1800Pic_model"      response-type="arraybuffer"  src="/assets/Clue_Texture/1800Pic.glb"></a-asset-item>
       <a-asset-item id=  "1800Hocky_model"    response-type="arraybuffer"  src="/assets/Clue_Texture/1800Hocky.glb"></a-asset-item>
       <a-asset-item id=  "teddy_model"        response-type="arraybuffer"  src="/assets/1800's/teddy.glb"></a-asset-item>
+
+      <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
+
+      <!-- Templates -->
+      <!-- Avatar -->
+      <template id="avatar-template">
+            <a-entity class="avatar" scale ="5 5 5">
+              <a-sphere class="head"
+              color="#ffffff"
+              scale="0.416 0.626 0.4"
+            ></a-sphere>
+            <a-entity class="face"
+              position="0 0.05 0"
+            >
+              <a-sphere class="eye"
+                color="#efefef"
+                position="0.16 0.1 -0.28"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="0.117 0 -0.652"
+                  scale="0.52 0.52 0.52"
+                ></a-sphere>
+              </a-sphere>
+              <a-sphere class="eye"
+                color="#efefef"
+                position="-0.16 0.1 -0.28"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="-0.158 0 -0.652"
+                  scale="0.52 0.52 0.52"
+                ></a-sphere>
+              </a-sphere>
+              <a-entity class="mouth"
+                    position="0.024 -0.164 -0.344"
+                    rotation="-12.712 179.39 74"
+                    scale="0.058 0.096 0.096"
+                    geometry="primitive:torus; radius:1.0" 
+                    material="color:#000000;"></a-entity>
+            </a-entity>
+            <a-entity class="hat">
+              <a-entity>
+                <a-entity class="hat-top"
+                    position="0.08 0.551 -0.005"
+                    rotation="0 0 -13.14"
+                    scale="0.332 0.331 0.332"
+                    geometry="primitive:cylinder; radius:1.0" 
+                    material="color:#704b0a;"></a-entity>
+                <a-entity id="hat-base"
+                    position="0.045 0.39 0.03"
+                    rotation="-9.33 -42.7 -8.978"
+                    scale="0.516 0.026 0.46"
+                    geometry="primitive:cylinder; radius:1.0" 
+                    material="color:#000000;"></a-entity>
+              </a-entity>
+            </a-entity>
+            </a-entity>
+      </template>
           
     </a-assets>
- 
 
-    <a-entity id= "camera" camera="active: true" look-controls wasd-controls position="7.182 5.5 4.7" rotation="0 0 0" scale="0.5 0.5 0.5">
+    <a-entity id= "camera" camera="active: true" look-controls wasd-controls twoway-motion="speed: 35" position="7.182 5.5 4.7" rotation="0 0 0" scale="0.5 0.5 0.5">
       <a-entity cursor="rayOrigin:mouse;" raycaster="far:50; interval:200; objects:.interactive">
       <a-entity light="type:  ambient;  color:  #ffffff;  angle:  90;  intensity:  1;  shadowBias:  0.07"></a-entity>
       <a-entity light="type:directional; castShadow:true; intensity:  0.5;"></a-entity>
@@ -109,12 +175,12 @@
               fuse="false">
       </a-gui-cursor>
 
-      <a-gui-flex-container id="questionBtn" class= "interactive" visibility
+      <a-gui-flex-container id="questionBtn" class= "interactive" visible="false" 
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
       position="-1.428 -0.710 -1.000" scale="0.142 0.041 0.082" material="color:#6d442c">        
         <a-gui-button background-color="#cc6133" border-color="#b53c18"
           width="2.5" height="0.75"
-          onclick="buttonActionFunction" key-code="32"
+          onclick="buttonActionFunction"
           position="0 0.025 0" scale="1.242 4.282 1.027"
           value=" Proceed to Questions" 
           margin="0 0 0.05 0"
@@ -124,17 +190,14 @@
 
     </a-entity>
 
-    
     <a-entity id=”env” environment=”preset: defult” position="0 -35  0"></a-entity>
   
     <a-entity class="clue-music" sound="src:#o_canada; autoplay:false;"></a-entity>
     <a-entity class="ambient-music" sound="src:#room3_music; autoplay:false;"></a-entity>
 
-
       <a-entity id="carpet" position="7.0303 0.1 -0.0173" rotation="0 90.01166961505233 0" scale="0.19534 0.19534 0.19534" gltf-model="#carpet_model" shadow=""></a-entity>
       <a-entity id="closet" position="7.01599 0 -6.31219" rotation="0 -90 0" scale="0.03 0.03 0.03" gltf-model="#closet_model" shadow=""></a-entity>
       <a-entity id="paint" position="7.02988 5.41622 -6.87156" rotation="0 180 0" scale="2 2 2" gltf-model="#paint_model" shadow=""></a-entity>
-      <a-entity id="hockeyStick2" position="-0.56003 0.16786 5.61071" rotation="-0.6445775195221761 101.54244524206015 -0.13006141949469688" scale="0.029 0.029 0.029" gltf-model="#hockeyStick2_model" shadow></a-entity>
       <a-entity id="table" position="4 0 4" rotation="0 0 0" scale="0.02 0.02 0.02" gltf-model="#table_model" shadow></a-entity>
       <a-entity id="bed" position="4.41345 0 2.81035" rotation="0 90.04031750480887 0" scale="5 5 5" gltf-model="#bed_model" shadow=""></a-entity>
       <a-entity id="award2" position="5.9356 2.94459 -6.64132" rotation="" scale="0.04564 0.04564 0.04564" gltf-model="#award2" shadow></a-entity>
@@ -157,57 +220,55 @@
       <!--false clues--> 
 
     <a-entity position="13.51336 0 0.04433">
-      <a-entity id="typewriter" class="interactive" false-clue2 position="0 2.22462 0" rotation="0 -180 0" scale="0.04371 0.04371 0.04371" gltf-model="#typewriter_model" shadow=""></a-entity>
+      <a-entity id="typewriter" class="interactive" position="0 2.22462 0" rotation="0 -180 0" scale="0.04371 0.04371 0.04371" gltf-model="#typewriter_model" shadow=""></a-entity>
     </a-entity>
 
     <a-entity position="5.31682 0 -6.34344">
-      <a-entity id="award1_fc" class="interactive" false-clue3 position="0 2.47014 0" rotation="0 165.26394642753465 0" scale="0.25264 0.25264 0.25264" gltf-model="#award1" shadow=""></a-entity>
+      <a-entity id="award1_fc" class="interactive" position="0 2.47014 0" rotation="0 165.26394642753465 0" scale="0.25264 0.25264 0.25264" gltf-model="#award1" shadow=""></a-entity>
     </a-entity>
      
     <a-entity position="7.84113 0 -6.43485">
-      <a-entity id="trophy2_fc" class="interactive" false-clue4 position="0 2.84164 0" rotation="180 180 0" scale="-0.001 -0.001 -0.001" gltf-model="#trophy2" shadow></a-entity>
+      <a-entity id="trophy2_fc" class="interactive" position="0 2.84164 0" rotation="180 180 0" scale="-0.001 -0.001 -0.001" gltf-model="#trophy2" shadow></a-entity>
     </a-entity>
       
     <a-entity position="13.14286 0 1.08733">
-      <a-entity id="glasses_fc" class="interactive" false-clue5 position="0 2.22327 0" rotation="-4.557879260265699 -53.82250935899927 -1.5985522484149968" scale="0.0263 0.0263 0.0263"gltf-model="#glasses" shadow=""></a-entity>
+      <a-entity id="glasses_fc" class="interactive" position="0 2.22327 0" rotation="-4.557879260265699 -53.82250935899927 -1.5985522484149968" scale="0.0263 0.0263 0.0263"gltf-model="#glasses" shadow=""></a-entity>
     </a-entity>
 
     <a-entity position="6.51763 0 -6.27238">
-      <a-entity id="medal3_fc" class="interactive" false-clue6 position="0 2.47032 0" rotation="0 91.20685957569523 0" scale="0.20927 0.20927 0.20927" gltf-model="#medal3" shadow=""></a-entity>
+      <a-entity id="medal3_fc" class="interactive" position="0 2.47032 0" rotation="0 91.20685957569523 0" scale="0.20927 0.20927 0.20927" gltf-model="#medal3" shadow=""></a-entity>
     </a-entity>
 
     <a-entity position="0 4.02395 -3.41037">
-      <a-entity id="frame2" class="interactive" false-clue7 position="-0.8823 0 0" rotation="0 180 0" scale="0.66881 0.66881 0.66881" gltf-model="#frame (2)" shadow=""></a-entity>
+      <a-entity id="frame2" class="interactive" position="-0.8823 0 0" rotation="0 180 0" scale="0.66881 0.66881 0.66881" gltf-model="#frame (2)" shadow=""></a-entity>
     </a-entity>
 
     <a-entity position="7.9921 5.75219 0">
-      <a-entity id="frame" class="interactive" false-clue8 position="0 0 6.328" rotation="-180 90 0" scale="-0.519 -0.519 -0.519" gltf-model="#frame" shadow=""></a-entity>
+      <a-entity id="frame" class="interactive" position="0 0 6.328" rotation="-180 90 0" scale="-0.519 -0.519 -0.519" gltf-model="#frame" shadow=""></a-entity>
     </a-entity>
 
 
       <a-entity id="clues">
         <a-entity  position = "8.489 0.033 -6.331" rotation="0 190 0" id="clue1">
           <a-entity position="-2.856 2.116 0.351">
-          <a-entity id="glove_clue" class= "interactive" add-ui spinning-effect position="0 1.072 0" rotation="-12.4 -80 -7.7" color="#ff0000" scale="0.288 0.288 0.288" gltf-model="#1800Glove_model"     
+          <a-entity id="glove_clue" class= "interactive" position="0 1.072 0" rotation="-12.4 -80 -7.7" color="#ff0000" scale="0.288 0.288 0.288" gltf-model="#1800Glove_model"     
                 shadow >
           </a-entity> 
         </a-entity>
         </a-entity>
-
 
         <a-entity  position="13.22714 0 1.63103">
-          <a-entity id="pic_clue" class="interactive" add-ui2 spinning-effect2 position="0 2.256 0" rotation="-85.2034 -90 1.717" scale="0.19707 0.19707 0.19707" gltf-model="#cooking (3)" shadow=""></a-entity>
+          <a-entity id="pic_clue" class="interactive" position="0 2.256 0" rotation="-85.2034 -90 1.717" scale="0.19707 0.19707 0.19707" gltf-model="#cooking (3)" shadow=""></a-entity>
         </a-entity>
         
-
-        <a-entity  position = "-0.17773 -6.59731 5.24557">
-          <a-entity id="hockey_clue" class= "interactive" add-ui3 spinning-effect3 position="-0.17773 -6.59731 5.24557" rotation="-0.576 61.290 0.317" color="#ff0000" scale="0.029 0.029 0.029" gltf-model="#1800Hocky_model"     
-                shadow >
-          </a-entity> 
+        <a-entity  position = "-0.17773 0 5.24557">
+          <a-entity id="hockey_clue" class= "interactive" position="0 0.16786 0" rotation="-0.6445775195221761 101.54244524206015 -0.13006141949469688" scale="0.029 0.029 0.029" gltf-model="#hockeyStick2_model" shadow>
+          </a-entity>
+        
         </a-entity>
         
         <a-entity  position = "2.166 1.653 0.141">
-          <a-entity id="bear_clue" class= "interactive" add-ui4 add-text spinning-effect4 position="0 0 0" rotation="-52.74 23.803 50.796" color="#ff0000" scale="0.031 0.031 0.031" gltf-model="#teddy_model"     
+          <a-entity id="bear_clue" class= "interactive" position="0 0 0" rotation="-52.74 23.803 50.796" color="#ff0000" scale="0.031 0.031 0.031" gltf-model="#teddy_model"     
                 shadow >
           </a-entity> 
         </a-entity>
@@ -224,7 +285,7 @@
           </a-entity>
         </a-entity>
 
-        <a-entity id="questions" position="6.831 3.168 0.917" rotation="-7.891 0 0" scale="0.465 0.465 0.465">
+        <a-entity id="questions" position="6.831 3.168 0.917" rotation="-7.891 0 0" scale="0.465 0.465 0.465" visible="false">
           <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;"scale="0.465 0.465 0.465" 
                     material="color:#ffffff;"
                     animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"
@@ -246,7 +307,7 @@
                 margin="0 0 0.05 0" shadow
                 >
                 </a-gui-radio>   
-                <a-gui-radio id = "question1_choice2" class= "interactive" question1_correct position="-0.328 -0.554 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
+                <a-gui-radio id = "question1_choice2" class= "interactive" position="-0.328 -0.554 0.01" scale= "4.704 1.397 0.8" background-color= "#ffffff"
                 material= "blending: additive; visible:false"
                 width="2.5" height="0.75"
                 value="March 3, 1875"
@@ -254,7 +315,7 @@
                 margin="0 0 0.05 0" shadow
                 >
                 </a-gui-radio> 
-                <a-gui-button id = "question1_end" class="interactive"  next_question  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                <a-gui-button id = "question1_end" class="interactive" visible="false"  position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                     width="2.5" height="0.75"
                     position="0 0.025 0" scale="1.242 4.282 1.027"
                     value="Next Question"
@@ -271,7 +332,7 @@
                         color: #270803; font:roboto; width:12.440; anchor:left; baseline:top; wrapCount:24.65;" position="-4.286 6.177 0.168"></a-entity>                   
               <a-entity id="question2_buttons"  position="1.299 -0.430 0" scale="1 3.516 1" >   
 
-                <a-gui-radio id = "question2_choice1" class= "" question2_correct position="0.296 0.267 0.01" scale= "6.221 1.296 1" background-color= "#ffffff"
+                <a-gui-radio id = "question2_choice1" class= "" position="0.296 0.267 0.01" scale= "6.221 1.296 1" background-color= "#ffffff"
                 width="2.5" height="0.75"
                 material= "blending: additive; visible:false"
                 value="Thomas Ahearn"
@@ -287,7 +348,7 @@
                 margin="0 0 0.05 0" shadow
                 >
                 </a-gui-radio> 
-                <a-gui-button id = "question2_end2" class= "interactive" next_question2 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                <a-gui-button id = "question2_end2" class= "interactive" visible="false" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                     width="2.5" height="0.75"
                     onclick="" 
                     position="0 0.025 0" scale="1.242 4.282 1.027"
@@ -312,7 +373,7 @@
                 margin="0 0 0.05 0" shadow
                 >
                 </a-gui-radio>   
-                <a-gui-radio id = "question3_choice2" class= "" question3_correct position="2.609 -0.534 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
+                <a-gui-radio id = "question3_choice2" class= "" position="2.609 -0.534 0.01" scale= "6.704 1.397 1" background-color= "#ffffff"
                 width="2.5" height="0.75"
                 material= "blending: additive; visible:false"
                 value="Canada"
@@ -320,7 +381,7 @@
                 margin="0 0 0.05 0" shadow
                 >
                 </a-gui-radio> 
-                <a-gui-button id = "question3_end3" class= "interactive" next_question3 position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                <a-gui-button id = "question3_end3" class= "interactive" visible="false" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                       width="2.5" height="0.75"
                       onclick="" 
                       position="0 0.025 0" scale="1.242 4.282 1.027"
@@ -352,9 +413,8 @@
                   margin="0 0 0.05 0" shadow
                   >
                   </a-gui-radio> 
-                  <a-gui-button id = "question4_end4" class= "interactive" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
+                  <a-gui-button id = "question4_end4" class= "interactive" visible="false" position="0.715 -2.1 0.01" scale= "3.609 1.142 0.853" 
                       width="2.5" height="0.75"
-                      onclick="document.location='transition4.html'"
                       position="0 0.025 0" scale="1.242 4.282 1.027"
                       value="Unlock Room"
                       margin="0 0 0.05 0">
@@ -362,6 +422,24 @@
                 </a-entity> 
             </a-entity>
           </a-entity>
+        </a-entity>
+
+        <a-entity id="player"
+      networked="template:#avatar-template;attachTemplateToLocal:false;"
+      camera
+      position="7.182 5.5 4.7"
+      spawn-in-circle="radius:3"
+      wasd-controls look-controls
+      >
+      <a-sphere class="head"
+        visible="false"
+        random-color
+      ></a-sphere>
+
+      <a-entity class="hat-top"
+        visible="false"
+        random-color
+      ></a-entity>
         </a-entity>
         
 
@@ -373,48 +451,44 @@
         <a-entity class="wall" position="14.86031 5.39111 -0.01471" rotation="0 -90 0" scale="0.1848 0.24894 0.17688" gltf-model="#frame (9)" shadow=""></a-entity>
         <a-entity class="wall" position="-1.02434 5.68544 -1.00525" rotation="0 90 0" scale="0.1848 0.24894 0.17688" gltf-model="#frame (9)" shadow=""></a-entity>
       </a-entity>
-
-      <script>
-      var currentAnim = "animation-start";
-        var currentAnim2 = "shake-start";
-
-        document.querySelector("#question1_choice1").addEventListener("click", function() {
-          document.getElementById("question_plane").emit(currentAnim);
-          document.getElementById("question_plane").emit(currentAnim2);
-
-          currentAnim = "animation-start";
-          currentAnim2 = "shake-start";
-
-        });
-
-        document.querySelector("#question2_choice2").addEventListener("click", function() {
-          document.getElementById("question_plane").emit(currentAnim);
-          document.getElementById("question_plane").emit(currentAnim2);
-
-          currentAnim = "animation-start";
-          currentAnim2 = "shake-start";
-
-        });
-
-        document.querySelector("#question3_choice1").addEventListener("click", function() {
-          document.getElementById("question_plane").emit(currentAnim);
-          document.getElementById("question_plane").emit(currentAnim2);
-
-          currentAnim = "animation-start";
-          currentAnim2 = "shake-start";
-
-        });
-
-        document.querySelector("#question4_choice2").addEventListener("click", function() {
-          document.getElementById("question_plane").emit(currentAnim);
-          document.getElementById("question_plane").emit(currentAnim2);
-
-          currentAnim = "animation-start";
-          currentAnim2 = "shake-start";
-
-        });
-      </script>
   
   </a-scene>
+
+  <script src="/js/Room3.js"></script>
+
+  <script>
+      // Define custom schema for syncing avatar color, set by random-color
+      NAF.schemas.add({
+        template: '#avatar-template',
+        components: [
+          'position',
+          'rotation',
+          {
+            selector: '.head',
+            component: 'material',
+            property: 'color'
+          },
+          {
+            selector: '.hat-top',
+            component: 'material',
+            property: 'color'
+          },
+        ]
+      });
+
+      // Called by Networked-Aframe when connected to server
+      function onConnect () {
+        console.log("onConnect", new Date());
+      }
+
+      // On mobile remove elements that are resource heavy
+      var isMobile = AFRAME.utils.device.isMobile();
+
+      if (isMobile) {
+        var particles = document.getElementById('particles');
+        particles.parentNode.removeChild(particles);
+      }
+  </script>
+
 </body>
 </html>
