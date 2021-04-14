@@ -112,7 +112,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "32.947 27.81 1.45");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/clue1.png' });  
+                  entityEl.setAttribute('material', { src: '#clue1_img' });  
 
                   sceneEl.appendChild(entityEl);
 
@@ -132,7 +132,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "27.674 21.022 1.125");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/clue2.png' });   
+                  entityEl.setAttribute('material', { src: '#clue2_img' });   
 
                   sceneEl.appendChild(entityEl);
 

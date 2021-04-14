@@ -7,6 +7,9 @@
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+
+    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+
 </head>
 <body>
 
@@ -280,10 +283,12 @@ AFRAME.registerComponent('wrong_answer', {
 
 
  
-    </script>
+</script>
 
     <a-scene>
         <!-- AFrame--> 
+
+        <a-camera twoway-motion="speed: 35" position="0 1.6 0"></a-camera>
 
         <a-entity camera wasd-controls look-controls position="0 1.6 0">
             <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>

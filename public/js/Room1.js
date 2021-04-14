@@ -122,7 +122,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "33.662 25.704 1.368");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', {src: 'assets/hint1.png'});  
+                  entityEl.setAttribute('material', {src: '#hint1_img'});  
                   sceneEl.appendChild(entityEl);
 
                   
@@ -141,7 +141,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "29.812 22.646 1.212");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/hint2.png' });  
+                  entityEl.setAttribute('material', { src: '#hint2_img' });  
 
                   sceneEl.appendChild(entityEl);
 
@@ -160,7 +160,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "31.906 24.236 1.297");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/hint3.png' });  
+                  entityEl.setAttribute('material', { src: '#hint3_img' });  
 
                   sceneEl.appendChild(entityEl);
 
@@ -448,7 +448,6 @@ let socket = io();
                     }
                   
                 });
-
 
                 socket.on('falseclue2_picked', (data) => {
                   const Context_AF = this;

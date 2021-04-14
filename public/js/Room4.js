@@ -163,7 +163,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "5.625 4.295 0.228");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/book.png' });  
+                  entityEl.setAttribute('material', { src: '#clue1_ui' });  
 
                   sceneEl.appendChild(entityEl);
 
@@ -183,7 +183,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "4.922 3.772 0.342");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/news.png' }) ;  
+                  entityEl.setAttribute('material', { src: '#clue2_ui' }) ;  
 
                   sceneEl.appendChild(entityEl);
 
@@ -202,7 +202,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "6.412 4.871 0.261");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/primeMinister.png' });  
+                  entityEl.setAttribute('material', { src: '#clue3_ui' });  
 
                   sceneEl.appendChild(entityEl);
 
@@ -221,7 +221,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "6.254 4.751 0.254");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/painting.png' });   
+                  entityEl.setAttribute('material', { src: '#clue4_ui' });   
 
                   sceneEl.appendChild(entityEl);
 

@@ -83,6 +83,9 @@
           <img id= "Wall_Texture_img" src="/assets/Room2/vv.jpg" crossorigin="anonymous">
           <img id="1_img" src="/assets/Room2/1.jpg" crossorigin="anonymous">
 
+          <img id="clue1_img"   src="/assets/clue1.png"  crossorigin="anonymous">
+          <img id="clue2_img"   src="/assets/clue2.png"  crossorigin="anonymous">
+
           <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
 
           <!-- Templates -->
@@ -204,7 +207,7 @@
       </a-entity>
 
       <a-entity position="0 38.4 5.34">
-        <a-entity id="f1"  class="interactive" position="76 0 0" rotation="0 0 0" scale="0.57 7.5 7.77" gltf-model="/assets/Room2s/f1.glb"></a-entity>
+        <a-entity id="f1"  class="interactive" position="76 0 0" rotation="0 0 0" scale="0.57 7.5 7.77" gltf-model="/assets/Room2/f1.glb"></a-entity>
       </a-entity>
 
       <a-entity position="0 53.8 -28.8">
@@ -242,7 +245,7 @@
       </a-entity>
       </a-entity>
 
-      <a-entity id="questions" position="-32.248 22.843 0" rotation="0 54.673 0" visible="false">
+      <a-entity id="questions" position="-32.248 22.843 0" rotation="-12.462 54.673 0" visible="false" scale="1.512 1.512 1.512">
       <a-entity id="question_plane" geometry="primitive:box; width: 15; height: 20.3 depth:0.9;" 
                 material="color:#ffffff;"
                 animation__color= "property:material.color; type:color; from:rgb(255, 0, 0); to:rgb(255, 255, 255);  dur:4000; easing:linear; startEvents: animation-start;"

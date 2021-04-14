@@ -162,7 +162,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "7.7138 5.451 0.29");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/glovesClue.png' }) ; 
+                  entityEl.setAttribute('material', { src: '#Glove_ui' }) ; 
                   sceneEl.appendChild(entityEl);
 
                   
@@ -181,7 +181,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "4.978 3.78 0.202");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/frameClue.png' });   
+                  entityEl.setAttribute('material', { src: '#Pic_ui' });   
 
                   sceneEl.appendChild(entityEl);
 
@@ -200,7 +200,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "6.983 5.304 0.284");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: 'assets/hockeyClue.png' });  
+                  entityEl.setAttribute('material', { src: '#hockeyStick_ui' });  
 
                   sceneEl.appendChild(entityEl);
 
@@ -219,7 +219,7 @@ let socket = io();
                   entityEl.setAttribute('scale', "6.67 5.067 0.178");
                   entityEl.setAttribute('geometry', {primitive: 'box', width:0.4, height:0.4, depth:0.4});
                   entityEl.setAttribute('material', "color: #995d46");
-                  entityEl.setAttribute('material', { src: "assets/1800's/teddyClue.png"});   
+                  entityEl.setAttribute('material', { src: "#teddy_ui"});   
 
                   sceneEl.appendChild(entityEl);
 
