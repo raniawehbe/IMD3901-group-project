@@ -7,7 +7,6 @@ isSpinning3 = false;
 isSpinning4 = false;
 isSpinning5 = false;
 isSpinning6 = false;
-isSpinning7 = false;
 
 let socket = io();
 
@@ -50,18 +49,13 @@ let socket = io();
 
                 });
 
-                document.querySelector('#diary').addEventListener('click', function(){
+                document.querySelector('#dress').addEventListener('click', function(){
                   socket.emit('false-clue2');
 
                 });
 
-                document.querySelector('#dress').addEventListener('click', function(){
-                  socket.emit('false-clue3');
-
-                });
-
                 document.querySelector('#necklace').addEventListener('click', function(){
-                  socket.emit('false-clue4');
+                  socket.emit('false-clue3');
 
                 });
 
@@ -455,37 +449,8 @@ let socket = io();
                   
                 });
 
+
                 socket.on('falseclue2_picked', (data) => {
-                  const Context_AF = this;
-                  Context_AF.walls      = document.querySelector('#diary');
-                
-                  Context_AF.walls.setAttribute('animation', {property:'position.y', to:17.90097, dur:300, easing:'linear'});
-                   
-                  
-                    if (isSpinning5 === true) {
-                      console.log('stop spinning');
-                      Context_AF.walls.setAttribute('animation', {to:17.90097});
-                      isSpinning5 = false;
-
-                      const soundEffect = document.querySelectorAll('.soundEffect3');
-                      soundEffect.forEach(function(soundEntity) {
-                        soundEntity.components.sound.playSound();
-                      });
-                    }
-                    else {
-                      console.log('spinning');
-                      Context_AF.walls.setAttribute('animation', {to:19.2});
-                      isSpinning5 = true;
-
-                      const soundEffect = document.querySelectorAll('.soundEffect3');
-                      soundEffect.forEach(function(soundEntity) {
-                        soundEntity.components.sound.playSound();
-                      });
-                    }
-                  
-                });
-
-                socket.on('falseclue3_picked', (data) => {
                   const Context_AF = this;
                   Context_AF.walls      = document.querySelector('#dress');
                 
@@ -515,7 +480,7 @@ let socket = io();
                   
                 });
 
-                socket.on('falseclue4_picked', (data) => {
+                socket.on('falseclue3_picked', (data) => {
                   const Context_AF = this;
                   Context_AF.walls      = document.querySelector('#necklace');
                 

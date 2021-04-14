@@ -59,47 +59,41 @@
 " start-experience renderer="colorManagement:true">
         <a-assets timeout="10000">
 
-          <audio id="room1_music" src="/assets/1600.mp3" preload="auto" crossorigin="anonymous"></audio>
-          <audio id="right_soundEffect" src="/assets/right.mp3" preload="auto" crossorigin="anonymous"></audio>
-          <audio id="wrong_soundEffect" src="/assets/wrong.mp3" preload="auto" crossorigin="anonymous"></audio>
-          <audio id="pickUp_soundEffect" src="/assets/pickUp.mp3" preload="auto" crossorigin="anonymous"></audio>
-          <audio id="click_soundEffect" src="/assets/click.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="room1_music" src="/assets/audio/1600.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="right_soundEffect" src="/assetsaudio/right.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="wrong_soundEffect" src="/assets/audio/wrong.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="pickUp_soundEffect" src="/assets/audio/pickUp.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="click_soundEffect" src="/assets/audio/click.mp3" preload="auto" crossorigin="anonymous"></audio>
           
           <a-asset-item id=  "closet_model"        response-type="arraybuffer"  src="/assets/Room1/closet.glb"></a-asset-item>
           <a-asset-item id=  "metal_model"        response-type="arraybuffer"  src="/assets/Room1/metal.glb"></a-asset-item>
           <a-asset-item id=  "door_model"        response-type="arraybuffer"  src="/assets/Room1/door.glb"></a-asset-item>
-          <a-asset-item id=  "relief_model"        response-type="arraybuffer"  src="/assets/Room1/relief.glb"></a-asset-item>
           <a-asset-item id=  "lion_model"        response-type="arraybuffer"  src="/assets/Room1/lion.glb"></a-asset-item>
           <a-asset-item id=  "model_model"        response-type="arraybuffer"  src="/assets/Room1/model.glb"></a-asset-item>
           <a-asset-item id=  "dress_model"        response-type="arraybuffer"  src="/assets/Room1/dress.glb"></a-asset-item>
-          <a-asset-item id=  "bed_model"        response-type="arraybuffer"  src="/assets/bed.glb"></a-asset-item>
+          <a-asset-item id=  "bed_model"        response-type="arraybuffer"  src="/assets/Room1/bed.glb"></a-asset-item>
           <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/Room1/chair.glb"></a-asset-item>
-          <a-asset-item id=  "chair_model"        response-type="arraybuffer"  src="/assets/Room1/chair.glb"></a-asset-item>
-          <a-asset-item id=  "diary_model"        response-type="arraybuffer"  src="/assets/diary.glb"></a-asset-item>
-          <a-asset-item id=  "envelope_model"        response-type="arraybuffer"  src="/assets/envelope.glb"></a-asset-item>
-          <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/table.glb"></a-asset-item>
-          <a-asset-item id=  "suitcase_model"        response-type="arraybuffer"  src="/assets/suitcase.glb"></a-asset-item>
-          <a-asset-item id=  "Bag_model"        response-type="arraybuffer"  src="/assets/Bag.glb"></a-asset-item>
-          <a-asset-item id=  "BOXOPEN_model"        response-type="arraybuffer"  src="/assets/BOXOPEN.glb"></a-asset-item>
-          <a-asset-item id=  "jewlerybox_model"        response-type="arraybuffer"  src="/assets/jewlery box.glb"></a-asset-item>
-          <a-asset-item id=  "Pin_model"        response-type="arraybuffer"  src="/assets/Pin.glb"></a-asset-item>
-          <a-asset-item id=  "Perfume1_model"        response-type="arraybuffer"  src="/assets/Perfume 1.glb"></a-asset-item>
-          <a-asset-item id=  "Candle_model"        response-type="arraybuffer"  src="/assets/Candle.glb"></a-asset-item>
-          <a-asset-item id=  "Candle_model"        response-type="arraybuffer"  src="/assets/Candle.glb"></a-asset-item>  
-          <a-asset-item id=  "scoll_model"        response-type="arraybuffer"  src="/assets/scoll.glb"></a-asset-item>
-          <a-asset-item id=  "necklace_model"        response-type="arraybuffer"  src="/assets/necklace.glb"></a-asset-item>
+          <a-asset-item id=  "envelope_model"        response-type="arraybuffer"  src="/assets/Room1/envelope.glb"></a-asset-item>
+          <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/Room1/table.glb"></a-asset-item>
+          <a-asset-item id=  "suitcase_model"        response-type="arraybuffer"  src="/assets/Room1/suitcase.glb"></a-asset-item>
+          <a-asset-item id=  "Bag_model"        response-type="arraybuffer"  src="/assets/Room1/Bag.glb"></a-asset-item>
+          <a-asset-item id=  "BOXOPEN_model"        response-type="arraybuffer"  src="/assets/Room1/BOXOPEN.glb"></a-asset-item>
+          <a-asset-item id=  "Perfume1_model"        response-type="arraybuffer"  src="/assets/Room1/Perfume 1.glb"></a-asset-item>
+          <a-asset-item id=  "Candle_model"        response-type="arraybuffer"  src="/assets/Room1/Candle.glb"></a-asset-item>
+          <a-asset-item id=  "scoll_model"        response-type="arraybuffer"  src="/assets/Room1/scoll.glb"></a-asset-item>
+          <a-asset-item id=  "necklace_model"        response-type="arraybuffer"  src="/assets/Room1/necklace.glb"></a-asset-item>
 
         
-          <a-asset-item id=  "1600_clue_letter_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_letter.glb"></a-asset-item>
-          <a-asset-item id=  "1600_clue_card2_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_card2.glb"></a-asset-item>-->
-          <a-asset-item id=  "1600_clue_card_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_card.glb"></a-asset-item>-->
+          <a-asset-item id=  "1600_clue_letter_model"        response-type="arraybuffer"  src="/assets/Room1/1600_clue_letter.glb"></a-asset-item>
+          <a-asset-item id=  "1600_clue_card2_model"        response-type="arraybuffer"  src="/assets/Room1/1600_clue_card2.glb"></a-asset-item>-->
+          <a-asset-item id=  "1600_clue_card_model"        response-type="arraybuffer"  src="/assets/Room1/1600_clue_card.glb"></a-asset-item>-->
 
           <!--<a-asset-item id=  "postcard_clue_model"        response-type="arraybuffer"  src="/assets/clue3.glb"></a-asset-item>-->
           <img id="Floor_Texture_img"  src="/assets/Room1/FLOOR.jpg" crossorigin="anonymous">
           <img id="Wall_Texture_img"   src="/assets/Room1/l.jpg"  crossorigin="anonymous">
-          <img id="hint1_img"   src="/assets/hint1.png"  crossorigin="anonymous">
-          <img id="hint2_img"   src="/assets/hint2.png"  crossorigin="anonymous">
-          <img id="hint3_img"   src="/assets/hint3.png"  crossorigin="anonymous">
+          <img id="hint1_img"   src="/assets/Room1/hint1.png"  crossorigin="anonymous">
+          <img id="hint2_img"   src="/assets/Room1/hint2.png"  crossorigin="anonymous">
+          <img id="hint3_img"   src="/assets/Room1/hint3.png"  crossorigin="anonymous">
 
           <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
 
@@ -215,12 +209,11 @@
       <a-entity id="table" position="31.25528 0.07438 -0.31083" rotation="0 -88.8863805054154 0" scale="1.46873 1.46873 1.46873" gltf-model="#table_model"></a-entity>
       <a-entity id="Bag" position="-8.60471 28.63657 -51.07958" rotation="-180 0 0" scale="-0.52755 -0.52755 -0.52755" gltf-model="#Bag_model"></a-entity>
       <a-entity id="BOXOPEN" position="29.75119 0.438 34.53685" rotation="0 -110.75102292540274 0" scale="0.15 0.15 0.15" gltf-model="#BOXOPEN_model"></a-entity>
-      <a-entity id="jewlerybox" position="-12.7 19.3 -60.6" rotation="" scale="0.22173 0.22173 0.22173" gltf-model="#jewlerybox_model"></a-entity>
       <a-entity id="Pin" position="-16.77304 29.35212 -48.96418" rotation="-89.85410622139135 179.9998479605043 179.9998479605043" scale="0.52477 0.52477 0.52477" gltf-model="#Pin_model"></a-entity>
       <a-entity id="perfume1" position="-7.01837 19.90191 -49.91869" rotation="" scale="0.27558 0.27558 0.27558" gltf-model="#Perfume1_model"></a-entity>
       <a-entity id="Candle" position="12.562 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
       <a-entity id="Candle" position="-38.779 -1 50.5" rotation="0 0 0" scale="0.16 0.55 0.25" gltf-model="#Candle_model"></a-entity>
-      <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="/assets/suitcase.glb"></a-entity>
+      <a-entity id="suitcase" position="-29.72207 0.29448 -48.26217" rotation="0 26.389290128135457 0" scale="0.48 0.48 0.48" gltf-model="#suitcase_model"></a-entity>
     
       <a-entity id="scoll" position="28.72842 6.02001 30.36255" rotation="0 -117.5646370250985 0" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
       <a-entity id="scoll" position="28.62465 7.0782 34.56297" rotation="2.623000786108909 -88.71392020908101 -4.2295744436557365" scale="3.17399 3.17399 3.17399" gltf-model="#scoll_model"></a-entity>
@@ -237,10 +230,6 @@
       <!--FALSE CLUES-->
       <a-entity position="32.9843 0 11.47743">
         <a-entity id="envelope"class="interactive" position="0 18.02361 0" rotation="0 159.93830372179366 0" scale="0.30913 0.30913 0.30913" gltf-model="#envelope_model"></a-entity>
-      </a-entity>
-
-      <a-entity position="25.9588 0 0.20169">
-        <a-entity id="diary" class="interactive" position="0 17.90097 0" rotation="26.682644519242437 -62.05533991723407 0" scale="0.09856 0.09856 0.09856" gltf-model="#diary_model"></a-entity>
       </a-entity>
 
       <a-entity position="-55 0 34.6">

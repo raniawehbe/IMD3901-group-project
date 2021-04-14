@@ -62,28 +62,23 @@ let socket = io();
 
                 });
                 
-                document.querySelector('#trophy2_fc').addEventListener('click', function(){
-                  socket.emit('false-clue3');
-
-                })
-
                 document.querySelector('#glasses_fc').addEventListener('click', function(){
-                  socket.emit('false-clue4');
+                  socket.emit('false-clue3');
 
                 });
 
                 document.querySelector('#medal3_fc').addEventListener('click', function(){
-                  socket.emit('false-clue5');
+                  socket.emit('false-clue4');
 
                 });
                 
                 document.querySelector('#frame2').addEventListener('click', function(){
-                  socket.emit('false-clue6');
+                  socket.emit('false-clue5');
 
                 });
 
                 document.querySelector('#frame').addEventListener('click', function(){
-                  socket.emit('false-clue7');
+                  socket.emit('false-clue6');
 
                 });
 
@@ -654,35 +649,6 @@ let socket = io();
 
                 socket.on('falseclue3_picked', (data) => {
                   const Context_AF = this;
-                  Context_AF.walls      = document.querySelector('#trophy2_fc');
-                  
-                  Context_AF.walls.setAttribute('animation', {property:'position.y', to:2.84164, dur:300, easing:'linear'});
-
-                    if (Context_AF.isSpinning === true) {
-                      console.log('stop spinning');
-                      Context_AF.walls.setAttribute('animation', {to:2.84164});
-                      Context_AF.isSpinning = false;
-
-                      const soundEffect = document.querySelectorAll('.soundEffect3');
-                      soundEffect.forEach(function(soundEntity) {
-                        soundEntity.components.sound.playSound();
-                      });
-                    }
-                    else {
-                      console.log('spinning');
-                      Context_AF.walls.setAttribute('animation', {to:4.3});
-                      Context_AF.isSpinning = true;
-
-                      const soundEffect = document.querySelectorAll('.soundEffect3');
-                      soundEffect.forEach(function(soundEntity) {
-                        soundEntity.components.sound.playSound();
-                      });
-                    }
-                  
-                });
-
-                socket.on('falseclue4_picked', (data) => {
-                  const Context_AF = this;
                   Context_AF.walls      = document.querySelector('#glasses_fc');
                   
                   Context_AF.walls.setAttribute('animation', {property:'position.y', to:2.22327, dur:300, easing:'linear'});
@@ -710,7 +676,7 @@ let socket = io();
                   
                 });
 
-                socket.on('falseclue5_picked', (data) => {
+                socket.on('falseclue4_picked', (data) => {
                   const Context_AF = this;
                   Context_AF.walls      = document.querySelector('#medal3_fc');
                   
@@ -739,7 +705,7 @@ let socket = io();
                   
                 });
 
-                socket.on('falseclue6_picked', (data) => {
+                socket.on('falseclue5_picked', (data) => {
                   const Context_AF = this;
                   Context_AF.walls      = document.querySelector('#frame2');
                   
@@ -768,7 +734,7 @@ let socket = io();
                   
                 });
 
-                socket.on('falseclue7_picked', (data) => {
+                socket.on('falseclue6_picked', (data) => {
                   const Context_AF = this;
                   Context_AF.walls      = document.querySelector('#frame');
                   

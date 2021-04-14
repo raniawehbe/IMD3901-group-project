@@ -57,30 +57,27 @@
       " start-experience renderer="colorManagement:true">
         <a-assets timeout="10000">
 
-          <audio id="room2_music" src="/assets/1700.mp3" preload="auto" crossorigin="anonymous"></audio>
-          <audio id="right_soundEffect" src="/assets/right.mp3" preload="auto" crossorigin="anonymous"></audio>
-          <audio id="wrong_soundEffect" src="/assets/wrong.mp3" preload="auto" crossorigin="anonymous"></audio>
-          <audio id="pickUp_soundEffect" src="/assets/pickUp.mp3" preload="auto" crossorigin="anonymous"></audio>
-          <audio id="click_soundEffect" src="/assets/click.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="room2_music" src="/assets/audio/1700.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="right_soundEffect" src="/assets/audio/right.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="wrong_soundEffect" src="/assets/audio/wrong.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="pickUp_soundEffect" src="/assets/audio/pickUp.mp3" preload="auto" crossorigin="anonymous"></audio>
+          <audio id="click_soundEffect" src="/assets/audio/click.mp3" preload="auto" crossorigin="anonymous"></audio>
         
-          <a-asset-item id=  "wall2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/wall2.glb"></a-asset-item>
+          <a-asset-item id=  "wall2_model"        response-type="arraybuffer"  src="/assets/Room2/wall2.glb"></a-asset-item>
           <a-asset-item id=  "bookshelf_model"        response-type="arraybuffer"  src="/assets/Room2/bookshelf.glb"></a-asset-item>
-          <a-asset-item id=  "Telescope_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/Telescope_Room2.glb"></a-asset-item>
-          <a-asset-item id=  "BedSideTable_Room2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/BedSideTable_Room2.glb"></a-asset-item>
-          <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/table2.glb"></a-asset-item>
-          <a-asset-item id=  "table2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/table.glb"></a-asset-item>
-          <a-asset-item id=  "dish_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/dish.glb"></a-asset-item>
-          <a-asset-item id=  "shelf_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/shelf.glb"></a-asset-item> 
-          <a-asset-item id=  "f1_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/f1.glb"></a-asset-item>
-          <a-asset-item id=  "f2_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/f2.glb"></a-asset-item>
-          <a-asset-item id=  "f3_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/f3.glb"></a-asset-item>
-          <a-asset-item id=  "f4_model"        response-type="arraybuffer"  src="/assets/Room 2 assets/f4.glb"></a-asset-item>
-          <a-asset-item id=  "Bed_Room2"        response-type="arraybuffer"  src="/assets/Room 2 assets/Bed_Room2.glb"></a-asset-item>
+          <a-asset-item id=  "Telescope_Room2_model"        response-type="arraybuffer"  src="/assets/Room2/Telescope_Room2.glb"></a-asset-item>
+          <a-asset-item id=  "BedSideTable_Room2_model"        response-type="arraybuffer"  src="/assets/Room2/BedSideTable_Room2.glb"></a-asset-item>
+          <a-asset-item id=  "table_model"        response-type="arraybuffer"  src="/assets/Room2/table2.glb"></a-asset-item>
+          <a-asset-item id=  "table2_model"        response-type="arraybuffer"  src="/assets/Room2/table.glb"></a-asset-item>
+          <a-asset-item id=  "dish_model"        response-type="arraybuffer"  src="/assets/Room2/dish.glb"></a-asset-item>
+          <a-asset-item id=  "f1_model"        response-type="arraybuffer"  src="/assets/Room2/f1.glb"></a-asset-item>
+          <a-asset-item id=  "f2_model"        response-type="arraybuffer"  src="/assets/Room2/f2.glb"></a-asset-item>
+          <a-asset-item id=  "f3_model"        response-type="arraybuffer"  src="/assets/Room2/f3.glb"></a-asset-item>
+          <a-asset-item id=  "f4_model"        response-type="arraybuffer"  src="/assets/Room2/f4.glb"></a-asset-item>
+          <a-asset-item id=  "Bed_Room2"        response-type="arraybuffer"  src="/assets/Room2/Bed_Room2.glb"></a-asset-item>
          
-          <a-asset-item id=  "1600_clue_letter_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_letter.glb"></a-asset-item>
-          <a-asset-item id=  "1600_clue_card2_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1600_clue_card2.glb"></a-asset-item>-->
-          <a-asset-item id=  "1700_Clue_Carpet_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1700_Clue_Carpet.glb"></a-asset-item>
-          <a-asset-item id=  "1700_clue_map_model"        response-type="arraybuffer"  src="/assets/Clue_Texture/1700_clue_map.glb"></a-asset-item>
+          <a-asset-item id=  "1700_Clue_Carpet_model"        response-type="arraybuffer"  src="/assets/Room2/1700_Clue_Carpet.glb"></a-asset-item>
+          <a-asset-item id=  "1700_clue_map_model"        response-type="arraybuffer"  src="/assets/Room2/1700_clue_map.glb"></a-asset-item>
          
 
           <img id= "Wall_Texture_img" src="/assets/Room2/vv.jpg" crossorigin="anonymous">
@@ -187,37 +184,35 @@
         <a-entity class="soundEffect4" sound="src:#click_soundEffect; autoplay:false;"></a-entity>
 
 
-      <a-entity id="Bed_Room2" position="6.587 -0.72954 39.988" rotation="0 -179.83254428432608 0" scale="24 31.5 24" gltf-model="/assets/Room 2 assets/Bed_Room2.glb"></a-entity>  
-      <a-entity id="f3"  position="76 57.96 -3.6" rotation="0 0 0" scale="1.5 5.29 4.9" gltf-model="/assets/Room 2 assets/f3.glb"></a-entity>
-      <a-entity id="f4"  position="76 40.87 -19.679" rotation="0 0 0" scale="1.5 3.3 4.12" gltf-model="/assets/Room 2 assets/f4.glb"></a-entity>
-      <a-entity id="shelf" position="96.57 0 -60.17" rotation="0 0 0" scale="0.08 0.11 0.06" gltf-model="/assets/Room 2 assets/shelf.glb"></a-entity>
-      <a-entity id="table" position="4.47 5 -53" rotation="0 90 0" scale="0.1 0.15 -0.11" gltf-model="/assets/Room 2 assets/table.glb"></a-entity>
-      <a-entity id="table2" position="63.65 -29.7 -31" rotation="0 -158.67 0" scale="0.19 0.22 0.22" gltf-model="/assets/Room 2 assets/table2.glb"></a-entity>
-      <a-entity id="wall2"position="6.845 48.6 73.17277" rotation="0 180 0" scale="1.67 1.67 1.5" gltf-model="/assets/Room 2 assets/wall2.glb"></a-entity>
+      <a-entity id="Bed_Room2" position="6.587 -0.72954 39.988" rotation="0 -179.83254428432608 0" scale="24 31.5 24" gltf-model="/assets/Room2/Bed_Room2.glb"></a-entity>  
+      <a-entity id="f3"  position="76 57.96 -3.6" rotation="0 0 0" scale="1.5 5.29 4.9" gltf-model="/assets/Room2/f3.glb"></a-entity>
+      <a-entity id="f4"  position="76 40.87 -19.679" rotation="0 0 0" scale="1.5 3.3 4.12" gltf-model="/assets/Room2/f4.glb"></a-entity>
+      <a-entity id="table" position="4.47 5 -53" rotation="0 90 0" scale="0.1 0.15 -0.11" gltf-model="/assets/Room2/table.glb"></a-entity>
+      <a-entity id="table2" position="63.65 -29.7 -31" rotation="0 -158.67 0" scale="0.19 0.22 0.22" gltf-model="/assets/Room2/table2.glb"></a-entity>
+      <a-entity id="wall2"position="6.845 48.6 73.17277" rotation="0 180 0" scale="1.67 1.67 1.5" gltf-model="/assets/Room2/wall2.glb"></a-entity>
       <a-entity id="bookshelf" position="60.5 0 -61.43434" rotation="" scale="0.09 0.09 0.09" gltf-model="/assets/Room2/bookshelf.glb"></a-entity>
-      <a-entity id="BedSideTable_Room2" position="-36.88761 -0.22517 65.43461" rotation="0 -180 0" scale="0.20224 0.20224 0.20224" gltf-model="/assets/Room 2 assets/BedSideTable_Room2.glb"></a-entity>
-      <a-entity id="chair" false-clue3 position="1.5489 0.2371 -62.43461" rotation="" scale="1.837 1.83742 1.83742" gltf-model="/assets/Room2/chair.glb"></a-entity>
+      <a-entity id="BedSideTable_Room2" position="-36.88761 -0.22517 65.43461" rotation="0 -180 0" scale="0.20224 0.20224 0.20224" gltf-model="/assets/Room2/BedSideTable_Room2.glb"></a-entity>
 
       <!--FALSE CLUES-->
 
       <a-entity position="-35.88437 0 -51.64648">
-        <a-entity id="Telescope_Room2" class="interactive" position="0 21.05659 0" rotation="0 124.28314013080252 0" scale="0.8 0.8 0.8" gltf-model="/assets/Room 2 assets/Telescope_Room2.glb"></a-entity>
+        <a-entity id="Telescope_Room2" class="interactive" position="0 21.05659 0" rotation="0 124.28314013080252 0" scale="0.8 0.8 0.8" gltf-model="/assets/Room2/Telescope_Room2.glb"></a-entity>
       </a-entity>
       
       <a-entity position="-54.27609 0 116.53281">
-        <a-entity id="Books_Room2" class="interactive" position="0 -15.34405 0" rotation="0 90 0" scale="4.62059 4.62059 4.62059" gltf-model="/assets/Room 2 assets/Books_Room2.glb"></a-entity>
+        <a-entity id="Books_Room2" class="interactive" position="0 -15.34405 0" rotation="0 90 0" scale="4.62059 4.62059 4.62059" gltf-model="/assets/Room2/Books_Room2.glb"></a-entity>
       </a-entity>
 
       <a-entity position="0 38.4 5.34">
-        <a-entity id="f1"  class="interactive" position="76 0 0" rotation="0 0 0" scale="0.57 7.5 7.77" gltf-model="/assets/Room 2 assets/f1.glb"></a-entity>
+        <a-entity id="f1"  class="interactive" position="76 0 0" rotation="0 0 0" scale="0.57 7.5 7.77" gltf-model="/assets/Room2s/f1.glb"></a-entity>
       </a-entity>
 
       <a-entity position="0 53.8 -28.8">
-        <a-entity id="f2"  class="interactive" position="76 0 0" rotation="0 0 0" scale="1.5 4.79 5.6" gltf-model="/assets/Room 2 assets/f2.glb"></a-entity>
+        <a-entity id="f2"  class="interactive" position="76 0 0" rotation="0 0 0" scale="1.5 4.79 5.6" gltf-model="/assets/Room2/f2.glb"></a-entity>
       </a-entity>
 
       <a-entity position=" 0 62.34 34.28">
-        <a-entity id="dish"  class="interactive" position="75 0 0" rotation="90 -180 -90" scale="1.5 0.95 1.5" gltf-model="/assets/Room 2 assets/dish.glb"></a-entity>
+        <a-entity id="dish"  class="interactive" position="75 0 0" rotation="90 -180 -90" scale="1.5 0.95 1.5" gltf-model="/assets/Room2/dish.glb"></a-entity>
       </a-entity>
 
       <!--CLUES-->
